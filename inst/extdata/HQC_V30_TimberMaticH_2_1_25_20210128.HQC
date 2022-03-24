@@ -1,0 +1,1450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HarvestingQualityControl areaUnit="ha" diameterUnit="mm" lengthUnit="cm" volumeUnit="m3" weightUnit="kg" version="3.0" messageType="hqc" versionDate="2014-02-06" xsi:schemaLocation="urn:skogforsk:stanford2010 HarvestingQualityControl_V3p0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:skogforsk:stanford2010">
+	<HarvestingQualityControlHeader>
+		<SenderApplication>TimbermaticH 2.1.25</SenderApplication>
+		<CreationDate>2021-01-28T11:33:14.234+01:00</CreationDate>
+		<ModificationDate>2021-01-28T11:33:14.234+01:00</ModificationDate>
+		<ApplicationVersionCreated>TimbermaticH 2.1.25</ApplicationVersionCreated>
+		<ApplicationVersionModified>TimbermaticH 2.1.25</ApplicationVersionModified>
+		<CountryCode>578</CountryCode>
+	</HarvestingQualityControlHeader>
+	<Machine machineCategory="Harvester">
+		<MachineKey>1WJ1070Gsdfhajklsdyuio</MachineKey>
+		<MachineUserID agency="Other" />
+		<MachineOwnerID />
+		<MachineApplicationVersion>TimbermaticH 2.1.25</MachineApplicationVersion>
+		<MachineBaseManufacturer>John Deere</MachineBaseManufacturer>
+		<MachineBaseModel baseModelYear="2019">1070G</MachineBaseModel>
+		<BaseMachineManufacturerID>1WJ1070Ghha2324hha</BaseMachineManufacturerID>
+		<MachineOwner>
+			<BusinessID>No info</BusinessID>
+		</MachineOwner>
+		<LoggingContractor>
+			<Address />
+		</LoggingContractor>
+		<OperatorDefinition>
+			<OperatorKey>1</OperatorKey>
+			<OperatorUserID agency="Other">TM-Oper-1</OperatorUserID>
+		</OperatorDefinition>
+		<OperatorDefinition>
+			<OperatorKey>7</OperatorKey>
+			<OperatorUserID agency="Other">TM-Oper-7</OperatorUserID>
+			<ContactInformation>
+				<FirstName>August</FirstName>
+			</ContactInformation>
+		</OperatorDefinition>
+		<OperatorDefinition>
+			<OperatorKey>2</OperatorKey>
+			<OperatorUserID agency="Other">TM-Oper-2</OperatorUserID>
+			<ContactInformation>
+				<FirstName>Factory</FirstName>
+			</ContactInformation>
+		</OperatorDefinition>
+		<OperatorDefinition>
+			<OperatorKey>3</OperatorKey>
+			<OperatorUserID agency="Other">TM-Oper-3</OperatorUserID>
+			<ContactInformation>
+				<FirstName>Halvor</FirstName>
+			</ContactInformation>
+		</OperatorDefinition>
+		<OperatorDefinition>
+			<OperatorKey>5</OperatorKey>
+			<OperatorUserID agency="Other">TM-Oper-5</OperatorUserID>
+			<ContactInformation>
+				<FirstName>Halvor Reco</FirstName>
+			</ContactInformation>
+		</OperatorDefinition>
+		<OperatorDefinition>
+			<OperatorKey>4</OperatorKey>
+			<OperatorUserID agency="Other">TM-Oper-4</OperatorUserID>
+			<ContactInformation>
+				<FirstName>Roger</FirstName>
+			</ContactInformation>
+		</OperatorDefinition>
+		<OperatorDefinition>
+			<OperatorKey>6</OperatorKey>
+			<OperatorUserID agency="Other">TM-Oper-6</OperatorUserID>
+			<ContactInformation>
+				<FirstName>sondre</FirstName>
+			</ContactInformation>
+		</OperatorDefinition>
+		<MachineHeadManufacturer>John Deere</MachineHeadManufacturer>
+		<MachineHeadModel headModelYear="2019">H412</MachineHeadModel>
+		<SpeciesGroupDefinition>
+			<SpeciesGroupModificationDate modificationAuthor="">0001-01-01T01:00:00+01:00</SpeciesGroupModificationDate>
+			<SpeciesGroupUserID agency="Other">85</SpeciesGroupUserID>
+			<SpeciesGroupName>FURU</SpeciesGroupName>
+			<SpeciesGroupInfo modificationRestricted="false">1</SpeciesGroupInfo>
+			<SpeciesGroupVersion modificationRestricted="false">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupVersion>
+			<StemTypeDefinition>
+				<StemTypeCode>11</StemTypeCode>
+				<StemTypeName>Stammer</StemTypeName>
+			</StemTypeDefinition>
+			<StemTypeDefinition>
+				<StemTypeCode>12</StemTypeCode>
+				<StemTypeName>Stam, massaved</StemTypeName>
+			</StemTypeDefinition>
+			<Extension>
+				<OriginalUserID xmlns="http://www.deere.fi/xml/forestry">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</OriginalUserID>
+			</Extension>
+			<SpeciesGroupPresentationOrder>1</SpeciesGroupPresentationOrder>
+			<DBHHeight modificationRestricted="false">120</DBHHeight>
+			<Grades modificationRestricted="false">
+				<StartGrade>2</StartGrade>
+				<Grade>
+					<GradeNumber>1</GradeNumber>
+					<GradeName>A Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>2</GradeNumber>
+					<GradeName>B Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>3</GradeNumber>
+					<GradeName>C Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>4</GradeNumber>
+					<GradeName>D Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>5</GradeNumber>
+					<GradeName>E Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>6</GradeNumber>
+					<GradeName>F Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>7</GradeNumber>
+					<GradeName>G Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>8</GradeNumber>
+					<GradeName>H Knapp</GradeName>
+				</Grade>
+			</Grades>
+			<BarkFunction barkFunctionCategory="Swedish Zacco" modificationRestricted="false">
+				<SwedishZacco>
+					<ConstantA>3.52</ConstantA>
+					<FactorB>0.0289</FactorB>
+				</SwedishZacco>
+			</BarkFunction>
+			<SoundKnotFunction modificationRestricted="false">
+				<ConstantA>0</ConstantA>
+				<FactorB>0</FactorB>
+				<FactorC>0</FactorC>
+				<ToleranceD>0</ToleranceD>
+				<SoundKnotFunctionGrade>1</SoundKnotFunctionGrade>
+			</SoundKnotFunction>
+			<EstonianVolumeParameters>
+				<ParameterA1>0.0799</ParameterA1>
+				<ParameterA2>0.000146</ParameterA2>
+				<ParameterA3>0.0411</ParameterA3>
+			</EstonianVolumeParameters>
+			<SpeciesGroupKey>85</SpeciesGroupKey>
+		</SpeciesGroupDefinition>
+		<SpeciesGroupDefinition>
+			<SpeciesGroupModificationDate modificationAuthor="">0001-01-01T01:00:00+01:00</SpeciesGroupModificationDate>
+			<SpeciesGroupUserID agency="Other">86</SpeciesGroupUserID>
+			<SpeciesGroupName>GRAN</SpeciesGroupName>
+			<SpeciesGroupInfo modificationRestricted="false">2</SpeciesGroupInfo>
+			<SpeciesGroupVersion modificationRestricted="false">TM-Default-980771f0-79d2-41b3-99fe-688ba21b7c13</SpeciesGroupVersion>
+			<StemTypeDefinition>
+				<StemTypeCode>21</StemTypeCode>
+				<StemTypeName>Stammer</StemTypeName>
+			</StemTypeDefinition>
+			<StemTypeDefinition>
+				<StemTypeCode>22</StemTypeCode>
+				<StemTypeName>Stam, massaved</StemTypeName>
+			</StemTypeDefinition>
+			<Extension>
+				<OriginalUserID xmlns="http://www.deere.fi/xml/forestry">TM-Default-980771f0-79d2-41b3-99fe-688ba21b7c13</OriginalUserID>
+			</Extension>
+			<SpeciesGroupPresentationOrder>2</SpeciesGroupPresentationOrder>
+			<DBHHeight modificationRestricted="false">120</DBHHeight>
+			<Grades modificationRestricted="false">
+				<StartGrade>2</StartGrade>
+				<Grade>
+					<GradeNumber>1</GradeNumber>
+					<GradeName>A Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>2</GradeNumber>
+					<GradeName>B Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>3</GradeNumber>
+					<GradeName>C Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>4</GradeNumber>
+					<GradeName>D Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>5</GradeNumber>
+					<GradeName>E Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>6</GradeNumber>
+					<GradeName>F Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>7</GradeNumber>
+					<GradeName>G Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>8</GradeNumber>
+					<GradeName>H Knapp</GradeName>
+				</Grade>
+			</Grades>
+			<BarkFunction barkFunctionCategory="Swedish Zacco" modificationRestricted="false">
+				<SwedishZacco>
+					<ConstantA>4.55</ConstantA>
+					<FactorB>0.0312</FactorB>
+				</SwedishZacco>
+			</BarkFunction>
+			<SoundKnotFunction modificationRestricted="false">
+				<ConstantA>0</ConstantA>
+				<FactorB>0</FactorB>
+				<FactorC>0</FactorC>
+				<ToleranceD>0</ToleranceD>
+				<SoundKnotFunctionGrade>1</SoundKnotFunctionGrade>
+			</SoundKnotFunction>
+			<EstonianVolumeParameters>
+				<ParameterA1>0.07995</ParameterA1>
+				<ParameterA2>0.00016105</ParameterA2>
+				<ParameterA3>0.04948</ParameterA3>
+			</EstonianVolumeParameters>
+			<SpeciesGroupKey>86</SpeciesGroupKey>
+		</SpeciesGroupDefinition>
+		<SpeciesGroupDefinition>
+			<SpeciesGroupModificationDate modificationAuthor="">0001-01-01T01:00:00+01:00</SpeciesGroupModificationDate>
+			<SpeciesGroupUserID agency="Other">87</SpeciesGroupUserID>
+			<SpeciesGroupName>LAUV</SpeciesGroupName>
+			<SpeciesGroupInfo modificationRestricted="false">3</SpeciesGroupInfo>
+			<SpeciesGroupVersion modificationRestricted="false">TM-Default-8b1dc3d6-f264-4302-8b0c-fd2dfa050b32</SpeciesGroupVersion>
+			<StemTypeDefinition>
+				<StemTypeCode>31</StemTypeCode>
+				<StemTypeName>Stammer</StemTypeName>
+			</StemTypeDefinition>
+			<StemTypeDefinition>
+				<StemTypeCode>32</StemTypeCode>
+				<StemTypeName>Stam, massaved</StemTypeName>
+			</StemTypeDefinition>
+			<Extension>
+				<OriginalUserID xmlns="http://www.deere.fi/xml/forestry">TM-Default-8b1dc3d6-f264-4302-8b0c-fd2dfa050b32</OriginalUserID>
+			</Extension>
+			<SpeciesGroupPresentationOrder>3</SpeciesGroupPresentationOrder>
+			<DBHHeight modificationRestricted="false">120</DBHHeight>
+			<Grades modificationRestricted="false">
+				<StartGrade>2</StartGrade>
+				<Grade>
+					<GradeNumber>1</GradeNumber>
+					<GradeName>A Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>2</GradeNumber>
+					<GradeName>B Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>3</GradeNumber>
+					<GradeName>C Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>4</GradeNumber>
+					<GradeName>D Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>5</GradeNumber>
+					<GradeName>E Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>6</GradeNumber>
+					<GradeName>F Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>7</GradeNumber>
+					<GradeName>G Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>8</GradeNumber>
+					<GradeName>H Knapp</GradeName>
+				</Grade>
+			</Grades>
+			<BarkFunction barkFunctionCategory="Swedish Zacco" modificationRestricted="false">
+				<SwedishZacco>
+					<ConstantA>3.52</ConstantA>
+					<FactorB>0.0289</FactorB>
+				</SwedishZacco>
+			</BarkFunction>
+			<SoundKnotFunction modificationRestricted="false">
+				<ConstantA>0</ConstantA>
+				<FactorB>0</FactorB>
+				<FactorC>0</FactorC>
+				<ToleranceD>0</ToleranceD>
+				<SoundKnotFunctionGrade>1</SoundKnotFunctionGrade>
+			</SoundKnotFunction>
+			<EstonianVolumeParameters>
+				<ParameterA1>0.0783</ParameterA1>
+				<ParameterA2>0.000236</ParameterA2>
+				<ParameterA3>0.045</ParameterA3>
+			</EstonianVolumeParameters>
+			<SpeciesGroupKey>87</SpeciesGroupKey>
+		</SpeciesGroupDefinition>
+		<SpeciesGroupDefinition>
+			<SpeciesGroupModificationDate modificationAuthor="">0001-01-01T01:00:00+01:00</SpeciesGroupModificationDate>
+			<SpeciesGroupUserID agency="Other">88</SpeciesGroupUserID>
+			<SpeciesGroupName>TØRRGRAN</SpeciesGroupName>
+			<SpeciesGroupInfo modificationRestricted="false">4</SpeciesGroupInfo>
+			<SpeciesGroupVersion modificationRestricted="false">TM-Default-529e434c-ac1c-4789-ba46-6c0012d4261a</SpeciesGroupVersion>
+			<StemTypeDefinition>
+				<StemTypeCode>41</StemTypeCode>
+				<StemTypeName>Stammer</StemTypeName>
+			</StemTypeDefinition>
+			<StemTypeDefinition>
+				<StemTypeCode>42</StemTypeCode>
+				<StemTypeName>Stam, massaved</StemTypeName>
+			</StemTypeDefinition>
+			<Extension>
+				<OriginalUserID xmlns="http://www.deere.fi/xml/forestry">TM-Default-529e434c-ac1c-4789-ba46-6c0012d4261a</OriginalUserID>
+			</Extension>
+			<SpeciesGroupPresentationOrder>4</SpeciesGroupPresentationOrder>
+			<DBHHeight modificationRestricted="false">120</DBHHeight>
+			<Grades modificationRestricted="false">
+				<StartGrade>2</StartGrade>
+				<Grade>
+					<GradeNumber>1</GradeNumber>
+					<GradeName>A Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>2</GradeNumber>
+					<GradeName>B Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>3</GradeNumber>
+					<GradeName>C Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>4</GradeNumber>
+					<GradeName>D Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>5</GradeNumber>
+					<GradeName>E Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>6</GradeNumber>
+					<GradeName>F Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>7</GradeNumber>
+					<GradeName>G Knapp</GradeName>
+				</Grade>
+				<Grade>
+					<GradeNumber>8</GradeNumber>
+					<GradeName>H Knapp</GradeName>
+				</Grade>
+			</Grades>
+			<BarkFunction barkFunctionCategory="Swedish Zacco" modificationRestricted="false">
+				<SwedishZacco>
+					<ConstantA>4.55</ConstantA>
+					<FactorB>0.0312</FactorB>
+				</SwedishZacco>
+			</BarkFunction>
+			<SoundKnotFunction modificationRestricted="false">
+				<ConstantA>0</ConstantA>
+				<FactorB>0</FactorB>
+				<FactorC>0</FactorC>
+				<ToleranceD>0</ToleranceD>
+				<SoundKnotFunctionGrade>1</SoundKnotFunctionGrade>
+			</SoundKnotFunction>
+			<EstonianVolumeParameters>
+				<ParameterA1>0.0783</ParameterA1>
+				<ParameterA2>0.000236</ParameterA2>
+				<ParameterA3>0.045</ParameterA3>
+			</EstonianVolumeParameters>
+			<SpeciesGroupKey>88</SpeciesGroupKey>
+		</SpeciesGroupDefinition>
+		<ControlValues>
+			<ProductDefinition>
+				<ProductKey>320</ProductKey>
+				<ClassifiedProductDefinition>
+					<ProductName>Sagt Bfvui D12+</ProductName>
+					<ModificationDate>0001-01-01T01:00:00+01:00</ModificationDate>
+					<ProductInfo modificationRestricted="false">142</ProductInfo>
+					<ProductVersion modificationRestricted="false">05.01700</ProductVersion>
+					<ProductBuyer>
+						<Address />
+					</ProductBuyer>
+					<ProductDestination>
+						<BusinessID></BusinessID>
+					</ProductDestination>
+					<ProductGroupName>Frisk</ProductGroupName>
+					<StemTypeCode>21</StemTypeCode>
+					<ProductPresentationOrder>1</ProductPresentationOrder>
+					<DiameterDefinition modificationRestricted="false">
+						<DiameterClasses diameterClassCategory="Top">
+							<DiameterClass>
+								<DiameterClassLowerLimit>120</DiameterClassLowerLimit>
+								<DiameterClassName>120</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>130</DiameterClassLowerLimit>
+								<DiameterClassName>130</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>140</DiameterClassLowerLimit>
+								<DiameterClassName>140</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>150</DiameterClassLowerLimit>
+								<DiameterClassName>150</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>160</DiameterClassLowerLimit>
+								<DiameterClassName>160</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>170</DiameterClassLowerLimit>
+								<DiameterClassName>170</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>180</DiameterClassLowerLimit>
+								<DiameterClassName>180</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>190</DiameterClassLowerLimit>
+								<DiameterClassName>190</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>200</DiameterClassLowerLimit>
+								<DiameterClassName>200</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>210</DiameterClassLowerLimit>
+								<DiameterClassName>210</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>220</DiameterClassLowerLimit>
+								<DiameterClassName>220</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>230</DiameterClassLowerLimit>
+								<DiameterClassName>230</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>240</DiameterClassLowerLimit>
+								<DiameterClassName>240</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>250</DiameterClassLowerLimit>
+								<DiameterClassName>250</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>260</DiameterClassLowerLimit>
+								<DiameterClassName>260</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>270</DiameterClassLowerLimit>
+								<DiameterClassName>270</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>280</DiameterClassLowerLimit>
+								<DiameterClassName>280</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>290</DiameterClassLowerLimit>
+								<DiameterClassName>290</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>300</DiameterClassLowerLimit>
+								<DiameterClassName>300</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>310</DiameterClassLowerLimit>
+								<DiameterClassName>310</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>380</DiameterClassLowerLimit>
+								<DiameterClassName>380</DiameterClassName>
+							</DiameterClass>
+							<DiameterClassMAX>550</DiameterClassMAX>
+							<DiameterClassAdjustment>DiameterClassAdjustment1</DiameterClassAdjustment>
+							<DiameterUnderBark>false</DiameterUnderBark>
+						</DiameterClasses>
+						<DiameterMINTop>125</DiameterMINTop>
+						<DiameterMAXButt>550</DiameterMAXButt>
+						<DiameterTopPosition>0</DiameterTopPosition>
+					</DiameterDefinition>
+					<LengthDefinition modificationRestricted="false">
+						<LengthClassAdjustment>LengthClassAdjustment1</LengthClassAdjustment>
+						<LengthClass>
+							<LengthClassLowerLimit>370</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>400</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>430</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>460</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>490</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>520</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>550</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClassMAX>560</LengthClassMAX>
+					</LengthDefinition>
+					<PriceDefinition modificationRestricted="false">
+						<VolumeDiameterAdjustment>Measured diameter rounded downwards to cm</VolumeDiameterAdjustment>
+						<VolumeDiameterCategory volumeDiameterTopPosition="10">Calculated Norwegian mid</VolumeDiameterCategory>
+						<VolumeLengthCategory>Rounded downwards to nearest dm-module</VolumeLengthCategory>
+						<VolumeUnderBark>false</VolumeUnderBark>
+					</PriceDefinition>
+					<ProductUserID agency="Other">TM-Default-b361726b-e3c1-4a26-a1e1-3d4c1d1c992d</ProductUserID>
+					<SpeciesGroupKey>86</SpeciesGroupKey>
+				</ClassifiedProductDefinition>
+			</ProductDefinition>
+			<ProductDefinition>
+				<ProductKey>321</ProductKey>
+				<ClassifiedProductDefinition>
+					<ProductName>MASSE FRISK</ProductName>
+					<ModificationDate>0001-01-01T01:00:00+01:00</ModificationDate>
+					<ProductInfo modificationRestricted="false">102</ProductInfo>
+					<ProductVersion modificationRestricted="false" />
+					<ProductBuyer>
+						<Address />
+					</ProductBuyer>
+					<ProductDestination />
+					<ProductGroupName>Frisk</ProductGroupName>
+					<StemTypeCode>21</StemTypeCode>
+					<ProductPresentationOrder>2</ProductPresentationOrder>
+					<DiameterDefinition modificationRestricted="false">
+						<DiameterClasses diameterClassCategory="Top">
+							<DiameterClass>
+								<DiameterClassLowerLimit>40</DiameterClassLowerLimit>
+								<DiameterClassName>40</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>50</DiameterClassLowerLimit>
+								<DiameterClassName>50</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>100</DiameterClassLowerLimit>
+								<DiameterClassName>100</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>200</DiameterClassLowerLimit>
+								<DiameterClassName>200</DiameterClassName>
+							</DiameterClass>
+							<DiameterClass>
+								<DiameterClassLowerLimit>300</DiameterClassLowerLimit>
+								<DiameterClassName>300</DiameterClassName>
+							</DiameterClass>
+							<DiameterClassMAX>700</DiameterClassMAX>
+							<DiameterClassAdjustment>DiameterClassAdjustment1</DiameterClassAdjustment>
+							<DiameterUnderBark>false</DiameterUnderBark>
+						</DiameterClasses>
+						<DiameterTopPosition>0</DiameterTopPosition>
+					</DiameterDefinition>
+					<LengthDefinition modificationRestricted="false">
+						<LengthClassAdjustment>LengthClassAdjustment1</LengthClassAdjustment>
+						<LengthClass>
+							<LengthClassLowerLimit>300</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>350</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>370</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>400</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>430</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>460</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>490</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClass>
+							<LengthClassLowerLimit>510</LengthClassLowerLimit>
+							<LengthClassMargin>0</LengthClassMargin>
+							<LongTimberDefinition>
+								<LongLogButtMIN>0</LongLogButtMIN>
+								<LongLogButtMAX>0</LongLogButtMAX>
+							</LongTimberDefinition>
+						</LengthClass>
+						<LengthClassMAX>560</LengthClassMAX>
+					</LengthDefinition>
+					<PriceDefinition modificationRestricted="false">
+						<VolumeDiameterAdjustment>Measured diameter in mm</VolumeDiameterAdjustment>
+						<VolumeDiameterCategory volumeDiameterTopPosition="10">All diameters (solid volume)</VolumeDiameterCategory>
+						<VolumeLengthCategory>Physical length cm</VolumeLengthCategory>
+						<VolumeUnderBark>false</VolumeUnderBark>
+					</PriceDefinition>
+					<ProductUserID agency="Other">TM-Default-013183cd-d570-4a30-9b0d-fdef0aebb7cb</ProductUserID>
+					<SpeciesGroupKey>86</SpeciesGroupKey>
+				</ClassifiedProductDefinition>
+			</ProductDefinition>
+			<ProductDefinition>
+				<ProductKey>2147483647</ProductKey>
+				<UnclassifiedProductDefinition>
+					<ProductName>Unclassified</ProductName>
+					<ModificationDate>2021-01-28T11:33:14.235+01:00</ModificationDate>
+				</UnclassifiedProductDefinition>
+			</ProductDefinition>
+			<ObjectDefinition>
+				<ObjectUserID agency="Other">TM-Site-b75f99df-5c80-4cf2-be54-484490b359ea</ObjectUserID>
+				<ObjectName>Eksempel gård</ObjectName>
+				<ObjectModificationDate modificationAuthor="">1601-01-01T01:00:00+01:00</ObjectModificationDate>
+				<ForestCertification>Not known</ForestCertification>
+				<LoggingForm agency="Other">
+					<LoggingFormCode>
+					</LoggingFormCode>
+					<LoggingFormDescription>
+					</LoggingFormDescription>
+				</LoggingForm>
+				<LoggingOrganisation>
+					<ContactInformation>
+						<Address />
+					</ContactInformation>
+					<District />
+					<Team />
+				</LoggingOrganisation>
+				<ForestOwner>
+					<Address />
+				</ForestOwner>
+				<ObjectKey>22</ObjectKey>
+				<TextFromMachine />
+				<StartDate>2021-01-06T07:34:37.725+01:00</StartDate>
+				<SubObject>
+					<SubObjectUserID agency="Other">SF2010GEN-SubObjectUserID-0</SubObjectUserID>
+					<SubObjectName>Veighogst</SubObjectName>
+					<LoggingForm agency="Other">
+						<LoggingFormCode />
+						<LoggingFormDescription />
+					</LoggingForm>
+					<RealEstateIDSubObject agency="Other">
+					</RealEstateIDSubObject>
+					<SubObjectKey>361</SubObjectKey>
+				</SubObject>
+				<SubObject>
+					<SubObjectUserID agency="Other">SF2010GEN-SubObjectUserID-1</SubObjectUserID>
+					<SubObjectName>1456</SubObjectName>
+					<LoggingForm agency="Other">
+						<LoggingFormCode>0</LoggingFormCode>
+						<LoggingFormDescription />
+					</LoggingForm>
+					<RealEstateIDSubObject agency="Other">
+					</RealEstateIDSubObject>
+					<SubObjectKey>362</SubObjectKey>
+				</SubObject>
+				<SubObject>
+					<SubObjectUserID agency="Other">SF2010GEN-SubObjectUserID-2</SubObjectUserID>
+					<SubObjectName>1365</SubObjectName>
+					<LoggingForm agency="Other">
+						<LoggingFormCode>0</LoggingFormCode>
+						<LoggingFormDescription />
+					</LoggingForm>
+					<RealEstateIDSubObject agency="Other">
+					</RealEstateIDSubObject>
+					<SubObjectKey>363</SubObjectKey>
+				</SubObject>
+				<SubObject>
+					<SubObjectUserID agency="Other">SF2010GEN-SubObjectUserID-3</SubObjectUserID>
+					<SubObjectName>1362</SubObjectName>
+					<LoggingForm agency="Other">
+						<LoggingFormCode>0</LoggingFormCode>
+						<LoggingFormDescription />
+					</LoggingForm>
+					<RealEstateIDSubObject agency="Other">
+					</RealEstateIDSubObject>
+					<SubObjectKey>364</SubObjectKey>
+				</SubObject>
+				<SubObject>
+					<SubObjectUserID agency="Other">SF2010GEN-SubObjectUserID-4</SubObjectUserID>
+					<SubObjectName>1474</SubObjectName>
+					<LoggingForm agency="Other">
+						<LoggingFormCode>0</LoggingFormCode>
+						<LoggingFormDescription />
+					</LoggingForm>
+					<RealEstateIDSubObject agency="Other">
+					</RealEstateIDSubObject>
+					<SubObjectKey>365</SubObjectKey>
+				</SubObject>
+			</ObjectDefinition>
+			<ControlStemSettings>
+				<RandomFrequency>120</RandomFrequency>
+				<RandomFrequencyCategory>Number of stems</RandomFrequencyCategory>
+				<RandomMINDBH>1</RandomMINDBH>
+				<RandomMINLength>0</RandomMINLength>
+				<RandomLogNotification>0</RandomLogNotification>
+				<RandomStartTime>01:00:00+01:00</RandomStartTime>
+				<RandomEndTime>01:00:00+01:00</RandomEndTime>
+				<RandomSettingDateTime>2021-01-28T11:33:14.235+01:00</RandomSettingDateTime>
+				<SpeciesGroupUserID agency="Other">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupUserID>
+				<ProcessingCategory>SingleTreeFelling</ProcessingCategory>
+			</ControlStemSettings>
+			<ControlStemSettings>
+				<RandomFrequency>120</RandomFrequency>
+				<RandomFrequencyCategory>Number of stems</RandomFrequencyCategory>
+				<RandomMINDBH>1</RandomMINDBH>
+				<RandomMINLength>0</RandomMINLength>
+				<RandomLogNotification>0</RandomLogNotification>
+				<RandomStartTime>01:00:00+01:00</RandomStartTime>
+				<RandomEndTime>01:00:00+01:00</RandomEndTime>
+				<RandomSettingDateTime>2021-01-28T11:33:14.235+01:00</RandomSettingDateTime>
+				<SpeciesGroupUserID agency="Other">TM-Default-980771f0-79d2-41b3-99fe-688ba21b7c13</SpeciesGroupUserID>
+				<ProcessingCategory>SingleTreeFelling</ProcessingCategory>
+			</ControlStemSettings>
+			<ControlStemSettings>
+				<RandomFrequency>120</RandomFrequency>
+				<RandomFrequencyCategory>Number of stems</RandomFrequencyCategory>
+				<RandomMINDBH>1</RandomMINDBH>
+				<RandomMINLength>0</RandomMINLength>
+				<RandomLogNotification>0</RandomLogNotification>
+				<RandomStartTime>01:00:00+01:00</RandomStartTime>
+				<RandomEndTime>01:00:00+01:00</RandomEndTime>
+				<RandomSettingDateTime>2021-01-28T11:33:14.235+01:00</RandomSettingDateTime>
+				<SpeciesGroupUserID agency="Other">TM-Default-8b1dc3d6-f264-4302-8b0c-fd2dfa050b32</SpeciesGroupUserID>
+				<ProcessingCategory>SingleTreeFelling</ProcessingCategory>
+			</ControlStemSettings>
+			<ControlStemSettings>
+				<RandomFrequency>120</RandomFrequency>
+				<RandomFrequencyCategory>Number of stems</RandomFrequencyCategory>
+				<RandomMINDBH>1</RandomMINDBH>
+				<RandomMINLength>0</RandomMINLength>
+				<RandomLogNotification>0</RandomLogNotification>
+				<RandomStartTime>01:00:00+01:00</RandomStartTime>
+				<RandomEndTime>01:00:00+01:00</RandomEndTime>
+				<RandomSettingDateTime>2021-01-28T11:33:14.235+01:00</RandomSettingDateTime>
+				<SpeciesGroupUserID agency="Other">TM-Default-529e434c-ac1c-4789-ba46-6c0012d4261a</SpeciesGroupUserID>
+				<ProcessingCategory>SingleTreeFelling</ProcessingCategory>
+			</ControlStemSettings>
+			<Stem>
+				<StemKey>5208500</StemKey>
+				<ObjectKey>22</ObjectKey>
+				<SubObjectKey>362</SubObjectKey>
+				<SpeciesGroupKey>86</SpeciesGroupKey>
+				<OperatorKey>5</OperatorKey>
+				<StemNumber>2109</StemNumber>
+				<ProcessingCategory>SingleTreeProcessing</ProcessingCategory>
+				<StemCoordinates receiverPosition="Base machine position" coordinateReferenceSystem="WGS84">
+					<Latitude latitudeCategory="North">60.00084</Latitude>
+					<Longitude longitudeCategory="East">10.79794</Longitude>
+					<Altitude>207</Altitude>
+				</StemCoordinates>
+				
+<ControlMeasurementDefinition logMeasurementCategory="Operator">
+<Measurer>
+<FirstName>TM-Oper-</FirstName>
+</Measurer>
+<CaliperApplication>SKALMAN7.17</CaliperApplication>
+<CaliperID>36899</CaliperID>
+</ControlMeasurementDefinition>
+<ControlStemInfo>
+					<RandomControlStemRejectedReason>Not rejected</RandomControlStemRejectedReason>
+					<RandomControlStemSelection>Manually by operator selected stem</RandomControlStemSelection>
+				</ControlStemInfo>
+				<SingleTreeProcessedStem>
+					<DBH>307</DBH>
+					<ReferenceDiameter referenceDiameterHeight="74">332</ReferenceDiameter>
+					<StemGrade>
+						<GradeValue gradeStartPosition="0">2</GradeValue>
+					</StemGrade>
+					<StemDiameters diameterCategory="Over bark">
+						<DiameterMeasuredStartHeight>0</DiameterMeasuredStartHeight>
+						<DiameterMeasuredEndHeight>2440</DiameterMeasuredEndHeight>
+						<DiameterValue diameterPosition="0" diameterMeasurementCategory="Average">348</DiameterValue>
+						<DiameterValue diameterPosition="10" diameterMeasurementCategory="Average">346</DiameterValue>
+						<DiameterValue diameterPosition="20" diameterMeasurementCategory="Average">344</DiameterValue>
+						<DiameterValue diameterPosition="30" diameterMeasurementCategory="Average">342</DiameterValue>
+						<DiameterValue diameterPosition="40" diameterMeasurementCategory="Average">340</DiameterValue>
+						<DiameterValue diameterPosition="50" diameterMeasurementCategory="Average">338</DiameterValue>
+						<DiameterValue diameterPosition="60" diameterMeasurementCategory="Average">336</DiameterValue>
+						<DiameterValue diameterPosition="70" diameterMeasurementCategory="Average">334</DiameterValue>
+						<DiameterValue diameterPosition="80" diameterMeasurementCategory="Average">332</DiameterValue>
+						<DiameterValue diameterPosition="90" diameterMeasurementCategory="Average">331</DiameterValue>
+						<DiameterValue diameterPosition="100" diameterMeasurementCategory="Average">322</DiameterValue>
+						<DiameterValue diameterPosition="110" diameterMeasurementCategory="Average">311</DiameterValue>
+						<DiameterValue diameterPosition="120" diameterMeasurementCategory="Average">307</DiameterValue>
+						<DiameterValue diameterPosition="130" diameterMeasurementCategory="Average">306</DiameterValue>
+						<DiameterValue diameterPosition="140" diameterMeasurementCategory="Average">306</DiameterValue>
+						<DiameterValue diameterPosition="150" diameterMeasurementCategory="Average">304</DiameterValue>
+						<DiameterValue diameterPosition="160" diameterMeasurementCategory="Average">303</DiameterValue>
+						<DiameterValue diameterPosition="170" diameterMeasurementCategory="Average">303</DiameterValue>
+						<DiameterValue diameterPosition="180" diameterMeasurementCategory="Average">302</DiameterValue>
+						<DiameterValue diameterPosition="190" diameterMeasurementCategory="Average">301</DiameterValue>
+						<DiameterValue diameterPosition="200" diameterMeasurementCategory="Average">300</DiameterValue>
+						<DiameterValue diameterPosition="210" diameterMeasurementCategory="Average">300</DiameterValue>
+						<DiameterValue diameterPosition="220" diameterMeasurementCategory="Average">299</DiameterValue>
+						<DiameterValue diameterPosition="230" diameterMeasurementCategory="Average">298</DiameterValue>
+						<DiameterValue diameterPosition="240" diameterMeasurementCategory="Average">296</DiameterValue>
+						<DiameterValue diameterPosition="250" diameterMeasurementCategory="Average">294</DiameterValue>
+						<DiameterValue diameterPosition="260" diameterMeasurementCategory="Average">293</DiameterValue>
+						<DiameterValue diameterPosition="270" diameterMeasurementCategory="Average">292</DiameterValue>
+						<DiameterValue diameterPosition="280" diameterMeasurementCategory="Average">292</DiameterValue>
+						<DiameterValue diameterPosition="290" diameterMeasurementCategory="Average">291</DiameterValue>
+						<DiameterValue diameterPosition="300" diameterMeasurementCategory="Average">291</DiameterValue>
+						<DiameterValue diameterPosition="310" diameterMeasurementCategory="Average">290</DiameterValue>
+						<DiameterValue diameterPosition="320" diameterMeasurementCategory="Average">288</DiameterValue>
+						<DiameterValue diameterPosition="330" diameterMeasurementCategory="Average">287</DiameterValue>
+						<DiameterValue diameterPosition="340" diameterMeasurementCategory="Average">287</DiameterValue>
+						<DiameterValue diameterPosition="350" diameterMeasurementCategory="Average">287</DiameterValue>
+						<DiameterValue diameterPosition="360" diameterMeasurementCategory="Average">287</DiameterValue>
+						<DiameterValue diameterPosition="370" diameterMeasurementCategory="Average">287</DiameterValue>
+						<DiameterValue diameterPosition="380" diameterMeasurementCategory="Average">285</DiameterValue>
+						<DiameterValue diameterPosition="390" diameterMeasurementCategory="Average">284</DiameterValue>
+						<DiameterValue diameterPosition="400" diameterMeasurementCategory="Average">284</DiameterValue>
+						<DiameterValue diameterPosition="410" diameterMeasurementCategory="Average">284</DiameterValue>
+						<DiameterValue diameterPosition="420" diameterMeasurementCategory="Average">284</DiameterValue>
+						<DiameterValue diameterPosition="430" diameterMeasurementCategory="Average">284</DiameterValue>
+						<DiameterValue diameterPosition="440" diameterMeasurementCategory="Average">283</DiameterValue>
+						<DiameterValue diameterPosition="450" diameterMeasurementCategory="Average">283</DiameterValue>
+						<DiameterValue diameterPosition="460" diameterMeasurementCategory="Average">282</DiameterValue>
+						<DiameterValue diameterPosition="470" diameterMeasurementCategory="Average">281</DiameterValue>
+						<DiameterValue diameterPosition="480" diameterMeasurementCategory="Average">281</DiameterValue>
+						<DiameterValue diameterPosition="490" diameterMeasurementCategory="Average">281</DiameterValue>
+						<DiameterValue diameterPosition="500" diameterMeasurementCategory="Average">281</DiameterValue>
+						<DiameterValue diameterPosition="510" diameterMeasurementCategory="Average">280</DiameterValue>
+						<DiameterValue diameterPosition="520" diameterMeasurementCategory="Average">277</DiameterValue>
+						<DiameterValue diameterPosition="530" diameterMeasurementCategory="Average">277</DiameterValue>
+						<DiameterValue diameterPosition="540" diameterMeasurementCategory="Average">277</DiameterValue>
+						<DiameterValue diameterPosition="550" diameterMeasurementCategory="Average">277</DiameterValue>
+						<DiameterValue diameterPosition="560" diameterMeasurementCategory="Average">277</DiameterValue>
+						<DiameterValue diameterPosition="570" diameterMeasurementCategory="Average">277</DiameterValue>
+						<DiameterValue diameterPosition="580" diameterMeasurementCategory="Average">277</DiameterValue>
+						<DiameterValue diameterPosition="590" diameterMeasurementCategory="Average">277</DiameterValue>
+						<DiameterValue diameterPosition="600" diameterMeasurementCategory="Average">277</DiameterValue>
+						<DiameterValue diameterPosition="610" diameterMeasurementCategory="Average">275</DiameterValue>
+						<DiameterValue diameterPosition="620" diameterMeasurementCategory="Average">274</DiameterValue>
+						<DiameterValue diameterPosition="630" diameterMeasurementCategory="Average">269</DiameterValue>
+						<DiameterValue diameterPosition="640" diameterMeasurementCategory="Average">268</DiameterValue>
+						<DiameterValue diameterPosition="650" diameterMeasurementCategory="Average">267</DiameterValue>
+						<DiameterValue diameterPosition="660" diameterMeasurementCategory="Average">266</DiameterValue>
+						<DiameterValue diameterPosition="670" diameterMeasurementCategory="Average">266</DiameterValue>
+						<DiameterValue diameterPosition="680" diameterMeasurementCategory="Average">266</DiameterValue>
+						<DiameterValue diameterPosition="690" diameterMeasurementCategory="Average">266</DiameterValue>
+						<DiameterValue diameterPosition="700" diameterMeasurementCategory="Average">264</DiameterValue>
+						<DiameterValue diameterPosition="710" diameterMeasurementCategory="Average">264</DiameterValue>
+						<DiameterValue diameterPosition="720" diameterMeasurementCategory="Average">263</DiameterValue>
+						<DiameterValue diameterPosition="730" diameterMeasurementCategory="Average">262</DiameterValue>
+						<DiameterValue diameterPosition="740" diameterMeasurementCategory="Average">262</DiameterValue>
+						<DiameterValue diameterPosition="750" diameterMeasurementCategory="Average">262</DiameterValue>
+						<DiameterValue diameterPosition="760" diameterMeasurementCategory="Average">262</DiameterValue>
+						<DiameterValue diameterPosition="770" diameterMeasurementCategory="Average">261</DiameterValue>
+						<DiameterValue diameterPosition="780" diameterMeasurementCategory="Average">259</DiameterValue>
+						<DiameterValue diameterPosition="790" diameterMeasurementCategory="Average">259</DiameterValue>
+						<DiameterValue diameterPosition="800" diameterMeasurementCategory="Average">259</DiameterValue>
+						<DiameterValue diameterPosition="810" diameterMeasurementCategory="Average">259</DiameterValue>
+						<DiameterValue diameterPosition="820" diameterMeasurementCategory="Average">259</DiameterValue>
+						<DiameterValue diameterPosition="830" diameterMeasurementCategory="Average">256</DiameterValue>
+						<DiameterValue diameterPosition="840" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="850" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="860" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="870" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="880" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="890" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="900" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="910" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="920" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="930" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="940" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="950" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="960" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="970" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="980" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="990" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="1000" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="1010" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="1020" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="1030" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="1040" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="1050" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="1060" diameterMeasurementCategory="Average">254</DiameterValue>
+						<DiameterValue diameterPosition="1070" diameterMeasurementCategory="Average">251</DiameterValue>
+						<DiameterValue diameterPosition="1080" diameterMeasurementCategory="Average">248</DiameterValue>
+						<DiameterValue diameterPosition="1090" diameterMeasurementCategory="Average">246</DiameterValue>
+						<DiameterValue diameterPosition="1100" diameterMeasurementCategory="Average">246</DiameterValue>
+						<DiameterValue diameterPosition="1110" diameterMeasurementCategory="Average">246</DiameterValue>
+						<DiameterValue diameterPosition="1120" diameterMeasurementCategory="Average">246</DiameterValue>
+						<DiameterValue diameterPosition="1130" diameterMeasurementCategory="Average">245</DiameterValue>
+						<DiameterValue diameterPosition="1140" diameterMeasurementCategory="Average">245</DiameterValue>
+						<DiameterValue diameterPosition="1150" diameterMeasurementCategory="Average">245</DiameterValue>
+						<DiameterValue diameterPosition="1160" diameterMeasurementCategory="Average">245</DiameterValue>
+						<DiameterValue diameterPosition="1170" diameterMeasurementCategory="Average">245</DiameterValue>
+						<DiameterValue diameterPosition="1180" diameterMeasurementCategory="Average">245</DiameterValue>
+						<DiameterValue diameterPosition="1190" diameterMeasurementCategory="Average">244</DiameterValue>
+						<DiameterValue diameterPosition="1200" diameterMeasurementCategory="Average">237</DiameterValue>
+						<DiameterValue diameterPosition="1210" diameterMeasurementCategory="Average">235</DiameterValue>
+						<DiameterValue diameterPosition="1220" diameterMeasurementCategory="Average">235</DiameterValue>
+						<DiameterValue diameterPosition="1230" diameterMeasurementCategory="Average">235</DiameterValue>
+						<DiameterValue diameterPosition="1240" diameterMeasurementCategory="Average">235</DiameterValue>
+						<DiameterValue diameterPosition="1250" diameterMeasurementCategory="Average">233</DiameterValue>
+						<DiameterValue diameterPosition="1260" diameterMeasurementCategory="Average">230</DiameterValue>
+						<DiameterValue diameterPosition="1270" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1280" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1290" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1300" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1310" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1320" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1330" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1340" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1350" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1360" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1370" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1380" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1390" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1400" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1410" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1420" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1430" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1440" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1450" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1460" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1470" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1480" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1490" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1500" diameterMeasurementCategory="Average">229</DiameterValue>
+						<DiameterValue diameterPosition="1510" diameterMeasurementCategory="Average">228</DiameterValue>
+						<DiameterValue diameterPosition="1520" diameterMeasurementCategory="Average">228</DiameterValue>
+						<DiameterValue diameterPosition="1530" diameterMeasurementCategory="Average">226</DiameterValue>
+						<DiameterValue diameterPosition="1540" diameterMeasurementCategory="Average">221</DiameterValue>
+						<DiameterValue diameterPosition="1550" diameterMeasurementCategory="Average">216</DiameterValue>
+						<DiameterValue diameterPosition="1560" diameterMeasurementCategory="Average">213</DiameterValue>
+						<DiameterValue diameterPosition="1570" diameterMeasurementCategory="Average">213</DiameterValue>
+						<DiameterValue diameterPosition="1580" diameterMeasurementCategory="Average">212</DiameterValue>
+						<DiameterValue diameterPosition="1590" diameterMeasurementCategory="Average">209</DiameterValue>
+						<DiameterValue diameterPosition="1600" diameterMeasurementCategory="Average">209</DiameterValue>
+						<DiameterValue diameterPosition="1610" diameterMeasurementCategory="Average">209</DiameterValue>
+						<DiameterValue diameterPosition="1620" diameterMeasurementCategory="Average">209</DiameterValue>
+						<DiameterValue diameterPosition="1630" diameterMeasurementCategory="Average">209</DiameterValue>
+						<DiameterValue diameterPosition="1640" diameterMeasurementCategory="Average">209</DiameterValue>
+						<DiameterValue diameterPosition="1650" diameterMeasurementCategory="Average">205</DiameterValue>
+						<DiameterValue diameterPosition="1660" diameterMeasurementCategory="Average">199</DiameterValue>
+						<DiameterValue diameterPosition="1670" diameterMeasurementCategory="Average">199</DiameterValue>
+						<DiameterValue diameterPosition="1680" diameterMeasurementCategory="Average">199</DiameterValue>
+						<DiameterValue diameterPosition="1690" diameterMeasurementCategory="Average">199</DiameterValue>
+						<DiameterValue diameterPosition="1700" diameterMeasurementCategory="Average">197</DiameterValue>
+						<DiameterValue diameterPosition="1710" diameterMeasurementCategory="Average">197</DiameterValue>
+						<DiameterValue diameterPosition="1720" diameterMeasurementCategory="Average">197</DiameterValue>
+						<DiameterValue diameterPosition="1730" diameterMeasurementCategory="Average">197</DiameterValue>
+						<DiameterValue diameterPosition="1740" diameterMeasurementCategory="Average">197</DiameterValue>
+						<DiameterValue diameterPosition="1750" diameterMeasurementCategory="Average">197</DiameterValue>
+						<DiameterValue diameterPosition="1760" diameterMeasurementCategory="Average">197</DiameterValue>
+						<DiameterValue diameterPosition="1770" diameterMeasurementCategory="Average">194</DiameterValue>
+						<DiameterValue diameterPosition="1780" diameterMeasurementCategory="Average">186</DiameterValue>
+						<DiameterValue diameterPosition="1790" diameterMeasurementCategory="Average">181</DiameterValue>
+						<DiameterValue diameterPosition="1800" diameterMeasurementCategory="Average">180</DiameterValue>
+						<DiameterValue diameterPosition="1810" diameterMeasurementCategory="Average">180</DiameterValue>
+						<DiameterValue diameterPosition="1820" diameterMeasurementCategory="Average">180</DiameterValue>
+						<DiameterValue diameterPosition="1830" diameterMeasurementCategory="Average">180</DiameterValue>
+						<DiameterValue diameterPosition="1840" diameterMeasurementCategory="Average">180</DiameterValue>
+						<DiameterValue diameterPosition="1850" diameterMeasurementCategory="Average">180</DiameterValue>
+						<DiameterValue diameterPosition="1860" diameterMeasurementCategory="Average">180</DiameterValue>
+						<DiameterValue diameterPosition="1870" diameterMeasurementCategory="Average">180</DiameterValue>
+						<DiameterValue diameterPosition="1880" diameterMeasurementCategory="Average">180</DiameterValue>
+						<DiameterValue diameterPosition="1890" diameterMeasurementCategory="Average">180</DiameterValue>
+						<DiameterValue diameterPosition="1900" diameterMeasurementCategory="Average">180</DiameterValue>
+						<DiameterValue diameterPosition="1910" diameterMeasurementCategory="Average">177</DiameterValue>
+						<DiameterValue diameterPosition="1920" diameterMeasurementCategory="Average">177</DiameterValue>
+						<DiameterValue diameterPosition="1930" diameterMeasurementCategory="Average">177</DiameterValue>
+						<DiameterValue diameterPosition="1940" diameterMeasurementCategory="Average">177</DiameterValue>
+						<DiameterValue diameterPosition="1950" diameterMeasurementCategory="Average">175</DiameterValue>
+						<DiameterValue diameterPosition="1960" diameterMeasurementCategory="Average">172</DiameterValue>
+						<DiameterValue diameterPosition="1970" diameterMeasurementCategory="Average">172</DiameterValue>
+						<DiameterValue diameterPosition="1980" diameterMeasurementCategory="Average">172</DiameterValue>
+						<DiameterValue diameterPosition="1990" diameterMeasurementCategory="Average">172</DiameterValue>
+						<DiameterValue diameterPosition="2000" diameterMeasurementCategory="Average">172</DiameterValue>
+						<DiameterValue diameterPosition="2010" diameterMeasurementCategory="Average">172</DiameterValue>
+						<DiameterValue diameterPosition="2020" diameterMeasurementCategory="Average">172</DiameterValue>
+						<DiameterValue diameterPosition="2030" diameterMeasurementCategory="Average">169</DiameterValue>
+						<DiameterValue diameterPosition="2040" diameterMeasurementCategory="Average">164</DiameterValue>
+						<DiameterValue diameterPosition="2050" diameterMeasurementCategory="Average">164</DiameterValue>
+						<DiameterValue diameterPosition="2060" diameterMeasurementCategory="Average">162</DiameterValue>
+						<DiameterValue diameterPosition="2070" diameterMeasurementCategory="Average">160</DiameterValue>
+						<DiameterValue diameterPosition="2080" diameterMeasurementCategory="Average">160</DiameterValue>
+						<DiameterValue diameterPosition="2090" diameterMeasurementCategory="Average">156</DiameterValue>
+						<DiameterValue diameterPosition="2100" diameterMeasurementCategory="Average">156</DiameterValue>
+						<DiameterValue diameterPosition="2110" diameterMeasurementCategory="Average">155</DiameterValue>
+						<DiameterValue diameterPosition="2120" diameterMeasurementCategory="Average">152</DiameterValue>
+						<DiameterValue diameterPosition="2130" diameterMeasurementCategory="Average">150</DiameterValue>
+						<DiameterValue diameterPosition="2140" diameterMeasurementCategory="Average">150</DiameterValue>
+						<DiameterValue diameterPosition="2150" diameterMeasurementCategory="Average">150</DiameterValue>
+						<DiameterValue diameterPosition="2160" diameterMeasurementCategory="Average">149</DiameterValue>
+						<DiameterValue diameterPosition="2170" diameterMeasurementCategory="Average">143</DiameterValue>
+						<DiameterValue diameterPosition="2180" diameterMeasurementCategory="Average">140</DiameterValue>
+						<DiameterValue diameterPosition="2190" diameterMeasurementCategory="Average">140</DiameterValue>
+						<DiameterValue diameterPosition="2200" diameterMeasurementCategory="Average">140</DiameterValue>
+						<DiameterValue diameterPosition="2210" diameterMeasurementCategory="Average">140</DiameterValue>
+						<DiameterValue diameterPosition="2220" diameterMeasurementCategory="Average">140</DiameterValue>
+						<DiameterValue diameterPosition="2230" diameterMeasurementCategory="Average">140</DiameterValue>
+						<DiameterValue diameterPosition="2240" diameterMeasurementCategory="Average">140</DiameterValue>
+						<DiameterValue diameterPosition="2250" diameterMeasurementCategory="Average">140</DiameterValue>
+						<DiameterValue diameterPosition="2260" diameterMeasurementCategory="Average">140</DiameterValue>
+						<DiameterValue diameterPosition="2270" diameterMeasurementCategory="Average">140</DiameterValue>
+						<DiameterValue diameterPosition="2280" diameterMeasurementCategory="Average">139</DiameterValue>
+						<DiameterValue diameterPosition="2290" diameterMeasurementCategory="Average">134</DiameterValue>
+						<DiameterValue diameterPosition="2300" diameterMeasurementCategory="Average">130</DiameterValue>
+						<DiameterValue diameterPosition="2310" diameterMeasurementCategory="Average">129</DiameterValue>
+						<DiameterValue diameterPosition="2320" diameterMeasurementCategory="Average">129</DiameterValue>
+						<DiameterValue diameterPosition="2330" diameterMeasurementCategory="Average">128</DiameterValue>
+						<DiameterValue diameterPosition="2340" diameterMeasurementCategory="Average">123</DiameterValue>
+						<DiameterValue diameterPosition="2350" diameterMeasurementCategory="Average">122</DiameterValue>
+						<DiameterValue diameterPosition="2360" diameterMeasurementCategory="Average">122</DiameterValue>
+						<DiameterValue diameterPosition="2370" diameterMeasurementCategory="Average">118</DiameterValue>
+						<DiameterValue diameterPosition="2380" diameterMeasurementCategory="Average">117</DiameterValue>
+						<DiameterValue diameterPosition="2390" diameterMeasurementCategory="Average">116</DiameterValue>
+						<DiameterValue diameterPosition="2400" diameterMeasurementCategory="Average">116</DiameterValue>
+						<DiameterValue diameterPosition="2410" diameterMeasurementCategory="Average">114</DiameterValue>
+						<DiameterValue diameterPosition="2420" diameterMeasurementCategory="Average">107</DiameterValue>
+						<DiameterValue diameterPosition="2430" diameterMeasurementCategory="Average">102</DiameterValue>
+						<DiameterValue diameterPosition="2440" diameterMeasurementCategory="Average">99</DiameterValue>
+					</StemDiameters>
+					<Log>
+						<LogKey>1</LogKey>
+						<ProductKey>320</ProductKey>
+						<LogVolume logVolumeCategory="m3 (price)" logMeasurementCategory="Machine">0.395</LogVolume>
+						<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Machine">0.39</LogVolume>
+						<LogVolume logVolumeCategory="m3sub" logMeasurementCategory="Machine">0.355</LogVolume>
+						
+<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Operator">0.396</LogVolume>
+<CuttingCategory>
+							<CuttingReason>Automatic</CuttingReason>
+						</CuttingCategory>
+						<LogMeasurement logMeasurementCategory="Machine">
+							<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">277</LogDiameter>
+							<LogLength>553</LogLength>
+							<MeasurementDate>2021-01-28T11:33:07.999+01:00</MeasurementDate>
+						
+<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">304</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">302</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">294</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">290</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">286</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">284</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">281</ControlLogDiameter>
+</LogMeasurement>
+<LogMeasurement logMeasurementCategory="Operator">
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">291</LogDiameter>
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="First">293</LogDiameter>
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Second">288</LogDiameter>
+<LogLength>556</LogLength><MeasurementDate>2021-01-28T12:33:15.234+01:00</MeasurementDate>
+<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">308</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">306</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">309</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">303</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">301</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">305</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">305</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">305</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">305</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">300</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">300</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">300</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">298</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">298</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">298</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">295</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">295</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">295</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">292</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">291</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">292</ControlLogDiameter>
+</LogMeasurement>
+<CalibrationUseLog>1</CalibrationUseLog>
+
+					</Log>
+					<Log>
+						<LogKey>2</LogKey>
+						<ProductKey>320</ProductKey>
+						<LogVolume logVolumeCategory="m3 (price)" logMeasurementCategory="Machine">0.3</LogVolume>
+						<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Machine">0.28</LogVolume>
+						<LogVolume logVolumeCategory="m3sub" logMeasurementCategory="Machine">0.254</LogVolume>
+						
+<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Operator">0.296</LogVolume>
+<CuttingCategory>
+							<CuttingReason>Automatic</CuttingReason>
+						</CuttingCategory>
+						<LogMeasurement logMeasurementCategory="Machine">
+							<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">248</LogDiameter>
+							<LogLength>526</LogLength>
+							<MeasurementDate>2021-01-28T11:33:07.999+01:00</MeasurementDate>
+						
+<ControlLogDiameter diameterPosition="135" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">266</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="181" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">262</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="248" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">259</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="287" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">254</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="335" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">254</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="394" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">254</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="461" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">254</ControlLogDiameter>
+</LogMeasurement>
+<LogMeasurement logMeasurementCategory="Operator">
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">249</LogDiameter>
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="First">248</LogDiameter>
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Second">249</LogDiameter>
+<LogLength>525</LogLength><MeasurementDate>2021-01-28T12:33:15.234+01:00</MeasurementDate>
+<ControlLogDiameter diameterPosition="135" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">279</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="135" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">279</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="135" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">278</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="181" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">273</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="181" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">273</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="181" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">273</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="248" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">271</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="248" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">270</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="248" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">271</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="287" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">265</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="287" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">264</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="287" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">265</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="335" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">264</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="335" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">264</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="335" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">264</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="394" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">260</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="394" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">259</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="394" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">261</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="461" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">254</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="461" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">254</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="461" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">254</ControlLogDiameter>
+</LogMeasurement>
+<CalibrationUseLog>1</CalibrationUseLog>
+
+					</Log>
+					<Log>
+						<LogKey>3</LogKey>
+						<ProductKey>320</ProductKey>
+						<LogVolume logVolumeCategory="m3 (price)" logMeasurementCategory="Machine">0.233</LogVolume>
+						<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Machine">0.23</LogVolume>
+						<LogVolume logVolumeCategory="m3sub" logMeasurementCategory="Machine">0.207</LogVolume>
+						
+<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Operator">0.212</LogVolume>
+<CuttingCategory>
+							<CuttingReason>Automatic</CuttingReason>
+						</CuttingCategory>
+						<LogMeasurement logMeasurementCategory="Machine">
+							<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">209</LogDiameter>
+							<LogLength>554</LogLength>
+							<MeasurementDate>2021-01-28T11:33:07.999+01:00</MeasurementDate>
+						
+<ControlLogDiameter diameterPosition="202" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">229</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="288" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">229</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="349" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">229</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="428" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">228</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="488" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">213</ControlLogDiameter>
+</LogMeasurement>
+<LogMeasurement logMeasurementCategory="Operator">
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">207</LogDiameter>
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="First">205</LogDiameter>
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Second">208</LogDiameter>
+<LogLength>553</LogLength><MeasurementDate>2021-01-28T12:33:15.234+01:00</MeasurementDate>
+<ControlLogDiameter diameterPosition="202" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">228</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="202" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">228</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="202" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">228</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="288" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">223</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="288" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">224</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="288" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">222</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="349" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">221</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="349" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">217</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="349" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">224</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="428" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">211</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="428" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">211</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="428" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">211</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="488" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">208</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="488" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">208</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="488" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">208</ControlLogDiameter>
+</LogMeasurement>
+<CalibrationUseLog>1</CalibrationUseLog>
+
+					</Log>
+					<Log>
+						<LogKey>4</LogKey>
+						<ProductKey>320</ProductKey>
+						<LogVolume logVolumeCategory="m3 (price)" logMeasurementCategory="Machine">0.124</LogVolume>
+						<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Machine">0.126</LogVolume>
+						<LogVolume logVolumeCategory="m3sub" logMeasurementCategory="Machine">0.112</LogVolume>
+						
+<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Operator">0.116</LogVolume>
+<CuttingCategory>
+							<CuttingReason>Other manual</CuttingReason>
+						</CuttingCategory>
+						<LogMeasurement logMeasurementCategory="Machine">
+							<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">150</LogDiameter>
+							<LogLength>495</LogLength>
+							<MeasurementDate>2021-01-28T11:33:07.999+01:00</MeasurementDate>
+						
+<ControlLogDiameter diameterPosition="233" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">180</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="296" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">177</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="357" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">172</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="421" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">163</ControlLogDiameter>
+</LogMeasurement>
+<LogMeasurement logMeasurementCategory="Operator">
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">153</LogDiameter>
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="First">155</LogDiameter>
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Second">150</LogDiameter>
+<LogLength>493</LogLength><MeasurementDate>2021-01-28T12:33:15.234+01:00</MeasurementDate>
+<ControlLogDiameter diameterPosition="233" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">182</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="233" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">186</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="233" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">177</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="296" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">173</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="296" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">175</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="296" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">170</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="357" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">160</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="357" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">160</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="357" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">160</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="421" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">157</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="421" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">157</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="421" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">157</ControlLogDiameter>
+</LogMeasurement>
+<CalibrationUseLog>1</CalibrationUseLog>
+
+					</Log>
+					<Log>
+						<LogKey>5</LogKey>
+						<ProductKey>321</ProductKey>
+						<LogVolume logVolumeCategory="m3 (price)" logMeasurementCategory="Machine">0.042</LogVolume>
+						<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Machine">0.042</LogVolume>
+						<LogVolume logVolumeCategory="m3sub" logMeasurementCategory="Machine">0.036</LogVolume>
+						
+<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Operator">0.040</LogVolume>
+<CuttingCategory>
+							<CuttingReason>Automatic</CuttingReason>
+						</CuttingCategory>
+						<LogMeasurement logMeasurementCategory="Machine">
+							<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">100</LogDiameter>
+							<LogLength>307</LogLength>
+							<MeasurementDate>2021-01-28T11:33:07.999+01:00</MeasurementDate>
+						
+<ControlLogDiameter diameterPosition="118" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">140</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="185" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">129</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="231" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">122</ControlLogDiameter>
+</LogMeasurement>
+<LogMeasurement logMeasurementCategory="Operator">
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">97</LogDiameter>
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="First">97</LogDiameter>
+<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Second">97</LogDiameter>
+<LogLength>306</LogLength><MeasurementDate>2021-01-28T12:33:15.234+01:00</MeasurementDate>
+<ControlLogDiameter diameterPosition="118" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">134</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="118" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">133</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="118" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">134</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="185" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">125</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="185" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">124</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="185" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">125</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="231" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">123</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="231" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">126</ControlLogDiameter>
+<ControlLogDiameter diameterPosition="231" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">119</ControlLogDiameter>
+</LogMeasurement>
+<CalibrationUseLog>1</CalibrationUseLog>
+
+					</Log>
+				</SingleTreeProcessedStem>
+			</Stem>
+		</ControlValues>
+		<CalibrationValues>
+			<DiameterCalibration>
+				<SpeciesGroupUserID agency="Other">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupUserID>
+				<OperatorKey>5</OperatorKey>
+				<CalibrationDate>2021-01-27T08:31:42.859+01:00</CalibrationDate>
+				<DiameterCalibrationReason>Other reason</DiameterCalibrationReason>
+				<DiameterCalibrationDescription>Automatisk, </DiameterCalibrationDescription>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="50">1</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="100">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="150">1</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="200">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="250">2</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="300">3</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="350">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="400">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="450">0</DiameterCalibrationAdjustment>
+			</DiameterCalibration>
+			<DiameterCalibration>
+				<SpeciesGroupUserID agency="Other">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupUserID>
+				<OperatorKey>5</OperatorKey>
+				<CalibrationDate>2021-01-20T07:29:48.029+01:00</CalibrationDate>
+				<DiameterCalibrationReason>Other reason</DiameterCalibrationReason>
+				<DiameterCalibrationDescription>Automatisk, </DiameterCalibrationDescription>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="50">1</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="100">-1</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="150">-2</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="200">-2</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="250">-3</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="300">-5</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="350">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="400">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="450">0</DiameterCalibrationAdjustment>
+			</DiameterCalibration>
+			<DiameterCalibration>
+				<SpeciesGroupUserID agency="Other">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupUserID>
+				<OperatorKey>5</OperatorKey>
+				<CalibrationDate>2021-01-14T09:46:23.764+01:00</CalibrationDate>
+				<DiameterCalibrationReason>Other reason</DiameterCalibrationReason>
+				<DiameterCalibrationDescription>Manuell intervall, </DiameterCalibrationDescription>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="50">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="100">1</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="150">2</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="200">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="250">-2</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="300">-3</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="350">-1</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="400">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="450">0</DiameterCalibrationAdjustment>
+			</DiameterCalibration>
+			<DiameterCalibration>
+				<SpeciesGroupUserID agency="Other">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupUserID>
+				<OperatorKey>5</OperatorKey>
+				<CalibrationDate>2021-01-11T11:21:44.217+01:00</CalibrationDate>
+				<DiameterCalibrationReason>Other reason</DiameterCalibrationReason>
+				<DiameterCalibrationDescription>Automatisk, </DiameterCalibrationDescription>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="50">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="100">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="150">1</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="200">1</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="250">2</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="300">2</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="350">-2</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="400">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="450">0</DiameterCalibrationAdjustment>
+			</DiameterCalibration>
+			<DiameterCalibration>
+				<SpeciesGroupUserID agency="Other">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupUserID>
+				<OperatorKey>5</OperatorKey>
+				<CalibrationDate>2021-01-07T13:29:17.719+01:00</CalibrationDate>
+				<DiameterCalibrationReason>Other reason</DiameterCalibrationReason>
+				<DiameterCalibrationDescription>Automatisk, </DiameterCalibrationDescription>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="50">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="100">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="150">-2</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="200">-2</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="250">-2</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="300">-1</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="350">-1</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="400">0</DiameterCalibrationAdjustment>
+				<DiameterCalibrationAdjustment diameterCalibrationPosition="450">0</DiameterCalibrationAdjustment>
+			</DiameterCalibration>
+			<LengthCalibration>
+				<SpeciesGroupUserID agency="Other">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupUserID>
+				<OperatorKey>5</OperatorKey>
+				<CalibrationDate>2021-01-27T08:31:42.846+01:00</CalibrationDate>
+				<LengthCalibrationReason>Other reason</LengthCalibrationReason>
+				<LengthCalibrationDescription>Automatisk</LengthCalibrationDescription>
+				<LengthCalibrationAdjustment lengthCalibrationPosition="500">15</LengthCalibrationAdjustment>
+				<LengthCalibrationAdjustmentButtLog lengthCalibrationPosition="500">15</LengthCalibrationAdjustmentButtLog>
+			</LengthCalibration>
+			<LengthCalibration>
+				<SpeciesGroupUserID agency="Other">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupUserID>
+				<OperatorKey>5</OperatorKey>
+				<CalibrationDate>2021-01-27T08:09:31.691+01:00</CalibrationDate>
+				<LengthCalibrationReason>Other reason</LengthCalibrationReason>
+				<LengthCalibrationDescription>Automatisk</LengthCalibrationDescription>
+				<LengthCalibrationAdjustment lengthCalibrationPosition="500">30</LengthCalibrationAdjustment>
+				<LengthCalibrationAdjustmentButtLog lengthCalibrationPosition="500">20</LengthCalibrationAdjustmentButtLog>
+			</LengthCalibration>
+			<LengthCalibration>
+				<SpeciesGroupUserID agency="Other">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupUserID>
+				<OperatorKey>5</OperatorKey>
+				<CalibrationDate>2021-01-20T07:29:48.012+01:00</CalibrationDate>
+				<LengthCalibrationReason>Other reason</LengthCalibrationReason>
+				<LengthCalibrationDescription>Automatisk</LengthCalibrationDescription>
+				<LengthCalibrationAdjustment lengthCalibrationPosition="500">-6</LengthCalibrationAdjustment>
+				<LengthCalibrationAdjustmentButtLog lengthCalibrationPosition="500">10</LengthCalibrationAdjustmentButtLog>
+			</LengthCalibration>
+			<LengthCalibration>
+				<SpeciesGroupUserID agency="Other">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupUserID>
+				<OperatorKey>5</OperatorKey>
+				<CalibrationDate>2021-01-20T07:21:18.101+01:00</CalibrationDate>
+				<LengthCalibrationReason>Other reason</LengthCalibrationReason>
+				<LengthCalibrationDescription>Automatisk</LengthCalibrationDescription>
+				<LengthCalibrationAdjustment lengthCalibrationPosition="500">-35</LengthCalibrationAdjustment>
+				<LengthCalibrationAdjustmentButtLog lengthCalibrationPosition="500">-30</LengthCalibrationAdjustmentButtLog>
+			</LengthCalibration>
+			<LengthCalibration>
+				<SpeciesGroupUserID agency="Other">TM-Default-024899ba-5ec2-4efc-9783-73aef692de9b</SpeciesGroupUserID>
+				<OperatorKey>5</OperatorKey>
+				<CalibrationDate>2021-01-18T08:41:12.15+01:00</CalibrationDate>
+				<LengthCalibrationReason>Other reason</LengthCalibrationReason>
+				<LengthCalibrationDescription>Automatisk</LengthCalibrationDescription>
+				<LengthCalibrationAdjustment lengthCalibrationPosition="500">25</LengthCalibrationAdjustment>
+				<LengthCalibrationAdjustmentButtLog lengthCalibrationPosition="500">20</LengthCalibrationAdjustmentButtLog>
+			</LengthCalibration>
+		</CalibrationValues>
+	</Machine>
+</HarvestingQualityControl>
