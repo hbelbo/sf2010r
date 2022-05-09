@@ -1,0 +1,2948 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ForwardedProduction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" messageType="fpr" areaUnit="ha" diameterUnit="mm" lengthUnit="cm" volumeUnit="m3" weightUnit="kg" version="3.3" versionDate="2017-02-06" xmlns="urn:skogforsk:stanford2010">
+  <ForwardedProductionHeader>
+    <CreationDate>2022-04-06T14:12:17.5125765+02:00</CreationDate>
+    <ModificationDate>2022-04-06T14:12:17.5125765+02:00</ModificationDate>
+    <ApplicationVersionCreated>MaxiXT 1.7.X.43852 D</ApplicationVersionCreated>
+    <ApplicationVersionModified>MaxiXT 1.7.X.43852 D</ApplicationVersionModified>
+    <CountryCode>578</CountryCode>
+  </ForwardedProductionHeader>
+  <Machine machineCategory="Forwarder">
+    <MachineKey>dcda9e74c3b1efcb6936f6f2efce41c6</MachineKey>
+    <MachineUserID>89501156854</MachineUserID>
+    <MachineOwnerID />
+    <MachineApplicationVersion>MaxiXT 1.7.X.43852 D</MachineApplicationVersion>
+    <MachineBaseManufacturer>Komatsu Forest</MachineBaseManufacturer>
+    <MachineBaseModel>895-2</MachineBaseModel>
+    <BaseMachineManufacturerID>89501156854</BaseMachineManufacturerID>
+    <MachineOwner>
+      <FirstName />
+      <LastName />
+      <Address>
+        <Street />
+        <City />
+        <Province />
+        <Country />
+      </Address>
+      <Phone />
+      <Fax />
+      <Email />
+      <BusinessName />
+      <BusinessID />
+    </MachineOwner>
+    <LoggingContractor>
+      <FirstName />
+      <LastName />
+      <Address>
+        <Street />
+        <City />
+        <Province />
+        <Country />
+      </Address>
+      <Phone />
+      <Fax />
+      <Email />
+      <BusinessName />
+      <BusinessID />
+    </LoggingContractor>
+    <OperatorDefinition>
+      <OperatorKey>3</OperatorKey>
+      <OperatorUserID>3bbac50b-fa39-41a0-b45b-36fc44a7633a</OperatorUserID>
+      <ContactInformation>
+        <FirstName>Ola</FirstName>
+        <LastName />
+      </ContactInformation>
+    </OperatorDefinition>
+    <OperatorDefinition>
+      <OperatorKey>4</OperatorKey>
+      <OperatorUserID>0e3cf695-6229-4d82-9e31-d94c807aa5b4</OperatorUserID>
+      <ContactInformation>
+        <FirstName />
+        <LastName />
+      </ContactInformation>
+    </OperatorDefinition>
+    <OperatorDefinition>
+      <OperatorKey>6</OperatorKey>
+      <OperatorUserID>70c2c348-dc3e-4f2f-986b-e671fac4bf90</OperatorUserID>
+      <ContactInformation>
+        <FirstName />
+        <LastName />
+      </ContactInformation>
+    </OperatorDefinition>
+    <OperatorDefinition>
+      <OperatorKey>5</OperatorKey>
+      <OperatorUserID>df642023-a298-4e11-97b9-0d66e38c88a3</OperatorUserID>
+      <ContactInformation>
+        <FirstName />
+        <LastName />
+      </ContactInformation>
+    </OperatorDefinition>
+    <Extension>
+      <MachineManufacturerID>8950022283</MachineManufacturerID>
+    </Extension>
+    <SpeciesGroupDefinition>
+      <SpeciesGroupModificationDate>2021-08-07T09:04:47.013+02:00</SpeciesGroupModificationDate>
+      <SpeciesGroupUserID agency="Other">FURU#1#APT_1</SpeciesGroupUserID>
+      <SpeciesGroupName>FURU</SpeciesGroupName>
+      <SpeciesGroupInfo modificationRestricted="false">1</SpeciesGroupInfo>
+      <SpeciesGroupVersion modificationRestricted="false">1</SpeciesGroupVersion>
+      <StemTypeDefinition>
+        <StemTypeCode>0</StemTypeCode>
+        <StemTypeName>STAMSL1</StemTypeName>
+      </StemTypeDefinition>
+      <SpeciesGroupKey>9</SpeciesGroupKey>
+    </SpeciesGroupDefinition>
+    <SpeciesGroupDefinition>
+      <SpeciesGroupModificationDate>2021-08-07T09:04:47.64+02:00</SpeciesGroupModificationDate>
+      <SpeciesGroupUserID agency="Other">GRAN#2#APT_2</SpeciesGroupUserID>
+      <SpeciesGroupName>GRAN</SpeciesGroupName>
+      <SpeciesGroupInfo modificationRestricted="false">2</SpeciesGroupInfo>
+      <SpeciesGroupVersion modificationRestricted="false">2</SpeciesGroupVersion>
+      <StemTypeDefinition>
+        <StemTypeCode>0</StemTypeCode>
+        <StemTypeName>STAMSL1</StemTypeName>
+      </StemTypeDefinition>
+      <SpeciesGroupKey>10</SpeciesGroupKey>
+    </SpeciesGroupDefinition>
+    <SpeciesGroupDefinition>
+      <SpeciesGroupModificationDate>2021-08-07T09:04:47.953+02:00</SpeciesGroupModificationDate>
+      <SpeciesGroupUserID agency="Other">LAUV#3#APT_3</SpeciesGroupUserID>
+      <SpeciesGroupName>LAUV</SpeciesGroupName>
+      <SpeciesGroupInfo modificationRestricted="false">3</SpeciesGroupInfo>
+      <SpeciesGroupVersion modificationRestricted="false">3</SpeciesGroupVersion>
+      <StemTypeDefinition>
+        <StemTypeCode>0</StemTypeCode>
+        <StemTypeName>STAMSL1</StemTypeName>
+      </StemTypeDefinition>
+      <SpeciesGroupKey>11</SpeciesGroupKey>
+    </SpeciesGroupDefinition>
+    <SpeciesGroupDefinition>
+      <SpeciesGroupModificationDate>2021-08-07T09:09:38.95+02:00</SpeciesGroupModificationDate>
+      <SpeciesGroupUserID agency="Other">FURU#1#APT_1</SpeciesGroupUserID>
+      <SpeciesGroupName>FURU</SpeciesGroupName>
+      <SpeciesGroupInfo modificationRestricted="false">1</SpeciesGroupInfo>
+      <SpeciesGroupVersion modificationRestricted="false">1</SpeciesGroupVersion>
+      <StemTypeDefinition>
+        <StemTypeCode>0</StemTypeCode>
+        <StemTypeName>STAMSL1</StemTypeName>
+      </StemTypeDefinition>
+      <SpeciesGroupKey>12</SpeciesGroupKey>
+    </SpeciesGroupDefinition>
+    <SpeciesGroupDefinition>
+      <SpeciesGroupModificationDate>2021-08-07T09:09:39.017+02:00</SpeciesGroupModificationDate>
+      <SpeciesGroupUserID agency="Other">GRAN#2#APT_2</SpeciesGroupUserID>
+      <SpeciesGroupName>GRAN</SpeciesGroupName>
+      <SpeciesGroupInfo modificationRestricted="false">2</SpeciesGroupInfo>
+      <SpeciesGroupVersion modificationRestricted="false">2</SpeciesGroupVersion>
+      <StemTypeDefinition>
+        <StemTypeCode>0</StemTypeCode>
+        <StemTypeName>STAMSL1</StemTypeName>
+      </StemTypeDefinition>
+      <SpeciesGroupKey>13</SpeciesGroupKey>
+    </SpeciesGroupDefinition>
+    <ProductDefinition>
+      <ProductKey>34</ProductKey>
+      <ClassifiedProductDefinition>
+        <ProductName>Skurt eksport lang</ProductName>
+        <ModificationDate>2014-07-28T11:23:12+02:00</ModificationDate>
+        <ProductInfo modificationRestricted="false">140</ProductInfo>
+        <ProductVersion modificationRestricted="false" />
+        <ProductBuyer>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductBuyer>
+        <LoggingOrganisation>
+          <ContactInformation>
+            <FirstName />
+            <LastName />
+            <Address>
+              <Street />
+              <City />
+              <Province />
+              <Country />
+            </Address>
+            <Phone />
+            <Fax />
+            <Email />
+            <BusinessName />
+            <BusinessID />
+          </ContactInformation>
+        </LoggingOrganisation>
+        <ProductDestination>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductDestination>
+        <ProductGroupName>TIMMER</ProductGroupName>
+        <StemTypeCode>0</StemTypeCode>
+        <ProductUserID agency="Other">GRAN.Skurt eksport lang#140#APT_2.1</ProductUserID>
+        <SpeciesGroupKey>13</SpeciesGroupKey>
+      </ClassifiedProductDefinition>
+    </ProductDefinition>
+    <ProductDefinition>
+      <ProductKey>37</ProductKey>
+      <ClassifiedProductDefinition>
+        <ProductName>Gran mv gran</ProductName>
+        <ModificationDate>2014-07-28T11:23:12+02:00</ModificationDate>
+        <ProductInfo modificationRestricted="false">102</ProductInfo>
+        <ProductVersion modificationRestricted="false" />
+        <ProductBuyer>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductBuyer>
+        <LoggingOrganisation>
+          <ContactInformation>
+            <FirstName />
+            <LastName />
+            <Address>
+              <Street />
+              <City />
+              <Province />
+              <Country />
+            </Address>
+            <Phone />
+            <Fax />
+            <Email />
+            <BusinessName />
+            <BusinessID />
+          </ContactInformation>
+        </LoggingOrganisation>
+        <ProductDestination>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductDestination>
+        <ProductGroupName>MASSA</ProductGroupName>
+        <StemTypeCode>0</StemTypeCode>
+        <ProductUserID agency="Other">GRAN.Gran mv gran#102#APT_2.4</ProductUserID>
+        <SpeciesGroupKey>13</SpeciesGroupKey>
+      </ClassifiedProductDefinition>
+    </ProductDefinition>
+    <ProductDefinition>
+      <ProductKey>35</ProductKey>
+      <ClassifiedProductDefinition>
+        <ProductName>Skurt eksport kort</ProductName>
+        <ModificationDate>2014-07-28T11:23:12+02:00</ModificationDate>
+        <ProductInfo modificationRestricted="false">148</ProductInfo>
+        <ProductVersion modificationRestricted="false" />
+        <ProductBuyer>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductBuyer>
+        <LoggingOrganisation>
+          <ContactInformation>
+            <FirstName />
+            <LastName />
+            <Address>
+              <Street />
+              <City />
+              <Province />
+              <Country />
+            </Address>
+            <Phone />
+            <Fax />
+            <Email />
+            <BusinessName />
+            <BusinessID />
+          </ContactInformation>
+        </LoggingOrganisation>
+        <ProductDestination>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductDestination>
+        <ProductGroupName>TIMMER</ProductGroupName>
+        <StemTypeCode>0</StemTypeCode>
+        <ProductUserID agency="Other">GRAN.Skurt eksport kort#148#APT_2.2</ProductUserID>
+        <SpeciesGroupKey>13</SpeciesGroupKey>
+      </ClassifiedProductDefinition>
+    </ProductDefinition>
+    <ProductDefinition>
+      <ProductKey>33</ProductKey>
+      <ClassifiedProductDefinition>
+        <ProductName>Enbit</ProductName>
+        <ModificationDate>2014-07-28T11:23:12+02:00</ModificationDate>
+        <ProductInfo modificationRestricted="false">202</ProductInfo>
+        <ProductVersion modificationRestricted="false" />
+        <ProductBuyer>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductBuyer>
+        <LoggingOrganisation>
+          <ContactInformation>
+            <FirstName />
+            <LastName />
+            <Address>
+              <Street />
+              <City />
+              <Province />
+              <Country />
+            </Address>
+            <Phone />
+            <Fax />
+            <Email />
+            <BusinessName />
+            <BusinessID />
+          </ContactInformation>
+        </LoggingOrganisation>
+        <ProductDestination>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductDestination>
+        <ProductGroupName>MASSA</ProductGroupName>
+        <StemTypeCode>0</StemTypeCode>
+        <ProductUserID agency="Other">FURU.Enbit#202#APT_1.4</ProductUserID>
+        <SpeciesGroupKey>12</SpeciesGroupKey>
+      </ClassifiedProductDefinition>
+    </ProductDefinition>
+    <ProductDefinition>
+      <ProductKey>38</ProductKey>
+      <ClassifiedProductDefinition>
+        <ProductName>Gran mv energi</ProductName>
+        <ModificationDate>2014-07-28T11:23:12+02:00</ModificationDate>
+        <ProductInfo modificationRestricted="false">110</ProductInfo>
+        <ProductVersion modificationRestricted="false" />
+        <ProductBuyer>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductBuyer>
+        <LoggingOrganisation>
+          <ContactInformation>
+            <FirstName />
+            <LastName />
+            <Address>
+              <Street />
+              <City />
+              <Province />
+              <Country />
+            </Address>
+            <Phone />
+            <Fax />
+            <Email />
+            <BusinessName />
+            <BusinessID />
+          </ContactInformation>
+        </LoggingOrganisation>
+        <ProductDestination>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductDestination>
+        <ProductGroupName>MASSA</ProductGroupName>
+        <StemTypeCode>0</StemTypeCode>
+        <ProductUserID agency="Other">GRAN.Gran mv energi#110#APT_2.5</ProductUserID>
+        <SpeciesGroupKey>13</SpeciesGroupKey>
+      </ClassifiedProductDefinition>
+    </ProductDefinition>
+    <ProductDefinition>
+      <ProductKey>32</ProductKey>
+      <ClassifiedProductDefinition>
+        <ProductName>Furu mv prima</ProductName>
+        <ModificationDate>2014-07-28T11:23:12+02:00</ModificationDate>
+        <ProductInfo modificationRestricted="false">202</ProductInfo>
+        <ProductVersion modificationRestricted="false" />
+        <ProductBuyer>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductBuyer>
+        <LoggingOrganisation>
+          <ContactInformation>
+            <FirstName />
+            <LastName />
+            <Address>
+              <Street />
+              <City />
+              <Province />
+              <Country />
+            </Address>
+            <Phone />
+            <Fax />
+            <Email />
+            <BusinessName />
+            <BusinessID />
+          </ContactInformation>
+        </LoggingOrganisation>
+        <ProductDestination>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ProductDestination>
+        <ProductGroupName>MASSA</ProductGroupName>
+        <StemTypeCode>0</StemTypeCode>
+        <ProductUserID agency="Other">FURU.Furu mv prima#202#APT_1.3</ProductUserID>
+        <SpeciesGroupKey>12</SpeciesGroupKey>
+      </ClassifiedProductDefinition>
+    </ProductDefinition>
+    <ObjectDefinition>
+      <ObjectUserID agency="LoggingOrganisation">60ad31e9-a814-4dbc-a2f4-0efa3c2fe649</ObjectUserID>
+      <ObjectName>Arne Peter Storeng</ObjectName>
+      <ObjectModificationDate>2021-08-07T09:09:38.377+02:00</ObjectModificationDate>
+      <ForestCertification>None</ForestCertification>
+      <LoggingForm>
+        <LoggingFormCode>0</LoggingFormCode>
+        <LoggingFormDescription />
+      </LoggingForm>
+      <LoggingOrganisation>
+        <ContactInformation>
+          <FirstName />
+          <LastName />
+          <Address>
+            <Street />
+            <City />
+            <Province />
+            <Country />
+          </Address>
+          <Phone />
+          <Fax />
+          <Email />
+          <BusinessName />
+          <BusinessID />
+        </ContactInformation>
+        <District />
+        <Team />
+      </LoggingOrganisation>
+      <ForestOwner>
+        <FirstName />
+        <LastName />
+        <Address>
+          <Street />
+          <City />
+          <Province />
+          <Country />
+        </Address>
+        <Phone />
+        <Fax />
+        <Email />
+        <BusinessName>SN</BusinessName>
+        <BusinessID />
+      </ForestOwner>
+      <ContractNumber ContractCategory="">034745</ContractNumber>
+      <RealEstateIDObject agency="LoggingOrganisation">1</RealEstateIDObject>
+      <AuditingOrganisation>
+        <FirstName />
+        <LastName />
+        <Address>
+          <Street />
+          <City />
+          <Province />
+          <Country />
+        </Address>
+        <Phone />
+        <Fax />
+        <Email />
+        <BusinessName />
+        <BusinessID />
+      </AuditingOrganisation>
+      <ObjectKey>3</ObjectKey>
+      <StartDate>2021-08-07T09:04:45.967+02:00</StartDate>
+      <SubObject>
+        <SubObjectUserID agency="Other">95ae993c-73e1-4028-9e99-088e2d3e67d6</SubObjectUserID>
+        <SubObjectName>Rangkattlia1</SubObjectName>
+        <LoggingForm>
+          <LoggingFormCode>0</LoggingFormCode>
+          <LoggingFormDescription>0</LoggingFormDescription>
+        </LoggingForm>
+        <RealEstateIDSubObject />
+        <Extension />
+        <SubObjectKey>3</SubObjectKey>
+      </SubObject>
+    </ObjectDefinition>
+    <LocationDefinition>
+      <LocationUserID>42eabfb5-6c32-4a4b-8a73-61b5ec87b25b</LocationUserID>
+      <LocationName>42eabfb5-6c32-4a4b-8a73-61b5ec87b25b</LocationName>
+      <LocationInfo modificationRestricted="false" />
+      <LocationVersion modificationRestricted="false" />
+      <LocationCoordinates receiverPosition="Base machine position" coordinateReferenceSystem="WGS84">
+        <Latitude latitudeCategory="North">62.3794326</Latitude>
+        <Longitude longitudeCategory="East">7.0666144</Longitude>
+        <Altitude>0</Altitude>
+      </LocationCoordinates>
+      <RoadCondition />
+      <LocationDescription />
+      <LocationKey>2</LocationKey>
+      <ObjectKey>3</ObjectKey>
+    </LocationDefinition>
+    <DeliveryDefinition>
+      <DeliveryUserID>acb5d1dd-2959-4f26-9ac7-a8f6811b611c</DeliveryUserID>
+      <DeliveryName>GRAN.Skurt eksport lang</DeliveryName>
+      <ModificationDate modificationAuthor="895-2 8950022283">2021-10-16T07:19:36.787+02:00</ModificationDate>
+      <DeliveryInfo modificationRestricted="false">140</DeliveryInfo>
+      <DeliveryVersion modificationRestricted="false" />
+      <DeliveryDestination />
+      <Density densityCategory="On bark">800</Density>
+      <DeliveryPresentationOrder>5</DeliveryPresentationOrder>
+      <DeliveryDescription />
+      <DeliveryKey>6</DeliveryKey>
+      <DeliveryEstimation>
+        <DeliveryEstimationMethod>Manual estimation by operator</DeliveryEstimationMethod>
+        <DeliveryEstimationUnit>Volume, m3sob</DeliveryEstimationUnit>
+      </DeliveryEstimation>
+      <ProductKey>34</ProductKey>
+    </DeliveryDefinition>
+    <DeliveryDefinition>
+      <DeliveryUserID>c33d126b-e782-4a38-9d54-9b31eeef6752</DeliveryUserID>
+      <DeliveryName>GRAN.Gran mv gran</DeliveryName>
+      <ModificationDate modificationAuthor="895-2 8950022283">2021-10-16T07:19:36.79+02:00</ModificationDate>
+      <DeliveryInfo modificationRestricted="false">102</DeliveryInfo>
+      <DeliveryVersion modificationRestricted="false" />
+      <DeliveryDestination />
+      <Density densityCategory="On bark">800</Density>
+      <DeliveryPresentationOrder>8</DeliveryPresentationOrder>
+      <DeliveryDescription />
+      <DeliveryKey>9</DeliveryKey>
+      <DeliveryEstimation>
+        <DeliveryEstimationMethod>Manual estimation by operator</DeliveryEstimationMethod>
+        <DeliveryEstimationUnit>Volume, m3sob</DeliveryEstimationUnit>
+      </DeliveryEstimation>
+      <ProductKey>37</ProductKey>
+    </DeliveryDefinition>
+    <DeliveryDefinition>
+      <DeliveryUserID>593efa42-6111-4438-ac00-674343a552ba</DeliveryUserID>
+      <DeliveryName>GRAN.Skurt eksport kort</DeliveryName>
+      <ModificationDate modificationAuthor="895-2 8950022283">2021-10-16T07:19:36.79+02:00</ModificationDate>
+      <DeliveryInfo modificationRestricted="false">148</DeliveryInfo>
+      <DeliveryVersion modificationRestricted="false" />
+      <DeliveryDestination />
+      <Density densityCategory="On bark">800</Density>
+      <DeliveryPresentationOrder>6</DeliveryPresentationOrder>
+      <DeliveryDescription />
+      <DeliveryKey>7</DeliveryKey>
+      <DeliveryEstimation>
+        <DeliveryEstimationMethod>Manual estimation by operator</DeliveryEstimationMethod>
+        <DeliveryEstimationUnit>Volume, m3sob</DeliveryEstimationUnit>
+      </DeliveryEstimation>
+      <ProductKey>35</ProductKey>
+    </DeliveryDefinition>
+    <DeliveryDefinition>
+      <DeliveryUserID>5c3db94e-9e00-4665-9d64-811d3c9997c6</DeliveryUserID>
+      <DeliveryName>FURU.Enbit</DeliveryName>
+      <ModificationDate modificationAuthor="895-2 8950022283">2021-10-16T07:19:36.783+02:00</ModificationDate>
+      <DeliveryInfo modificationRestricted="false">202</DeliveryInfo>
+      <DeliveryVersion modificationRestricted="false" />
+      <DeliveryDestination />
+      <Density densityCategory="On bark">800</Density>
+      <DeliveryPresentationOrder>4</DeliveryPresentationOrder>
+      <DeliveryDescription />
+      <DeliveryKey>5</DeliveryKey>
+      <DeliveryEstimation>
+        <DeliveryEstimationMethod>Manual estimation by operator</DeliveryEstimationMethod>
+        <DeliveryEstimationUnit>Volume, m3sob</DeliveryEstimationUnit>
+      </DeliveryEstimation>
+      <ProductKey>33</ProductKey>
+    </DeliveryDefinition>
+    <DeliveryDefinition>
+      <DeliveryUserID>bf7b83e5-ef6d-472c-a68b-fe4cccbe06d2</DeliveryUserID>
+      <DeliveryName>GRAN.Gran mv energi</DeliveryName>
+      <ModificationDate modificationAuthor="895-2 8950022283">2021-10-16T07:19:36.793+02:00</ModificationDate>
+      <DeliveryInfo modificationRestricted="false">110</DeliveryInfo>
+      <DeliveryVersion modificationRestricted="false" />
+      <DeliveryDestination />
+      <Density densityCategory="On bark">800</Density>
+      <DeliveryPresentationOrder>9</DeliveryPresentationOrder>
+      <DeliveryDescription />
+      <DeliveryKey>10</DeliveryKey>
+      <DeliveryEstimation>
+        <DeliveryEstimationMethod>Manual estimation by operator</DeliveryEstimationMethod>
+        <DeliveryEstimationUnit>Volume, m3sob</DeliveryEstimationUnit>
+      </DeliveryEstimation>
+      <ProductKey>38</ProductKey>
+    </DeliveryDefinition>
+    <DeliveryDefinition>
+      <DeliveryUserID>862a7624-664e-4874-94ab-e2332fe4c20d</DeliveryUserID>
+      <DeliveryName>FURU.Furu mv prima</DeliveryName>
+      <ModificationDate modificationAuthor="895-2 8950022283">2021-10-16T07:19:36.76+02:00</ModificationDate>
+      <DeliveryInfo modificationRestricted="false">202</DeliveryInfo>
+      <DeliveryVersion modificationRestricted="false" />
+      <DeliveryDestination />
+      <Density densityCategory="On bark">800</Density>
+      <DeliveryPresentationOrder>3</DeliveryPresentationOrder>
+      <DeliveryDescription />
+      <DeliveryKey>4</DeliveryKey>
+      <DeliveryEstimation>
+        <DeliveryEstimationMethod>Manual estimation by operator</DeliveryEstimationMethod>
+        <DeliveryEstimationUnit>Volume, m3sob</DeliveryEstimationUnit>
+      </DeliveryEstimation>
+      <ProductKey>32</ProductKey>
+    </DeliveryDefinition>
+    <Load>
+      <LoadKey>1</LoadKey>
+      <OperatorKey>3</OperatorKey>
+      <LoadNumber>1</LoadNumber>
+      <DistanceFromLastUnloading>921</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-07T11:30:36.9+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>47</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>2</LoadKey>
+      <OperatorKey>3</OperatorKey>
+      <LoadNumber>2</LoadNumber>
+      <DistanceFromLastUnloading>2714</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-07T16:49:25.28+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>2</PartialLoadKey>
+        <DeliveryKey>9</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">14400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>48</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>3</LoadKey>
+      <OperatorKey>3</OperatorKey>
+      <LoadNumber>3</LoadNumber>
+      <DistanceFromLastUnloading>820</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-07T17:29:59.453+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>3</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">21</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>48</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>4</LoadKey>
+      <OperatorKey>3</OperatorKey>
+      <LoadNumber>4</LoadNumber>
+      <DistanceFromLastUnloading>846</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-07T18:02:59.21+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>4</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>49</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>6</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>5</LoadNumber>
+      <DistanceFromLastUnloading>6064</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-19T19:55:21.557+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>6</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">60</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">48000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>100</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>7</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>6</LoadNumber>
+      <DistanceFromLastUnloading>256</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-19T20:55:29.047+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>7</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>100</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>8</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>7</LoadNumber>
+      <DistanceFromLastUnloading>302</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-19T21:44:59.05+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>8</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>100</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>9</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>8</LoadNumber>
+      <DistanceFromLastUnloading>228</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-19T22:56:42.473+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>9</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>100</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>10</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>9</LoadNumber>
+      <DistanceFromLastUnloading>3066</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-24T19:30:11.577+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>10</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">15</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>119</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>11</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>10</LoadNumber>
+      <DistanceFromLastUnloading>3232</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-25T19:48:10.97+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>11</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">12</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">9600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>12</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">3</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">2400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>125</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>12</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>11</LoadNumber>
+      <DistanceFromLastUnloading>840</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-25T21:03:19.407+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>13</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>125</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>13</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>12</LoadNumber>
+      <DistanceFromLastUnloading>784</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-25T22:31:09.607+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>14</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>126</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>14</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>13</LoadNumber>
+      <DistanceFromLastUnloading>1617</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-30T11:36:08.803+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>15</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">40</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">32000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>142</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>15</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>14</LoadNumber>
+      <DistanceFromLastUnloading>1038</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-30T13:14:33.543+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>16</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>142</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>16</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>15</LoadNumber>
+      <DistanceFromLastUnloading>773</DistanceFromLastUnloading>
+      <UnloadingTime>2021-08-30T14:27:10.927+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>17</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>143</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>85</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>16</LoadNumber>
+      <DistanceFromLastUnloading>1052</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-16T08:41:43.813+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>105</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1356</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>86</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>17</LoadNumber>
+      <DistanceFromLastUnloading>1221</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-16T10:07:31.77+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>106</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1356</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>87</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>18</LoadNumber>
+      <DistanceFromLastUnloading>927</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-16T11:22:46.34+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>107</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1357</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>88</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>19</LoadNumber>
+      <DistanceFromLastUnloading>1123</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-16T13:26:24.773+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>108</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1357</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>89</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>20</LoadNumber>
+      <DistanceFromLastUnloading>858</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-16T14:30:40.633+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>109</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1357</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>90</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>21</LoadNumber>
+      <DistanceFromLastUnloading>896</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-16T15:29:41.927+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>110</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1358</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>91</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>22</LoadNumber>
+      <DistanceFromLastUnloading>860</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-16T16:35:54.873+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>111</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1362</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>92</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>23</LoadNumber>
+      <DistanceFromLastUnloading>1033</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-16T17:24:40.627+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>112</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1362</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>93</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>24</LoadNumber>
+      <DistanceFromLastUnloading>752</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-16T17:57:11.203+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>113</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1362</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>94</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>25</LoadNumber>
+      <DistanceFromLastUnloading>1364</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-18T10:32:11.003+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>114</PartialLoadKey>
+        <DeliveryKey>9</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">14400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1365</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>95</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>26</LoadNumber>
+      <DistanceFromLastUnloading>1020</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-18T11:48:54.177+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>115</PartialLoadKey>
+        <DeliveryKey>9</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">14400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1365</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>96</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>27</LoadNumber>
+      <DistanceFromLastUnloading>1075</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-18T13:28:17.957+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>116</PartialLoadKey>
+        <DeliveryKey>10</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">1</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">800</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>117</PartialLoadKey>
+        <DeliveryKey>9</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">16</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1366</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>97</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>28</LoadNumber>
+      <DistanceFromLastUnloading>1027</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-18T15:59:14.16+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>118</PartialLoadKey>
+        <DeliveryKey>9</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">14400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1366</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>98</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>29</LoadNumber>
+      <DistanceFromLastUnloading>1251</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-18T17:15:25.61+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>119</PartialLoadKey>
+        <DeliveryKey>10</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">2</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">1600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>120</PartialLoadKey>
+        <DeliveryKey>9</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">8</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">6400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1367</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>99</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>30</LoadNumber>
+      <DistanceFromLastUnloading>1066</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-18T17:57:15.097+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>121</PartialLoadKey>
+        <DeliveryKey>10</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">6</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1367</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>100</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>31</LoadNumber>
+      <DistanceFromLastUnloading>1010</DistanceFromLastUnloading>
+      <UnloadingTime>2021-10-18T18:34:26.9+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>122</PartialLoadKey>
+        <DeliveryKey>9</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">8</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">6400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>1367</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1233</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>32</LoadNumber>
+      <DistanceFromLastUnloading>29</DistanceFromLastUnloading>
+      <UnloadingTime>2022-01-31T16:26:49.763+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1285</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">14400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2728</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1234</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>33</LoadNumber>
+      <DistanceFromLastUnloading>1411</DistanceFromLastUnloading>
+      <UnloadingTime>2022-01-31T17:47:05.023+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1286</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">14400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2728</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1235</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>34</LoadNumber>
+      <DistanceFromLastUnloading>1979</DistanceFromLastUnloading>
+      <UnloadingTime>2022-01-31T19:28:14.657+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1287</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">14400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2728</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1236</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>35</LoadNumber>
+      <DistanceFromLastUnloading>694</DistanceFromLastUnloading>
+      <UnloadingTime>2022-01-31T20:32:20.62+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1288</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">15</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2729</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1237</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>36</LoadNumber>
+      <DistanceFromLastUnloading>1158</DistanceFromLastUnloading>
+      <UnloadingTime>2022-01-31T21:41:25.65+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1289</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">3</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">2400</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1290</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">15</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2729</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1238</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>37</LoadNumber>
+      <DistanceFromLastUnloading>1264</DistanceFromLastUnloading>
+      <UnloadingTime>2022-01-31T23:17:19.923+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1291</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">15</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12000</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1292</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">3</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">2400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2729</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1239</LoadKey>
+      <OperatorKey>5</OperatorKey>
+      <LoadNumber>38</LoadNumber>
+      <DistanceFromLastUnloading>8677</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-01T16:37:20.687+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1293</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">14400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2733</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1240</LoadKey>
+      <OperatorKey>5</OperatorKey>
+      <LoadNumber>39</LoadNumber>
+      <DistanceFromLastUnloading>1111</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-01T17:54:30.05+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1294</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">10</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">8000</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1295</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">4</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">3200</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1296</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">1</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2733</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1241</LoadKey>
+      <OperatorKey>5</OperatorKey>
+      <LoadNumber>40</LoadNumber>
+      <DistanceFromLastUnloading>996</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-01T19:22:17.813+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1297</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">13</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">10400</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1298</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">3</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">2400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2735</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1242</LoadKey>
+      <OperatorKey>5</OperatorKey>
+      <LoadNumber>41</LoadNumber>
+      <DistanceFromLastUnloading>1422</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-01T20:57:17.127+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1299</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">14400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2736</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1243</LoadKey>
+      <OperatorKey>5</OperatorKey>
+      <LoadNumber>42</LoadNumber>
+      <DistanceFromLastUnloading>1390</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-01T22:17:49.99+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1300</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">17</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">13600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1301</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">1</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2736</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1244</LoadKey>
+      <OperatorKey>5</OperatorKey>
+      <LoadNumber>43</LoadNumber>
+      <DistanceFromLastUnloading>1542</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-02T00:06:35.317+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1302</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">10</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">8000</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1303</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">6</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2738</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1245</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>44</LoadNumber>
+      <DistanceFromLastUnloading>9199</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-02T16:40:37.933+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1304</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">1</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">800</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1305</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">17</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">13600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2747</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1246</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>45</LoadNumber>
+      <DistanceFromLastUnloading>1248</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-02T18:03:41.74+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1306</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">13</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">10400</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1307</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">5</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2747</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1247</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>46</LoadNumber>
+      <DistanceFromLastUnloading>1149</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-02T19:40:48.163+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1308</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">14</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">11200</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1309</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">1</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2748</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1248</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>47</LoadNumber>
+      <DistanceFromLastUnloading>949</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-02T21:07:17.497+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1310</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2748</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1249</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>48</LoadNumber>
+      <DistanceFromLastUnloading>1621</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-02T22:48:13.62+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1311</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">5</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4000</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1312</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">8</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">6400</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1313</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">2</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">1600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2748</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1250</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>49</LoadNumber>
+      <DistanceFromLastUnloading>698</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-03T00:44:56.7+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1314</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2750</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1251</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>50</LoadNumber>
+      <DistanceFromLastUnloading>6634</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-03T15:35:14.907+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1315</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2758</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1252</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>51</LoadNumber>
+      <DistanceFromLastUnloading>734</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-03T16:43:26.793+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1316</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">15</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12000</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1317</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">3</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">2400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2758</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1253</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>52</LoadNumber>
+      <DistanceFromLastUnloading>513</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-03T18:00:07.78+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1318</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2758</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1254</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>53</LoadNumber>
+      <DistanceFromLastUnloading>733</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-03T19:45:48.833+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1319</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">8</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">6400</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1320</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">10</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">8000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2759</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1255</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>54</LoadNumber>
+      <DistanceFromLastUnloading>407</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-03T20:55:19.603+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1321</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2759</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1256</LoadKey>
+      <OperatorKey>6</OperatorKey>
+      <LoadNumber>55</LoadNumber>
+      <DistanceFromLastUnloading>655</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-03T22:19:12.043+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1322</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">1</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">800</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1323</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">2</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">1600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1324</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">12</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">9600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1325</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">3</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">2400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2759</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1257</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>56</LoadNumber>
+      <DistanceFromLastUnloading>2111</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-17T14:20:19.757+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1326</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">23</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">18400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2771</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1258</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>57</LoadNumber>
+      <DistanceFromLastUnloading>604</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-17T15:17:45.18+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1327</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">16</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12800</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1328</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">4</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">3200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2771</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1259</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>58</LoadNumber>
+      <DistanceFromLastUnloading>421</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-17T16:08:20.23+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1329</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">19</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">15200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2771</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1260</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>59</LoadNumber>
+      <DistanceFromLastUnloading>344</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-17T16:38:00.537+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1330</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">6</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2773</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1261</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>60</LoadNumber>
+      <DistanceFromLastUnloading>593</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-17T17:26:40.507+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1331</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">17</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">13600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2774</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1262</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>61</LoadNumber>
+      <DistanceFromLastUnloading>1486</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-17T18:59:23.217+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1332</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">13</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">10400</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1333</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">5</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2774</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1263</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>62</LoadNumber>
+      <DistanceFromLastUnloading>605</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-17T19:58:04.55+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1334</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">6</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4800</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1335</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">4</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">3200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2774</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1264</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>63</LoadNumber>
+      <DistanceFromLastUnloading>4131</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-23T15:53:23.377+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1336</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">14</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">11200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2796</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1265</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>64</LoadNumber>
+      <DistanceFromLastUnloading>311</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-23T16:27:38.967+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1337</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">10</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">8000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2796</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1266</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>65</LoadNumber>
+      <DistanceFromLastUnloading>495</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-23T17:29:03.973+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1338</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">15</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2796</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1267</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>66</LoadNumber>
+      <DistanceFromLastUnloading>274</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-23T17:59:38.38+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1339</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">14</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">11200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2796</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1268</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>67</LoadNumber>
+      <DistanceFromLastUnloading>302</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-23T18:38:32.397+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1340</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">17</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">13600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2796</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1269</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>68</LoadNumber>
+      <DistanceFromLastUnloading>172</DistanceFromLastUnloading>
+      <UnloadingTime>2022-02-23T19:09:04.54+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1341</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">3</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">2400</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1342</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">4</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">3200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2796</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1270</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>69</LoadNumber>
+      <DistanceFromLastUnloading>1402</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-01T18:59:15.29+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1343</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">7</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">5600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1344</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">2</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">1600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1345</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">12</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">9600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1346</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">5</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2820</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1271</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>70</LoadNumber>
+      <DistanceFromLastUnloading>27</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-01T19:13:01.087+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1347</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">2</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">1600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1348</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">15</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2820</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1272</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>71</LoadNumber>
+      <DistanceFromLastUnloading>288</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-01T19:46:30.537+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1349</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">8</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">6400</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1350</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">4</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">3200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2820</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1273</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>72</LoadNumber>
+      <DistanceFromLastUnloading>147</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-01T19:52:32.077+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1351</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">3</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">2400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2820</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1274</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>73</LoadNumber>
+      <DistanceFromLastUnloading>3455</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-10T16:09:32.087+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1352</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">15</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2851</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1275</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>74</LoadNumber>
+      <DistanceFromLastUnloading>581</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-10T17:03:39.48+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1353</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">17</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">13600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2851</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1276</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>75</LoadNumber>
+      <DistanceFromLastUnloading>611</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-10T17:50:20.523+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1354</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">17</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">13600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2851</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1277</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>76</LoadNumber>
+      <DistanceFromLastUnloading>718</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-10T18:43:07.6+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1355</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">15</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2851</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1278</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>77</LoadNumber>
+      <DistanceFromLastUnloading>704</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-10T20:02:36.917+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1356</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">5</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4000</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1357</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">11</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">8800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2852</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1279</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>78</LoadNumber>
+      <DistanceFromLastUnloading>708</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-10T20:51:38.523+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1358</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">12</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">9600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2852</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1280</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>79</LoadNumber>
+      <DistanceFromLastUnloading>765</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-10T21:43:27.143+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1359</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">17</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">13600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2852</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1281</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>80</LoadNumber>
+      <DistanceFromLastUnloading>517</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-10T22:31:38.053+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1360</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">16</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2852</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1282</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>81</LoadNumber>
+      <DistanceFromLastUnloading>397</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-10T23:14:38.473+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1361</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">15</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2852</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1283</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>82</LoadNumber>
+      <DistanceFromLastUnloading>4366</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-11T13:26:23.217+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1362</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">5</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4000</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1363</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">7</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">5600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2857</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1284</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>83</LoadNumber>
+      <DistanceFromLastUnloading>355</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-11T14:17:38.613+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1364</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">17</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">13600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2858</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1285</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>84</LoadNumber>
+      <DistanceFromLastUnloading>547</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-11T15:07:12.533+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1365</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">2</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">1600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1366</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">10</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">8000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2858</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1286</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>85</LoadNumber>
+      <DistanceFromLastUnloading>938</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-11T16:20:47.103+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1367</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">4</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">3200</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1368</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">9</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">7200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2858</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1287</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>86</LoadNumber>
+      <DistanceFromLastUnloading>191</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-11T16:47:40.933+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1369</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">7</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">5600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1370</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">1</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2858</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1288</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>87</LoadNumber>
+      <DistanceFromLastUnloading>2880</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-21T16:14:32.663+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1371</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">19</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">15200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2881</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1289</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>88</LoadNumber>
+      <DistanceFromLastUnloading>447</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-21T16:59:20.517+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1372</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">16</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2881</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1290</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>89</LoadNumber>
+      <DistanceFromLastUnloading>431</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-21T17:41:12.12+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1373</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">16</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2882</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1291</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>90</LoadNumber>
+      <DistanceFromLastUnloading>645</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-21T18:51:30.29+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1374</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">16</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2884</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1292</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>91</LoadNumber>
+      <DistanceFromLastUnloading>391</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-21T19:38:40.407+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1375</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">16</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2884</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1293</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>92</LoadNumber>
+      <DistanceFromLastUnloading>464</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-21T20:27:21.04+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1376</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">16</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">12800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2884</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1294</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>93</LoadNumber>
+      <DistanceFromLastUnloading>519</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-21T21:30:34.347+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1377</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">5</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4000</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1378</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">8</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">6400</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1379</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">1</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2884</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1295</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>94</LoadNumber>
+      <DistanceFromLastUnloading>484</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-21T22:12:59.233+01:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1380</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">5</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2885</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1296</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>95</LoadNumber>
+      <DistanceFromLastUnloading>6301</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-30T19:30:38.92+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1381</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2909</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1297</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>96</LoadNumber>
+      <DistanceFromLastUnloading>0</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-30T19:30:46.383+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1382</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2910</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1298</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>97</LoadNumber>
+      <DistanceFromLastUnloading>0</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-30T19:30:51.623+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1383</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2910</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1299</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>98</LoadNumber>
+      <DistanceFromLastUnloading>6318</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-31T18:28:30.05+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1384</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2915</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1300</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>99</LoadNumber>
+      <DistanceFromLastUnloading>0</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-31T18:28:36.217+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1385</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">19</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">15200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2915</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1301</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>100</LoadNumber>
+      <DistanceFromLastUnloading>705</DistanceFromLastUnloading>
+      <UnloadingTime>2022-03-31T19:53:44.917+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1386</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">4</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">3200</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1387</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">4</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">3200</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1388</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">5</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4000</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1389</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">2</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">1600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2916</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1302</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>101</LoadNumber>
+      <DistanceFromLastUnloading>4413</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-01T16:34:05.127+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1390</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">60</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">48000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2921</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1303</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>102</LoadNumber>
+      <DistanceFromLastUnloading>0</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-01T16:34:12.3+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1391</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">17</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">13600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2921</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1304</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>103</LoadNumber>
+      <DistanceFromLastUnloading>467</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-01T17:24:38.203+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1392</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">2</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">1600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1393</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">6</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2923</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1305</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>104</LoadNumber>
+      <DistanceFromLastUnloading>2872</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-04T16:20:15.723+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1394</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">7</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">5600</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1395</PartialLoadKey>
+        <DeliveryKey>4</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">4</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">3200</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1396</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">4</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">3200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2927</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1306</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>105</LoadNumber>
+      <DistanceFromLastUnloading>593</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-04T17:41:09.487+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1397</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">5</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">4000</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1398</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">13</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">10400</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2928</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1307</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>106</LoadNumber>
+      <DistanceFromLastUnloading>624</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-04T19:48:54.087+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1399</PartialLoadKey>
+        <DeliveryKey>5</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2928</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1308</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>107</LoadNumber>
+      <DistanceFromLastUnloading>500</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-04T20:32:21.54+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1400</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2928</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1309</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>108</LoadNumber>
+      <DistanceFromLastUnloading>388</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-04T21:12:58.3+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1401</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2929</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1310</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>109</LoadNumber>
+      <DistanceFromLastUnloading>564</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-04T22:06:08.37+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1402</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">17</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">13600</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2929</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1311</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>110</LoadNumber>
+      <DistanceFromLastUnloading>1141</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-05T18:45:27.897+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1403</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2937</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1312</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>111</LoadNumber>
+      <DistanceFromLastUnloading>0</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-05T18:45:45.72+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1404</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">14</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">11200</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1405</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">4</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">3200</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2937</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1313</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>112</LoadNumber>
+      <DistanceFromLastUnloading>460</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-05T19:54:18.623+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1406</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">19</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">15200</LoadGreenMass>
+      </PartialLoad>
+      <PartialLoad>
+        <PartialLoadKey>1407</PartialLoadKey>
+        <DeliveryKey>7</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">1</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">800</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2937</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1314</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>113</LoadNumber>
+      <DistanceFromLastUnloading>515</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-05T20:50:29.23+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1408</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2938</SessionId>
+      </Extension>
+    </Load>
+    <Load>
+      <LoadKey>1315</LoadKey>
+      <OperatorKey>4</OperatorKey>
+      <LoadNumber>114</LoadNumber>
+      <DistanceFromLastUnloading>280</DistanceFromLastUnloading>
+      <UnloadingTime>2022-04-05T21:30:25.493+02:00</UnloadingTime>
+      <PartialLoad>
+        <PartialLoadKey>1409</PartialLoadKey>
+        <DeliveryKey>6</DeliveryKey>
+        <LocationKey>2</LocationKey>
+        <LoadVolume loadVolumeCategory="Volume, m3sob">20</LoadVolume>
+        <LoadGreenMass loadGreenMassMethod="Unloading">16000</LoadGreenMass>
+      </PartialLoad>
+      <Extension>
+        <SessionId>2938</SessionId>
+      </Extension>
+    </Load>
+  </Machine>
+</ForwardedProduction>

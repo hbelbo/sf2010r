@@ -1,6 +1,6 @@
 
 
-#' Make a character vector of children values
+#' Make a named character vector of children values
 #' @description This function takes a xml node and return a
 #' named character vector, where the names are the child node names
 #' and the values are the node values.
@@ -17,17 +17,67 @@
 #' xml_childs_nchr(x[[1]]) # The function returns a named vector
 #' x %>% purrr::map_dfr( ~ xml_childs_nchr(.x))  # Converted to tibble
 xml_childs_nchr <- function(y) {
-  #  y <- x2[[2]]
-  node_attrs <- xml2::xml_attrs(y )
+  #  y <- x2[[1]]
+  # y <- x
+  #node_attrs <- xml2::xml_attrs(y )
   childrens <- xml2::xml_children(y)
   childrens <- childrens %>% purrr::keep(~ xml2::xml_length(.x)<1)
-  child_attrs <- xml2::xml_attrs(childrens)
-  #childrens <- childrens %>% keep( ~ length(xml2::xml_attrs(.x)) <1)
   child_names <- xml2::xml_name(childrens)
   child_vals <- xml2::xml_text(childrens)
 
-  result <-child_vals %>%  stats::setNames( nm = unlist(child_names))
+
+
+  result <-child_vals %>% stats::setNames( nm = unlist(child_names))
   return(result)
+}
+
+
+
+#' Make a data table of node children values and corresponding attribute values
+#' @description This function takes a xml node and return a
+#' data.table dataframe, where the names are the child node names
+#' and the values are the node values.
+#' Attributes and attribute values are included.
+#' @param y a list xml_node with some children nodes
+#'
+#' @return a data table
+#' @export
+#'
+#' @examples
+#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' doc <- xml2::read_xml(hprfiles[1])
+#' x <- xml2::xml_children(doc)[2] # Get one node of doc, the first is normally a header
+#' xml_childs_dt(x[[1]]) # The function returns a data.table
+#' x <- xml2::xml_children(x)
+#' xml_childs_dt(x[[27]])
+#'  x <- xml2::xml_children(x[[27]])
+#' xml_childs_dt(x)
+#' x %>% purrr::map_dfr( ~ xml_childs_dt(.x))  # Converted to tibble
+xml_childs_dt <- function(y) {
+  #  y <- x2[[1]]
+  # y <- x
+  node_attrs <- xml2::xml_attrs(y )
+  childrens <- xml2::xml_children(y)
+  childrens <- childrens %>% purrr::keep(~ xml2::xml_length(.x)<1)
+  child_names <- xml2::xml_name(childrens)
+
+  child_attrs <- xml2::xml_attrs(childrens)
+  #child_attrs <- unlist(lapply(child_attrs, function(x) ifelse(length(x)>0, x, NA_character_)))
+  child_attrs <- unlist(lapply(child_attrs, function(x) ifelse(length(x)>0, paste0(names(x)," ", x), NA_character_)))
+
+  if(sum(!is.na(child_attrs))>0){
+    child_dt <-
+      data.table::data.table(cild_name =  child_names,
+                             attrs = child_attrs,
+                             child_vals = xml2::xml_text(childrens))
+  } else {
+    child_dt <-
+      data.table::data.table(cild_name =  child_names,
+                             child_vals = xml2::xml_text(childrens))
+  }
+
+
+  return(child_dt)
 }
 
 
@@ -60,7 +110,7 @@ getMachineReportHeader <- function(doc){
   # ..Machine info
   nodes <-  xml2::xml_find_all(doc,  "./d1:Machine")
   basemachinedata <- dplyr::bind_rows(nodes %>% xml_childs_nchr()) %>%
-    mutate(MachineCategory = xml2::xml_attr(nodes, attr = "machineCategory"))
+    dplyr::mutate(MachineCategory = xml2::xml_attr(nodes, attr = "machineCategory"))
 
 
   # ..Contractor info

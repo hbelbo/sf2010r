@@ -10,10 +10,15 @@ getStemsAndLogs(doc)
 \item{doc}{a StanFord2010 .hpr document}
 }
 \value{
-a list
+a list with five data frames.
 }
 \description{
-Fetch all stems and all logs in hpr
+the function returns a list with five data frames;
+stems is all the stems
+stplogs is all single tree processed logs
+mtplogs is all multi tree processed logs
+stemgrades is the grades of all stems
+stemdias is the diameter vector for the stem.
 }
 \examples{
 hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)

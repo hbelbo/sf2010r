@@ -1,0 +1,3785 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OperationalMonitoring xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="urn:skogforsk:stanford2010 OperationalMonitoring_V3p1.xsd" messageType="mom" areaUnit="ha" diameterUnit="mm" lengthUnit="cm" volumeUnit="m3" weightUnit="kg" version="3.1" versionDate="0001-01-01" xmlns="urn:skogforsk:stanford2010">
+	<OperationalMonitoringHeader>
+		<CreationDate>2018-06-28T00:47:41+02:00</CreationDate>
+		<ModificationDate>2018-06-28T00:47:41+02:00</ModificationDate>
+		<ApplicationVersionCreated>Opti4G 4.743, Date 20180412</ApplicationVersionCreated>
+		<ApplicationVersionModified>Opti4G 4.743, Date 20180412</ApplicationVersionModified>
+		<CountryCode>233</CountryCode>
+	</OperationalMonitoringHeader>
+	<Machine machineCategory="Forwarder">
+		<MachineKey>9df18d6af008ebed4d5e51fc3bb08f25</MachineKey>
+		<MachineUserID agency="LoggingOrganisation">A150007_BUFFALO2</MachineUserID>
+		<MachineOwnerID>A150007_BUFFALO2</MachineOwnerID>
+		<MachineApplicationVersion>Opti4G 4.743, Date 20180412</MachineApplicationVersion>
+		<MachineBaseManufacturer>PONSSE</MachineBaseManufacturer>
+		<MachineBaseModel>Buffalo 2015</MachineBaseModel>
+		<MachineOwner>
+			<BusinessName>Yrk Tmbers</BusinessName>
+			<BusinessID>Yrk Tmbers</BusinessID>
+		</MachineOwner>
+		<LoggingContractor>
+			<FirstName>Yrk Timbers</FirstName>
+			<LastName>Yrk Timbers</LastName>
+			<BusinessID>Yrk Timbers</BusinessID>
+		</LoggingContractor>
+		<OperatorDefinition>
+			<OperatorKey>1</OperatorKey>
+			<OperatorUserID agency="LoggingContractor">5</OperatorUserID>
+			<ContactInformation>
+				<FirstName>Mfanzile</FirstName>
+				<LastName>Masuku</LastName>
+				<Email>mfanzile@Yrk.co.za</Email>
+			</ContactInformation>
+		</OperatorDefinition>
+		<OperatorDefinition>
+			<OperatorKey>2</OperatorKey>
+			<OperatorUserID agency="LoggingContractor">6</OperatorUserID>
+			<ContactInformation>
+				<FirstName>Maxwell</FirstName>
+				<LastName>Thwala</LastName>
+				<Email>maxwell@Yrk.zz</Email>
+			</ContactInformation>
+		</OperatorDefinition>
+		<MachineHeadManufacturer>PONSSE</MachineHeadManufacturer>
+		<MachineHeadModel>H6</MachineHeadModel>
+		<ObjectDefinition>
+			<ObjectUserID agency="Other">211120517101135_200618-190157</ObjectUserID>
+			<ObjectName>180620190014</ObjectName>
+			<ObjectModificationDate>2018-06-20T19:02:06+02:00</ObjectModificationDate>
+			<ForestCertification>FSC</ForestCertification>
+			<ContractNumber>090529150308</ContractNumber>
+			<RealEstateIDObject>211120517101135_200618-190157</RealEstateIDObject>
+			<ObjectKey>15</ObjectKey>
+			<StartDate>2018-06-20T21:02:00+02:00</StartDate>
+		</ObjectDefinition>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-20T21:02:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3331</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-20T21:57:39+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>198</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-20T22:00:57+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>5073</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>5073</EngineTime>
+				<DrivenDistance>696</DrivenDistance>
+				<FuelConsumption>17</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-20T23:25:30+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>213</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-20T23:29:03+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3584</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>3584</EngineTime>
+				<DrivenDistance>250</DrivenDistance>
+				<FuelConsumption>11</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T00:28:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>764</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T00:41:31+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>275</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T00:46:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>423</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T00:53:09+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T16:54:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1049</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T17:12:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>14103</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>14103</EngineTime>
+				<DrivenDistance>1527</DrivenDistance>
+				<FuelConsumption>52</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T21:07:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2990</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualUnutilizedTimeCategory>Meal break</IndividualUnutilizedTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T21:57:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>21</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T21:57:33+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>8973</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>8973</EngineTime>
+				<DrivenDistance>1264</DrivenDistance>
+				<FuelConsumption>34</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T00:27:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>260</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T00:31:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>741</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T00:43:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>638</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T00:54:25+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>4</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T16:50:51+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>444</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T16:58:15+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>572</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T17:07:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>714</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T17:19:41+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>6236</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>6236</EngineTime>
+				<DrivenDistance>806</DrivenDistance>
+				<FuelConsumption>23</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T19:03:37+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>229</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T19:07:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>674</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>674</EngineTime>
+				<DrivenDistance>97</DrivenDistance>
+				<FuelConsumption>1</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T19:18:40+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>107</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T19:20:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1147</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1147</EngineTime>
+				<DrivenDistance>42</DrivenDistance>
+				<FuelConsumption>4</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T19:39:34+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>276</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T19:44:10+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1712</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1712</EngineTime>
+				<DrivenDistance>148</DrivenDistance>
+				<FuelConsumption>6</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T20:12:42+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>138</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T20:15:00+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1407</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1407</EngineTime>
+				<DrivenDistance>221</DrivenDistance>
+				<FuelConsumption>5</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T20:38:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T20:41:15+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1531</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1531</EngineTime>
+				<DrivenDistance>175</DrivenDistance>
+				<FuelConsumption>6</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T21:06:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2998</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T21:56:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>508</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T22:05:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>566</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>566</EngineTime>
+				<DrivenDistance>17</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T22:14:38+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>214</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T22:18:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>994</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>994</EngineTime>
+				<DrivenDistance>73</DrivenDistance>
+				<FuelConsumption>4</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T22:34:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>244</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T22:38:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1242</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1242</EngineTime>
+				<DrivenDistance>19</DrivenDistance>
+				<FuelConsumption>3</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T22:59:32+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>214</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T23:03:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>980</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>980</EngineTime>
+				<DrivenDistance>57</DrivenDistance>
+				<FuelConsumption>3</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T23:19:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>260</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T23:23:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2085</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>2085</EngineTime>
+				<DrivenDistance>234</DrivenDistance>
+				<FuelConsumption>7</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T23:58:31+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>153</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-23T00:01:04+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2048</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>2048</EngineTime>
+				<DrivenDistance>659</DrivenDistance>
+				<FuelConsumption>8</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-23T00:35:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>457</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T09:48:34+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>350</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T09:54:24+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>137</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>137</EngineTime>
+				<DrivenDistance>37</DrivenDistance>
+				<FuelConsumption>0</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T09:56:41+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>336</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T10:02:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1269</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1269</EngineTime>
+				<DrivenDistance>157</DrivenDistance>
+				<FuelConsumption>4</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T10:23:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>137</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T10:25:43+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>4052</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>4052</EngineTime>
+				<DrivenDistance>643</DrivenDistance>
+				<FuelConsumption>14</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T11:33:15+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1437</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T11:57:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>381</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T12:03:33+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2096</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>2096</EngineTime>
+				<DrivenDistance>449</DrivenDistance>
+				<FuelConsumption>8</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T12:38:29+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>30</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T12:38:59+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1743</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1743</EngineTime>
+				<DrivenDistance>268</DrivenDistance>
+				<FuelConsumption>8</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T13:08:02+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T13:10:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>576</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T13:20:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>703</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T13:32:09+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>405</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualUnutilizedTimeCategory>Meal break</IndividualUnutilizedTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T13:38:54+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1151</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T13:58:05+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>153</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T14:00:38+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3046</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>3046</EngineTime>
+				<DrivenDistance>500</DrivenDistance>
+				<FuelConsumption>12</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T14:51:24+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>154</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T14:53:58+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2048</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>2048</EngineTime>
+				<DrivenDistance>214</DrivenDistance>
+				<FuelConsumption>8</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T15:28:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>367</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T15:34:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>749</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T15:46:42+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>343</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T08:19:34+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>400</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T08:26:14+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>435</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T08:33:29+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>824</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T08:47:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1193</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1193</EngineTime>
+				<DrivenDistance>89</DrivenDistance>
+				<FuelConsumption>4</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T09:07:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>138</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T09:09:24+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>839</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>839</EngineTime>
+				<DrivenDistance>38</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T09:23:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>365</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T09:29:28+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1528</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1528</EngineTime>
+				<DrivenDistance>279</DrivenDistance>
+				<FuelConsumption>6</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T09:54:56+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>137</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T09:57:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3790</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>3790</EngineTime>
+				<DrivenDistance>499</DrivenDistance>
+				<FuelConsumption>15</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T11:00:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>152</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T11:02:55+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>6982</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>6982</EngineTime>
+				<DrivenDistance>1030</DrivenDistance>
+				<FuelConsumption>27</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T12:59:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2705</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T13:44:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>5562</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>5562</EngineTime>
+				<DrivenDistance>1048</DrivenDistance>
+				<FuelConsumption>21</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T15:17:04+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>198</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T15:20:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>566</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>566</EngineTime>
+				<DrivenDistance>23</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T15:29:48+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>153</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T15:32:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>840</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>840</EngineTime>
+				<DrivenDistance>70</DrivenDistance>
+				<FuelConsumption>4</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T15:46:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>213</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T15:49:54+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>627</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>627</EngineTime>
+				<DrivenDistance>10</DrivenDistance>
+				<FuelConsumption>3</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T16:00:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>328</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T16:05:49+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>544</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T16:14:53+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>315</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T16:20:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>113</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T08:15:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>684</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T08:26:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1558</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T08:52:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>532</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T09:01:36+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>9675</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T11:42:51+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1116</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T12:01:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3745</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T13:03:52+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>352</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T13:09:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>737</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualUnutilizedTimeCategory>Meal break</IndividualUnutilizedTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T13:22:01+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3159</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>3159</EngineTime>
+				<DrivenDistance>347</DrivenDistance>
+				<FuelConsumption>12</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T14:14:40+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>183</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T14:17:43+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1973</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1973</EngineTime>
+				<DrivenDistance>206</DrivenDistance>
+				<FuelConsumption>7</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T14:50:36+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>138</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T14:52:54+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3348</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>3348</EngineTime>
+				<DrivenDistance>449</DrivenDistance>
+				<FuelConsumption>13</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T15:48:42+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>275</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T15:53:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>722</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>1</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T16:05:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>79</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T08:54:58+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>655</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>655</EngineTime>
+				<DrivenDistance>45</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T09:05:53+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>670</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Maintenance>
+					<MaintenanceStandardCode>Other maintenance</MaintenanceStandardCode>
+				</Maintenance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T09:17:03+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>522</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T09:25:45+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>13195</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>13195</EngineTime>
+				<DrivenDistance>1640</DrivenDistance>
+				<FuelConsumption>49</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T13:05:40+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3084</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualUnutilizedTimeCategory>Meal break</IndividualUnutilizedTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T13:57:04+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>5552</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>5552</EngineTime>
+				<DrivenDistance>873</DrivenDistance>
+				<FuelConsumption>21</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T15:29:36+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>706</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-21T15:41:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>474</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T08:38:55+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3635</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T09:39:30+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>336</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>336</EngineTime>
+				<DrivenDistance>0</DrivenDistance>
+				<FuelConsumption>1</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T09:45:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1653</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T10:32:35+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>471</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T10:40:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>826</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T10:54:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1328</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1328</EngineTime>
+				<DrivenDistance>142</DrivenDistance>
+				<FuelConsumption>5</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T11:16:20+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>15</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T11:16:35+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>779</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>779</EngineTime>
+				<DrivenDistance>17</DrivenDistance>
+				<FuelConsumption>3</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T11:29:34+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>290</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T11:34:24+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>5468</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>5468</EngineTime>
+				<DrivenDistance>981</DrivenDistance>
+				<FuelConsumption>21</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T13:05:32+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T13:08:20+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2935</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualUnutilizedTimeCategory>Meal break</IndividualUnutilizedTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T13:57:15+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>306</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>306</EngineTime>
+				<DrivenDistance>40</DrivenDistance>
+				<FuelConsumption>1</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T14:02:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>169</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T14:05:10+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>6493</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>6493</EngineTime>
+				<DrivenDistance>871</DrivenDistance>
+				<FuelConsumption>28</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-22T15:53:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>748</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T17:06:39+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>84</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T17:08:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>6001</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>6001</EngineTime>
+				<DrivenDistance>854</DrivenDistance>
+				<FuelConsumption>20</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T18:48:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>214</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T18:51:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>397</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>397</EngineTime>
+				<DrivenDistance>15</DrivenDistance>
+				<FuelConsumption>1</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T18:58:24+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>170</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T19:01:14+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>963</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>963</EngineTime>
+				<DrivenDistance>128</DrivenDistance>
+				<FuelConsumption>4</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T19:17:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>537</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T19:26:14+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1560</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1560</EngineTime>
+				<DrivenDistance>147</DrivenDistance>
+				<FuelConsumption>6</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T19:52:14+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>306</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T19:57:20+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>336</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>336</EngineTime>
+				<DrivenDistance>8</DrivenDistance>
+				<FuelConsumption>1</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T20:02:56+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>169</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T20:05:45+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3503</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>3503</EngineTime>
+				<DrivenDistance>399</DrivenDistance>
+				<FuelConsumption>12</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T21:04:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>259</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T21:08:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1823</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T21:38:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>520</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>520</EngineTime>
+				<DrivenDistance>16</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T21:47:30+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>445</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T21:54:55+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1375</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1375</EngineTime>
+				<DrivenDistance>103</DrivenDistance>
+				<FuelConsumption>6</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T22:17:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>230</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T22:21:40+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1851</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1851</EngineTime>
+				<DrivenDistance>197</DrivenDistance>
+				<FuelConsumption>8</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T22:52:31+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>260</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-25T22:56:51+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>4373</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>4373</EngineTime>
+				<DrivenDistance>711</DrivenDistance>
+				<FuelConsumption>18</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T00:09:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>245</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T00:13:49+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>597</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>597</EngineTime>
+				<DrivenDistance>51</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T00:23:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>596</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T00:33:42+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>229</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T00:47:25+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>228</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T00:51:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2419</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>2419</EngineTime>
+				<DrivenDistance>163</DrivenDistance>
+				<FuelConsumption>7</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T01:31:32+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>198</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T01:34:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>567</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>567</EngineTime>
+				<DrivenDistance>63</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T01:44:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>416</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Other work</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T01:51:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>8508</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>8508</EngineTime>
+				<DrivenDistance>1107</DrivenDistance>
+				<FuelConsumption>28</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T04:13:01+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>179</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T18:13:38+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>441</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T18:20:59+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>748</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T18:33:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>934</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>934</EngineTime>
+				<DrivenDistance>71</DrivenDistance>
+				<FuelConsumption>3</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T18:49:01+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>137</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T18:51:18+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1682</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1682</EngineTime>
+				<DrivenDistance>175</DrivenDistance>
+				<FuelConsumption>7</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T19:19:20+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1497</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T19:44:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>336</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>336</EngineTime>
+				<DrivenDistance>12</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T19:49:53+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>260</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T19:54:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>596</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>596</EngineTime>
+				<DrivenDistance>4</DrivenDistance>
+				<FuelConsumption>1</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T20:04:09+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>322</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T20:09:31+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>855</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>855</EngineTime>
+				<DrivenDistance>48</DrivenDistance>
+				<FuelConsumption>3</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T20:23:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>276</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T20:28:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>503</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>503</EngineTime>
+				<DrivenDistance>103</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T20:36:45+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>78</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T20:38:03+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1053</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1053</EngineTime>
+				<DrivenDistance>194</DrivenDistance>
+				<FuelConsumption>4</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T20:55:36+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>276</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T21:00:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>596</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>596</EngineTime>
+				<DrivenDistance>32</DrivenDistance>
+				<FuelConsumption>3</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T21:10:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1508</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualUnutilizedTimeCategory>Meal break</IndividualUnutilizedTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T21:35:16+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2353</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>2353</EngineTime>
+				<DrivenDistance>359</DrivenDistance>
+				<FuelConsumption>9</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T22:14:29+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>153</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T22:17:02+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1590</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1590</EngineTime>
+				<DrivenDistance>237</DrivenDistance>
+				<FuelConsumption>6</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T22:43:32+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>275</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-26T22:48:07+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>6830</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>6830</EngineTime>
+				<DrivenDistance>1610</DrivenDistance>
+				<FuelConsumption>27</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T00:41:57+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>184</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T00:45:01+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>624</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T01:48:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>366</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T01:54:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1589</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1589</EngineTime>
+				<DrivenDistance>151</DrivenDistance>
+				<FuelConsumption>6</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T02:20:56+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>672</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T02:32:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>735</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>735</EngineTime>
+				<DrivenDistance>114</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T02:44:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>107</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T02:46:10+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1485</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1485</EngineTime>
+				<DrivenDistance>120</DrivenDistance>
+				<FuelConsumption>4</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T03:10:55+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T03:13:43+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1775</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1775</EngineTime>
+				<DrivenDistance>114</DrivenDistance>
+				<FuelConsumption>5</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T03:43:18+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>137</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T03:45:35+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2049</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>2049</EngineTime>
+				<DrivenDistance>169</DrivenDistance>
+				<FuelConsumption>6</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T04:19:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T04:22:32+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>628</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>628</EngineTime>
+				<DrivenDistance>6</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T04:33:00+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>199</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T04:36:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>5232</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>5232</EngineTime>
+				<DrivenDistance>961</DrivenDistance>
+				<FuelConsumption>18</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T06:03:31+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>198</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T06:06:49+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>413</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>413</EngineTime>
+				<DrivenDistance>67</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T06:13:42+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1301</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T06:35:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1690</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T16:53:41+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>304</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T16:58:45+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>511</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Maintenance>
+					<MaintenanceStandardCode>Other maintenance</MaintenanceStandardCode>
+				</Maintenance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T17:07:16+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>810</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T17:20:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1635</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1635</EngineTime>
+				<DrivenDistance>50</DrivenDistance>
+				<FuelConsumption>5</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T17:48:01+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>138</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T17:50:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>351</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>351</EngineTime>
+				<DrivenDistance>8</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T17:56:10+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>154</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T17:58:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>933</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>933</EngineTime>
+				<DrivenDistance>55</DrivenDistance>
+				<FuelConsumption>4</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T18:14:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T18:17:05+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>521</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T18:25:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>316</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>316</EngineTime>
+				<DrivenDistance>0</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T18:31:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1146</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1146</EngineTime>
+				<DrivenDistance>175</DrivenDistance>
+				<FuelConsumption>4</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T18:50:25+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>213</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T18:53:58+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>261</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>261</EngineTime>
+				<DrivenDistance>3</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T18:58:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T19:01:07+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1638</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1638</EngineTime>
+				<DrivenDistance>127</DrivenDistance>
+				<FuelConsumption>6</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T19:28:25+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>658</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T19:39:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1710</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1710</EngineTime>
+				<DrivenDistance>273</DrivenDistance>
+				<FuelConsumption>6</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T20:07:53+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>689</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T20:19:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2508</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>2508</EngineTime>
+				<DrivenDistance>523</DrivenDistance>
+				<FuelConsumption>10</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T21:01:10+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>138</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T21:03:28+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2342</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T21:42:30+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>917</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>917</EngineTime>
+				<DrivenDistance>62</DrivenDistance>
+				<FuelConsumption>4</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T21:57:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>321</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T22:03:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1484</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>1484</EngineTime>
+				<DrivenDistance>225</DrivenDistance>
+				<FuelConsumption>5</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T22:27:52+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>475</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T22:35:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>505</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>505</EngineTime>
+				<DrivenDistance>207</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T22:44:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>15</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T22:44:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2020</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T23:18:07+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>658</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-27T23:29:05+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3076</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>3076</EngineTime>
+				<DrivenDistance>854</DrivenDistance>
+				<FuelConsumption>12</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-28T00:20:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>352</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineRunTimeCategory>Terrain travel</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-28T00:26:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>566</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<OtherMachineData>
+				<EngineTime>566</EngineTime>
+				<DrivenDistance>331</DrivenDistance>
+				<FuelConsumption>2</FuelConsumption>
+			</OtherMachineData>
+			<IndividualMachineRunTimeCategory>Processing</IndividualMachineRunTimeCategory>
+		</IndividualMachineWorkTime>
+		<IndividualMachineWorkTime>
+			<OperatorKey>2</OperatorKey>
+			<ObjectKey>15</ObjectKey>
+			<MonitoringStartTime>2018-06-28T00:35:39+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>720</MonitoringTimeLength>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+			<IndividualMachineDownTime>
+				<Disturbance>
+					<DisturbanceStandardCode>Miscellaneous / other</DisturbanceStandardCode>
+				</Disturbance>
+			</IndividualMachineDownTime>
+		</IndividualMachineWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-20T21:02:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3331</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-20T21:57:39+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>198</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-20T22:00:57+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>5073</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-20T23:25:30+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>213</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-20T23:29:03+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3584</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-21T00:28:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>764</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-21T00:41:31+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>275</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-21T00:46:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>423</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-21T00:53:09+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-21T16:54:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1049</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-21T17:12:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>14103</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-21T21:07:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2990</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-21T21:57:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>21</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-21T21:57:33+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>8973</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T00:27:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>260</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T00:31:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>741</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T00:43:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>638</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T00:54:25+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>4</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T16:50:51+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>444</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T16:58:15+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>572</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T17:07:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>714</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T17:19:41+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>6236</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T19:03:37+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>229</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T19:07:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>674</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T19:18:40+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>107</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T19:20:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1147</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T19:39:34+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>276</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T19:44:10+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1712</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T20:12:42+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>138</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T20:15:00+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1407</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T20:38:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T20:41:15+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1531</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T21:06:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2998</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T21:56:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>508</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T22:05:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>566</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T22:14:38+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>214</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T22:18:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>994</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T22:34:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>244</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T22:38:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1242</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T22:59:32+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>214</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T23:03:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>980</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T23:19:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>260</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T23:23:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2085</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-22T23:58:31+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>153</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-23T00:01:04+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2048</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-23T00:35:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>457</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T09:48:34+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>350</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T09:54:24+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>137</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T09:56:41+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>336</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T10:02:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1269</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T10:23:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>137</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T10:25:43+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>4052</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T11:33:15+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1437</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T11:57:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>381</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T12:03:33+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2096</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T12:38:29+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>30</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T12:38:59+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1743</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T13:08:02+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T13:10:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>576</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T13:20:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>703</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T13:32:09+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>405</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T13:38:54+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1151</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T13:58:05+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>153</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T14:00:38+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3046</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T14:51:24+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>154</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T14:53:58+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2048</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T15:28:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>367</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T15:34:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>749</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-25T15:46:42+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>343</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T08:19:34+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>400</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T08:26:14+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>435</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T08:33:29+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>824</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T08:47:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1193</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T09:07:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>138</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T09:09:24+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>839</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T09:23:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>365</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T09:29:28+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1528</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T09:54:56+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>137</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T09:57:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3790</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T11:00:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>152</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T11:02:55+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>6982</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T12:59:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2705</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T13:44:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>5562</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T15:17:04+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>198</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T15:20:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>566</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T15:29:48+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>153</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T15:32:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>840</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T15:46:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>213</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T15:49:54+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>627</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T16:00:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>328</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T16:05:49+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>544</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T16:14:53+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>315</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-26T16:20:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>113</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T08:15:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>684</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T08:26:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1558</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T08:52:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>532</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T09:01:36+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>9675</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T11:42:51+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1116</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T12:01:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3745</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T13:03:52+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>352</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T13:09:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>737</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T13:22:01+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3159</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T14:14:40+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>183</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T14:17:43+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1973</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T14:50:36+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>138</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T14:52:54+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3348</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T15:48:42+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>275</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T15:53:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>722</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>1</OperatorKey>
+			<MonitoringStartTime>2018-06-27T16:05:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>79</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-21T08:54:58+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>655</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-21T09:05:53+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>670</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-21T09:17:03+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>522</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-21T09:25:45+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>13195</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-21T13:05:40+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3084</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-21T13:57:04+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>5552</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-21T15:29:36+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>706</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-21T15:41:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>474</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T08:38:55+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3635</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T09:39:30+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>336</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T09:45:06+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1653</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T10:32:35+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>471</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T10:40:26+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>826</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T10:54:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1328</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T11:16:20+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>15</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T11:16:35+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>779</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T11:29:34+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>290</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T11:34:24+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>5468</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T13:05:32+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T13:08:20+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2935</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T13:57:15+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>306</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T14:02:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>169</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T14:05:10+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>6493</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-22T15:53:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>748</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T17:06:39+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>84</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T17:08:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>6001</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T18:48:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>214</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T18:51:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>397</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T18:58:24+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>170</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T19:01:14+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>963</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T19:17:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>537</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T19:26:14+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1560</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T19:52:14+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>306</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T19:57:20+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>336</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T20:02:56+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>169</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T20:05:45+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3503</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T21:04:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>259</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T21:08:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1823</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T21:38:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>520</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T21:47:30+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>445</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T21:54:55+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1375</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T22:17:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>230</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T22:21:40+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1851</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T22:52:31+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>260</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-25T22:56:51+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>4373</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T00:09:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>245</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T00:13:49+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>597</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T00:23:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>596</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T00:33:42+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>229</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T00:47:25+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>228</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T00:51:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2419</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T01:31:32+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>198</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T01:34:50+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>567</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T01:44:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>416</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T01:51:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>8508</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T04:13:01+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>179</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T18:13:38+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>441</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T18:20:59+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>748</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T18:33:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>934</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T18:49:01+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>137</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T18:51:18+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1682</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T19:19:20+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1497</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T19:44:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>336</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T19:49:53+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>260</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T19:54:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>596</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T20:04:09+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>322</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T20:09:31+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>855</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T20:23:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>276</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T20:28:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>503</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T20:36:45+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>78</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T20:38:03+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1053</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T20:55:36+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>276</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T21:00:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>596</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T21:10:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1508</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T21:35:16+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2353</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T22:14:29+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>153</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T22:17:02+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1590</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T22:43:32+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>275</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-26T22:48:07+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>6830</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T00:41:57+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>184</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T00:45:01+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>624</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T01:48:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>366</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T01:54:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1589</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T02:20:56+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>672</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T02:32:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>735</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T02:44:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>107</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T02:46:10+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1485</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T03:10:55+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T03:13:43+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1775</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T03:43:18+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>137</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T03:45:35+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2049</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T04:19:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T04:22:32+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>628</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T04:33:00+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>199</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T04:36:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>5232</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T06:03:31+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>198</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T06:06:49+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>413</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T06:13:42+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1301</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T06:35:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1690</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T16:53:41+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>304</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T16:58:45+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>511</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T17:07:16+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>810</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T17:20:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1635</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T17:48:01+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>138</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T17:50:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>351</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T17:56:10+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>154</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T17:58:44+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>933</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T18:14:17+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T18:17:05+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>521</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T18:25:46+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>316</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T18:31:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1146</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T18:50:25+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>213</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T18:53:58+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>261</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T18:58:19+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>168</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T19:01:07+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1638</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T19:28:25+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>658</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T19:39:23+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1710</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T20:07:53+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>689</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T20:19:22+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2508</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T21:01:10+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>138</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T21:03:28+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2342</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T21:42:30+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>917</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T21:57:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>321</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T22:03:08+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>1484</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T22:27:52+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>475</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T22:35:47+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>505</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T22:44:12+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>15</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T22:44:27+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>2020</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T23:18:07+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>658</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-27T23:29:05+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>3076</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-28T00:20:21+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>352</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-28T00:26:13+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>566</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<OperatorWorkTime OperatorWorkTimeCategory="MachineWorkTime">
+			<OperatorKey>2</OperatorKey>
+			<MonitoringStartTime>2018-06-28T00:35:39+02:00</MonitoringStartTime>
+			<MonitoringTimeLength>720</MonitoringTimeLength>
+		</OperatorWorkTime>
+		<ReportInterval>
+			<ReportStartTime>2018-06-20T21:02:08+02:00</ReportStartTime>
+			<ReportEndTime>2018-06-28T00:47:39+02:00</ReportEndTime>
+			<ReportFilterCategory>No filter</ReportFilterCategory>
+		</ReportInterval>
+		<MonitoringSettings>
+			<MonitoringFilterTimeDown>300</MonitoringFilterTimeDown>
+			<MonitoringFilterTimeRun>120</MonitoringFilterTimeRun>
+			<MonitoringFilterTimeMinimum>15</MonitoringFilterTimeMinimum>
+			<MonitoringSettingsKey>332211</MonitoringSettingsKey>
+		</MonitoringSettings>
+		<MachineEngineTime>349740</MachineEngineTime>
+		<MachineDrivenDistance>6792177</MachineDrivenDistance>
+		<MachineFuelConsumption>79357</MachineFuelConsumption>
+	</Machine>
+</OperationalMonitoring>
+<!-- md5 = 'a2e0c812-a437-c3d8-7f97-fe7b85402e98' -->
