@@ -2,7 +2,7 @@
 % Please edit documentation in R/sf2010_general_functions.R
 \name{xml_childs_nchr}
 \alias{xml_childs_nchr}
-\title{Make a character vector of children values}
+\title{Make a named character vector of children values}
 \usage{
 xml_childs_nchr(y)
 }

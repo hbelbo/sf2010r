@@ -82,6 +82,7 @@ xml_childs_dt <- function(y) {
 
 
 
+
 #' Organize the header data of the StanForD2010 report into a tibble
 #'
 #' @param doc is an xml document
@@ -92,7 +93,6 @@ xml_childs_dt <- function(y) {
 #' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' getMachineReportHeader(doc)
-#' machinerep_h <- getMachineReportHeader(doc)
 getMachineReportHeader <- function(doc){
 
    # .. from the header
@@ -103,9 +103,6 @@ getMachineReportHeader <- function(doc){
     messageheader = xml2::xml_name(doc)) %>%
     dplyr::bind_cols( headerdata) %>%
     dplyr::bind_cols( headerattributes)
-
-
-
 
   # ..Machine info
   nodes <-  xml2::xml_find_all(doc,  "./d1:Machine")

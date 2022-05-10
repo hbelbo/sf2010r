@@ -6,7 +6,6 @@
 #'
 #' @examples
 #' momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
-##' momfiles <- list.files(path = "S:/PaTversAvProsjekter/R_koder/Helmer/R_pkgs/sf2010r/sf2010r/inst/extdata",  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' momfiles_imwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "individual_mwt"))]
 #' doc <- xml2::read_xml(momfiles_imwt[2])
 #' imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
@@ -52,7 +51,6 @@ getMom.imwt.activity <- function(x) {
 #'
 #' @examples
 #' momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
-##' momfiles <- list.files(path = "S:/PaTversAvProsjekter/R_koder/Helmer/R_pkgs/sf2010r/sf2010r/inst/extdata",  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' momfiles_imwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "individual_mwt"))]
 #' doc <- xml2::read_xml(momfiles_imwt[2])
 #' imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
@@ -85,10 +83,8 @@ getMom.imwt.production <- function(x) {
 #'
 #' @examples
 #' momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
-##' momfiles <- list.files(path = "S:/PaTversAvProsjekter/R_koder/Helmer/R_pkgs/sf2010r/sf2010r/inst/extdata",  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' momfiles_cmwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "combined_mwt"))]
-#' doc <- xml2::read_xml(momfiles_cmwt[1])
-#'
+#' doc <- xml2::read_xml(momfiles_cmwt[2])#'
 #' cmwtlist <- xml2::xml_find_all(doc, ".//d1:CombinedMachineWorkTime")
 #' getMom.cmwt.data(cmwtlist[[1]]) %>% dplyr::glimpse()
 #' plyr::ldply(cmwtlist[1:2], getMom.cmwt.data)
@@ -151,10 +147,9 @@ getMom.cmwt.data <- function(x) {
 #' @export
 #'
 #' @examples
-#' momfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
-##' momfiles <- list.files(path = "S:/PaTversAvProsjekter/R_koder/Helmer/R_pkgs/sf2010r/sf2010r/inst/extdata",  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
+#' momfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' momfiles_cmwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "combined_mwt"))]
-#' doc <- xml2::read_xml(momfiles_cmwt[1])
+#' doc <- xml2::read_xml(momfiles_cmwt[2])
 #' getCombined.mwt(doc)
 getCombined.mwt <- function(doc){
 
@@ -166,3 +161,36 @@ getCombined.mwt <- function(doc){
   return(bmatrix)
 }
 
+
+
+
+
+
+#' Tracking data from mom-files#' @param x is a node tree for one Combined machine work time entry
+#'
+#' @param x a xml_node with TrackingCoordinates nodes
+#' @export
+#'
+#' @examples
+#' momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
+#' doc <- xml2::read_xml(momfiles[3])#'
+#' trackinglist <- xml2::xml_find_all(doc, ".//d1:Tracking")
+#' getTracking.data(trackinglist) %>% dplyr::glimpse()
+#' plyr::ldply(trackinglist, getTracking.data)
+getTracking.data <- function(x) {
+  # x = trackinglist
+  bmtracknodes <- xml2::xml_find_all(x, './/d1:TrackCoordinates[@receiverPosition ="Base machine position"]')
+
+  ret <-
+    data.table::data.table(
+      bmp_latitude = xml2::xml_double(xml2::xml_find_all(bmtracknodes, ".//d1:Latitude"))
+      , bmp_longitude = xml2::xml_double(xml2::xml_find_all(bmtracknodes, ".//d1:Longitude"))
+      , bmp_altitude = xml2::xml_double(xml2::xml_find_all(bmtracknodes, ".//d1:Altitude"))
+      , bmp_coordinatedate = lubridate::ymd_hms(xml2::xml_text(xml2::xml_find_all(bmtracknodes, ".//d1:CoordinateDate")))
+
+    ) %>%  mutate(difftime = c(0, diff.difftime(bmp_coordinatedate)))
+
+
+
+  return(ret)
+}

@@ -5,7 +5,6 @@
 #'
 #' @examples
 #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
-##' fprfiles <- list.files(path = "S:/PaTversAvProsjekter/R_koder/Helmer/R_pkgs/sf2010r/sf2010r/inst/extdata",  pattern = ".fpr", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(fprfiles[1])
 #' locationlist <- xml2::xml_find_all(doc, ".//d1:LocationDefinition")
 #' getLocation(locationlist[[1]]) %>% dplyr::glimpse()
@@ -32,7 +31,6 @@ getLocation <- function(x) {
 #'
 #' @examples
 #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
-##' fprfiles <- list.files(path = "S:/PaTversAvProsjekter/R_koder/Helmer/R_pkgs/sf2010r/sf2010r/inst/extdata",  pattern = ".fpr", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(fprfiles[1])
 #' nodelist <- xml2::xml_find_all(doc, ".//d1:DeliveryDefinition")
 #' getDelivery(nodelist[[1]]) %>% dplyr::glimpse()

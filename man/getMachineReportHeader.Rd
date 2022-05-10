@@ -19,5 +19,4 @@ Organize the header data of the StanForD2010 report into a tibble
 hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 getMachineReportHeader(doc)
-machinerep_h <- getMachineReportHeader(doc)
 }
