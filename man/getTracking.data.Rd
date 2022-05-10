@@ -4,10 +4,10 @@
 \alias{getTracking.data}
 \title{Tracking data from mom-files#' @param x is a node tree for one Combined machine work time entry}
 \usage{
-getTracking.data(x)
+getTracking.data(doc)
 }
 \arguments{
-\item{x}{a xml_node with TrackingCoordinates nodes}
+\item{doc}{a StanFord2010 .mom xml-document}
 }
 \description{
 Tracking data from mom-files#' @param x is a node tree for one Combined machine work time entry
@@ -15,7 +15,5 @@ Tracking data from mom-files#' @param x is a node tree for one Combined machine 
 \examples{
 momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(momfiles[3])#'
-trackinglist <- xml2::xml_find_all(doc, ".//d1:Tracking")
-getTracking.data(trackinglist) \%>\% dplyr::glimpse()
-plyr::ldply(trackinglist, getTracking.data)
+getTracking.data(doc) \%>\% dplyr::glimpse()
 }

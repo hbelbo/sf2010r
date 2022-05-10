@@ -67,12 +67,12 @@ xml_childs_dt <- function(y) {
 
   if(sum(!is.na(child_attrs))>0){
     child_dt <-
-      data.table::data.table(cild_name =  child_names,
+      data.table::data.table(child_name =  child_names,
                              attrs = child_attrs,
                              child_vals = xml2::xml_text(childrens))
   } else {
     child_dt <-
-      data.table::data.table(cild_name =  child_names,
+      data.table::data.table(child_name =  child_names,
                              child_vals = xml2::xml_text(childrens))
   }
 
@@ -196,13 +196,16 @@ getSpeciesGroupDef <- function(x) {
 #' getSpeciesGroupDefinitions(doc)
 getSpeciesGroupDefinitions <- function(doc){
   SpeciesList <- xml2::xml_find_all(doc, ".//d1:SpeciesGroupDefinition" )
-  bmatrix <- plyr::ldply(SpeciesList, sf2010r::getSpeciesGroupDef)
-  #bmatrix <- plyr::ldply(SpeciesList, getSpeciesGroupDef)
-  MachineKey <-  xml2::xml_text( xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
-  bmatrix$MachineKey = MachineKey
-  not_all_na <- function(x) {!all(is.na(x))}
-  bmatrix <- bmatrix %>% dplyr::select_if(not_all_na)
-  return(bmatrix)
+  if(length(SpeciesList)){
+    bmatrix <- plyr::ldply(SpeciesList, sf2010r::getSpeciesGroupDef)
+    #bmatrix <- plyr::ldply(SpeciesList, getSpeciesGroupDef)
+    MachineKey <-  xml2::xml_text( xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
+    bmatrix$MachineKey = MachineKey
+    not_all_na <- function(x) {!all(is.na(x))}
+    bmatrix <- bmatrix %>% dplyr::select_if(not_all_na)
+    return(bmatrix)
+  } else {
+    return(tibble::tibble())}
 }
 
 
@@ -232,7 +235,7 @@ getStemTypeDefs <- function(x) {
                      StemTypeCode = StemTypeCode,
                      StemTypeName = StemTypeName
       )
-  } else {stemtypes = NULL}
+  } else {stemtypes = tibble::tibble()}
   return(stemtypes)
 }
 
@@ -250,10 +253,14 @@ getStemTypeDefs <- function(x) {
 #' getStemTypes(doc)
 getStemTypes <- function(doc){
   SpeciesList <- xml2::xml_find_all(doc, ".//d1:SpeciesGroupDefinition" )
-  bmatrix <- plyr::ldply(SpeciesList, sf2010r::getStemTypeDefs)
-  MachineKey <-  xml2::xml_text( xml2::xml_find_all(doc, ".//d1:Machine/d1:MachineKey"))
-  bmatrix$MachineKey = MachineKey
-  return(bmatrix)
+  if(length(SpeciesList)) {
+    bmatrix <- plyr::ldply(SpeciesList, sf2010r::getStemTypeDefs)
+    MachineKey <-  xml2::xml_text( xml2::xml_find_all(doc, ".//d1:Machine/d1:MachineKey"))
+    bmatrix$MachineKey = MachineKey
+    return(bmatrix)
+  } else {
+    return(NULL)
+    }
 }
 
 
@@ -308,7 +315,7 @@ getProductDef <- function(x) {
              , LengthDef_LengthClassMin
              , LengthDef_LengthClassMAX
              , StemTypeCode)
-   products <- products %>%  dplyr::select(.data$ProductKey, .data$ProductName, tidyselect::everything())
+   products <- products %>%  dplyr::relocate(.data$ProductKey, .data$ProductName)
 
    }
 
@@ -334,11 +341,16 @@ getProductDef <- function(x) {
 #' getProductDefs(doc)
 getProductDefs <- function(doc){
   ProductsList <- xml2::xml_find_all(doc, ".//d1:ProductDefinition" )
-  bmatrix <- plyr::ldply(ProductsList, getProductDef)
-  #bmatrix <- plyr::ldply(ProductsList, sf2010r::getProductDef)
-  MachineKey <- xml2::xml_text(xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
-  bmatrix$MachineKey = MachineKey
+
+  if(length(ProductsList)>0){
+  #bmatrix <- plyr::ldply(ProductsList, getProductDef)
+  bmatrix <- plyr::ldply(ProductsList, sf2010r::getProductDef)
+   MachineKey <- xml2::xml_text(xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
+   bmatrix$MachineKey = MachineKey
   return(bmatrix)
+   } else { return(NULL)}
+
+
 }
 
 
@@ -390,11 +402,13 @@ getProductMatrixItems <- function(x) {
 #' pms <- getProductMatrixes(doc)
 getProductMatrixes <- function(doc){
   Productslist <- xml2::xml_find_all(doc,  ".//d1:ProductDefinition")
-  bmatrix <- plyr::ldply(Productslist, sf2010r::getProductMatrixItems)
-  #bmatrix <- plyr::ldply(Productslist, getProductMatrixItems)
-  MachineKey <- xml2::xml_text(xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
-  bmatrix$MachineKey = MachineKey
-  return(bmatrix)
+  if(length(Productslist)){
+    bmatrix <- plyr::ldply(Productslist, sf2010r::getProductMatrixItems)
+    #bmatrix <- plyr::ldply(Productslist, getProductMatrixItems)
+    MachineKey <- xml2::xml_text(xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
+    bmatrix$MachineKey = MachineKey
+    return(bmatrix)
+    } else { return(NULL)}
 }
 
 #' finding price matrix entry for base logs

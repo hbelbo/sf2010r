@@ -17,6 +17,6 @@ momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mo
 momfiles_imwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "individual_mwt"))]
 doc <- xml2::read_xml(momfiles_imwt[2])
 imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
-getMom.imwt.activity(imwtlist[[1]]) \%>\% dplyr::glimpse()
-plyr::ldply(imwtlist[1:5], getMom.imwt.activity)
+getMom.imwt.activity(imwtlist[[41]]) \%>\% dplyr::glimpse()
+df <- plyr::ldply(imwtlist[41:42], getMom.imwt.activity)
 }

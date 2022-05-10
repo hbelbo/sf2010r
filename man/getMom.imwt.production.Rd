@@ -2,7 +2,7 @@
 % Please edit documentation in R/mom_functions.R
 \name{getMom.imwt.production}
 \alias{getMom.imwt.production}
-\title{Indivdual machine work time production data from one indivdual machine work time node}
+\title{Indivdual machine work time production data from one individual machine work time node}
 \usage{
 getMom.imwt.production(x)
 }
@@ -10,7 +10,7 @@ getMom.imwt.production(x)
 \item{x}{is a node tree for one Indivdual machine work time entry}
 }
 \description{
-Indivdual machine work time production data from one indivdual machine work time node
+Indivdual machine work time production data from one individual machine work time node
 }
 \examples{
 momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)

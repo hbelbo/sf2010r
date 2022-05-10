@@ -9,10 +9,10 @@
 #' momfiles_imwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "individual_mwt"))]
 #' doc <- xml2::read_xml(momfiles_imwt[2])
 #' imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
-#' getMom.imwt.activity(imwtlist[[1]]) %>% dplyr::glimpse()
-#' plyr::ldply(imwtlist[1:5], getMom.imwt.activity)
+#' getMom.imwt.activity(imwtlist[[41]]) %>% dplyr::glimpse()
+#' df <- plyr::ldply(imwtlist[41:42], getMom.imwt.activity)
 getMom.imwt.activity <- function(x) {
-   #x = imwtlist[[3]]
+   #x = imwtlist[[41]]
   cmwt.1 <- data.table::as.data.table(as.list(xml_childs_nchr(x))) # Get all daughters of the MachineWorkTime element
   if ("IndividualMachineRunTimeCategory" %in% names(cmwt.1)){
     cmwt.1 <- data.table::setnames(cmwt.1, old = c("IndividualMachineRunTimeCategory"), new = c("Activity"))
@@ -30,7 +30,9 @@ getMom.imwt.activity <- function(x) {
   if(length_imwt_imdt_nodeset) {
     imwt_imdt_nodename <- xml2::xml_name(xml2::xml_child(xml2::xml_find_all(x, ".//d1:IndividualMachineDownTime")))
     imwt_imdt_dt <-  data.table::as.data.table(as.list(xml_childs_nchr(xml2::xml_find_all(x, paste0(".//d1:", imwt_imdt_nodename)))))
-
+    if(nrow(imwt_imdt_dt)== 0){
+      imwt_imdt_dt <- data.table::data.table(Activity = imwt_imdt_nodename)
+    }
     names(imwt_imdt_dt)[1] <- "Activity"
     imwt_imdt_dt$timecat = "imdt"
   } else {imwt_imdt_dt <- data.table::data.table(NULL)}
@@ -44,7 +46,7 @@ getMom.imwt.activity <- function(x) {
   }
 
 
-#' Indivdual machine work time production data from one indivdual machine work time node
+#' Indivdual machine work time production data from one individual machine work time node
 #' @param x is a node tree for one Indivdual machine work time entry
 #'
 #' @export
@@ -61,7 +63,12 @@ getMom.imwt.production <- function(x) {
   cmwt.1 <- data.table::as.data.table(as.list(xml_childs_nchr(x))) # Get all daughters of the MachineWorkTime element
   HarvesterDataNodeSets <- xml2::xml_find_all(x, ".//d1:OtherMachineData/d1:HarvesterData")
   if(length(HarvesterDataNodeSets)){
+    #xml_childs_nchr(HarvesterDataNodeSets[[1]])
+    #xml_childs_dt(HarvesterDataNodeSets[[1]])
+
     HarvesterData <- data.table::as.data.table(purrr::map_dfr(HarvesterDataNodeSets, ~ dplyr::bind_rows(xml_childs_nchr(.x))))
+    #HarvesterData <- data.table::as.data.table(purrr::map_dfr(HarvesterDataNodeSets, ~ dplyr::bind_rows(xml_childs_dt(.x))))
+    #HarvesterData$ncand <- with(HarvesterData, ifelse(is.na(attrs), cild_name, attrs))
     HarvesterData <- dplyr::bind_cols(HarvesterData, cmwt.1[,2:4])
 
     data.table::setcolorder(HarvesterData, c("SpeciesGroupKey", "ProcessingCategory", "NumberOfHarvestedStems" ))
@@ -168,28 +175,28 @@ getCombined.mwt <- function(doc){
 
 #' Tracking data from mom-files#' @param x is a node tree for one Combined machine work time entry
 #'
-#' @param x a xml_node with TrackingCoordinates nodes
+#' @param doc a StanFord2010 .mom xml-document
 #' @export
 #'
 #' @examples
 #' momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(momfiles[3])#'
-#' trackinglist <- xml2::xml_find_all(doc, ".//d1:Tracking")
-#' getTracking.data(trackinglist) %>% dplyr::glimpse()
-#' plyr::ldply(trackinglist, getTracking.data)
-getTracking.data <- function(x) {
-  # x = trackinglist
-  bmtracknodes <- xml2::xml_find_all(x, './/d1:TrackCoordinates[@receiverPosition ="Base machine position"]')
+#' getTracking.data(doc) %>% dplyr::glimpse()
+getTracking.data <- function(doc) {
 
-  ret <-
+  x <- xml2::xml_find_all(doc, ".//d1:Tracking")
+  if(length(x)>0){
+    bmtracknodes <- xml2::xml_find_all(x, './/d1:TrackCoordinates[@receiverPosition ="Base machine position"]')
+
+    ret <-
     data.table::data.table(
       bmp_latitude = xml2::xml_double(xml2::xml_find_all(bmtracknodes, ".//d1:Latitude"))
       , bmp_longitude = xml2::xml_double(xml2::xml_find_all(bmtracknodes, ".//d1:Longitude"))
       , bmp_altitude = xml2::xml_double(xml2::xml_find_all(bmtracknodes, ".//d1:Altitude"))
       , bmp_coordinatedate = lubridate::ymd_hms(xml2::xml_text(xml2::xml_find_all(bmtracknodes, ".//d1:CoordinateDate")))
 
-    ) %>%  mutate(difftime = c(0, diff.difftime(bmp_coordinatedate)))
-
+    ) %>%  dplyr::mutate(difftime = c(0, diff.difftime(.data$bmp_coordinatedate)))
+} else {ret = data.table::data.table() }
 
 
   return(ret)
