@@ -3,7 +3,6 @@
 #' mom-file reader function
 #'
 #' @param momfile filename and path of the mom file to read
-
 #' @return A list of data.frames:
 #' machinereport_meta,
 #' operators,
@@ -12,7 +11,7 @@
 #' CombProdDat = a table listing production data (stems, volumes, etc),
 #' CombinedMachineWorkTime = a table listing work time,
 #' OperatorWorkTime = a table listing work time for each operator,
-#' IndividualMachineWorkTime,
+#' IndividualMachineWorkTime
 #' @export
 #'
 #' @examples
@@ -22,10 +21,17 @@
 #' momtest3 <- getMom.all(momfiles[3])
 #' momtest4 <- getMom.all(momfiles[4])
 getMom.all <- function(momfile){
-  # momfile <- momfiles[4]
+ # "/MOM_Komatsu_harvester_sf2010v30_combined_mwt.MOM"
+ # "/MOM_Ponsse_Forw_sf2010v31_individual_mwt.mom"
+ # "/MOM_V3_3_MaxiXT_1_7_combined_mwt.mom"
+ # "/MOM_Vimek_harvester_sf2010v20_individual_mwt.MOM"
+
+    # momfile <- momfiles[1]
 
   doc <- xml2::read_xml(momfile)
-  md5 <-  digest::digest(file(momfile))
+  con <- file(momfile)
+  md5 <-  digest::digest(con)
+
 
   # .. cut object info
   filename <- momfile
@@ -67,14 +73,23 @@ getMom.all <- function(momfile){
 
 
   # Individual machine time data
-  #imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
-  #imwt_activity <- plyr::ldply(imwtlist, getMom.imwt.activity)
-  #imwt_production <- plyr::ldply(imwtlist, getMom.imwt.production)
+  imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
 
+
+  if(length(imwtlist)) {
+  imwt_activity <- plyr::ldply(imwtlist, getMom.imwt.activity)
+  imwt_production <- plyr::ldply(imwtlist, getMom.imwt.production)
+    returnlist <- c(returnlist, imwt_activity = list(imwt_activity), imwt_production = list(imwt_production))
+  }
 
 
   # # Combined machine time data
-  # cmwtlist <- xml2::xml_find_all(doc, ".//d1:CombinedMachineWorkTime")
+   cmwtlist <- xml2::xml_find_all(doc, ".//d1:CombinedMachineWorkTime")
+   if(length(cmwtlist)){
+     cmwt_data <- plyr::ldply(cmwtlist, getMom.cmwt.data)
+     returnlist <- c(returnlist, cmwt_data = list(cmwt_data))
+   }
+
   #
   #     # fetching production data (volume etc)
   #     if(tolower(header$machinetype) == "harvester"){

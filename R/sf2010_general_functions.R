@@ -479,9 +479,9 @@ price_matr_entry_base_log_class <- function(pricematrixes, base_lengthcm = 490, 
 #' Get the operator definitions from a StanFord2010 xml document
 #'
 #' @param doc the xml document
-#'
-#' @return
 #' @export
+#'
+#' @return a tibble, one row for each operator
 #'
 #' @examples
 #' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)

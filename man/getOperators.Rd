@@ -10,7 +10,7 @@ getOperators(doc)
 \item{doc}{the xml document}
 }
 \value{
-
+a tibble, one row for each operator
 }
 \description{
 Get the operator definitions from a StanFord2010 xml document

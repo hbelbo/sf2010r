@@ -18,7 +18,7 @@ tracking,
 CombProdDat = a table listing production data (stems, volumes, etc),
 CombinedMachineWorkTime = a table listing work time,
 OperatorWorkTime = a table listing work time for each operator,
-IndividualMachineWorkTime,
+IndividualMachineWorkTime
 }
 \description{
 mom-file reader function
