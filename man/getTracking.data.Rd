@@ -2,7 +2,7 @@
 % Please edit documentation in R/mom_functions.R
 \name{getTracking.data}
 \alias{getTracking.data}
-\title{Tracking data from mom-files#' @param x is a node tree for one Combined machine work time entry}
+\title{Tracking data from mom-files#'}
 \usage{
 getTracking.data(doc)
 }
@@ -10,7 +10,7 @@ getTracking.data(doc)
 \item{doc}{a StanFord2010 .mom xml-document}
 }
 \description{
-Tracking data from mom-files#' @param x is a node tree for one Combined machine work time entry
+Tracking data from mom-files#'
 }
 \examples{
 momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
