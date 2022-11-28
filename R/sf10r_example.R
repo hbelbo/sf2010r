@@ -10,23 +10,16 @@
 #' @examples
 #' sf2010r_example()
 #' sf2010r_example(fileending = "hpr")
-sf2010r_example <- function(file = NULL, fileending = NULL) {
-  if (is.null(file) & is.null(fileending)) {
+sf2010r_example <- function( fileending = NULL) {
+  if ( is.null(fileending)) {
     directory <- system.file("extdata", package = "sf2010r")
     files <- dir(system.file("extdata", package = "sf2010r"))
     return(paste(directory, files, sep = "/"))
-  } else if (!is.null(file) & !is.null(fileending)) {
-    "Do not provide both filename and fileending"
-  } else if (!is.null(file) & is.null(fileending)) {
-    system.file("extdata", file, package = "sf2010r", mustWork = TRUE)
-  } else if( is.null(file) & !is.null(fileending)) {
+  } else if(  !is.null(fileending)) {
     directory <- system.file("extdata", package = "sf2010r")
     files <- dir(system.file("extdata", package = "sf2010r"))
     files <- files[which(stringr::str_detect(files, fileending))]
     return(paste(directory, files, sep = "/"))
   }
-
-
-
   }
 
