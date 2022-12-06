@@ -14,8 +14,6 @@
 #' hprtest1 <- hprdata(hprfiles[1])
 #' hprtest2 <- hprdata(hprfiles[2])
 #' hprtest3 <- hprdata(hprfiles[3])
-#' hprtests <- purrr::map_dfr(hprfiles, ~tibble::tibble(filename = .x,
-#' hprdata = list(hprdata(.x))))
 hprdata<- function(hprfile){
    doc <- xml2::read_xml(hprfile)
    md5 <-  digest::digest(file(hprfile))
