@@ -15,9 +15,12 @@
 #' hprtest2 <- hprdata(hprfiles[2])
 #' hprtest3 <- hprdata(hprfiles[3])
 hprdata<- function(hprfile){
-   doc <- xml2::read_xml(hprfile)
-   md5 <-  digest::digest(file(hprfile))
+    doc <- xml2::read_xml(hprfile)
+    fl <- file(hprfile)
+    on.exit(close(fl))
+    md5 <-  digest::digest(fl)
 
+   
   ####
   #Then validate the file is providing stems and other relevant info. This might be lacking in case the machine is reporting files automatically
    StemKey =  xml2::xml_integer(  xml2::xml_find_all(doc, ".//d1:StemKey"))
