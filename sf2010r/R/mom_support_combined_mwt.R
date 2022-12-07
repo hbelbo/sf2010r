@@ -7,9 +7,10 @@
 #' @export
 #'
 #' @examples
-#' momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
-#' momfiles_cmwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "combined_mwt"))]
-#' doc <- xml2::read_xml(momfiles_cmwt[2])#'
+#' pth <- system.file(package = "sf2010r")
+#' momf <- list.files(pth,".mom",ignore.case=TRUE,recursive=TRUE,full.names= TRUE)
+#' momf_cmwt <- momf[which(stringr::str_detect(string=momf,pattern="combined_mwt"))]
+#' doc <- xml2::read_xml(momf_cmwt[2])#'
 #' cmwtlist <- xml2::xml_find_all(doc, ".//d1:CombinedMachineWorkTime")
 #' getMom.cmwt.data(cmwtlist[[1]]) %>% dplyr::glimpse()
 #' plyr::ldply(cmwtlist[1:2], getMom.cmwt.data)
@@ -82,9 +83,10 @@ getMom.cmwt.data <- function(x) {
 #' @export
 #'
 #' @examples
-#' momfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
-#' momfiles_cmwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "combined_mwt"))]
-#' doc <- xml2::read_xml(momfiles_cmwt[2])
+#' pth <- system.file(package = "sf2010r")
+#' momf <- list.files(pth,".mom",ignore.case=TRUE,recursive=TRUE,full.names=TRUE)
+#' momf_cmwt <- momf[which(stringr::str_detect(string=momf,pattern="combined_mwt"))]
+#' doc <- xml2::read_xml(momf_cmwt[2])
 #' getCombined.mwt(doc)
 getCombined.mwt <- function(doc){
 

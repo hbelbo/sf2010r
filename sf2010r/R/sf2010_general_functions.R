@@ -11,7 +11,8 @@
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' x <-  xml2::xml_children(doc)[1] # Get one node of doc, the first is normally a header
 #' xml_childs_nchr(x[[1]]) # The function returns a named vector
@@ -44,7 +45,8 @@ xml_childs_nchr <- function(y) {
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' x <- xml2::xml_children(doc)[2] # Get one node of doc, the first is normally a header
 #' xml_childs_dt(x[[1]]) # The function returns a data.table
@@ -90,7 +92,8 @@ xml_childs_dt <- function(y) {
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' getMachineReportHeader(doc)
 getMachineReportHeader <- function(doc){
@@ -168,7 +171,8 @@ MtcClean <- function(mtc){
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' SpeciesList <- xml2::xml_find_all(doc, ".//d1:SpeciesGroupDefinition" )
 #' getSpeciesGroupDef(SpeciesList[[1]])
@@ -191,7 +195,8 @@ getSpeciesGroupDef <- function(x) {
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' getSpeciesGroupDefinitions(doc)
 getSpeciesGroupDefinitions <- function(doc){
@@ -219,7 +224,8 @@ getSpeciesGroupDefinitions <- function(doc){
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' SpeciesList <- xml2::xml_find_all(doc, ".//d1:SpeciesGroupDefinition" )
 #' getStemTypeDefs(SpeciesList[[1]])
@@ -248,7 +254,8 @@ getStemTypeDefs <- function(x) {
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' getStemTypes(doc)
 getStemTypes <- function(doc){
@@ -272,7 +279,8 @@ getStemTypes <- function(doc){
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' ProductsList <- xml2::xml_find_all(doc, ".//d1:ProductDefinition" )
 #' getProductDef(ProductsList[[1]]) %>% dplyr::glimpse()
@@ -334,7 +342,8 @@ getProductDef <- function(x) {
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' getProductDefs(doc)
 #' doc <- xml2::read_xml(hprfiles[2])
@@ -364,7 +373,8 @@ getProductDefs <- function(doc){
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' Productslist <- xml2::xml_find_all(doc, ".//d1:ProductDefinition" )
 #' getProductMatrixItems(Productslist[[1]])
@@ -397,7 +407,8 @@ getProductMatrixItems <- function(x) {
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' pms <- getProductMatrixes(doc)
 getProductMatrixes <- function(doc){
@@ -423,7 +434,8 @@ getProductMatrixes <- function(doc){
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' pricematrixes <- getProductMatrixes(doc)
 #' price_matr_entry_base_log_class(pricematrixes)
@@ -484,7 +496,8 @@ price_matr_entry_base_log_class <- function(pricematrixes, base_lengthcm = 490, 
 #' @return a tibble, one row for each operator
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' getOperators(doc)
 getOperators <- function(doc){
@@ -515,7 +528,8 @@ getOperators <- function(doc){
 #'
 #' @return a tibble, number of rows = number of sub objects
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' Objects_nodes <- xml2::xml_find_all(doc, "//d1:ObjectDefinition")
 #' getObjectDefinition(Objects_nodes[1])
@@ -608,7 +622,8 @@ getObjectDefinition <- function(x){
 #' @return a tibble, number of rows = number of objects and sub objects in doc
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' getObjects(doc)
 #' @export
@@ -621,22 +636,3 @@ getObjects <- function(doc){
   return(bmatrix)
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

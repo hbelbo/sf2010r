@@ -4,7 +4,7 @@
 #' directory. This function make them easy to access.
 #' The function is inspired by the readr_example in the readr package
 #'
-#' @param file Name of file. If `NULL`, the example files will be listed.
+#@param file Name of file. If `NULL`, the example files will be listed.
 #' @param fileending one of the file endings in StanFord2010; "hpr", "hqc" etc
 #' @export
 #' @examples

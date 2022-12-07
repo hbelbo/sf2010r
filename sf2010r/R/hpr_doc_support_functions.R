@@ -6,7 +6,8 @@
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[3])
 #' stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
 #' getStemdata(stemlist[[1]]) %>% dplyr::glimpse()
@@ -52,7 +53,8 @@ getStemdata <- function(x) {
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[3])
 #' getStems(doc)
 getStems <- function(doc){
@@ -74,7 +76,8 @@ getStems <- function(doc){
 #'
 #' @details  NB: One stem section might have several grades simultaneously
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <- list.files(pth,".hpr",recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
 #' getStemGrades(stemlist[[1]])
@@ -106,10 +109,12 @@ getStemGrades <- function(x){
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
-#' wtch <-  which(xml2::xml_text(  xml2::xml_find_all(stemlist, ".//d1:ProcessingCategory")) == "MultiTreeProcessing")
+#' pcat <- ".//d1:ProcessingCategory"
+#' wtch <-  which(xml2::xml_text(xml2::xml_find_all(stemlist,pcat))=="MultiTreeProcessing")
 #' getSTPlogs(stemlist[1]) %>% dplyr::glimpse()
 #' if(length(wtch) > 0) { getSTPlogs(stemlist[wtch[1]]) %>% dplyr::glimpse()}
 getSTPlogs <- function(x) {
@@ -175,10 +180,12 @@ getSTPlogs <- function(x) {
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
-#' wtch <-  which(xml2::xml_text(  xml2::xml_find_all(stemlist, ".//d1:ProcessingCategory")) == "MultiTreeProcessing")
+#' pcat <- ".//d1:ProcessingCategory"
+#' wtch <- which(xml2::xml_text(xml2::xml_find_all(stemlist,pcat))=="MultiTreeProcessing")
 #' getMTPlogs(stemlist[1])
 #' if(length(wtch) > 0) { getMTPlogs(stemlist[wtch[1]])}
 getMTPlogs <- function(x) {
@@ -248,7 +255,8 @@ getMTPlogs <- function(x) {
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' getLogs(doc)
 getLogs <- function(doc){
@@ -282,7 +290,8 @@ getLogs <- function(doc){
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' getSTP_diameters(doc)
 #' doc <- xml2::read_xml(hprfiles[2])
@@ -335,7 +344,8 @@ getSTP_diameters <- function(doc) {
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' pth <- system.file(package = "sf2010r")
+#' hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' stl <- getStemsAndLogs(doc)
 #' doc <- xml2::read_xml(hprfiles[2])
@@ -346,15 +356,15 @@ getSTP_diameters <- function(doc) {
 #' @export
 getStemsAndLogs <- function(doc){
   stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
-  cat("getStemsAndLogs-getStemdata ")
+  ## cat("getStemsAndLogs-getStemdata ")
   stems <- plyr::ldply(stemlist, sf2010r::getStemdata)
-  cat("getStemsAndLogs-getSTPlogs ")
+  ## cat("getStemsAndLogs-getSTPlogs ")
   stplogs <- plyr::ldply(stemlist, sf2010r::getSTPlogs)
-  cat("getStemsAndLogs-getMTPlogs ")
+  ## cat("getStemsAndLogs-getMTPlogs ")
   mtplogs <- plyr::ldply(stemlist, sf2010r::getMTPlogs)
-  cat("getStemsAndLogs-getStemGrades ")
+  ## cat("getStemsAndLogs-getStemGrades ")
   stemgrades <- plyr::ldply(stemlist, sf2010r::getStemGrades)
-  cat("getStemsAndLogs-getSTP_diameters ")
+  ## cat("getStemsAndLogs-getSTP_diameters ")
   stemdias <- sf2010r::getSTP_diameters(doc)
 
     retlist <- list(stems=stems, stplogs = stplogs, mtplogs = mtplogs, stemgrades = stemgrades, stemdias = stemdias)
