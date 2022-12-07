@@ -9,7 +9,7 @@ Authors@R:
              email = "helmer.belbo@nibio.no"),
       person(given = "Wilson",
       	     family = "Lara Henao",
-	     role = "ctb"))
+	     role = c("aut", "ctb")))
 Maintainer: Helmer Belbo <helmer.belbo@nibio.no>	     
 Description: The main functions takes file names as arguments, and will read these files and return a list of tables containing most of the content of the xml document. 
 License: MIT + file LICENSE
