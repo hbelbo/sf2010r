@@ -7,6 +7,8 @@ sourceDirectory('.', modifiedOnly = TRUE, verbose = TRUE)
 wd('/sf2010/devel')
 
 
+
+
 #' Hpr-file reader function
 #'
 #' @param hprfile filename and path of the hpr file to read
@@ -26,20 +28,26 @@ wd('/sf2010/devel')
 
 lfiles <- system.file(package = "sf2010r")
 
-hpr_iterator <- function(hprfile,y = 1, ...){
-    hprfile <- list.files(hprfile, pattern = NULL,...)
-    return(hprfile)
-    fn. <- 'hprdata'
-  hprdataMap <- Map(function(x)
-    do.call(fn., list(hprfile[x])), y)
-    ## hprdata(hprfile[x]), y)
-  return(hprdataMap)}
+hprfile <- list.files(lfiles, pattern = '.hpr', ignore.case = TRUE,
+                          recursive = TRUE, full.names= TRUE)
+   
+
+hpr_iterator <- function(hprfile,y = 1){
+    hprfile <- list.files(hprfile, pattern = '.hpr', ignore.cas = TRUE,
+                          recursive = TRUE, full.names= TRUE)
+    fn. <- c('hprdata')
+    ext. <- c('.hpr')
+    names(fn.) <- ext.
+  data_mapper <- Map(function(x)
+      do.call(fn., list(hprfile = hprfile[x])), y)
+    names(data_mapper) <- basename(hprfile[y])
+  return(data_mapper)}
 
 
-tmp <- hpr_iterator(lfiles, 1, recursive = TRUE, full.names= TRUE)
 
-temp <- hprdata(lfiles, 1,recursive = TRUE, full.names= TRUE)
+tmp <- hpr_iterator(lfiles, 1)
 
+basename(names(tmp))
 
 str(temp)
 
