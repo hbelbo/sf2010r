@@ -25,7 +25,7 @@ devtools::install_github("hbelbo/sf2010r")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to use:
 
 ``` r
 library(sf2010r)
@@ -33,33 +33,20 @@ library(sf2010r)
 
 
 
-# Get a list of the first three example files provided in the package
+# Get a list of the first three example files provided in the packagehttps://mail.google.com/mail/u/0/#search/miele/FMfcgxmSdZDpKdbMpMbsxFtgFmrxNdfh?projector=1&messagePartId=0.1
 sf2010r_example()[1:3]
-#> [1] "C:/Users/hbel/AppData/Local/Temp/Rtmp0MTcyG/temp_libpath48cc379f1d56/sf2010r/extdata/bullshit.txt"                           
-#> [2] "C:/Users/hbel/AppData/Local/Temp/Rtmp0MTcyG/temp_libpath48cc379f1d56/sf2010r/extdata/FPR_V0303_MaxiXT_0107_20220406__1_1.fpr"
-#> [3] "C:/Users/hbel/AppData/Local/Temp/Rtmp0MTcyG/temp_libpath48cc379f1d56/sf2010r/extdata/HPR_V2_1_MaxiXplorer_3_10_20170309.hpr"
+#> [1] "C:/Users/hbel/AppData/Local/Temp/RtmpM3Jw49/temp_libpath55b42cd77721/sf2010r/extdata/bullshit.txt"                           
+#> [2] "C:/Users/hbel/AppData/Local/Temp/RtmpM3Jw49/temp_libpath55b42cd77721/sf2010r/extdata/FPR_V0303_MaxiXT_0107_20220406__1_1.fpr"
+#> [3] "C:/Users/hbel/AppData/Local/Temp/RtmpM3Jw49/temp_libpath55b42cd77721/sf2010r/extdata/HPR_V0201_MaxiXplorer_3_10_20170309.hpr"
 # Get a list of the "hpr" example files provided in the package
 hprfiles <- sf2010r_example(fileending = "hpr")
 hprtest1 <- hprdata(hprfiles[1])
-#> getStemsAndLogs-getStemdata getStemsAndLogs-getSTPlogs getStemsAndLogs-getMTPlogs getStemsAndLogs-getStemGrades getStemsAndLogs-getSTP_diameters
+#>  -hprdata-getSpeciesGroupDefs-  -hprdata-getProductDefs 
+#>  -hprdata-getPricematrixes 
+#>  -hprdata-getStemTypes 
+#>  -hprdata-getStemsAndLogs 
+#> getStemsAndLogs-getStemdata getStemsAndLogs-getSTPlogs getStemsAndLogs-getMTPlogs getStemsAndLogs-getStemGrades getStemsAndLogs-getSTP_diameters  - hprdata- create height diameter dataset
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+Remenber to render `README.Rmd` regularly, to keep `README.md`
+up-to-date. `devtools::build_readme()`
