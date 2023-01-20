@@ -10,7 +10,6 @@ Authors@R:
 Description: The main functions takes file names as arguments, and will read these files and return a list of tables containing most of the content of the xml document. 
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Imports: 
     data.table,
     digest,
@@ -25,4 +24,4 @@ Imports:
     tidyr,
     tidyselect,
     xml2
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3

@@ -18,6 +18,11 @@ hprdata<- function(hprfile){
    doc <- xml2::read_xml(hprfile)
    md5 <-  digest::digest(file(hprfile))
 
+   if(nchar(Sys.getlocale()) < 3){
+     Sys.setlocale(category = "LC_ALL", locale = "") #becouse of an R-studio Rstartup issue at HB's computer
+     }
+
+
   ####
   #Then validate the file is providing stems and other relevant info. This might be lacking in case the machine is reporting files automatically
    StemKey =  xml2::xml_integer(  xml2::xml_find_all(doc, ".//d1:StemKey"))
@@ -50,19 +55,23 @@ hprdata<- function(hprfile){
 
 
     # Species and product definitions ----
+    cat(" -hprdata-getSpeciesGroupDefs- ")
     speciesgroups <- sf2010r::getSpeciesGroupDefinitions(doc)
     # speciesgroups %>% dplyr::glimpse()
 
+    cat(" -hprdata-getProductDefs \n")
     products <- sf2010r::getProductDefs(doc) %>%
       dplyr::mutate(  MachineKey = MachineReportHeader$MachineKey,
              CreationDate = MachineReportHeader$CreationDate)
     # products %>% dplyr::glimpse()
 
+    cat(" -hprdata-getPricematrixes \n")
     pricematrixes <- sf2010r::getProductMatrixes(doc) %>%
       mutate( MachineKey = MachineReportHeader$MachineKey,
               CreationDate = MachineReportHeader$CreationDate)
     # pricematrixes %>% dplyr::glimpse()
 
+    cat(" -hprdata-getStemTypes \n")
     stemtypes <- sf2010r::getStemTypes(doc) %>%
       mutate( MachineKey = MachineReportHeader$MachineKey)
     # stemtypes %>% dplyr::glimpse()
@@ -70,6 +79,7 @@ hprdata<- function(hprfile){
 
 
     ## Harvested stems and logs ----
+    cat(" -hprdata-getStemsAndLogs \n")
     StemsLogs <- sf2010r::getStemsAndLogs(doc)
 
 
@@ -109,6 +119,7 @@ hprdata<- function(hprfile){
 
     # height diameter dataset: StemKey diaheight dia_ob_cm, dia_ub_cm -------
 
+    cat(" - hprdata- create height diameter dataset")
     logmeter <- StemsLogs$stplogs %>%
       select( -tidyselect::starts_with("m3"))  %>%
       dplyr::ungroup() %>%

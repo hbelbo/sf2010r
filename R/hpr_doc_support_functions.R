@@ -30,14 +30,21 @@ getStemdata <- function(x) {
   lat_dir =  xml2::xml_attr(xml2::xml_find_first(x,  "./d1:StemCoordinates/d1:Latitude"), attr = "latitudeCategory")
   lon_dir =  xml2::xml_attr(xml2::xml_find_first(x,  "./d1:StemCoordinates/d1:Longitude"), attr = "longitudeCategory")
 
+  BoomPosFelling <-   xml2::xml_find_all(x, ".//d1:BoomPositioning[@boomPositioningCategory='Felling']") %>%
+    purrr::map_dfr( ~ sf2010r::xml_childs_nchr(.x)) %>%
+    dplyr::rename_with(~paste0(., "_felling"))
+
+
   # Then make the resulting tibble:
   stemdat <- dplyr::bind_rows(stm)
 
   if(nrow(gps_bm)) {
     stemdat <- dplyr::mutate(stemdat, gps_bm)
-    stemdat <- dplyr::mutate(stemdat, CoordinateDate, lat_dir, lon_dir)
+    stemdat <- dplyr::mutate(stemdat,lat_dir, lon_dir)
   }
+  if(!is.na(CoordinateDate)){ stemdat <- dplyr::mutate(stemdat, CoordinateDate)}
   if(nrow(gps_ctf)) { stemdat <- dplyr::mutate(stemdat, gps_ctf)}
+  if(nrow(BoomPosFelling)) { stemdat <- dplyr::mutate(stemdat, BoomPosFelling)}
 
   stemdat <- stemdat %>% dplyr::mutate(dplyr::across(tidyselect::ends_with("Key"), as.integer))
   return(stemdat)
@@ -167,6 +174,9 @@ getSTPlogs <- function(x) {
 
 
 
+
+
+
 #' Fetch the multi tree processed logs belonging to one multi-stem entry in hpr
 #'
 #' @param x a StanFord2010 .hpr stem node tree
@@ -239,7 +249,6 @@ getMTPlogs <- function(x) {
 
 
 
-
 #' Get logsdata for all stems within a SF2010 .hpr file
 #'
 #' @param doc a StanFord2010 .hpr xml-document
@@ -250,7 +259,7 @@ getMTPlogs <- function(x) {
 #' @examples
 #' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
-#' getLogs(doc)
+#' all_logs <- getLogs(doc)
 getLogs <- function(doc){
   stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
   STPlogs <- purrr::map_dfr(stemlist, ~getSTPlogs(.x))
@@ -303,7 +312,9 @@ getSTP_diameters <- function(doc) {
 
   StemKey <-  xml2::xml_integer(xml2::xml_find_all(x, ".//d1:StemKey"))
 
-  stem_dia_nodes <- xml2::xml_find_all(x, "./d1:SingleTreeProcessedStem/d1:StemDiameters/d1:DiameterValue[@diameterMeasurementCategory='First']")
+  stem_dia_nodes_first <- xml2::xml_find_all(x, "./d1:SingleTreeProcessedStem/d1:StemDiameters/d1:DiameterValue[@diameterMeasurementCategory='First']")
+  stem_dia_nodes_average <- xml2::xml_find_all(x, "./d1:SingleTreeProcessedStem/d1:StemDiameters/d1:DiameterValue[@diameterMeasurementCategory='Average']")
+  stem_dia_nodes <- if(length(stem_dia_nodes_average)) stem_dia_nodes_average else  stem_dia_nodes_first
   DiameterPositions <- as.integer(xml2::xml_attr(stem_dia_nodes, attr = "diameterPosition"))
   StemDiameters <- xml2::xml_integer(stem_dia_nodes)
   StemKey2 <- rep(StemKey, times = n_dias_per_stem)
