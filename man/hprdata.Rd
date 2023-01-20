@@ -10,15 +10,17 @@ hprdata(hprfile)
 \item{hprfile}{filename and path of the hpr file to read}
 }
 \value{
-A list of data.frames: stems, products, logs, machinereport_meta, operators, objects, stem_grades, pricematrixes, stemdiametervectors, and stemtypes.
+A list of data.frames: stems, products, logs, machinereport_meta,
+ operators, objects, stem_grades, pricematrixes,
+ stemdiametervectors, and stemtypes.
 }
 \description{
 Hpr-file reader function
 }
 \examples{
-hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 hprtest1 <- hprdata(hprfiles[1])
 hprtest2 <- hprdata(hprfiles[2])
 hprtest3 <- hprdata(hprfiles[3])
-hprtests <- purrr::map_dfr(hprfiles, ~tibble::tibble(filename = .x, hprdata = list(hprdata(.x))))
 }
