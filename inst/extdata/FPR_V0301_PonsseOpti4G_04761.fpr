@@ -1,0 +1,1034 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ForwardedProduction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="urn:skogforsk:stanford2010 ForwardedProduction_V3p1.xsd" messageType="fpr" areaUnit="ha" diameterUnit="mm" lengthUnit="cm" volumeUnit="m3" weightUnit="kg" version="3.1" versionDate="2015-02-06" xmlns="urn:skogforsk:stanford2010">
+	<ForwardedProductionHeader>
+		<SenderApplication>Ponsse Opti4G 4.761</SenderApplication>
+		<CreationDate>2023-01-05T14:44:45+02:00</CreationDate>
+		<ModificationDate modificationAuthor="Opti4G">2023-01-05T14:44:45+02:00</ModificationDate>
+		<ApplicationVersionCreated>Ponsse Opti4G 4.761</ApplicationVersionCreated>
+		<ApplicationVersionModified>Ponsse Opti4G 4.761</ApplicationVersionModified>
+		<CountryCode>578</CountryCode>
+	</ForwardedProductionHeader>
+	<Machine machineCategory="Forwarder">
+		<MachineKey>36b129e8812d59c4093cac7f0c227779</MachineKey>
+		<MachineUserID agency="LoggingOrganisation">12345</MachineUserID>
+		<MachineOwnerID>123456</MachineOwnerID>
+		<MachineApplicationVersion>4.761</MachineApplicationVersion>
+		<MachineBaseManufacturer>PONSSE</MachineBaseManufacturer>
+		<MachineBaseModel>ElephantKingAF</MachineBaseModel>
+		<MachineOwner>
+			<FirstName>H Hogst og Service AS</FirstName>
+			<LastName>H Hogst og Service AS</LastName>
+			<BusinessName>H Hogst og Service AS</BusinessName>
+			<BusinessID>Ponsse</BusinessID>
+		</MachineOwner>
+		<LoggingContractor>
+			<FirstName>H Hogst og Service AS</FirstName>
+			<LastName>H Hogst og Service AS</LastName>
+			<BusinessName>H Hogst og Service AS</BusinessName>
+			<BusinessID>Ponsse</BusinessID>
+		</LoggingContractor>
+		<OperatorDefinition>
+			<OperatorKey>5</OperatorKey>
+			<OperatorUserID>4</OperatorUserID>
+			<ContactInformation>
+				<FirstName>Erling</FirstName>
+				<LastName>Abjkldøsa</LastName>
+				<Email>erling.Abjkldøsa@abc.com</Email>
+			</ContactInformation>
+		</OperatorDefinition>
+		<OperatorDefinition>
+			<OperatorKey>3</OperatorKey>
+			<OperatorUserID>2</OperatorUserID>
+			<ContactInformation>
+				<FirstName>Åsmund</FirstName>
+				<LastName>Abjkldøsa</LastName>
+				<Email>Abjkldøsa.hogst@gmail.com</Email>
+				<BusinessName>Abjkldøsa Hogst</BusinessName>
+			</ContactInformation>
+		</OperatorDefinition>
+		<OperatorDefinition>
+			<OperatorKey>4</OperatorKey>
+			<OperatorUserID>3</OperatorUserID>
+			<ContactInformation>
+				<FirstName>Endre</FirstName>
+				<LastName>Abjkldøsa</LastName>
+				<Email>endre-Abjkldøsa@hotmail.com</Email>
+				<BusinessName>Abjkldøsa Hogst</BusinessName>
+			</ContactInformation>
+		</OperatorDefinition>
+		<OperatorDefinition>
+			<OperatorKey>2</OperatorKey>
+			<OperatorUserID>1</OperatorUserID>
+			<ContactInformation>
+				<FirstName>andreas</FirstName>
+				<LastName>Abjkldøsa</LastName>
+				<Email>ted@Abjkldøsa.com</Email>
+				<BusinessName>Abjkldøsa Oyj</BusinessName>
+			</ContactInformation>
+		</OperatorDefinition>
+		<SpeciesGroupDefinition>
+			<SpeciesGroupModificationDate modificationAuthor="unknown">2020-12-16T09:59:07+02:00</SpeciesGroupModificationDate>
+			<SpeciesGroupUserID agency="Seller">NO2_Gran</SpeciesGroupUserID>
+			<SpeciesGroupName>GRAN</SpeciesGroupName>
+			<SpeciesGroupInfo modificationRestricted="true">2</SpeciesGroupInfo>
+			<SpeciesGroupVersion modificationRestricted="false">16022020</SpeciesGroupVersion>
+			<StemTypeDefinition>
+				<StemTypeCode>1</StemTypeCode>
+				<StemTypeName>Tømmer</StemTypeName>
+			</StemTypeDefinition>
+			<StemTypeDefinition>
+				<StemTypeCode>2</StemTypeCode>
+				<StemTypeName>Massevirke</StemTypeName>
+			</StemTypeDefinition>
+			<SpeciesGroupPresentationOrder>2</SpeciesGroupPresentationOrder>
+			<SpeciesGroupKey>12</SpeciesGroupKey>
+		</SpeciesGroupDefinition>
+		<SpeciesGroupDefinition>
+			<SpeciesGroupModificationDate modificationAuthor="unknown">2020-11-04T18:37:55+02:00</SpeciesGroupModificationDate>
+			<SpeciesGroupUserID agency="Seller">NO4_SITKA</SpeciesGroupUserID>
+			<SpeciesGroupName>SITKA</SpeciesGroupName>
+			<SpeciesGroupInfo modificationRestricted="true">4</SpeciesGroupInfo>
+			<SpeciesGroupVersion modificationRestricted="false">13052020</SpeciesGroupVersion>
+			<StemTypeDefinition>
+				<StemTypeCode>1</StemTypeCode>
+				<StemTypeName>Tømmer</StemTypeName>
+			</StemTypeDefinition>
+			<StemTypeDefinition>
+				<StemTypeCode>2</StemTypeCode>
+				<StemTypeName>Massevirke</StemTypeName>
+			</StemTypeDefinition>
+			<SpeciesGroupPresentationOrder>4</SpeciesGroupPresentationOrder>
+			<SpeciesGroupKey>13</SpeciesGroupKey>
+		</SpeciesGroupDefinition>
+		<SpeciesGroupDefinition>
+			<SpeciesGroupModificationDate modificationAuthor="unknown">2020-11-04T18:36:54+02:00</SpeciesGroupModificationDate>
+			<SpeciesGroupUserID agency="Seller">NO3_ANNET</SpeciesGroupUserID>
+			<SpeciesGroupName>ANNET</SpeciesGroupName>
+			<SpeciesGroupInfo modificationRestricted="true">3</SpeciesGroupInfo>
+			<SpeciesGroupVersion modificationRestricted="false">16022020</SpeciesGroupVersion>
+			<StemTypeDefinition>
+				<StemTypeCode>1</StemTypeCode>
+				<StemTypeName>Tømmer</StemTypeName>
+			</StemTypeDefinition>
+			<StemTypeDefinition>
+				<StemTypeCode>2</StemTypeCode>
+				<StemTypeName>Massevirke</StemTypeName>
+			</StemTypeDefinition>
+			<SpeciesGroupPresentationOrder>3</SpeciesGroupPresentationOrder>
+			<SpeciesGroupKey>11</SpeciesGroupKey>
+		</SpeciesGroupDefinition>
+		<ProductDefinition>
+			<ProductKey>92</ProductKey>
+			<ClassifiedProductDefinition>
+				<ProductName>140 Granvin</ProductName>
+				<ModificationDate modificationAuthor="4G_Automation_System_prd">2023-01-05T10:24:22+02:00</ModificationDate>
+				<ProductInfo modificationRestricted="false">140</ProductInfo>
+				<ProductVersion modificationRestricted="false">18122020</ProductVersion>
+				<LoggingOrganisation>
+					<ContactInformation>
+						<BusinessName>Ajgkløsad</BusinessName>
+					</ContactInformation>
+				</LoggingOrganisation>
+				<ProductGroupName>Tømmer</ProductGroupName>
+				<StemTypeCode>1</StemTypeCode>
+				<ProductPresentationOrder>8</ProductPresentationOrder>
+				<ProductUserID agency="LoggingOrganisation">140_Sagtømmer_GRAN</ProductUserID>
+				<SpeciesGroupKey>12</SpeciesGroupKey>
+			</ClassifiedProductDefinition>
+		</ProductDefinition>
+		<ProductDefinition>
+			<ProductKey>86</ProductKey>
+			<ClassifiedProductDefinition>
+				<ProductName>102 Massevirke</ProductName>
+				<ModificationDate modificationAuthor="4G_Automation_System_prd">2023-01-05T10:24:22+02:00</ModificationDate>
+				<ProductInfo modificationRestricted="false">102</ProductInfo>
+				<ProductVersion modificationRestricted="false">18012021</ProductVersion>
+				<LoggingOrganisation>
+					<ContactInformation>
+						<BusinessName>Ajgkløsad</BusinessName>
+					</ContactInformation>
+				</LoggingOrganisation>
+				<ProductGroupName>Massevirke</ProductGroupName>
+				<StemTypeCode>2</StemTypeCode>
+				<ProductPresentationOrder>11</ProductPresentationOrder>
+				<ProductUserID agency="LoggingOrganisation">102_Massevirke_GRAN</ProductUserID>
+				<SpeciesGroupKey>12</SpeciesGroupKey>
+			</ClassifiedProductDefinition>
+		</ProductDefinition>
+		<ProductDefinition>
+			<ProductKey>98</ProductKey>
+			<ClassifiedProductDefinition>
+				<ProductName>157 gran palle mm</ProductName>
+				<ModificationDate modificationAuthor="4G_Automation_System_prd">2023-01-05T10:24:22+02:00</ModificationDate>
+				<ProductInfo modificationRestricted="false">157</ProductInfo>
+				<ProductGroupName>Tømmer</ProductGroupName>
+				<ProductPresentationOrder>18</ProductPresentationOrder>
+				<ProductUserID>SITKA157granpallemm157</ProductUserID>
+				<SpeciesGroupKey>13</SpeciesGroupKey>
+			</ClassifiedProductDefinition>
+		</ProductDefinition>
+		<ProductDefinition>
+			<ProductKey>87</ProductKey>
+			<ClassifiedProductDefinition>
+				<ProductName>111 Biovirke</ProductName>
+				<ModificationDate modificationAuthor="4G_Automation_System_prd">2023-01-05T10:24:22+02:00</ModificationDate>
+				<ProductInfo modificationRestricted="false">111</ProductInfo>
+				<ProductVersion modificationRestricted="false">18012021</ProductVersion>
+				<LoggingOrganisation>
+					<ContactInformation>
+						<BusinessName>Ajgkløsad</BusinessName>
+					</ContactInformation>
+				</LoggingOrganisation>
+				<ProductGroupName>Massevirke</ProductGroupName>
+				<ProductPresentationOrder>5</ProductPresentationOrder>
+				<ProductUserID agency="LoggingOrganisation">987_Biovirke_GRAN</ProductUserID>
+				<SpeciesGroupKey>12</SpeciesGroupKey>
+			</ClassifiedProductDefinition>
+		</ProductDefinition>
+		<ProductDefinition>
+			<ProductKey>84</ProductKey>
+			<ClassifiedProductDefinition>
+				<ProductName>345 Bjørk</ProductName>
+				<ModificationDate modificationAuthor="4G_Automation_System_prd">2023-01-05T10:24:22+02:00</ModificationDate>
+				<ProductInfo modificationRestricted="false">345</ProductInfo>
+				<ProductVersion modificationRestricted="false">18012021</ProductVersion>
+				<LoggingOrganisation>
+					<ContactInformation>
+						<BusinessName>Ajgkløsad</BusinessName>
+					</ContactInformation>
+				</LoggingOrganisation>
+				<ProductGroupName>Massevirke</ProductGroupName>
+				<StemTypeCode>2</StemTypeCode>
+				<ProductPresentationOrder>14</ProductPresentationOrder>
+				<ProductUserID agency="LoggingOrganisation">399_Bjørk_ANNET</ProductUserID>
+				<SpeciesGroupKey>11</SpeciesGroupKey>
+			</ClassifiedProductDefinition>
+		</ProductDefinition>
+		<ObjectDefinition>
+			<ObjectUserID>17022021_141122-091453</ObjectUserID>
+			<ObjectName>221114091313</ObjectName>
+			<ObjectModificationDate modificationAuthor="4G_Automation_System_prd">2022-11-14T09:14:55+02:00</ObjectModificationDate>
+			<ForestCertification>FSC</ForestCertification>
+			<LoggingOrganisation>
+				<ContactInformation>
+					<LastName>Ajgkløsad</LastName>
+					<BusinessName>Ajgkløsad</BusinessName>
+				</ContactInformation>
+			</LoggingOrganisation>
+			<ForestOwner>
+				<LastName>43318-2</LastName>
+				<BusinessName>43318-2</BusinessName>
+			</ForestOwner>
+			<ContractNumber>221640</ContractNumber>
+			<Extension>
+				<Ponsse>
+					<CuttingMethod>SpecialCutting</CuttingMethod>
+					<EstimatedProduction>0</EstimatedProduction>
+				</Ponsse>
+			</Extension>
+			<ObjectKey>9052</ObjectKey>
+			<StartDate>2022-11-14T09:14:54+02:00</StartDate>
+		</ObjectDefinition>
+		<LocationDefinition>
+			<LocationUserID>43318-2</LocationUserID>
+			<LocationName>Stor123haugen Gardsdrift</LocationName>
+			<LocationKey>10052</LocationKey>
+			<ObjectKey>9052</ObjectKey>
+		</LocationDefinition>
+		<DeliveryDefinition>
+			<DeliveryUserID agency="LoggingOrganisation">140_Sagtømmer_GRAN</DeliveryUserID>
+			<DeliveryName>140 Granvin</DeliveryName>
+			<ModificationDate modificationAuthor="Service Service">2022-01-07T15:31:41+02:00</ModificationDate>
+			<Density densityCategory="Not specified">750</Density>
+			<Density densityCategory="On bark">750</Density>
+			<Density densityCategory="Under bark">750</Density>
+			<DeliveryKey>2087</DeliveryKey>
+			<DeliveryEstimation>
+				<DeliveryEstimationMethod>Manual estimation by operator</DeliveryEstimationMethod>
+				<DeliveryEstimationUnit>Volume, m3sob</DeliveryEstimationUnit>
+			</DeliveryEstimation>
+			<ProductKey>92</ProductKey>
+		</DeliveryDefinition>
+		<DeliveryDefinition>
+			<DeliveryUserID agency="LoggingOrganisation">102_Massevirke_GRAN</DeliveryUserID>
+			<DeliveryName>102 Massevirke</DeliveryName>
+			<ModificationDate modificationAuthor="Service Service">2021-02-17T12:06:31+02:00</ModificationDate>
+			<Density densityCategory="Not specified">750</Density>
+			<Density densityCategory="On bark">750</Density>
+			<Density densityCategory="Under bark">750</Density>
+			<DeliveryKey>78</DeliveryKey>
+			<DeliveryEstimation>
+				<DeliveryEstimationMethod>Manual estimation by operator</DeliveryEstimationMethod>
+				<DeliveryEstimationUnit>Volume, m3sob</DeliveryEstimationUnit>
+			</DeliveryEstimation>
+			<ProductKey>86</ProductKey>
+		</DeliveryDefinition>
+		<DeliveryDefinition>
+			<DeliveryUserID>SITKA157granpallemm157</DeliveryUserID>
+			<DeliveryName>SITKA157granpallemm157</DeliveryName>
+			<ModificationDate modificationAuthor="4G_Automation_System_prd">2022-02-16T17:41:19+02:00</ModificationDate>
+			<Density densityCategory="On bark">750</Density>
+			<Density densityCategory="Under bark">750</Density>
+			<Density densityCategory="Not specified">750</Density>
+			<DeliveryKey>2096</DeliveryKey>
+			<DeliveryEstimation>
+				<DeliveryEstimationMethod>Manual estimation by operator</DeliveryEstimationMethod>
+				<DeliveryEstimationUnit>Volume, m3sob</DeliveryEstimationUnit>
+			</DeliveryEstimation>
+			<ProductKey>98</ProductKey>
+		</DeliveryDefinition>
+		<DeliveryDefinition>
+			<DeliveryUserID>987_Biovirke_GRAN</DeliveryUserID>
+			<DeliveryName>111 Biovirke</DeliveryName>
+			<ModificationDate modificationAuthor="Service Service">2022-03-03T09:42:56+02:00</ModificationDate>
+			<Density densityCategory="Not specified">750</Density>
+			<Density densityCategory="On bark">750</Density>
+			<Density densityCategory="Under bark">750</Density>
+			<DeliveryKey>2097</DeliveryKey>
+			<DeliveryEstimation>
+				<DeliveryEstimationMethod>Manual estimation by operator</DeliveryEstimationMethod>
+				<DeliveryEstimationUnit>Volume, m3sob</DeliveryEstimationUnit>
+			</DeliveryEstimation>
+			<ProductKey>87</ProductKey>
+		</DeliveryDefinition>
+		<DeliveryDefinition>
+			<DeliveryUserID agency="LoggingOrganisation">399_Bjørk_ANNET</DeliveryUserID>
+			<DeliveryName>345 Bjørk</DeliveryName>
+			<ModificationDate modificationAuthor="Service Service">2022-03-03T09:43:25+02:00</ModificationDate>
+			<Density densityCategory="Not specified">750</Density>
+			<Density densityCategory="On bark">750</Density>
+			<Density densityCategory="Under bark">750</Density>
+			<DeliveryKey>2098</DeliveryKey>
+			<DeliveryEstimation>
+				<DeliveryEstimationMethod>Manual estimation by operator</DeliveryEstimationMethod>
+				<DeliveryEstimationUnit>Volume, m3sob</DeliveryEstimationUnit>
+			</DeliveryEstimation>
+			<ProductKey>84</ProductKey>
+		</DeliveryDefinition>
+		<Load>
+			<LoadKey>95259</LoadKey>
+			<OperatorKey>5</OperatorKey>
+			<LoadNumber>1</LoadNumber>
+			<DistanceFromLastUnloading>323</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-14T09:51:51+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97287</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">18</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">18</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95260</LoadKey>
+			<OperatorKey>5</OperatorKey>
+			<LoadNumber>2</LoadNumber>
+			<DistanceFromLastUnloading>535</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-14T10:43:19+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97288</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">17</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">17</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">17</LoadVolume>
+			</PartialLoad>
+			<PartialLoad>
+				<PartialLoadKey>97289</PartialLoadKey>
+				<DeliveryKey>78</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">1</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">1</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">1</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95261</LoadKey>
+			<OperatorKey>5</OperatorKey>
+			<LoadNumber>3</LoadNumber>
+			<DistanceFromLastUnloading>57</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-14T11:27:46+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97290</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">18</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">18</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95262</LoadKey>
+			<OperatorKey>5</OperatorKey>
+			<LoadNumber>4</LoadNumber>
+			<DistanceFromLastUnloading>598</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-14T12:27:27+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97291</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">24.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">24.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">24.5</LoadVolume>
+			</PartialLoad>
+			<PartialLoad>
+				<PartialLoadKey>97292</PartialLoadKey>
+				<DeliveryKey>78</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">1.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">1.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">1.5</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95263</LoadKey>
+			<OperatorKey>5</OperatorKey>
+			<LoadNumber>5</LoadNumber>
+			<DistanceFromLastUnloading>92</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-14T12:51:33+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97293</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">13</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">13</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">13</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95264</LoadKey>
+			<OperatorKey>5</OperatorKey>
+			<LoadNumber>6</LoadNumber>
+			<DistanceFromLastUnloading>530</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-14T14:12:49+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97294</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">24</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">24</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">24</LoadVolume>
+			</PartialLoad>
+			<PartialLoad>
+				<PartialLoadKey>97295</PartialLoadKey>
+				<DeliveryKey>78</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">2</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">2</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">2</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95265</LoadKey>
+			<OperatorKey>5</OperatorKey>
+			<LoadNumber>7</LoadNumber>
+			<DistanceFromLastUnloading>574</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-14T15:20:54+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97296</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">19.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">19.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">19.5</LoadVolume>
+			</PartialLoad>
+			<PartialLoad>
+				<PartialLoadKey>97297</PartialLoadKey>
+				<DeliveryKey>78</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">6</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">6</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">6</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95266</LoadKey>
+			<OperatorKey>5</OperatorKey>
+			<LoadNumber>8</LoadNumber>
+			<DistanceFromLastUnloading>628</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-14T16:38:25+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97298</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95267</LoadKey>
+			<OperatorKey>5</OperatorKey>
+			<LoadNumber>9</LoadNumber>
+			<DistanceFromLastUnloading>629</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-14T17:31:41+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97299</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95268</LoadKey>
+			<OperatorKey>5</OperatorKey>
+			<LoadNumber>10</LoadNumber>
+			<DistanceFromLastUnloading>582</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-14T18:32:55+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97300</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95269</LoadKey>
+			<OperatorKey>3</OperatorKey>
+			<LoadNumber>11</LoadNumber>
+			<DistanceFromLastUnloading>1174</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-15T08:22:37+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97301</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">27</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">27</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">27</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95270</LoadKey>
+			<OperatorKey>3</OperatorKey>
+			<LoadNumber>12</LoadNumber>
+			<DistanceFromLastUnloading>894</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-15T09:26:00+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97302</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95271</LoadKey>
+			<OperatorKey>3</OperatorKey>
+			<LoadNumber>13</LoadNumber>
+			<DistanceFromLastUnloading>892</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-15T10:16:50+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97303</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95272</LoadKey>
+			<OperatorKey>3</OperatorKey>
+			<LoadNumber>14</LoadNumber>
+			<DistanceFromLastUnloading>888</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-15T11:14:32+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97304</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95273</LoadKey>
+			<OperatorKey>3</OperatorKey>
+			<LoadNumber>15</LoadNumber>
+			<DistanceFromLastUnloading>908</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-15T12:18:10+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97305</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95274</LoadKey>
+			<OperatorKey>3</OperatorKey>
+			<LoadNumber>16</LoadNumber>
+			<DistanceFromLastUnloading>1100</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-15T13:43:29+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97306</PartialLoadKey>
+				<DeliveryKey>78</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">12</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">12</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">12</LoadVolume>
+			</PartialLoad>
+			<PartialLoad>
+				<PartialLoadKey>97307</PartialLoadKey>
+				<DeliveryKey>2096</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">9</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">9</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">9</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>95275</LoadKey>
+			<OperatorKey>4</OperatorKey>
+			<LoadNumber>17</LoadNumber>
+			<DistanceFromLastUnloading>1048</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-15T15:06:09+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>97308</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>96269</LoadKey>
+			<OperatorKey>3</OperatorKey>
+			<LoadNumber>18</LoadNumber>
+			<DistanceFromLastUnloading>2274</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-15T21:01:00+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>98301</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>96270</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>19</LoadNumber>
+			<DistanceFromLastUnloading>1322</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-16T11:42:30+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>98302</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>96271</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>20</LoadNumber>
+			<DistanceFromLastUnloading>1057</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-16T13:39:30+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>98303</PartialLoadKey>
+				<DeliveryKey>78</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">24</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">24</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">24</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>96272</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>21</LoadNumber>
+			<DistanceFromLastUnloading>803</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-16T14:31:15+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>98304</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>96273</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>22</LoadNumber>
+			<DistanceFromLastUnloading>542</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-16T15:16:56+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>98305</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>96274</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>23</LoadNumber>
+			<DistanceFromLastUnloading>805</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-16T18:44:05+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>98306</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97270</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>24</LoadNumber>
+			<DistanceFromLastUnloading>2286</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-17T10:21:24+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99302</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">19.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">19.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">19.5</LoadVolume>
+			</PartialLoad>
+			<PartialLoad>
+				<PartialLoadKey>99303</PartialLoadKey>
+				<DeliveryKey>78</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">6</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">6</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">6</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97271</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>25</LoadNumber>
+			<DistanceFromLastUnloading>6</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-17T10:21:35+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99304</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97272</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>26</LoadNumber>
+			<DistanceFromLastUnloading>1096</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-17T11:25:06+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99305</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">27</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">27</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">27</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97273</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>27</LoadNumber>
+			<DistanceFromLastUnloading>2348</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-17T14:18:30+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99306</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97274</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>28</LoadNumber>
+			<DistanceFromLastUnloading>657</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-17T15:02:52+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99307</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97275</LoadKey>
+			<OperatorKey>4</OperatorKey>
+			<LoadNumber>29</LoadNumber>
+			<DistanceFromLastUnloading>1098</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-18T06:56:30+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99308</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97276</LoadKey>
+			<OperatorKey>4</OperatorKey>
+			<LoadNumber>30</LoadNumber>
+			<DistanceFromLastUnloading>1018</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-18T07:49:13+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99309</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97277</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>31</LoadNumber>
+			<DistanceFromLastUnloading>3233</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-21T10:43:41+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99310</PartialLoadKey>
+				<DeliveryKey>78</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">3</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">3</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">3</LoadVolume>
+			</PartialLoad>
+			<PartialLoad>
+				<PartialLoadKey>99311</PartialLoadKey>
+				<DeliveryKey>2096</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">15</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">15</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">15</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97278</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>32</LoadNumber>
+			<DistanceFromLastUnloading>1171</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-21T11:51:20+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99312</PartialLoadKey>
+				<DeliveryKey>2096</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">18</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">18</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97279</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>33</LoadNumber>
+			<DistanceFromLastUnloading>1172</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-21T13:38:44+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99313</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97280</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>34</LoadNumber>
+			<DistanceFromLastUnloading>1148</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-21T14:55:36+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99314</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97281</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>35</LoadNumber>
+			<DistanceFromLastUnloading>1045</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-21T15:52:23+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99315</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97282</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>36</LoadNumber>
+			<DistanceFromLastUnloading>1193</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-22T09:51:19+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99316</PartialLoadKey>
+				<DeliveryKey>78</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">6</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">6</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">6</LoadVolume>
+			</PartialLoad>
+			<PartialLoad>
+				<PartialLoadKey>99317</PartialLoadKey>
+				<DeliveryKey>2096</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">13.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">13.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">13.5</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97283</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>37</LoadNumber>
+			<DistanceFromLastUnloading>1084</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-22T10:59:31+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99318</PartialLoadKey>
+				<DeliveryKey>78</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">6</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">6</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">6</LoadVolume>
+			</PartialLoad>
+			<PartialLoad>
+				<PartialLoadKey>99319</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">19.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">19.5</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">19.5</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97284</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>38</LoadNumber>
+			<DistanceFromLastUnloading>1031</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-22T12:25:56+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99320</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97285</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>39</LoadNumber>
+			<DistanceFromLastUnloading>1212</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-22T13:36:58+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99321</PartialLoadKey>
+				<DeliveryKey>2096</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">18</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">18</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">18</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97286</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>40</LoadNumber>
+			<DistanceFromLastUnloading>1242</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-22T14:46:12+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99322</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">26</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">26</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<Load>
+			<LoadKey>97287</LoadKey>
+			<OperatorKey>2</OperatorKey>
+			<LoadNumber>41</LoadNumber>
+			<DistanceFromLastUnloading>689</DistanceFromLastUnloading>
+			<UnloadingTime>2022-11-22T15:28:19+02:00</UnloadingTime>
+			<PartialLoad>
+				<PartialLoadKey>99323</PartialLoadKey>
+				<DeliveryKey>78</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">1</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">1</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">1</LoadVolume>
+			</PartialLoad>
+			<PartialLoad>
+				<PartialLoadKey>99324</PartialLoadKey>
+				<DeliveryKey>2087</DeliveryKey>
+				<LocationKey>10052</LocationKey>
+				<LoadVolume loadVolumeCategory="Volume, m3sob">25</LoadVolume>
+				<LoadVolume loadVolumeCategory="Volume, m3sub">25</LoadVolume>
+				<LoadVolume loadVolumeCategory="Solid volume of bundles (length*cross sectional area), m3">25</LoadVolume>
+			</PartialLoad>
+		</Load>
+		<ForwardingStatus>
+			<LocationKey>10052</LocationKey>
+			<DeliveryKey>78</DeliveryKey>
+			<ForwardStartDate>2022-11-14T10:43:19+02:00</ForwardStartDate>
+			<ForwardEndDate>2023-01-02T11:04:39+02:00</ForwardEndDate>
+		</ForwardingStatus>
+		<ForwardingStatus>
+			<LocationKey>10052</LocationKey>
+			<DeliveryKey>2087</DeliveryKey>
+			<ForwardStartDate>2022-11-14T09:51:51+02:00</ForwardStartDate>
+			<ForwardEndDate>2023-01-05T14:44:43+02:00</ForwardEndDate>
+		</ForwardingStatus>
+		<ForwardingStatus>
+			<LocationKey>10052</LocationKey>
+			<DeliveryKey>2096</DeliveryKey>
+			<ForwardStartDate>2022-11-15T13:43:29+02:00</ForwardStartDate>
+			<ForwardEndDate>2023-01-02T09:31:52+02:00</ForwardEndDate>
+		</ForwardingStatus>
+		<ForwardingStatus>
+			<LocationKey>10052</LocationKey>
+			<DeliveryKey>2097</DeliveryKey>
+			<ForwardStartDate>2022-12-05T16:03:17+02:00</ForwardStartDate>
+			<ForwardEndDate>2022-12-21T08:24:50+02:00</ForwardEndDate>
+		</ForwardingStatus>
+		<ForwardingStatus>
+			<LocationKey>10052</LocationKey>
+			<DeliveryKey>2098</DeliveryKey>
+			<ForwardStartDate>2022-12-15T10:27:42+02:00</ForwardStartDate>
+			<ForwardEndDate>2022-12-15T13:53:34+02:00</ForwardEndDate>
+		</ForwardingStatus>
+	</Machine>
+</ForwardedProduction>

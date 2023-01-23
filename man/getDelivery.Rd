@@ -18,4 +18,5 @@ doc <- xml2::read_xml(fprfiles[1])
 nodelist <- xml2::xml_find_all(doc, ".//d1:DeliveryDefinition")
 getDelivery(nodelist[[1]]) \%>\% dplyr::glimpse()
 plyr::ldply(nodelist[1], getDelivery)
+plyr::ldply(nodelist, getDelivery)
 }
