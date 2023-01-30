@@ -287,18 +287,18 @@ getLogs <- function(doc){
 #' get SingleTreeProcessed tree's diametres
 #'
 #' @param doc a hpr document (xml)
-#' @return a tibble
+#' @return a tibble. If no diametervector is present, a message and NULL.
 #' @export
 #'
 #' @examples
 #' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
-#' getSTP_diameters(doc)
+#' getSTP_stemdiameters(doc)
 #' doc <- xml2::read_xml(hprfiles[2])
-#' getSTP_diameters(doc)
+#' getSTP_stemdiameters(doc)
 #' doc <- xml2::read_xml(hprfiles[3])
-#' getSTP_diameters(doc)
-getSTP_diameters <- function(doc) {
+#' getSTP_stemdiameters(doc)
+getSTP_stemdiameters <- function(doc) {
 
   x <- xml2::xml_find_all(doc, ".//d1:Stem")
 
@@ -309,6 +309,7 @@ getSTP_diameters <- function(doc) {
   # For each x, find all stem diameter nodes, find all measurements over bark, tie to StemKey
 
   n_dias_per_stem <- purrr::map(x, ~length(xml2::xml_find_all(.x, ".//d1:DiameterValue")))
+  if(n_dias_per_stem[[1]] > 0){
 
   StemKey <-  xml2::xml_integer(xml2::xml_find_all(x, ".//d1:StemKey"))
 
@@ -327,8 +328,9 @@ getSTP_diameters <- function(doc) {
     } else {
       diadat <- tibble::tibble()
     }
-
   return(diadat)
+  } else {return( cat("No diametervector; n_dias_per_stem[[1]] !> 0\n"))}
+
 }
 
 
@@ -357,16 +359,16 @@ getSTP_diameters <- function(doc) {
 #' @export
 getStemsAndLogs <- function(doc){
   stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
-  cat("getStemsAndLogs-getStemdata ")
+  cat("getStemsAndLogs-getStemdata \n")
   stems <- plyr::ldply(stemlist, sf2010r::getStemdata)
-  cat("getStemsAndLogs-getSTPlogs ")
+  cat("getStemsAndLogs-getSTPlogs \n")
   stplogs <- plyr::ldply(stemlist, sf2010r::getSTPlogs)
-  cat("getStemsAndLogs-getMTPlogs ")
+  cat("getStemsAndLogs-getMTPlogs \n")
   mtplogs <- plyr::ldply(stemlist, sf2010r::getMTPlogs)
-  cat("getStemsAndLogs-getStemGrades ")
+  cat("getStemsAndLogs-getStemGrades \n")
   stemgrades <- plyr::ldply(stemlist, sf2010r::getStemGrades)
-  cat("getStemsAndLogs-getSTP_diameters ")
-  stemdias <- sf2010r::getSTP_diameters(doc)
+  cat("getStemsAndLogs-getSTP_stemdiameters \n")
+  stemdias <- sf2010r::getSTP_stemdiameters(doc)
 
     retlist <- list(stems=stems, stplogs = stplogs, mtplogs = mtplogs, stemgrades = stemgrades, stemdias = stemdias)
   return(retlist)

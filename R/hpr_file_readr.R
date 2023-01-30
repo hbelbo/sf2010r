@@ -15,6 +15,9 @@
 #' hprtest2 <- hprdata(hprfiles[2])
 #' hprtest3 <- hprdata(hprfiles[3])
 hprdata<- function(hprfile){
+  # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+  # hprfile = hprfiles[1]
+  cat(" -hprdata() parsing ", hprfile,"- \n")
    doc <- xml2::read_xml(hprfile)
    md5 <-  digest::digest(file(hprfile))
 
@@ -55,11 +58,11 @@ hprdata<- function(hprfile){
 
 
     # Species and product definitions ----
-    cat(" -hprdata-getSpeciesGroupDefs- ")
+    cat(" -hprdata-getSpeciesGroupDefs- \n")
     speciesgroups <- sf2010r::getSpeciesGroupDefinitions(doc)
     # speciesgroups %>% dplyr::glimpse()
 
-    cat(" -hprdata-getProductDefs \n")
+    cat(" -hprdata-getProductDefs- \n")
     products <- sf2010r::getProductDefs(doc) %>%
       dplyr::mutate(  MachineKey = MachineReportHeader$MachineKey,
              CreationDate = MachineReportHeader$CreationDate)
@@ -71,7 +74,7 @@ hprdata<- function(hprfile){
               CreationDate = MachineReportHeader$CreationDate)
     # pricematrixes %>% dplyr::glimpse()
 
-    cat(" -hprdata-getStemTypes \n")
+    cat(" -hprdata-getStemTypes; \n")
     stemtypes <- sf2010r::getStemTypes(doc) %>%
       mutate( MachineKey = MachineReportHeader$MachineKey)
     # stemtypes %>% dplyr::glimpse()
@@ -79,7 +82,7 @@ hprdata<- function(hprfile){
 
 
     ## Harvested stems and logs ----
-    cat(" -hprdata-getStemsAndLogs \n")
+    cat(" hprdata-getStemsAndLogs;  \n")
     StemsLogs <- sf2010r::getStemsAndLogs(doc)
 
 
@@ -88,24 +91,22 @@ hprdata<- function(hprfile){
     # Stemdat %>% dplyr::glimpse()
     Stemdat <- Stemdat %>%
       mutate(
-             MachineKey = MachineReportHeader$MachineKey,
-             CreationDate = MachineReportHeader$CreationDate
+             MachineKey = MachineReportHeader$MachineKey
+             #, CreationDate = MachineReportHeader$CreationDate
              ) %>%
-      dplyr::left_join( (speciesgroups %>% dplyr::select( .data$SpeciesGroupKey, .data$SpeciesGroupName)), by = "SpeciesGroupKey")
+      dplyr::left_join( (speciesgroups %>% dplyr::select( SpeciesGroupKey, SpeciesGroupName)), by = "SpeciesGroupKey")
     # Stemdat %>% dplyr::glimpse()
 
 
     stemdatfromlogs = StemsLogs$stplogs %>% #dplyr::glimpse()
       dplyr::group_by( .data$StemKey) %>%
       dplyr::summarise(
-            num_logs = dplyr::n(),
-            stem_length = sum(.data$LogLength),
-            stem_vol_m3sub = sum(.data$m3sub),
-            stem_vol_m3sob = sum(.data$m3sob)
+            num_logs = dplyr::n()
+            , stem_length = sum(.data$LogLength)
+            , stem_vol_m3sub = sum(.data$m3sub)
+            , stem_vol_m3sob = sum(.data$m3sob)
       )
     Stemdat <- dplyr::left_join(Stemdat, stemdatfromlogs, by = "StemKey")
-
-
 
 
     # Grade vector for each tree: -------
@@ -119,7 +120,7 @@ hprdata<- function(hprfile){
 
     # height diameter dataset: StemKey diaheight dia_ob_cm, dia_ub_cm -------
 
-    cat(" - hprdata- create height diameter dataset")
+    cat(" - hprdata- create height diameter dataset from logs- \n")
     logmeter <- StemsLogs$stplogs %>%
       select( -tidyselect::starts_with("m3"))  %>%
       dplyr::ungroup() %>%
@@ -130,40 +131,47 @@ hprdata<- function(hprfile){
       dplyr::ungroup()
 
     topsonbark = logmeter %>%
-      dplyr::select( .data$StemKey, .data$LogKey, diapos = .data$LogEndHeight, dia = .data$`Top ob`)
+      dplyr::select( StemKey, LogKey, diapos = LogEndHeight, dia = `Top ob`)
     midsonbark = logmeter %>%
-      dplyr::select( .data$StemKey, .data$LogKey, diapos = .data$LogMidHeight, dia = .data$`Mid ob`)
-    stemdiasonbark <- dplyr::bind_rows(midsonbark, topsonbark)
+      dplyr::select( StemKey, LogKey, diapos = LogMidHeight, dia = `Mid ob`)
+    stemlogdiasonbark <- dplyr::bind_rows(midsonbark, topsonbark)
 
 
     if("`Butt ob`" %in% colnames(logmeter) ){
       butsonbark = logmeter %>%
-        dplyr::select( .data$StemKey, .data$LogKey, diapos = .data$LogStartHeight,
-                       dia = .data$`Butt ob`)
-      stemdiasonbark <- dplyr::bind_rows(stemdiasonbark, butsonbark)
+        dplyr::select( StemKey, LogKey, diapos = LogStartHeight,
+                       dia = `Butt ob`)
+      stemlogdiasonbark <- dplyr::bind_rows(stemlogdiasonbark, butsonbark)
     }
-    stemdiasonbark <- stemdiasonbark %>% dplyr::arrange( .data$StemKey, .data$diapos)
+    stemlogdiasonbark <- stemlogdiasonbark %>%
+      dplyr::arrange( .data$StemKey, .data$diapos) %>%
+      dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
 
 
-    topsubark = logmeter %>% dplyr::select( .data$StemKey, .data$LogKey,
-                                     diapos = .data$LogEndHeight, dia = .data$`Top ub`)
-    midsubark = logmeter %>% dplyr::select( .data$StemKey, .data$LogKey,
-                                     diapos = .data$LogMidHeight, dia = .data$`Mid ub`)
+    topsubark = logmeter %>%
+      dplyr::select( StemKey, LogKey,
+                     diapos = LogEndHeight, dia = `Top ub`)
+    midsubark = logmeter %>%
+      dplyr::select( StemKey, LogKey,
+                     diapos = LogMidHeight, dia = `Mid ub`)
 
-    stemdiasubark <- dplyr::bind_rows(midsubark, topsubark)
+    stemlogdiasubark <- dplyr::bind_rows(midsubark, topsubark)
     if("`Butt ub`" %in% colnames(logmeter) ){
       butsubark = logmeter %>%
-        dplyr::select( .data$StemKey, .data$LogKey, diapos = .data$LogStartHeight,
-                       dia = .data$`Butt ub`)
-      stemdiasubark <- bind_rows(stemdiasubark, butsubark)
+        dplyr::select( StemKey, LogKey, diapos = LogStartHeight,
+                       dia = `Butt ub`)
+      stemlogdiasubark <- bind_rows(stemlogdiasubark, butsubark)
     }
-    stemdiasubark <- stemdiasubark %>% arrange( .data$StemKey, .data$diapos)
+    stemlogdiasubark <- stemlogdiasubark %>%
+      dplyr::arrange( .data$StemKey, .data$diapos) %>%
+      dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
 
-    # Logs products productmatrixes
+    if(!is.null(StemsLogs$stemdias)){
+        stemdiametervector <- StemsLogs$stemdias %>%
+          dplyr::mutate(MachineKey = MachineReportHeader$MachineKey)
+    } else { stemdiametervector <- NULL}
 
-    logs <- StemsLogs$stplogs  %>%
-      dplyr::mutate(MachineKey = MachineReportHeader$MachineKey,
-              CreationDate = MachineReportHeader$CreationDate)
+
 
 
     # Set up machine report table. One machine report = one observation. ----
@@ -190,15 +198,28 @@ hprdata<- function(hprfile){
     grades = NULL
     logs = NULL
     pricematrixes = NULL
-    stemdiasonbark = NULL
+    stemlogdiasonbark = NULL
+    stemlogdiasubark = NULL
     stemtypes = NULL
+    stemdiametervector = NULL
   }
 
-  Ret <- list(stems=Stemdat, products=products, logs = logs, machinereport_meta =  machinereport_meta,
-              operators = operators, objects = objects,
-              grades = grades, pricematrixes = pricematrixes,
-              stemdiasonbark = stemdiasonbark, stemtypes = stemtypes)
+  Ret <- list(machinereport_meta =  machinereport_meta
+              , speciesgroups = speciesgroups
+              , products=products
+              , stems=Stemdat
+              , logs = (StemsLogs$stplogs %>% dplyr::mutate(MachineKey = MachineReportHeader$MachineKey))
+              , operators = operators
+              , objects = objects
+              , grades = grades
+              , pricematrixes = pricematrixes
+              , stemlogdiasonbark = stemlogdiasonbark
+              , stemlogdiasubark = stemlogdiasubark
+              , stemtypes = stemtypes
+              , stemdiametervector = stemdiametervector
+              )
   return(Ret)
+  cat(" -hprdata complete - \n")
 }
 
 
