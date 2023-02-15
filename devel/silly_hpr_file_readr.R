@@ -1,4 +1,4 @@
-## require('sf2010r')
+require('sf2010r')
 require('tidyverse')
 require('R.utils')
 
