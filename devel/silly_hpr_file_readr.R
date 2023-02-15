@@ -1,13 +1,13 @@
 ## require('sf2010r')
 require('tidyverse')
 require('R.utils')
+
 source('~/bin/helpers.r')
-wd('sf2010r/sf2010r/R')
+## wd('sf2010r/sf2010r/R')
+setwd('/home/wihe/Documents/sf2010r/sf2010r/R')
 sourceDirectory('.', modifiedOnly = TRUE, verbose = TRUE)
-wd('/sf2010/devel')
-
-
-
+## wd('sf2010r/devel')
+setwd('/home/wihe/Documents/sf2010r/devel')
 
 #' Hpr-file reader function
 #'
