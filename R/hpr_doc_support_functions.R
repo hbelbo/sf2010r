@@ -132,6 +132,7 @@ getSTPlogs <- function(x) {
                                      xml2::xml_integer(xml2::xml_find_all(.x, "./d1:LogKey")))
 
     ProductKey <- logs %>% purrr::map(~  xml2::xml_integer(  xml2::xml_find_all(.x, ".//d1:ProductKey")))
+    CuttingReason <- logs %>% purrr::map(~  xml2::xml_text(  xml2::xml_find_all(.x, ".//d1:CuttingCategory/d1:CuttingReason")))
 
     LogLength <- logs %>%
       purrr::map(~  xml2::xml_integer(  xml2::xml_find_all(.x, ".//d1:LogMeasurement[@logMeasurementCategory='Machine']/d1:LogLength")))
@@ -161,7 +162,8 @@ getSTPlogs <- function(x) {
       StemKey = StemKey
       , LogKey =  unlist(logkeys)
       , ProductKey = unlist(ProductKey)
-      , LogLength = unlist(LogLength)) %>%
+      , LogLength = unlist(LogLength)
+      , CuttingReason = unlist(CuttingReason)) %>%
       dplyr::left_join(LogVolume, by = "LogKey") %>%
       dplyr::left_join(LogDiameters, by = "LogKey")
 
