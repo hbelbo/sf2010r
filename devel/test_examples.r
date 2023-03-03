@@ -2,6 +2,7 @@ require('sf2010r')
 pth <- hprfiles <- list.files(path =  system.file(package = "sf2010r"),
  pattern = ".", recursive = TRUE, full.names= TRUE)
 
+
 get_Harv_data <- function(pth,
                           funcs = c(mom = 'getMom.all',hpr = 'hprdata')){
     casein <- paste0('(?i)', names(funcs))
@@ -23,7 +24,6 @@ get_Harv_data <- function(pth,
 
 pth
 tmp <- get_Harv_data(pth)
-
 names(tmp)
 length(tmp)
 
