@@ -1,5 +1,5 @@
 require('sf2010r')
-pth <- hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+pth <- list.files(path =  system.file(package = "sf2010r"),
  pattern = ".", recursive = TRUE, full.names= TRUE)
 
 
