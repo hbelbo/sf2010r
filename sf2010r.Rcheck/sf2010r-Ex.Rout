@@ -1,0 +1,2137 @@
+
+R version 4.2.3 (2023-03-15) -- "Shortstop Beagle"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "sf2010r"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> base::assign(".ExTimings", "sf2010r-Ex.timings", pos = 'CheckExEnv')
+> base::cat("name\tuser\tsystem\telapsed\n", file=base::get(".ExTimings", pos = 'CheckExEnv'))
+> base::assign(".format_ptime",
++ function(x) {
++   if(!is.na(x[4L])) x[1L] <- x[1L] + x[4L]
++   if(!is.na(x[5L])) x[2L] <- x[2L] + x[5L]
++   options(OutDec = '.')
++   format(x[1L:3L], digits = 7L)
++ },
++ pos = 'CheckExEnv')
+> 
+> ### * </HEADER>
+> library('sf2010r')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("fTZ")
+> ### * fTZ
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: fTZ
+> ### Title: Get Time zone from the StanForD2010 countrycode variables.
+> ### Aliases: fTZ
+> 
+> ### ** Examples
+> 
+> fTZ("752")
+[1] "Europe/Stockholm"
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("fTZ", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getCombined.mwt")
+> ### * getCombined.mwt
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getCombined.mwt
+> ### Title: Get Combined Machine Work Time for all and within a SF2010 .hpr
+> ###   file
+> ### Aliases: getCombined.mwt
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> momf <- list.files(pth,".mom",ignore.case=TRUE,recursive=TRUE,full.names=TRUE)
+> momf_cmwt <- momf[which(stringr::str_detect(string=momf,pattern="combined_mwt"))]
+> doc <- xml2::read_xml(momf_cmwt[2])
+> getCombined.mwt(doc)
+  OperatorKey                     StartTime ObjectKey SubObjectKey
+1           5 2022-05-02T09:45:53.757+02:00         9            9
+2           5 2022-05-02T09:49:12.163+02:00         9            9
+3           5  2022-05-02T10:51:17.08+02:00         3            3
+  MonitoringSettingsKey               CombinedEndTime EngineTime DrivenDistance
+1                     1 2022-05-02T09:49:12.163+02:00        180             48
+2                     1  2022-05-02T10:51:15.04+02:00        540             69
+3                     1 2022-05-02T10:51:37.713+02:00          0              0
+  FuelConsumption cmrt_OtherWork ForwardedGreenMass TotalForwardedVolume
+1               0            202                  0                    0
+2               1           2743                  0                    0
+3               0             23                  0                    0
+  NumberOfLoads                       MachineKey
+1             0 dcda9e74c3b1efcb6936f6f2efce41c6
+2             0 dcda9e74c3b1efcb6936f6f2efce41c6
+3             0 dcda9e74c3b1efcb6936f6f2efce41c6
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getCombined.mwt", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getDelivery")
+> ### * getDelivery
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getDelivery
+> ### Title: Delivery data from one delivery definition node
+> ### Aliases: getDelivery
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r") 
+> fprfiles <- list.files(pth,".fpr",ignore.case=TRUE,recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(fprfiles[1])
+> nodelist <- xml2::xml_find_all(doc, ".//d1:DeliveryDefinition")
+> getDelivery(nodelist[[1]]) %>% dplyr::glimpse()
+Rows: 1
+Columns: 11
+$ DeliveryUserID            <chr> "acb5d1dd-2959-4f26-9ac7-a8f6811b611c"
+$ DeliveryName              <chr> "GRAN.Skurt eksport lang"
+$ ModificationDate          <chr> "2021-10-16T07:19:36.787+02:00"
+$ DeliveryInfo              <chr> "140"
+$ DeliveryVersion           <chr> ""
+$ DeliveryDestination       <chr> ""
+$ Density                   <chr> "800"
+$ DeliveryPresentationOrder <chr> "5"
+$ DeliveryDescription       <chr> ""
+$ DeliveryKey               <int> 6
+$ ProductKey                <int> 34
+> plyr::ldply(nodelist[1], getDelivery)
+# A tibble: 1 × 11
+  DeliveryUserID Deliv…¹ Modif…² Deliv…³ Deliv…⁴ Deliv…⁵ Density Deliv…⁶ Deliv…⁷
+  <chr>          <chr>   <chr>   <chr>   <chr>   <chr>   <chr>   <chr>   <chr>  
+1 acb5d1dd-2959… GRAN.S… 2021-1… 140     ""      ""      800     5       ""     
+# … with 2 more variables: DeliveryKey <int>, ProductKey <int>, and abbreviated
+#   variable names ¹​DeliveryName, ²​ModificationDate, ³​DeliveryInfo,
+#   ⁴​DeliveryVersion, ⁵​DeliveryDestination, ⁶​DeliveryPresentationOrder,
+#   ⁷​DeliveryDescription
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getDelivery", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getLocation")
+> ### * getLocation
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getLocation
+> ### Title: Location data from one Location node
+> ### Aliases: getLocation
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r") 
+> fprfiles <- list.files(pth,".fpr",ignore.case=TRUE,recursive=TRUE,full.names= TRUE)
+> doc <- xml2::read_xml(fprfiles[1])
+> locationlist <- xml2::xml_find_all(doc, ".//d1:LocationDefinition")
+> getLocation(locationlist[[1]]) %>% dplyr::glimpse()
+Rows: 1
+Columns: 8
+$ LocationUserID      <chr> "42eabfb5-6c32-4a4b-8a73-61b5ec87b25b"
+$ LocationName        <chr> "42eabfb5-6c32-4a4b-8a73-61b5ec87b25b"
+$ LocationInfo        <chr> ""
+$ LocationVersion     <chr> ""
+$ RoadCondition       <chr> ""
+$ LocationDescription <chr> ""
+$ LocationKey         <int> 2
+$ ObjectKey           <int> 3
+> plyr::ldply(locationlist[1], getLocation)
+# A tibble: 1 × 8
+  LocationUserID         Locat…¹ Locat…² Locat…³ RoadC…⁴ Locat…⁵ Locat…⁶ Objec…⁷
+  <chr>                  <chr>   <chr>   <chr>   <chr>   <chr>     <int>   <int>
+1 42eabfb5-6c32-4a4b-8a… 42eabf… ""      ""      ""      ""            2       3
+# … with abbreviated variable names ¹​LocationName, ²​LocationInfo,
+#   ³​LocationVersion, ⁴​RoadCondition, ⁵​LocationDescription, ⁶​LocationKey,
+#   ⁷​ObjectKey
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getLocation", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getLogs")
+> ### * getLogs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getLogs
+> ### Title: Get logsdata for all stems within a SF2010 .hpr file
+> ### Aliases: getLogs
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> getLogs(doc)
+# A tibble: 40 × 16
+   StemKey LogKey Produc…¹ LogLe…² m3 (p…³  m3sob  m3sub Butt …⁴ Butt …⁵ Mid o…⁶
+     <int>  <int>    <int>   <int>   <dbl>  <dbl>  <dbl>   <int>   <int>   <int>
+ 1  163859      1   999999      31  0      0.0116 0.0104     238     226     218
+ 2  163859      2     4274     373  0.0973 0.0922 0.0819     201     190     174
+ 3  163859      3     4274     434  0.093  0.0895 0.0788     172     162     161
+ 4  163859      4     4297     452  0.0615 0.0702 0.0615     152     142     140
+ 5  163859      5     4297     448  0.0369 0.0433 0.0369     127     118     111
+ 6  163859      6   999999     184  0      0.0095 0.0078      92      84      78
+ 7  163860      1   999999      55  0      0.0231 0.0208     260     247     229
+ 8  163860      2     4299     300  0.0795 0.0892 0.0795     214     203     193
+ 9  163860      3     4297     449  0.0927 0.104  0.0927     181     171     173
+10  163860      4     4274     404  0.0855 0.0788 0.0692     166     156     159
+# … with 30 more rows, 6 more variables: `Mid ub` <int>, `Top ob` <int>,
+#   `Top ub` <int>, `Mid HKS ob` <int>, `Mid HKS ub` <int>, MachineKey <chr>,
+#   and abbreviated variable names ¹​ProductKey, ²​LogLength, ³​`m3 (price)`,
+#   ⁴​`Butt ob`, ⁵​`Butt ub`, ⁶​`Mid ob`
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getLogs", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getMTPlogs")
+> ### * getMTPlogs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getMTPlogs
+> ### Title: Fetch the multi tree processed logs belonging to one multi-stem
+> ###   entry in hpr
+> ### Aliases: getMTPlogs
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
+> pcat <- ".//d1:ProcessingCategory"
+> wtch <- which(xml2::xml_text(xml2::xml_find_all(stemlist,pcat))=="MultiTreeProcessing")
+> getMTPlogs(stemlist[1])
+NULL
+> if(length(wtch) > 0) { getMTPlogs(stemlist[wtch[1]])}
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getMTPlogs", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getMachineReportHeader")
+> ### * getMachineReportHeader
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getMachineReportHeader
+> ### Title: Organize the header data of the StanForD2010 report into a
+> ###   tibble
+> ### Aliases: getMachineReportHeader
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> getMachineReportHeader(doc)
+# A tibble: 1 × 32
+  messageheader  Creat…¹ Modif…² Appli…³ Appli…⁴ Count…⁵ messa…⁶ areaU…⁷ diame…⁸
+  <chr>          <chr>   <chr>   <chr>   <chr>   <chr>   <chr>   <chr>   <chr>  
+1 HarvestedProd… 2017-0… 2017-0… MaxiXp… MaxiXp… 752     hpr     ha      mm     
+# … with 23 more variables: lengthUnit <chr>, volumeUnit <chr>,
+#   weightUnit <chr>, version <chr>, `xmlns:xsi` <chr>, `xmlns:xsd` <chr>,
+#   xmlns <chr>, MachineKey <chr>, MachineUserID <chr>, MachineOwnerID <chr>,
+#   MachineApplicationVersion <chr>, MachineBaseManufacturer <chr>,
+#   MachineBaseModel <chr>, MachineHeadManufacturer <chr>,
+#   MachineHeadModel <chr>, MachineCategory <chr>, Contractor_FirstName <chr>,
+#   Contractor_LastName <chr>, Contractor_Phone <chr>, Contractor_Fax <chr>, …
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getMachineReportHeader", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getMom.all")
+> ### * getMom.all
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getMom.all
+> ### Title: mom-file reader function
+> ### Aliases: getMom.all
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> momfiles <- list.files(pth,".mom$",recursive=TRUE,ignore.case=TRUE,full.names= TRUE)
+> momtest1 <- getMom.all(momfiles[1])
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getMom.all", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+Warning in .Internal(gc(verbose, reset, full)) :
+  closing unused connection 3 (/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/MOM_Komatsu_harvester_sf2010v30_combined_mwt.MOM)
+> nameEx("getMom.cmwt.data")
+> ### * getMom.cmwt.data
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getMom.cmwt.data
+> ### Title: Combined machine work time data from one combined machine work
+> ###   time node
+> ### Aliases: getMom.cmwt.data
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> momf <- list.files(pth,".mom",ignore.case=TRUE,recursive=TRUE,full.names= TRUE)
+> momf_cmwt <- momf[which(stringr::str_detect(string=momf,pattern="combined_mwt"))]
+> doc <- xml2::read_xml(momf_cmwt[2])#'
+> cmwtlist <- xml2::xml_find_all(doc, ".//d1:CombinedMachineWorkTime")
+> getMom.cmwt.data(cmwtlist[[1]]) %>% dplyr::glimpse()
+Rows: 1
+Columns: 13
+$ OperatorKey           <chr> "5"
+$ StartTime             <chr> "2022-05-02T09:45:53.757+02:00"
+$ ObjectKey             <chr> "9"
+$ SubObjectKey          <chr> "9"
+$ MonitoringSettingsKey <chr> "1"
+$ CombinedEndTime       <chr> "2022-05-02T09:49:12.163+02:00"
+$ EngineTime            <chr> "180"
+$ DrivenDistance        <chr> "48"
+$ FuelConsumption       <chr> "0"
+$ cmrt_OtherWork        <chr> "202"
+$ ForwardedGreenMass    <chr> "0"
+$ TotalForwardedVolume  <chr> "0"
+$ NumberOfLoads         <chr> "0"
+> plyr::ldply(cmwtlist[1:2], getMom.cmwt.data)
+  OperatorKey                     StartTime ObjectKey SubObjectKey
+1           5 2022-05-02T09:45:53.757+02:00         9            9
+2           5 2022-05-02T09:49:12.163+02:00         9            9
+  MonitoringSettingsKey               CombinedEndTime EngineTime DrivenDistance
+1                     1 2022-05-02T09:49:12.163+02:00        180             48
+2                     1  2022-05-02T10:51:15.04+02:00        540             69
+  FuelConsumption cmrt_OtherWork ForwardedGreenMass TotalForwardedVolume
+1               0            202                  0                    0
+2               1           2743                  0                    0
+  NumberOfLoads
+1             0
+2             0
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getMom.cmwt.data", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getMom.imwt.activity")
+> ### * getMom.imwt.activity
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getMom.imwt.activity
+> ### Title: Indivdual machine work time activity data from one indivdual
+> ###   machine work time node
+> ### Aliases: getMom.imwt.activity
+> 
+> ### ** Examples
+> 
+> pth. <- system.file(package = "sf2010r")
+> momfiles <- list.files(pth.,".mom",ignore.case=TRUE,recursive=TRUE,full.names=TRUE)
+> momfiles_imwt <- momfiles[which(stringr::str_detect(momfiles,pattern="individual_mwt"))]
+> doc <- xml2::read_xml(momfiles_imwt[2])
+> imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
+> getMom.imwt.activity(imwtlist[[41]]) %>% dplyr::glimpse()
+Rows: 1
+Columns: 10
+$ OperatorKey           <chr> "4"
+$ ObjectKey             <chr> "55"
+$ SubObjectKey          <chr> "1"
+$ MonitoringStartTime   <chr> "2018-03-01T15:39:40.182583+01:00"
+$ MonitoringTimeLength  <chr> "899"
+$ MonitoringSettingsKey <chr> "5"
+$ EngineTime            <chr> "180"
+$ DrivenDistance        <chr> "0"
+$ FuelConsumption       <chr> "0"
+$ timecat               <chr> "imdt"
+>  plyr::ldply(imwtlist[25:42], getMom.imwt.activity)
+   OperatorKey ObjectKey SubObjectKey               MonitoringStartTime
+1            6        55            1 2018-02-28T09:00:12.5365774+01:00
+2            6        55            1 2018-02-28T11:53:59.4326105+01:00
+3            6        55            1 2018-02-28T14:27:55.8911977+01:00
+4            6        55            1 2018-02-28T14:31:10.9317759+01:00
+5            6        55            1 2018-02-28T14:42:11.0573046+01:00
+6            6        55            1 2018-02-28T15:51:01.0617148+01:00
+7            6        55            1 2018-02-28T17:59:32.5732205+01:00
+8            6        55            1 2018-02-28T21:30:14.1891035+01:00
+9            6        55            1 2018-03-01T06:03:48.4063806+01:00
+10           6        55            1  2018-03-01T06:06:03.464612+01:00
+11           6        55            1 2018-03-01T06:11:33.5137126+01:00
+12           6        55            1 2018-03-01T07:37:49.4483695+01:00
+13           4        55            1 2018-03-01T09:20:52.7221605+01:00
+14           4        55            1 2018-03-01T10:39:06.0108668+01:00
+15           4        55            1 2018-03-01T14:41:24.2766193+01:00
+16           4        55            1  2018-03-01T15:16:24.854868+01:00
+17           4        55            1  2018-03-01T15:39:40.182583+01:00
+18           4        55            1 2018-03-01T17:28:16.4268935+01:00
+   MonitoringTimeLength MonitoringSettingsKey                Activity timecat
+1                 10424                     5              Processing    imwt
+2                   225                     5          Terrain travel    imwt
+3                   194                     5              Processing    imwt
+4                   659                     5          Terrain travel    imwt
+5                  2385                     5              Processing    imwt
+6                  7709                     5              Processing    imwt
+7                   330                     5          Terrain travel    imwt
+8                   270                     5              Processing    imwt
+9                   134                     5              Processing    imwt
+10                  329                     5          Terrain travel    imwt
+11                 5174                     5              Processing    imwt
+12                  150                     5          Terrain travel    imwt
+13                 1470                     5 Control and calibration    imdt
+14                14534                     5              Processing    imwt
+15                 2099                     5 Control and calibration    imdt
+16                 1394                     5              Processing    imwt
+17                  899                     5                    <NA>    imdt
+18                 6554                     5              Processing    imwt
+   EngineTime DrivenDistance FuelConsumption
+1       10620              0               0
+2           0              0               0
+3         180              0               0
+4         540              0               0
+5        1980              0               0
+6        7560              0               0
+7         180              0               0
+8         360              0               0
+9           0              0               0
+10        360              0               0
+11       4680              0               0
+12        180              0               0
+13          0              0               0
+14      15480              0               0
+15       1260              0               0
+16       2160              0               0
+17        180              0               0
+18       6660              0               0
+> pth. <- system.file(package = "sf2010r") 
+> momfiles <- list.files(pth.,".mom",ignore.case=TRUE,recursive=TRUE,full.names=TRUE)
+> momfiles_imwt <- momfiles[which(stringr::str_detect(string=momfiles,pattern="individual_mwt"))]
+> doc <- xml2::read_xml(momfiles_imwt[2])
+> imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
+> getMom.imwt.activity(imwtlist[[41]]) %>% dplyr::glimpse()
+Rows: 1
+Columns: 10
+$ OperatorKey           <chr> "4"
+$ ObjectKey             <chr> "55"
+$ SubObjectKey          <chr> "1"
+$ MonitoringStartTime   <chr> "2018-03-01T15:39:40.182583+01:00"
+$ MonitoringTimeLength  <chr> "899"
+$ MonitoringSettingsKey <chr> "5"
+$ EngineTime            <chr> "180"
+$ DrivenDistance        <chr> "0"
+$ FuelConsumption       <chr> "0"
+$ timecat               <chr> "imdt"
+>  plyr::ldply(imwtlist[25:42], getMom.imwt.activity)
+   OperatorKey ObjectKey SubObjectKey               MonitoringStartTime
+1            6        55            1 2018-02-28T09:00:12.5365774+01:00
+2            6        55            1 2018-02-28T11:53:59.4326105+01:00
+3            6        55            1 2018-02-28T14:27:55.8911977+01:00
+4            6        55            1 2018-02-28T14:31:10.9317759+01:00
+5            6        55            1 2018-02-28T14:42:11.0573046+01:00
+6            6        55            1 2018-02-28T15:51:01.0617148+01:00
+7            6        55            1 2018-02-28T17:59:32.5732205+01:00
+8            6        55            1 2018-02-28T21:30:14.1891035+01:00
+9            6        55            1 2018-03-01T06:03:48.4063806+01:00
+10           6        55            1  2018-03-01T06:06:03.464612+01:00
+11           6        55            1 2018-03-01T06:11:33.5137126+01:00
+12           6        55            1 2018-03-01T07:37:49.4483695+01:00
+13           4        55            1 2018-03-01T09:20:52.7221605+01:00
+14           4        55            1 2018-03-01T10:39:06.0108668+01:00
+15           4        55            1 2018-03-01T14:41:24.2766193+01:00
+16           4        55            1  2018-03-01T15:16:24.854868+01:00
+17           4        55            1  2018-03-01T15:39:40.182583+01:00
+18           4        55            1 2018-03-01T17:28:16.4268935+01:00
+   MonitoringTimeLength MonitoringSettingsKey                Activity timecat
+1                 10424                     5              Processing    imwt
+2                   225                     5          Terrain travel    imwt
+3                   194                     5              Processing    imwt
+4                   659                     5          Terrain travel    imwt
+5                  2385                     5              Processing    imwt
+6                  7709                     5              Processing    imwt
+7                   330                     5          Terrain travel    imwt
+8                   270                     5              Processing    imwt
+9                   134                     5              Processing    imwt
+10                  329                     5          Terrain travel    imwt
+11                 5174                     5              Processing    imwt
+12                  150                     5          Terrain travel    imwt
+13                 1470                     5 Control and calibration    imdt
+14                14534                     5              Processing    imwt
+15                 2099                     5 Control and calibration    imdt
+16                 1394                     5              Processing    imwt
+17                  899                     5                    <NA>    imdt
+18                 6554                     5              Processing    imwt
+   EngineTime DrivenDistance FuelConsumption
+1       10620              0               0
+2           0              0               0
+3         180              0               0
+4         540              0               0
+5        1980              0               0
+6        7560              0               0
+7         180              0               0
+8         360              0               0
+9           0              0               0
+10        360              0               0
+11       4680              0               0
+12        180              0               0
+13          0              0               0
+14      15480              0               0
+15       1260              0               0
+16       2160              0               0
+17        180              0               0
+18       6660              0               0
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getMom.imwt.activity", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getMom.imwt.production")
+> ### * getMom.imwt.production
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getMom.imwt.production
+> ### Title: Indivdual machine work time production data from one individual
+> ###   machine work time node
+> ### Aliases: getMom.imwt.production
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> momfiles <- list.files(pth,".mom",ignore.case=TRUE,recursive=TRUE,full.names=TRUE)
+> momfiles_imwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "individual_mwt"))]
+> doc <- xml2::read_xml(momfiles_imwt[2])
+> imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
+> getMom.imwt.production(imwtlist[[3]]) %>% dplyr::glimpse()
+Rows: 3
+Columns: 11
+$ SpeciesGroupKey        <chr> "381", "376", "376"
+$ ProcessingCategory     <chr> "SingleTreeProcessing", "SingleTreeProcessing",…
+$ NumberOfHarvestedStems <chr> "1", "5", "1"
+$ grp_id                 <int> 1, 2, 3
+$ m3sob                  <chr> "0.0563720", "0.2675800", NA
+$ m3sub                  <chr> "0.0478220", "0.2283310", NA
+$ m3sobEstimated         <chr> NA, NA, "0.0865700"
+$ m3subEstimated         <chr> NA, NA, "0.0742020"
+$ ObjectKey              <chr> "55", "55", "55"
+$ SubObjectKey           <chr> "1", "1", "1"
+$ MonitoringStartTime    <chr> "2018-02-26T12:51:26.8999401+01:00", "2018-02-2…
+> plyr::ldply(imwtlist[92:94], getMom.imwt.production)
+   SpeciesGroupKey   ProcessingCategory NumberOfHarvestedStems grp_id     m3sob
+1              376 SingleTreeProcessing                      3      1 0.5948000
+2              376    SingleTreeFelling                      5      2      <NA>
+3              380 SingleTreeProcessing                      2      3 0.0722680
+4              379 SingleTreeProcessing                      1      4 0.0449830
+5              379    SingleTreeFelling                      2      5      <NA>
+6              379    SingleTreeFelling                      6      1      <NA>
+7              380 SingleTreeProcessing                      2      2 0.3741530
+8              380 SingleTreeProcessing                      1      1 0.0827830
+9              376 SingleTreeProcessing                      5      2 0.6260190
+10             376    SingleTreeFelling                      4      3      <NA>
+       m3sub m3sobEstimated m3subEstimated ObjectKey SubObjectKey
+1  0.5279620           <NA>           <NA>        55            3
+2       <NA>      0.2401100      0.2047600        55            3
+3  0.0619590           <NA>           <NA>        55            3
+4  0.0387540           <NA>           <NA>        55            3
+5       <NA>      0.6446840      0.5717360        55            3
+6       <NA>      1.2645950      1.1186180        55            3
+7  0.3326390           <NA>           <NA>        55            3
+8  0.0721030           <NA>           <NA>        55            3
+9  0.5551010           <NA>           <NA>        55            3
+10      <NA>      0.6650000      0.5862480        55            3
+                 MonitoringStartTime
+1  2018-03-08T09:37:27.7955903+01:00
+2  2018-03-08T09:37:27.7955903+01:00
+3  2018-03-08T09:37:27.7955903+01:00
+4  2018-03-08T09:37:27.7955903+01:00
+5  2018-03-08T09:37:27.7955903+01:00
+6    2018-03-08T09:47:57.90329+01:00
+7    2018-03-08T09:47:57.90329+01:00
+8   2018-03-08T09:54:27.966619+01:00
+9   2018-03-08T09:54:27.966619+01:00
+10  2018-03-08T09:54:27.966619+01:00
+> pth. <- system.file(package = "sf2010r")
+> momfiles <- list.files(pth.,".mom",ignore.case=TRUE,recursive=TRUE,full.names=TRUE)
+> momfiles_imwt <- momfiles[which(stringr::str_detect(string=momfiles,pattern="individual_mwt"))]
+> doc <- xml2::read_xml(momfiles_imwt[2])
+> imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
+> getMom.imwt.production(imwtlist[[3]]) %>% dplyr::glimpse()
+Rows: 3
+Columns: 11
+$ SpeciesGroupKey        <chr> "381", "376", "376"
+$ ProcessingCategory     <chr> "SingleTreeProcessing", "SingleTreeProcessing",…
+$ NumberOfHarvestedStems <chr> "1", "5", "1"
+$ grp_id                 <int> 1, 2, 3
+$ m3sob                  <chr> "0.0563720", "0.2675800", NA
+$ m3sub                  <chr> "0.0478220", "0.2283310", NA
+$ m3sobEstimated         <chr> NA, NA, "0.0865700"
+$ m3subEstimated         <chr> NA, NA, "0.0742020"
+$ ObjectKey              <chr> "55", "55", "55"
+$ SubObjectKey           <chr> "1", "1", "1"
+$ MonitoringStartTime    <chr> "2018-02-26T12:51:26.8999401+01:00", "2018-02-2…
+> plyr::ldply(imwtlist[92:94], getMom.imwt.production)
+   SpeciesGroupKey   ProcessingCategory NumberOfHarvestedStems grp_id     m3sob
+1              376 SingleTreeProcessing                      3      1 0.5948000
+2              376    SingleTreeFelling                      5      2      <NA>
+3              380 SingleTreeProcessing                      2      3 0.0722680
+4              379 SingleTreeProcessing                      1      4 0.0449830
+5              379    SingleTreeFelling                      2      5      <NA>
+6              379    SingleTreeFelling                      6      1      <NA>
+7              380 SingleTreeProcessing                      2      2 0.3741530
+8              380 SingleTreeProcessing                      1      1 0.0827830
+9              376 SingleTreeProcessing                      5      2 0.6260190
+10             376    SingleTreeFelling                      4      3      <NA>
+       m3sub m3sobEstimated m3subEstimated ObjectKey SubObjectKey
+1  0.5279620           <NA>           <NA>        55            3
+2       <NA>      0.2401100      0.2047600        55            3
+3  0.0619590           <NA>           <NA>        55            3
+4  0.0387540           <NA>           <NA>        55            3
+5       <NA>      0.6446840      0.5717360        55            3
+6       <NA>      1.2645950      1.1186180        55            3
+7  0.3326390           <NA>           <NA>        55            3
+8  0.0721030           <NA>           <NA>        55            3
+9  0.5551010           <NA>           <NA>        55            3
+10      <NA>      0.6650000      0.5862480        55            3
+                 MonitoringStartTime
+1  2018-03-08T09:37:27.7955903+01:00
+2  2018-03-08T09:37:27.7955903+01:00
+3  2018-03-08T09:37:27.7955903+01:00
+4  2018-03-08T09:37:27.7955903+01:00
+5  2018-03-08T09:37:27.7955903+01:00
+6    2018-03-08T09:47:57.90329+01:00
+7    2018-03-08T09:47:57.90329+01:00
+8   2018-03-08T09:54:27.966619+01:00
+9   2018-03-08T09:54:27.966619+01:00
+10  2018-03-08T09:54:27.966619+01:00
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getMom.imwt.production", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getObjectDefinition")
+> ### * getObjectDefinition
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getObjectDefinition
+> ### Title: Extracting all data defining one cut object from one
+> ###   ObjectDefinition xml-tree
+> ### Aliases: getObjectDefinition
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> Objects_nodes <- xml2::xml_find_all(doc, "//d1:ObjectDefinition")
+> getObjectDefinition(Objects_nodes[1])
+# A tibble: 1 × 12
+  ObjectUserID ObjectN…¹ Objec…² SubOb…³ SubOb…⁴ SubOb…⁵ Loggi…⁶ Loggi…⁷ RealE…⁸
+  <chr>        <chr>       <int> <chr>   <chr>     <int> <chr>   <chr>   <chr>  
+1 289329       Westerbø…      88 166e61… Wester…      94 0       0       <NA>   
+# … with 3 more variables: RealEstateIDSubObject <chr>, ContractNumber <chr>,
+#   StartDate <chr>, and abbreviated variable names ¹​ObjectName, ²​ObjectKey,
+#   ³​SubObjectUserID, ⁴​SubObjectName, ⁵​SubObjectKey, ⁶​LoggingFormCode,
+#   ⁷​LoggingFormDesc, ⁸​RealEstateIDObject
+> plyr::ldply(Objects_nodes, getObjectDefinition)
+# A tibble: 1 × 12
+  ObjectUserID ObjectN…¹ Objec…² SubOb…³ SubOb…⁴ SubOb…⁵ Loggi…⁶ Loggi…⁷ RealE…⁸
+  <chr>        <chr>       <int> <chr>   <chr>     <int> <chr>   <chr>   <chr>  
+1 289329       Westerbø…      88 166e61… Wester…      94 0       0       <NA>   
+# … with 3 more variables: RealEstateIDSubObject <chr>, ContractNumber <chr>,
+#   StartDate <chr>, and abbreviated variable names ¹​ObjectName, ²​ObjectKey,
+#   ³​SubObjectUserID, ⁴​SubObjectName, ⁵​SubObjectKey, ⁶​LoggingFormCode,
+#   ⁷​LoggingFormDesc, ⁸​RealEstateIDObject
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getObjectDefinition", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getObjects")
+> ### * getObjects
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getObjects
+> ### Title: Extracting all cut object definitions from doc
+> ### Aliases: getObjects
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> getObjects(doc)
+# A tibble: 1 × 13
+  ObjectUserID ObjectN…¹ Objec…² SubOb…³ SubOb…⁴ SubOb…⁵ Loggi…⁶ Loggi…⁷ RealE…⁸
+  <chr>        <chr>       <int> <chr>   <chr>     <int> <chr>   <chr>   <chr>  
+1 289329       Westerbø…      88 166e61… Wester…      94 0       0       <NA>   
+# … with 4 more variables: RealEstateIDSubObject <chr>, ContractNumber <chr>,
+#   StartDate <chr>, MachineKey <chr>, and abbreviated variable names
+#   ¹​ObjectName, ²​ObjectKey, ³​SubObjectUserID, ⁴​SubObjectName, ⁵​SubObjectKey,
+#   ⁶​LoggingFormCode, ⁷​LoggingFormDesc, ⁸​RealEstateIDObject
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getObjects", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getOperators")
+> ### * getOperators
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getOperators
+> ### Title: Get the operator definitions from a StanFord2010 xml document
+> ### Aliases: getOperators
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> getOperators(doc)
+# A tibble: 1 × 6
+  OperatorKey OperatorUserID                       First…¹ LastN…² Name  Machi…³
+  <chr>       <chr>                                <chr>   <chr>   <chr> <chr>  
+1 3           2eeb23b9-e2de-4e51-8350-d3ae246c55fd Ola     Normann Ola … 0c88f2…
+# … with abbreviated variable names ¹​FirstName, ²​LastName, ³​MachineKey
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getOperators", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getProductDef")
+> ### * getProductDef
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getProductDef
+> ### Title: Product def from product definition nodetree
+> ### Aliases: getProductDef
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> ProductsList <- xml2::xml_find_all(doc, ".//d1:ProductDefinition" )
+> getProductDef(ProductsList[[1]]) %>% dplyr::glimpse()
+Rows: 1
+Columns: 26
+$ ProductKey                 <int> 4273
+$ ProductName                <chr> "MASSE"
+$ ModificationDate           <chr> "2017-02-27T20:10:12+01:00"
+$ ProductInfo                <chr> "202"
+$ ProductVersion             <chr> "30006107-102"
+$ ProductGroupName           <chr> "MASSA"
+$ StemTypeCode               <chr> "0"
+$ ProductUserID              <chr> "Furu.MASSE#202#30006107-102#APT_1.7"
+$ SpeciesGroupKey            <int> 340
+$ ProductCreationDate        <chr> "2017-03-09T08:37:50.173+01:00"
+$ ManualFreeBuck             <chr> "true"
+$ TopLogFreeBuck             <chr> "false"
+$ ProductCondition           <chr> "Buck always"
+$ LongLogButtHeight          <chr> "0"
+$ ProductPresentationOrder   <chr> "7"
+$ Pricedef_VolumeDiamAdj     <chr> "Measured diameter in mm"
+$ Pricedef_VolumeLDiamCat    <chr> "All diameters (solid volume)"
+$ Pricedef_VolumeLengthCat   <chr> "Physical length cm"
+$ Pricedef_VolumeUnderBark   <chr> "true"
+$ DiaDef_DiameterClassMAX    <chr> "550"
+$ DiaDef_DiameterUnderBark   <chr> "true"
+$ DiaDef_DiameterMINTop      <chr> "40"
+$ DiaDef_DiameterMAXButt     <chr> "899"
+$ DiaDef_DiameterTopPosition <chr> "10"
+$ LengthDef_LengthClassMin   <int> 290
+$ LengthDef_LengthClassMAX   <int> 530
+> plyr::ldply(ProductsList, getProductDef )
+  ProductKey  ProductName              ModificationDate ProductInfo
+1       4273        MASSE     2017-02-27T20:10:12+01:00         202
+2       4291         SAGT  2017-03-09T08:45:44.64+01:00         570
+3     999999 Unclassified                          <NA>        <NA>
+4       4274         SAGT     2017-02-27T20:10:12+01:00         583
+5       4297       MALANG 2017-03-09T08:45:45.233+01:00         552
+6       4298       MAKORT 2017-03-09T08:45:45.267+01:00         552
+7       4299       ENERGI 2017-03-09T08:45:45.343+01:00         100
+8       4300      TORRVIK  2017-03-09T08:45:45.39+01:00         104
+9       4302     BLANDVED 2017-03-09T08:45:45.517+01:00         395
+  ProductVersion ProductGroupName StemTypeCode
+1   30006107-102            MASSA            0
+2   30006031-202           TIMMER            1
+3           <NA>             <NA>         <NA>
+4   30006051-102           TIMMER            0
+5   30006062-102            MASSA            0
+6   30006062-102            MASSA            0
+7   30006107-102           ÖVRIGT            0
+8   30006107-102           ÖVRIGT            0
+9   30006083-201           ÖVRIGT            0
+                            ProductUserID SpeciesGroupKey
+1     Furu.MASSE#202#30006107-102#APT_1.7             340
+2      Furu.SAGT#570#30006031-202#APT_1.2             340
+3                                    <NA>              NA
+4      Gran.SAGT#583#30006051-102#APT_2.1             341
+5    Gran.MALANG#552#30006062-102#APT_2.3             341
+6    Gran.MAKORT#552#30006062-102#APT_2.4             341
+7    Gran.ENERGI#100#30006107-102#APT_2.5             341
+8   Gran.TORRVIK#104#30006107-102#APT_2.6             341
+9 Andre.BLANDVED#395#30006083-201#APT_4.1             343
+            ProductCreationDate ManualFreeBuck TopLogFreeBuck ProductCondition
+1 2017-03-09T08:37:50.173+01:00           true          false      Buck always
+2 2017-03-09T08:37:49.923+01:00          false          false      Buck always
+3                          <NA>           <NA>           <NA>             <NA>
+4 2017-03-09T08:37:50.187+01:00          false          false      Buck always
+5 2017-03-09T08:37:50.313+01:00           true          false      Buck always
+6 2017-03-09T08:37:50.327+01:00           true          false      Buck always
+7 2017-03-09T08:37:50.327+01:00          false          false      Buck always
+8 2017-03-09T08:37:50.343+01:00           true          false      Buck always
+9  2017-03-09T08:37:50.39+01:00           true          false      Buck always
+  LongLogButtHeight ProductPresentationOrder
+1                 0                        7
+2                 0                        2
+3              <NA>                     <NA>
+4                 0                        1
+5                 0                        3
+6                 0                        4
+7                 0                        5
+8                 0                        6
+9                 0                        1
+                     Pricedef_VolumeDiamAdj      Pricedef_VolumeLDiamCat
+1                   Measured diameter in mm All diameters (solid volume)
+2 Measured diameter rounded downwards to cm     Calculated Norwegian mid
+3                                      <NA>                         <NA>
+4 Measured diameter rounded downwards to cm     Calculated Norwegian mid
+5                   Measured diameter in mm All diameters (solid volume)
+6                   Measured diameter in mm All diameters (solid volume)
+7                   Measured diameter in mm All diameters (solid volume)
+8                   Measured diameter in mm All diameters (solid volume)
+9                   Measured diameter in mm All diameters (solid volume)
+                Pricedef_VolumeLengthCat Pricedef_VolumeUnderBark
+1                     Physical length cm                     true
+2 Rounded downwards to nearest dm-module                     true
+3                                   <NA>                     <NA>
+4 Rounded downwards to nearest dm-module                     true
+5                     Physical length cm                     true
+6                     Physical length cm                     true
+7                     Physical length cm                     true
+8                     Physical length cm                     true
+9                     Physical length cm                     true
+  DiaDef_DiameterClassMAX DiaDef_DiameterUnderBark DiaDef_DiameterMINTop
+1                     550                     true                    40
+2                     900                     true                    40
+3                    <NA>                     <NA>                  <NA>
+4                     550                     true                    40
+5                     550                     true                    40
+6                     550                     true                    40
+7                     550                     true                    40
+8                     550                     true                    40
+9                     900                     true                    40
+  DiaDef_DiameterMAXButt DiaDef_DiameterTopPosition LengthDef_LengthClassMin
+1                    899                         10                      290
+2                    899                         10                      350
+3                   <NA>                       <NA>                       NA
+4                    899                         10                      345
+5                    899                         10                      440
+6                    899                         10                      300
+7                    899                         10                      300
+8                    899                         10                      290
+9                    899                         10                      290
+  LengthDef_LengthClassMAX
+1                      530
+2                      615
+3                       NA
+4                      589
+5                      459
+6                      349
+7                      530
+8                      530
+9                      510
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getProductDef", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getProductDefs")
+> ### * getProductDefs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getProductDefs
+> ### Title: Get all product definitions
+> ### Aliases: getProductDefs
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> getProductDefs(doc)
+  ProductKey  ProductName              ModificationDate ProductInfo
+1       4273        MASSE     2017-02-27T20:10:12+01:00         202
+2       4291         SAGT  2017-03-09T08:45:44.64+01:00         570
+3     999999 Unclassified                          <NA>        <NA>
+4       4274         SAGT     2017-02-27T20:10:12+01:00         583
+5       4297       MALANG 2017-03-09T08:45:45.233+01:00         552
+6       4298       MAKORT 2017-03-09T08:45:45.267+01:00         552
+7       4299       ENERGI 2017-03-09T08:45:45.343+01:00         100
+8       4300      TORRVIK  2017-03-09T08:45:45.39+01:00         104
+9       4302     BLANDVED 2017-03-09T08:45:45.517+01:00         395
+  ProductVersion ProductGroupName StemTypeCode
+1   30006107-102            MASSA            0
+2   30006031-202           TIMMER            1
+3           <NA>             <NA>         <NA>
+4   30006051-102           TIMMER            0
+5   30006062-102            MASSA            0
+6   30006062-102            MASSA            0
+7   30006107-102           ÖVRIGT            0
+8   30006107-102           ÖVRIGT            0
+9   30006083-201           ÖVRIGT            0
+                            ProductUserID SpeciesGroupKey
+1     Furu.MASSE#202#30006107-102#APT_1.7             340
+2      Furu.SAGT#570#30006031-202#APT_1.2             340
+3                                    <NA>              NA
+4      Gran.SAGT#583#30006051-102#APT_2.1             341
+5    Gran.MALANG#552#30006062-102#APT_2.3             341
+6    Gran.MAKORT#552#30006062-102#APT_2.4             341
+7    Gran.ENERGI#100#30006107-102#APT_2.5             341
+8   Gran.TORRVIK#104#30006107-102#APT_2.6             341
+9 Andre.BLANDVED#395#30006083-201#APT_4.1             343
+            ProductCreationDate ManualFreeBuck TopLogFreeBuck ProductCondition
+1 2017-03-09T08:37:50.173+01:00           true          false      Buck always
+2 2017-03-09T08:37:49.923+01:00          false          false      Buck always
+3                          <NA>           <NA>           <NA>             <NA>
+4 2017-03-09T08:37:50.187+01:00          false          false      Buck always
+5 2017-03-09T08:37:50.313+01:00           true          false      Buck always
+6 2017-03-09T08:37:50.327+01:00           true          false      Buck always
+7 2017-03-09T08:37:50.327+01:00          false          false      Buck always
+8 2017-03-09T08:37:50.343+01:00           true          false      Buck always
+9  2017-03-09T08:37:50.39+01:00           true          false      Buck always
+  LongLogButtHeight ProductPresentationOrder
+1                 0                        7
+2                 0                        2
+3              <NA>                     <NA>
+4                 0                        1
+5                 0                        3
+6                 0                        4
+7                 0                        5
+8                 0                        6
+9                 0                        1
+                     Pricedef_VolumeDiamAdj      Pricedef_VolumeLDiamCat
+1                   Measured diameter in mm All diameters (solid volume)
+2 Measured diameter rounded downwards to cm     Calculated Norwegian mid
+3                                      <NA>                         <NA>
+4 Measured diameter rounded downwards to cm     Calculated Norwegian mid
+5                   Measured diameter in mm All diameters (solid volume)
+6                   Measured diameter in mm All diameters (solid volume)
+7                   Measured diameter in mm All diameters (solid volume)
+8                   Measured diameter in mm All diameters (solid volume)
+9                   Measured diameter in mm All diameters (solid volume)
+                Pricedef_VolumeLengthCat Pricedef_VolumeUnderBark
+1                     Physical length cm                     true
+2 Rounded downwards to nearest dm-module                     true
+3                                   <NA>                     <NA>
+4 Rounded downwards to nearest dm-module                     true
+5                     Physical length cm                     true
+6                     Physical length cm                     true
+7                     Physical length cm                     true
+8                     Physical length cm                     true
+9                     Physical length cm                     true
+  DiaDef_DiameterClassMAX DiaDef_DiameterUnderBark DiaDef_DiameterMINTop
+1                     550                     true                    40
+2                     900                     true                    40
+3                    <NA>                     <NA>                  <NA>
+4                     550                     true                    40
+5                     550                     true                    40
+6                     550                     true                    40
+7                     550                     true                    40
+8                     550                     true                    40
+9                     900                     true                    40
+  DiaDef_DiameterMAXButt DiaDef_DiameterTopPosition LengthDef_LengthClassMin
+1                    899                         10                      290
+2                    899                         10                      350
+3                   <NA>                       <NA>                       NA
+4                    899                         10                      345
+5                    899                         10                      440
+6                    899                         10                      300
+7                    899                         10                      300
+8                    899                         10                      290
+9                    899                         10                      290
+  LengthDef_LengthClassMAX                       MachineKey
+1                      530 0c88f2be5ff8d0fac32076612d6a4454
+2                      615 0c88f2be5ff8d0fac32076612d6a4454
+3                       NA 0c88f2be5ff8d0fac32076612d6a4454
+4                      589 0c88f2be5ff8d0fac32076612d6a4454
+5                      459 0c88f2be5ff8d0fac32076612d6a4454
+6                      349 0c88f2be5ff8d0fac32076612d6a4454
+7                      530 0c88f2be5ff8d0fac32076612d6a4454
+8                      530 0c88f2be5ff8d0fac32076612d6a4454
+9                      510 0c88f2be5ff8d0fac32076612d6a4454
+> doc <- xml2::read_xml(hprfiles[2])
+> getProductDefs(doc)
+   ProductKey     ProductName          ModificationDate ProductInfo
+1         336    Sagt BV D12+ 0001-01-01T01:00:00+01:00         240
+2         337           Masse 0001-01-01T01:00:00+01:00         200
+3         338            Bult 0001-01-01T01:00:00+01:00         919
+4         339   Sagt BHV D12+ 0001-01-01T01:00:00+01:00         142
+5         340     MASSE FRISK 0001-01-01T01:00:00+01:00         102
+6         341    RMASSE 0-20% 0001-01-01T01:00:00+01:00         102
+7         342       RMB 0-20% 0001-01-01T01:00:00+01:00         919
+8         343   RMASSE 21-49% 0001-01-01T01:00:00+01:00         102
+9         344      RMB 21-49% 0001-01-01T01:00:00+01:00         919
+10        345   ENERGI 50-90% 0001-01-01T01:00:00+01:00         100
+11        346      ENB 50-90% 0001-01-01T01:00:00+01:00         919
+12        347            Vrak 0001-01-01T01:00:00+01:00         900
+13        348    Massev Bjørk 0001-01-01T01:00:00+01:00         345
+14        349    Takåser Gran 0001-01-01T01:00:00+01:00         402
+15        350        Vedbjørk 0001-01-01T01:00:00+01:00         302
+16        351       Øvrig løv 0001-01-01T01:00:00+01:00         398
+17        352        Biovirke 0001-01-01T01:00:00+01:00         987
+18        353 Massev Tørrgran 0001-01-01T01:00:00+01:00         104
+19        354        Biovirke 0001-01-01T01:00:00+01:00         987
+20 2147483647    Unclassified                      <NA>        <NA>
+   ProductVersion ProductGroupName StemTypeCode ProductPresentationOrder
+1        05.01700        Sagtømmer           11                        1
+2                       Massevirke           11                        2
+3                             Bult           11                        3
+4        05.01700            Frisk           21                        1
+5                            Frisk           21                        2
+6                            0-20%           21                        3
+7                            0-20%           21                        4
+8                           21-49%           21                        5
+9                           21-49%           21                        6
+10                          50-90%           21                        7
+11                          50-90%           21                        8
+12                       Vrak/Bult           21                        9
+13       05.07273       Massevirke           31                        1
+14       05.07273       Massevirke           31                        2
+15                      Massevirke           31                        3
+16                      Massevirke           31                        4
+17                        Biovirke           31                        5
+18                      Massevirke           41                        1
+19                        Biovirke           41                        2
+20           <NA>             <NA>         <NA>                     <NA>
+   ManualFreeBuck TopLogFreeBuck ProductCondition
+1            true           true      Buck always
+2            true           true      Buck always
+3           false          false      Buck always
+4            true           true      Buck always
+5            true           true      Buck always
+6            true           true      Buck always
+7            true           true      Buck always
+8            true           true      Buck always
+9            true           true      Buck always
+10           true           true      Buck always
+11           true           true      Buck always
+12          false          false      Buck always
+13           true           true      Buck always
+14           true           true      Buck always
+15           true           true      Buck always
+16           true           true      Buck always
+17           true           true      Buck always
+18           true           true      Buck always
+19           true           true      Buck always
+20           <NA>           <NA>             <NA>
+                                     ProductUserID SpeciesGroupKey
+1  TM-Default-f3ca7210-4ce5-47dd-a2fd-4a87355adfb4              89
+2  TM-Default-4138ce7e-466a-4608-ac6b-e0a468a51ffd              89
+3  TM-Default-64e4073f-7039-4f49-b9bb-710c9f04919d              89
+4  TM-Default-b361726b-e3c1-4a26-a1e1-3d4c1d1c992d              90
+5  TM-Default-013183cd-d570-4a30-9b0d-fdef0aebb7cb              90
+6  TM-Default-b8486e04-f675-426e-81ea-fd164daad06e              90
+7  TM-Default-dff01e40-a985-40e5-a26e-26850888cb99              90
+8  TM-Default-7ccd49a6-8834-4987-9bd0-3b28006ad98a              90
+9  TM-Default-59806c20-207e-414b-897a-e1975028e386              90
+10 TM-Default-d885358a-5b90-4c94-b4bd-66cbd92ed70b              90
+11 TM-Default-f44ab955-a867-439f-ab96-a58256cbbd9c              90
+12 TM-Default-d1d096e2-0486-4b18-a4a1-eb3e5605f416              90
+13 TM-Default-00b8c255-4ec3-437d-a3fd-0e3d389adcd7              91
+14 TM-Default-8584c328-92ba-45d9-af31-365cf315ba0c              91
+15 TM-Default-f2a8b231-8d7e-4121-8426-de22bd6ec0f1              91
+16 TM-Default-6151db61-7924-4d94-8d32-991347d8907b              91
+17 TM-Default-a54630cd-b6e1-4bb4-834b-066a87b92815              91
+18 TM-Default-75823db8-d71f-4508-ac51-b5990ae7f0c2              92
+19 TM-Default-5d50f7c9-f8c3-4fcf-b39a-eaf0e4c047ac              92
+20                                            <NA>              NA
+                      Pricedef_VolumeDiamAdj      Pricedef_VolumeLDiamCat
+1  Measured diameter rounded downwards to cm     Calculated Norwegian mid
+2                    Measured diameter in mm All diameters (solid volume)
+3                    Measured diameter in mm All diameters (solid volume)
+4  Measured diameter rounded downwards to cm     Calculated Norwegian mid
+5                    Measured diameter in mm All diameters (solid volume)
+6                    Measured diameter in mm All diameters (solid volume)
+7                    Measured diameter in mm All diameters (solid volume)
+8                    Measured diameter in mm All diameters (solid volume)
+9                    Measured diameter in mm All diameters (solid volume)
+10                   Measured diameter in mm All diameters (solid volume)
+11                   Measured diameter in mm All diameters (solid volume)
+12                   Measured diameter in mm All diameters (solid volume)
+13                   Measured diameter in mm All diameters (solid volume)
+14                   Measured diameter in mm All diameters (solid volume)
+15                   Measured diameter in mm All diameters (solid volume)
+16                   Measured diameter in mm All diameters (solid volume)
+17                   Measured diameter in mm All diameters (solid volume)
+18                   Measured diameter in mm All diameters (solid volume)
+19                   Measured diameter in mm All diameters (solid volume)
+20                                      <NA>                         <NA>
+                 Pricedef_VolumeLengthCat Pricedef_VolumeUnderBark
+1  Rounded downwards to nearest dm-module                    false
+2                      Physical length cm                    false
+3                      Physical length cm                     true
+4  Rounded downwards to nearest dm-module                    false
+5                      Physical length cm                    false
+6                      Physical length cm                    false
+7                      Physical length cm                     true
+8                      Physical length cm                     true
+9                      Physical length cm                     true
+10                     Physical length cm                     true
+11                     Physical length cm                     true
+12                     Physical length cm                     true
+13                     Physical length cm                     true
+14                     Physical length cm                     true
+15                     Physical length cm                     true
+16                     Physical length cm                     true
+17                     Physical length cm                     true
+18                     Physical length cm                     true
+19                     Physical length cm                     true
+20                                   <NA>                     <NA>
+   DiaDef_DiameterClassMAX DiaDef_DiameterUnderBark DiaDef_DiameterMINTop
+1                      550                    false                   125
+2                      700                    false                  <NA>
+3                      700                     true                  <NA>
+4                      550                    false                   125
+5                      700                    false                  <NA>
+6                      700                    false                  <NA>
+7                      900                     true                  <NA>
+8                      700                     true                  <NA>
+9                      900                     true                  <NA>
+10                     700                     true                  <NA>
+11                     900                     true                  <NA>
+12                     900                     true                  <NA>
+13                     700                     true                  <NA>
+14                     700                     true                  <NA>
+15                     900                     true                  <NA>
+16                     700                     true                  <NA>
+17                     700                     true                  <NA>
+18                     900                     true                  <NA>
+19                     900                     true                  <NA>
+20                    <NA>                     <NA>                  <NA>
+   DiaDef_DiameterMAXButt DiaDef_DiameterTopPosition LengthDef_LengthClassMin
+1                    <NA>                          0                      370
+2                    <NA>                          0                      300
+3                    <NA>                          0                        5
+4                     550                          0                      370
+5                    <NA>                          0                      300
+6                    <NA>                          0                      300
+7                    <NA>                          0                        6
+8                    <NA>                          0                      300
+9                    <NA>                          0                        6
+10                   <NA>                          0                      300
+11                   <NA>                          0                        6
+12                   <NA>                          0                       20
+13                   <NA>                          0                      290
+14                   <NA>                          0                      290
+15                   <NA>                          0                      300
+16                   <NA>                          0                      290
+17                   <NA>                          0                      290
+18                   <NA>                          0                      290
+19                   <NA>                          0                      300
+20                   <NA>                       <NA>                       NA
+   LengthDef_LengthClassMAX ProductDestination                       MachineKey
+1                       560               <NA> b080cbc45a76dd9ea774e4bc00046cce
+2                       530                    b080cbc45a76dd9ea774e4bc00046cce
+3                       100                    b080cbc45a76dd9ea774e4bc00046cce
+4                       560               <NA> b080cbc45a76dd9ea774e4bc00046cce
+5                       560                    b080cbc45a76dd9ea774e4bc00046cce
+6                       560                    b080cbc45a76dd9ea774e4bc00046cce
+7                       250                    b080cbc45a76dd9ea774e4bc00046cce
+8                       560                    b080cbc45a76dd9ea774e4bc00046cce
+9                       250                    b080cbc45a76dd9ea774e4bc00046cce
+10                      560                    b080cbc45a76dd9ea774e4bc00046cce
+11                      250                    b080cbc45a76dd9ea774e4bc00046cce
+12                     2000                    b080cbc45a76dd9ea774e4bc00046cce
+13                      520               <NA> b080cbc45a76dd9ea774e4bc00046cce
+14                      810                    b080cbc45a76dd9ea774e4bc00046cce
+15                      550                    b080cbc45a76dd9ea774e4bc00046cce
+16                      520                    b080cbc45a76dd9ea774e4bc00046cce
+17                      520                    b080cbc45a76dd9ea774e4bc00046cce
+18                      520                    b080cbc45a76dd9ea774e4bc00046cce
+19                      550                    b080cbc45a76dd9ea774e4bc00046cce
+20                       NA               <NA> b080cbc45a76dd9ea774e4bc00046cce
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getProductDefs", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getProductMatrixItems")
+> ### * getProductMatrixItems
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getProductMatrixItems
+> ### Title: Get the Product Matrix items
+> ### Aliases: getProductMatrixItems
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> Productslist <- xml2::xml_find_all(doc, ".//d1:ProductDefinition" )
+> getProductMatrixItems(Productslist[[1]])
+# A tibble: 24 × 7
+   Price Distribution Limitation BuckingCriteria         Produ…¹ diame…² lengt…³
+   <chr> <chr>        <chr>      <chr>                     <dbl>   <dbl>   <dbl>
+ 1 187   0            0          Only logs bucked manua…    4273      40     290
+ 2 187   0            0          Only logs bucked manua…    4273      50     290
+ 3 187   0            0          Only logs bucked manua…    4273     120     290
+ 4 187   0            0          Only logs bucked manua…    4273      40     300
+ 5 187   0            0          No limit                   4273      50     300
+ 6 187   0            0          No limit                   4273     120     300
+ 7 187   0            0          Only logs bucked manua…    4273      40     350
+ 8 187   0            0          No limit                   4273      50     350
+ 9 187   0            0          No limit                   4273     120     350
+10 187   0            0          Only logs bucked manua…    4273      40     380
+# … with 14 more rows, and abbreviated variable names ¹​ProductKey,
+#   ²​diameterClassLowerLimit, ³​lengthClassLowerLimit
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getProductMatrixItems", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getProductMatrixes")
+> ### * getProductMatrixes
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getProductMatrixes
+> ### Title: Get all price matrixes
+> ### Aliases: getProductMatrixes
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> pms <- getProductMatrixes(doc)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getProductMatrixes", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getSTP_diameters")
+> ### * getSTP_diameters
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getSTP_diameters
+> ### Title: get SingleTreeProcessed tree's diametres
+> ### Aliases: getSTP_diameters
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> getSTP_diameters(doc)
+# A tibble: 0 × 0
+> doc <- xml2::read_xml(hprfiles[2])
+> getSTP_diameters(doc)
+# A tibble: 0 × 0
+> doc <- xml2::read_xml(hprfiles[3])
+> getSTP_diameters(doc)
+# A tibble: 3,163 × 3
+   DiameterPositions StemDiameters StemKey
+               <int>         <int>   <int>
+ 1                 0           389  307311
+ 2                10           374  307311
+ 3                20           361  307311
+ 4                30           350  307311
+ 5                40           341  307311
+ 6                50           334  307311
+ 7                60           327  307311
+ 8                70           322  307311
+ 9                80           318  307311
+10                90           315  307311
+# … with 3,153 more rows
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getSTP_diameters", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getSTPlogs")
+> ### * getSTPlogs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getSTPlogs
+> ### Title: Fetch the single tree processed logs from one stem node tree
+> ### Aliases: getSTPlogs
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
+> pcat <- ".//d1:ProcessingCategory"
+> wtch <-  which(xml2::xml_text(xml2::xml_find_all(stemlist,pcat))=="MultiTreeProcessing")
+> getSTPlogs(stemlist[1]) %>% dplyr::glimpse()
+Rows: 6
+Columns: 15
+$ StemKey      <int> 163859, 163859, 163859, 163859, 163859, 163859
+$ LogKey       <int> 1, 2, 3, 4, 5, 6
+$ ProductKey   <int> 999999, 4274, 4274, 4297, 4297, 999999
+$ LogLength    <int> 31, 373, 434, 452, 448, 184
+$ `m3 (price)` <dbl> 0.0000, 0.0973, 0.0930, 0.0615, 0.0369, 0.0000
+$ m3sob        <dbl> 0.0116, 0.0922, 0.0895, 0.0702, 0.0433, 0.0095
+$ m3sub        <dbl> 0.0104, 0.0819, 0.0788, 0.0615, 0.0369, 0.0078
+$ `Butt ob`    <int> 238, 201, 172, 152, 127, 92
+$ `Butt ub`    <int> 226, 190, 162, 142, 118, 84
+$ `Mid ob`     <int> 218, 174, 161, 140, 111, 78
+$ `Mid ub`     <int> 207, 164, 151, 131, 103, 71
+$ `Top ob`     <int> 212, 172, 152, 128, 92, 73
+$ `Top ub`     <int> 201, 162, 142, 119, 84, 66
+$ `Mid HKS ob` <int> 210, 170, 160, 140, 110, 70
+$ `Mid HKS ub` <int> 200, 160, 150, 130, 100, 70
+> if(length(wtch) > 0) { getSTPlogs(stemlist[wtch[1]]) %>% dplyr::glimpse()}
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getSTPlogs", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getSpeciesGroupDef")
+> ### * getSpeciesGroupDef
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getSpeciesGroupDef
+> ### Title: Species group def from one SpeciesGroupDefinition node
+> ### Aliases: getSpeciesGroupDef
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> SpeciesList <- xml2::xml_find_all(doc, ".//d1:SpeciesGroupDefinition" )
+> getSpeciesGroupDef(SpeciesList[[1]])
+# A tibble: 1 × 8
+  SpeciesGroupModifica…¹ Speci…² Speci…³ Speci…⁴ Speci…⁵ DBHHe…⁶ Speci…⁷ Speci…⁸
+  <chr>                  <chr>   <chr>   <chr>   <chr>   <chr>     <int> <chr>  
+1 2017-03-09T08:37:49.8… Furu#1… Furu    1       1       120         340 1      
+# … with abbreviated variable names ¹​SpeciesGroupModificationDate,
+#   ²​SpeciesGroupUserID, ³​SpeciesGroupName, ⁴​SpeciesGroupInfo,
+#   ⁵​SpeciesGroupVersion, ⁶​DBHHeight, ⁷​SpeciesGroupKey,
+#   ⁸​SpeciesGroupPresentationOrder
+> species <- plyr::ldply(SpeciesList, getSpeciesGroupDef)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getSpeciesGroupDef", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getSpeciesGroupDefinitions")
+> ### * getSpeciesGroupDefinitions
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getSpeciesGroupDefinitions
+> ### Title: Get all species definitions within a SF2010 doc
+> ### Aliases: getSpeciesGroupDefinitions
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> getSpeciesGroupDefinitions(doc)
+   SpeciesGroupModificationDate SpeciesGroupUserID SpeciesGroupName
+1  2017-03-09T08:37:49.86+01:00       Furu#1#APT_1             Furu
+2 2017-03-09T08:37:50.173+01:00       Gran#2#APT_2             Gran
+3  2017-03-09T08:37:50.36+01:00      Bjork#3#APT_3            Bjork
+4 2017-03-09T08:37:50.377+01:00      Andre#4#APT_4            Andre
+  SpeciesGroupInfo SpeciesGroupVersion DBHHeight SpeciesGroupKey
+1                1                   1       120             340
+2                2                   2       120             341
+3                3                   3       120             342
+4                4                   4       120             343
+  SpeciesGroupPresentationOrder BarkFunction                       MachineKey
+1                             1         <NA> 0c88f2be5ff8d0fac32076612d6a4454
+2                             2         <NA> 0c88f2be5ff8d0fac32076612d6a4454
+3                             3              0c88f2be5ff8d0fac32076612d6a4454
+4                             4              0c88f2be5ff8d0fac32076612d6a4454
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getSpeciesGroupDefinitions", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getStemGrades")
+> ### * getStemGrades
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getStemGrades
+> ### Title: Fetch the stem grades for each stem in hpr
+> ### Aliases: getStemGrades
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <- list.files(pth,".hpr",recursive = TRUE, full.names= TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
+> getStemGrades(stemlist[[1]])
+# A tibble: 1 × 3
+  StemKey gradestartpos_cm grades
+    <int>            <int>  <int>
+1  163859                0      1
+> plyr::ldply(stemlist[1:3], getStemGrades)
+  StemKey gradestartpos_cm grades
+1  163859                0      1
+2  163860                0      1
+3  163860               55      8
+4  163860              355      6
+5  163860              355      1
+6  163860              804      1
+7  163861                0      1
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getStemGrades", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getStemTypeDefs")
+> ### * getStemTypeDefs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getStemTypeDefs
+> ### Title: get stem type definitions from one SpeciesGroupDefinition
+> ### Aliases: getStemTypeDefs
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> SpeciesList <- xml2::xml_find_all(doc, ".//d1:SpeciesGroupDefinition" )
+> getStemTypeDefs(SpeciesList[[1]])
+# A tibble: 2 × 3
+  SpeciesGroupKey StemTypeCode StemTypeName
+            <int>        <int> <chr>       
+1             340            0 "stam1"     
+2             340            1 ""          
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getStemTypeDefs", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getStemTypes")
+> ### * getStemTypes
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getStemTypes
+> ### Title: Get all stem type definitions for all SpeciesGroupDefinitions
+> ### Aliases: getStemTypes
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> getStemTypes(doc)
+  SpeciesGroupKey StemTypeCode StemTypeName                       MachineKey
+1             340            0        stam1 0c88f2be5ff8d0fac32076612d6a4454
+2             340            1              0c88f2be5ff8d0fac32076612d6a4454
+3             341            0        stam1 0c88f2be5ff8d0fac32076612d6a4454
+4             341            1              0c88f2be5ff8d0fac32076612d6a4454
+5             342            0        stam1 0c88f2be5ff8d0fac32076612d6a4454
+6             342            1              0c88f2be5ff8d0fac32076612d6a4454
+7             343            0        stam1 0c88f2be5ff8d0fac32076612d6a4454
+8             343            1              0c88f2be5ff8d0fac32076612d6a4454
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getStemTypes", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getStemdata")
+> ### * getStemdata
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getStemdata
+> ### Title: Stem data from one Stem node
+> ### Aliases: getStemdata
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[3])
+> stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
+> getStemdata(stemlist[[1]]) %>% dplyr::glimpse()
+Rows: 1
+Columns: 17
+$ StemKey            <int> 307311
+$ ObjectKey          <int> 57
+$ SubObjectKey       <int> 67
+$ SpeciesGroupKey    <int> 253
+$ OperatorKey        <int> 3
+$ HarvestDate        <chr> "2020-02-10T12:26:15.917+01:00"
+$ StemNumber         <chr> "1"
+$ ProcessingCategory <chr> "SingleTreeProcessing"
+$ Latitude_bm        <chr> "60.3781466"
+$ Longitude_bm       <chr> "10.0551066"
+$ Altitude_bm        <chr> "0"
+$ CoordinateDate     <chr> NA
+$ lat_dir            <chr> "North"
+$ lon_dir            <chr> "East"
+$ Latitude_ctf       <chr> "60.3780828"
+$ Longitude_ctf      <chr> "10.0550209"
+$ Altitude_ctf       <chr> "0"
+> plyr::ldply(stemlist[1:10], getStemdata)
+   StemKey ObjectKey SubObjectKey SpeciesGroupKey OperatorKey
+1   307311        57           67             253           3
+2   307312        57           67             253           3
+3   307313        57           67             254           3
+4   307314        57           67             254           3
+5   307316        57           67             253           3
+6   307321        57           67             253           3
+7   307323        57           67             253           3
+8   307324        57           67             253           3
+9   307327        57           67             253           3
+10  307329        57           67             254           3
+                     HarvestDate StemNumber   ProcessingCategory Latitude_bm
+1  2020-02-10T12:26:15.917+01:00          1 SingleTreeProcessing  60.3781466
+2  2020-02-10T12:27:08.197+01:00          2 SingleTreeProcessing  60.3781999
+3  2020-02-10T12:33:40.927+01:00          3 SingleTreeProcessing    60.37842
+4   2020-02-10T12:33:57.56+01:00          4 SingleTreeProcessing  60.3784533
+5  2020-02-10T12:34:30.663+01:00          5 SingleTreeProcessing  60.3785616
+6    2020-02-10T12:37:22.9+01:00          6 SingleTreeProcessing  60.3796249
+7  2020-02-10T12:37:47.917+01:00          7 SingleTreeProcessing  60.3796666
+8  2020-02-10T12:38:02.947+01:00          8 SingleTreeProcessing  60.3796883
+9   2020-02-10T12:38:31.19+01:00          9 SingleTreeProcessing  60.3797183
+10 2020-02-10T12:38:59.217+01:00         10 SingleTreeProcessing  60.3797833
+   Longitude_bm Altitude_bm CoordinateDate lat_dir lon_dir Latitude_ctf
+1    10.0551066           0           <NA>   North    East   60.3780828
+2      10.05499           0           <NA>   North    East   60.3781233
+3    10.0522166           0           <NA>   North    East   60.3784613
+4    10.0521699           0           <NA>   North    East   60.3785108
+5    10.0520233           0           <NA>   North    East   60.3786349
+6    10.0512149           0           <NA>   North    East    60.379699
+7    10.0511933           0           <NA>   North    East   60.3796875
+8    10.0511716           0           <NA>   North    East   60.3797455
+9    10.0511366           0           <NA>   North    East   60.3796866
+10     10.05108           0           <NA>   North    East   60.3798308
+   Longitude_ctf Altitude_ctf
+1     10.0550209            0
+2     10.0549956            0
+3      10.052086            0
+4     10.0520674            0
+5     10.0519784            0
+6     10.0511753            0
+7     10.0510441            0
+8     10.0510684            0
+9     10.0512777            0
+10    10.0509584            0
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getStemdata", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getStems")
+> ### * getStems
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getStems
+> ### Title: Get stemdata for all stems within a SF2010 .hpr file
+> ### Aliases: getStems
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
+> doc <- xml2::read_xml(hprfiles[3])
+> getStems(doc)
+   StemKey ObjectKey SubObjectKey SpeciesGroupKey OperatorKey
+1   307311        57           67             253           3
+2   307312        57           67             253           3
+3   307313        57           67             254           3
+4   307314        57           67             254           3
+5   307316        57           67             253           3
+6   307321        57           67             253           3
+7   307323        57           67             253           3
+8   307324        57           67             253           3
+9   307327        57           67             253           3
+10  307329        57           67             254           3
+11  307330        57           67             254           3
+12  307331        57           67             254           3
+13  307332        57           67             254           3
+14  307333        57           67             254           3
+15  307334        57           67             253           3
+16  307335        57           67             253           3
+17  307336        57           67             254           3
+18  307337        57           67             254           3
+19  307338        57           67             254           3
+20  307339        57           67             254           3
+21  307340        57           67             254           3
+22  307341        57           67             253           3
+23  307342        57           67             253           3
+24  307343        57           67             253           3
+25  307344        57           67             253           3
+26  307345        57           67             253           3
+27  307346        57           67             254           3
+28  307347        57           67             254           3
+29  307348        57           67             254           3
+30  307349        57           67             254           3
+31  307350        57           67             254           3
+32  307351        57           67             254           3
+33  307353        57           67             254           3
+34  307354        57           67             254           3
+                     HarvestDate StemNumber   ProcessingCategory Latitude_bm
+1  2020-02-10T12:26:15.917+01:00          1 SingleTreeProcessing  60.3781466
+2  2020-02-10T12:27:08.197+01:00          2 SingleTreeProcessing  60.3781999
+3  2020-02-10T12:33:40.927+01:00          3 SingleTreeProcessing    60.37842
+4   2020-02-10T12:33:57.56+01:00          4 SingleTreeProcessing  60.3784533
+5  2020-02-10T12:34:30.663+01:00          5 SingleTreeProcessing  60.3785616
+6    2020-02-10T12:37:22.9+01:00          6 SingleTreeProcessing  60.3796249
+7  2020-02-10T12:37:47.917+01:00          7 SingleTreeProcessing  60.3796666
+8  2020-02-10T12:38:02.947+01:00          8 SingleTreeProcessing  60.3796883
+9   2020-02-10T12:38:31.19+01:00          9 SingleTreeProcessing  60.3797183
+10 2020-02-10T12:38:59.217+01:00         10 SingleTreeProcessing  60.3797833
+11 2020-02-10T12:39:15.353+01:00         11 SingleTreeProcessing  60.3798183
+12 2020-02-10T12:39:29.683+01:00         12 SingleTreeProcessing    60.37982
+13 2020-02-10T12:39:40.977+01:00         13 SingleTreeProcessing  60.3798066
+14  2020-02-10T12:39:55.01+01:00         14 SingleTreeProcessing  60.3798116
+15 2020-02-10T12:40:28.877+01:00         15 SingleTreeProcessing  60.3798566
+16 2020-02-10T12:40:39.867+01:00         16 SingleTreeProcessing  60.3798683
+17 2020-02-10T12:40:45.827+01:00         17 SingleTreeProcessing  60.3798783
+18  2020-02-10T12:41:11.78+01:00         18 SingleTreeProcessing  60.3799033
+19 2020-02-10T12:41:25.367+01:00         19 SingleTreeProcessing  60.3799216
+20  2020-02-10T12:44:13.68+01:00         20 SingleTreeProcessing  60.3798616
+21  2020-02-10T12:44:29.45+01:00         21 SingleTreeProcessing  60.3798666
+22 2020-02-10T12:44:39.297+01:00         22 SingleTreeProcessing  60.3798816
+23  2020-02-10T12:44:57.31+01:00         23 SingleTreeProcessing  60.3799066
+24 2020-02-10T12:45:12.747+01:00         24 SingleTreeProcessing  60.3799066
+25 2020-02-10T12:45:34.913+01:00         25 SingleTreeProcessing  60.3799383
+26 2020-02-10T12:45:48.967+01:00         26 SingleTreeProcessing  60.3799483
+27  2020-02-10T12:45:57.23+01:00         27 SingleTreeProcessing  60.3799533
+28 2020-02-10T12:46:13.663+01:00         28 SingleTreeProcessing  60.3799333
+29 2020-02-10T12:46:24.943+01:00         29 SingleTreeProcessing  60.3799283
+30 2020-02-10T12:46:51.677+01:00         30 SingleTreeProcessing  60.3799366
+31 2020-02-10T12:47:17.453+01:00         31 SingleTreeProcessing  60.3799249
+32 2020-02-10T12:47:44.393+01:00         32 SingleTreeProcessing  60.3799183
+33 2020-02-10T12:48:18.927+01:00         33 SingleTreeProcessing  60.3799683
+34 2020-02-10T12:50:00.767+01:00         34 SingleTreeProcessing   60.379935
+   Longitude_bm Altitude_bm CoordinateDate lat_dir lon_dir Latitude_ctf
+1    10.0551066           0           <NA>   North    East   60.3780828
+2      10.05499           0           <NA>   North    East   60.3781233
+3    10.0522166           0           <NA>   North    East   60.3784613
+4    10.0521699           0           <NA>   North    East   60.3785108
+5    10.0520233           0           <NA>   North    East   60.3786349
+6    10.0512149           0           <NA>   North    East    60.379699
+7    10.0511933           0           <NA>   North    East   60.3796875
+8    10.0511716           0           <NA>   North    East   60.3797455
+9    10.0511366           0           <NA>   North    East   60.3796866
+10     10.05108           0           <NA>   North    East   60.3798308
+11   10.0510816           0           <NA>   North    East   60.3798948
+12   10.0510999           0           <NA>   North    East    60.379865
+13   10.0510766           0           <NA>   North    East   60.3798494
+14   10.0510716           0           <NA>   North    East   60.3798779
+15   10.0510233           0           <NA>   North    East   60.3798302
+16   10.0510033           0           <NA>   North    East   60.3798055
+17   10.0509999           0           <NA>   North    East   60.3798359
+18   10.0510116           0           <NA>   North    East   60.3799776
+19   10.0510233           0           <NA>   North    East   60.3799953
+20   10.0510466           0           <NA>   North    East   60.3799373
+21   10.0510533           0           <NA>   North    East   60.3799384
+22    10.051045           0           <NA>   North    East   60.3799015
+23   10.0510416           0           <NA>   North    East   60.3798909
+24   10.0510216           0           <NA>   North    East   60.3799831
+25   10.0510766           0           <NA>   North    East   60.3799089
+26     10.05108           0           <NA>   North    East   60.3799408
+27   10.0510833           0           <NA>   North    East   60.3799566
+28   10.0510866           0           <NA>   North    East   60.3799862
+29    10.051095           0           <NA>   North    East   60.3799423
+30   10.0510749           0           <NA>   North    East   60.3800131
+31   10.0511049           0           <NA>   North    East   60.3799591
+32   10.0510999           0           <NA>   North    East   60.3799656
+33    10.051155           0           <NA>   North    East   60.3799531
+34   10.0510866           0           <NA>   North    East   60.3799751
+   Longitude_ctf Altitude_ctf                       MachineKey
+1     10.0550209            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+2     10.0549956            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+3      10.052086            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+4     10.0520674            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+5     10.0519784            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+6     10.0511753            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+7     10.0510441            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+8     10.0510684            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+9     10.0512777            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+10    10.0509584            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+11    10.0510904            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+12    10.0509744            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+13    10.0512052            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+14     10.050994            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+15    10.0511688            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+16     10.051092            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+17     10.051129            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+18    10.0510494            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+19    10.0510658            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+20    10.0510701            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+21    10.0511073            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+22    10.0511947            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+23    10.0511933            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+24    10.0510307            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+25    10.0512197            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+26    10.0512343            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+27    10.0512382            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+28    10.0511988            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+29    10.0512474            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+30    10.0510654            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+31    10.0509662            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+32     10.050978            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+33    10.0513069            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+34    10.0512188            0 c2e2ff9634f3d5ff16a18e3c71392ae8
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getStems", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getStemsAndLogs")
+> ### * getStemsAndLogs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getStemsAndLogs
+> ### Title: Fetch all stems and all logs in hpr
+> ### Aliases: getStemsAndLogs
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> stl <- getStemsAndLogs(doc)
+> doc <- xml2::read_xml(hprfiles[2])
+> stl <- getStemsAndLogs(doc)
+> doc <- xml2::read_xml(hprfiles[3])
+> stl <- getStemsAndLogs(doc)
+> 
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getStemsAndLogs", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("getTracking.data")
+> ### * getTracking.data
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: getTracking.data
+> ### Title: Tracking data from mom-files#'
+> ### Aliases: getTracking.data
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> momfiles <- list.files(pth,".mom",ignore.case=TRUE,recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(momfiles[3])#'
+> getTracking.data(doc) %>% dplyr::glimpse()
+Rows: 10
+Columns: 5
+$ bmp_latitude       <dbl> 62.51207, 62.51195, 62.51194, 62.51194, 62.51194, 6…
+$ bmp_longitude      <dbl> 6.700867, 6.700849, 6.700627, 6.700713, 6.700713, 6…
+$ bmp_altitude       <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ bmp_coordinatedate <dttm> 2022-05-02 07:47:06, 2022-05-02 07:48:03, 2022-05-0…
+$ difftime           <dbl> 0.000, 57.043, 71.040, 306.937, 10.120, 830.053, 3…
+> pth <- system.file(package = "sf2010r")
+> momfiles <- list.files(pth,".mom",ignore.case=TRUE,recursive=TRUE,full.names= TRUE)
+> doc <- xml2::read_xml(momfiles[3])#'
+> getTracking.data(doc) %>% dplyr::glimpse()
+Rows: 10
+Columns: 5
+$ bmp_latitude       <dbl> 62.51207, 62.51195, 62.51194, 62.51194, 62.51194, 6…
+$ bmp_longitude      <dbl> 6.700867, 6.700849, 6.700627, 6.700713, 6.700713, 6…
+$ bmp_altitude       <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+$ bmp_coordinatedate <dttm> 2022-05-02 07:47:06, 2022-05-02 07:48:03, 2022-05-0…
+$ difftime           <dbl> 0.000, 57.043, 71.040, 306.937, 10.120, 830.053, 3…
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("getTracking.data", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("get_Harv_data")
+> ### * get_Harv_data
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: get_Harv_data
+> ### Title: Recursive processing of other functions in the package
+> ### Aliases: get_Harv_data
+> 
+> ### ** Examples
+> 
+> pth <- list.files(path =  system.file(package = "sf2010r"),
++ pattern = ".", recursive = TRUE, full.names= TRUE)
+> tmp <- get_Harv_data(pth[4:5])
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("get_Harv_data", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("hprdata")
+> ### * hprdata
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: hprdata
+> ### Title: Hpr-file reader function
+> ### Aliases: hprdata
+> 
+> ### ** Examples
+> 
+> hprfiles <- list.files(path =  system.file(package = "sf2010r"),
++ pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+> hprtest1 <- hprdata(hprfiles[1])
+> hprtest2 <- hprdata(hprfiles[2])
+> hprtest3 <- hprdata(hprfiles[3])
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("hprdata", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("price_matr_entry_base_log_class")
+> ### * price_matr_entry_base_log_class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: price_matr_entry_base_log_class
+> ### Title: finding price matrix entry for base logs
+> ### Aliases: price_matr_entry_base_log_class
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> pricematrixes <- getProductMatrixes(doc)
+> price_matr_entry_base_log_class(pricematrixes)
+# A tibble: 8 × 8
+# Groups:   MachineKey, ProductKey [8]
+  baselog_price Distribution Limitation Buckin…¹ Produ…² basel…³ basel…⁴ Machi…⁵
+  <chr>         <chr>        <chr>      <chr>      <dbl>   <dbl>   <dbl> <chr>  
+1 199           0            0          No limit    4273     120     470 0c88f2…
+2 525           0            0          No limit    4291     200     470 0c88f2…
+3 526           25           0          No limit    4274     200     490 0c88f2…
+4 263           0            0          No limit    4297     200     448 0c88f2…
+5 228           0            0          No limit    4298     200     338 0c88f2…
+6 90            0            0          Only lo…    4299     120     470 0c88f2…
+7 181           0            0          No limit    4300     120     470 0c88f2…
+8 234           0            0          No limit    4302     200     480 0c88f2…
+# … with abbreviated variable names ¹​BuckingCriteria, ²​ProductKey,
+#   ³​baselog_diaclass, ⁴​baselog_lengthclass, ⁵​MachineKey
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("price_matr_entry_base_log_class", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("sf2010r_example")
+> ### * sf2010r_example
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: sf2010r_example
+> ### Title: Get path to Stanford2010 example files in the package
+> ### Aliases: sf2010r_example
+> 
+> ### ** Examples
+> 
+> sf2010r_example()
+ [1] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/FPR_V0303_MaxiXT_0107_20220406__1_1.fpr"         
+ [2] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/HPR_V2_1_MaxiXplorer_3_10_20170309.hpr"          
+ [3] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/HPR_V30_TimberMaticH_2_1_25.hpr"                 
+ [4] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/HPR_V3_3_MaxiXplorer_3_19.hpr"                   
+ [5] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/HQC_V30_TimberMaticH_2_1_25_20210128.HQC"        
+ [6] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/MOM_Komatsu_harvester_sf2010v30_combined_mwt.MOM"
+ [7] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/MOM_Ponsse_Forw_sf2010v31_individual_mwt.mom"    
+ [8] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/MOM_V3_3_MaxiXT_1_7_combined_mwt.mom"            
+ [9] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/MOM_Vimek_harvester_sf2010v20_individual_mwt.MOM"
+[10] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/bullshit.txt"                                    
+> sf2010r_example(fileending = "hpr")
+[1] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/HPR_V2_1_MaxiXplorer_3_10_20170309.hpr"
+[2] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/HPR_V30_TimberMaticH_2_1_25.hpr"       
+[3] "/home/wihe/Documents/sf2010r/sf2010r.Rcheck/sf2010r/extdata/HPR_V3_3_MaxiXplorer_3_19.hpr"         
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("sf2010r_example", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("xml_childs_dt")
+> ### * xml_childs_dt
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: xml_childs_dt
+> ### Title: Make a data table of node children values and corresponding
+> ###   attribute values
+> ### Aliases: xml_childs_dt
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> x <- xml2::xml_children(doc)[2] # Get one node of doc, the first is normally a header
+> xml_childs_dt(x[[1]]) # The function returns a data.table
+                  child_name                       child_vals
+1:                MachineKey 0c88f2be5ff8d0fac32076612d6a4454
+2:             MachineUserID a1b458602913ce2c1d6aecef2f7ceed4
+3:            MachineOwnerID                             9111
+4: MachineApplicationVersion       MaxiXplorer 3.10.X.xxxxx D
+5:   MachineBaseManufacturer                   Komatsu Forest
+6:          MachineBaseModel                              911
+7:   MachineHeadManufacturer                   Komatsu Forest
+8:          MachineHeadModel                              C93
+> x <- xml2::xml_children(x)
+> xml_childs_dt(x[[27]])
+           child_name                   child_vals
+1:            StemKey                       163859
+2:          ObjectKey                           88
+3:       SubObjectKey                           94
+4:    SpeciesGroupKey                          341
+5:        OperatorKey                            3
+6:        HarvestDate 2017-03-09T11:15:19.03+01:00
+7:         StemNumber                           99
+8: ProcessingCategory         SingleTreeProcessing
+>  x <- xml2::xml_children(x[[27]])
+> xml_childs_dt(x)
+            child_name                      attrs
+ 1:           Latitude     latitudeCategory North
+ 2:          Longitude     longitudeCategory East
+ 3:           Altitude                       <NA>
+ 4:           Latitude     latitudeCategory North
+ 5:          Longitude     longitudeCategory East
+ 6:           Altitude                       <NA>
+ 7:          SessionId                       <NA>
+ 8:     MachineBearing                       <NA>
+ 9:         CraneAngle                       <NA>
+10:    MeanCraneLength                       <NA>
+11:       GpsPrecision                       <NA>
+12: NumberOfSatellites                       <NA>
+13:   FellCutStartTime                       <NA>
+14:     FellCutEndTime                       <NA>
+15:    TiltUpStartTime                       <NA>
+16:     AnalyzedLength                       <NA>
+17:          LevelArea                    dia 172
+18:                DBH                       <NA>
+19:  ReferenceDiameter referenceDiameterHeight 91
+                           child_vals
+ 1:                          60.92401
+ 2:                           9.30683
+ 3:                                 0
+ 4:                        60.9239936
+ 5:                          9.306676
+ 6:                                 0
+ 7:                              2079
+ 8:                               223
+ 9:                                34
+10:                               852
+11:                               0.9
+12:                                 9
+13: 2017-03-09T11:15:19.0300000+01:00
+14: 2017-03-09T11:15:20.5200000+01:00
+15: 2017-03-09T11:15:48.4700000+01:00
+16:                              1570
+17:                               170
+18:                               181
+19:                               184
+> x %>% purrr::map_dfr( ~ xml_childs_dt(.x))  # Converted to tibble
+            child_name                        child_vals
+ 1:           Latitude                          60.92401
+ 2:          Longitude                           9.30683
+ 3:           Altitude                                 0
+ 4:           Latitude                        60.9239936
+ 5:          Longitude                          9.306676
+ 6:           Altitude                                 0
+ 7:          SessionId                              2079
+ 8:     MachineBearing                               223
+ 9:         CraneAngle                                34
+10:    MeanCraneLength                               852
+11:       GpsPrecision                               0.9
+12: NumberOfSatellites                                 9
+13:   FellCutStartTime 2017-03-09T11:15:19.0300000+01:00
+14:     FellCutEndTime 2017-03-09T11:15:20.5200000+01:00
+15:    TiltUpStartTime 2017-03-09T11:15:48.4700000+01:00
+16:     AnalyzedLength                              1570
+17:          LevelArea                               170
+18:                DBH                               181
+19:  ReferenceDiameter                               184
+                         attrs
+ 1:     latitudeCategory North
+ 2:     longitudeCategory East
+ 3:                       <NA>
+ 4:     latitudeCategory North
+ 5:     longitudeCategory East
+ 6:                       <NA>
+ 7:                       <NA>
+ 8:                       <NA>
+ 9:                       <NA>
+10:                       <NA>
+11:                       <NA>
+12:                       <NA>
+13:                       <NA>
+14:                       <NA>
+15:                       <NA>
+16:                       <NA>
+17:                    dia 172
+18:                       <NA>
+19: referenceDiameterHeight 91
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("xml_childs_dt", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("xml_childs_nchr")
+> ### * xml_childs_nchr
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: xml_childs_nchr
+> ### Title: Make a named character vector of children values
+> ### Aliases: xml_childs_nchr
+> 
+> ### ** Examples
+> 
+> pth <- system.file(package = "sf2010r")
+> hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
+> doc <- xml2::read_xml(hprfiles[1])
+> x <-  xml2::xml_children(doc)[1] # Get one node of doc, the first is normally a header
+> xml_childs_nchr(x[[1]]) # The function returns a named vector
+                      CreationDate                   ModificationDate 
+"2017-03-09T15:15:51.265625+01:00" "2017-03-09T15:15:51.265625+01:00" 
+         ApplicationVersionCreated         ApplicationVersionModified 
+      "MaxiXplorer 3.10.X.xxxxx D"       "MaxiXplorer 3.10.X.xxxxx D" 
+                       CountryCode 
+                             "752" 
+> x %>% purrr::map_dfr( ~ xml_childs_nchr(.x))  # Converted to tibble
+# A tibble: 1 × 5
+  CreationDate                     ModificationDate      Appli…¹ Appli…² Count…³
+  <chr>                            <chr>                 <chr>   <chr>   <chr>  
+1 2017-03-09T15:15:51.265625+01:00 2017-03-09T15:15:51.… MaxiXp… MaxiXp… 752    
+# … with abbreviated variable names ¹​ApplicationVersionCreated,
+#   ²​ApplicationVersionModified, ³​CountryCode
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("xml_childs_nchr", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  12.019 0.06 12.092 0.004 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

@@ -1,0 +1,23 @@
+Package: sf2010r
+Type: Package
+Title: A Tool to Read StanForD2010 Forest Machine Reports
+Version: 0.1.1
+Authors@R: 
+    c(person(given = "Helmer",
+             family = "Belbo",
+             role = c("aut", "cre"),
+             email = "helmer.belbo@nibio.no"),
+      person(given = "Wilson",
+      	     family = "Lara Henao",
+	     role = c("aut", "ctb")))
+Maintainer: Helmer Belbo <helmer.belbo@nibio.no>
+Description: The main functions takes file names as arguments, and will read these files and return a list of tables containing most of the content of the xml document. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports: data.table, digest, dplyr, lubridate, magrittr, plyr, purrr,
+        rlang, stringr, tibble, tidyr, tidyselect, xml2
+RoxygenNote: 7.2.3
+NeedsCompilation: no
+Packaged: 2023-03-29 07:02:02 UTC; wihe
+Author: Helmer Belbo [aut, cre],
+  Wilson Lara Henao [aut, ctb]

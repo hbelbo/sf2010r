@@ -1,0 +1,58 @@
+fTZ                     Get Time zone from the StanForD2010 countrycode
+                        variables.
+getCombined.mwt         Get Combined Machine Work Time for all and
+                        within a SF2010 .hpr file
+getDelivery             Delivery data from one delivery definition node
+getLocation             Location data from one Location node
+getLogs                 Get logsdata for all stems within a SF2010 .hpr
+                        file
+getMTPlogs              Fetch the multi tree processed logs belonging
+                        to one multi-stem entry in hpr
+getMachineReportHeader
+                        Organize the header data of the StanForD2010
+                        report into a tibble
+getMom.all              mom-file reader function
+getMom.cmwt.data        Combined machine work time data from one
+                        combined machine work time node
+getMom.imwt.activity    Indivdual machine work time activity data from
+                        one indivdual machine work time node
+getMom.imwt.production
+                        Indivdual machine work time production data
+                        from one individual machine work time node
+getObjectDefinition     Extracting all data defining one cut object
+                        from one ObjectDefinition xml-tree
+getObjects              Extracting all cut object definitions from doc
+getOperators            Get the operator definitions from a
+                        StanFord2010 xml document
+getProductDef           Product def from product definition nodetree
+getProductDefs          Get all product definitions
+getProductMatrixItems   Get the Product Matrix items
+getProductMatrixes      Get all price matrixes
+getSTP_diameters        get SingleTreeProcessed tree's diametres
+getSTPlogs              Fetch the single tree processed logs from one
+                        stem node tree
+getSpeciesGroupDef      Species group def from one
+                        SpeciesGroupDefinition node
+getSpeciesGroupDefinitions
+                        Get all species definitions within a SF2010 doc
+getStemGrades           Fetch the stem grades for each stem in hpr
+getStemTypeDefs         get stem type definitions from one
+                        SpeciesGroupDefinition
+getStemTypes            Get all stem type definitions for all
+                        SpeciesGroupDefinitions
+getStemdata             Stem data from one Stem node
+getStems                Get stemdata for all stems within a SF2010 .hpr
+                        file
+getStemsAndLogs         Fetch all stems and all logs in hpr
+getTracking.data        Tracking data from mom-files#'
+get_Harv_data           Recursive processing of other functions in the
+                        package
+hprdata                 Hpr-file reader function
+price_matr_entry_base_log_class
+                        finding price matrix entry for base logs
+sf2010r_example         Get path to Stanford2010 example files in the
+                        package
+xml_childs_dt           Make a data table of node children values and
+                        corresponding attribute values
+xml_childs_nchr         Make a named character vector of children
+                        values
