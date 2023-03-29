@@ -24,9 +24,7 @@ IndividualMachineWorkTime
 mom-file reader function
 }
 \examples{
-momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom$", recursive = TRUE,  ignore.case = TRUE,   full.names= TRUE)
+pth <- system.file(package = "sf2010r")
+momfiles <- list.files(pth,".mom$",recursive=TRUE,ignore.case=TRUE,full.names= TRUE)
 momtest1 <- getMom.all(momfiles[1])
-momtest2 <- getMom.all(momfiles[2])
-momtest3 <- getMom.all(momfiles[3])
-momtest4 <- getMom.all(momfiles[4])
 }

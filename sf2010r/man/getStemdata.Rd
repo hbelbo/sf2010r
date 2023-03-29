@@ -13,7 +13,8 @@ getStemdata(x)
 Stem data from one Stem node
 }
 \examples{
-hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+pth <- system.file(package = "sf2010r")
+hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 doc <- xml2::read_xml(hprfiles[3])
 stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
 getStemdata(stemlist[[1]]) \%>\% dplyr::glimpse()

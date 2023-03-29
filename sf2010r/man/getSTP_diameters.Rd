@@ -16,7 +16,8 @@ a tibble
 get SingleTreeProcessed tree's diametres
 }
 \examples{
-hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+pth <- system.file(package = "sf2010r")
+hprfiles <- list.files(pth,".hpr",recursive=TRUE,full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 getSTP_diameters(doc)
 doc <- xml2::read_xml(hprfiles[2])

@@ -19,7 +19,8 @@ and the values are the node values.
 Attributes and attribute values are included.
 }
 \examples{
-hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+pth <- system.file(package = "sf2010r")
+hprfiles <-  list.files(pth,".hpr",recursive=TRUE,full.names=TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 x <- xml2::xml_children(doc)[2] # Get one node of doc, the first is normally a header
 xml_childs_dt(x[[1]]) # The function returns a data.table

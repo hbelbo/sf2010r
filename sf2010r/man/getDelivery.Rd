@@ -13,7 +13,8 @@ getDelivery(x)
 Delivery data from one delivery definition node
 }
 \examples{
-fprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
+pth <- system.file(package = "sf2010r") 
+fprfiles <- list.files(pth,".fpr",ignore.case=TRUE,recursive=TRUE,full.names=TRUE)
 doc <- xml2::read_xml(fprfiles[1])
 nodelist <- xml2::xml_find_all(doc, ".//d1:DeliveryDefinition")
 getDelivery(nodelist[[1]]) \%>\% dplyr::glimpse()

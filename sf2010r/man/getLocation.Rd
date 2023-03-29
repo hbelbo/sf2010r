@@ -13,7 +13,8 @@ getLocation(x)
 Location data from one Location node
 }
 \examples{
-fprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
+pth <- system.file(package = "sf2010r") 
+fprfiles <- list.files(pth,".fpr",ignore.case=TRUE,recursive=TRUE,full.names= TRUE)
 doc <- xml2::read_xml(fprfiles[1])
 locationlist <- xml2::xml_find_all(doc, ".//d1:LocationDefinition")
 getLocation(locationlist[[1]]) \%>\% dplyr::glimpse()

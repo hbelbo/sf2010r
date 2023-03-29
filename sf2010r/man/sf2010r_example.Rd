@@ -4,11 +4,9 @@
 \alias{sf2010r_example}
 \title{Get path to Stanford2010 example files in the package}
 \usage{
-sf2010r_example(file = NULL, fileending = NULL)
+sf2010r_example(fileending = NULL)
 }
 \arguments{
-\item{file}{Name of file. If `NULL`, the example files will be listed.}
-
 \item{fileending}{one of the file endings in StanFord2010; "hpr", "hqc" etc}
 }
 \description{

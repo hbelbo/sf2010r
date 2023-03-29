@@ -19,7 +19,8 @@ Fetch the stem grades for each stem in hpr
 NB: One stem section might have several grades simultaneously
 }
 \examples{
-hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+pth <- system.file(package = "sf2010r")
+hprfiles <- list.files(pth,".hpr",recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
 getStemGrades(stemlist[[1]])

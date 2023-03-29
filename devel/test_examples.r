@@ -19,8 +19,11 @@ get_Harv_data <- function(pth,
     out <- Map(function(x,y)
         tryCatch(do.call(x, list(y)), error = function(e)NULL),
         unl_nmfns, unl_fun_groups)
-    names(out) <- unl_fun_groups
+    names(out) <- basename(unl_fun_groups)
     return(out)}
+
+tmp <- get_Harv_data(pth[4:5])
+
 
 pth
 tmp <- get_Harv_data(pth)
