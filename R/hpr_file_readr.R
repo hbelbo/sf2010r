@@ -19,7 +19,7 @@ hprdata<- function(hprfile){
   # hprfile = hprfiles[1]
   cat(" -hprdata() parsing ", hprfile,"- \n")
    doc <- xml2::read_xml(hprfile)
-   md5 <-  digest::digest(file(hprfile))
+   md5 <- digest::digest(file(hprfile))
 
    if(nchar(Sys.getlocale()) < 3){
      Sys.setlocale(category = "LC_ALL", locale = "") #becouse of an R-studio Rstartup issue at HB's computer
@@ -64,14 +64,12 @@ hprdata<- function(hprfile){
 
     cat(" -hprdata-getProductDefs- \n")
     products <- sf2010r::getProductDefs(doc) %>%
-      dplyr::mutate(  MachineKey = MachineReportHeader$MachineKey,
-             CreationDate = MachineReportHeader$CreationDate)
+      dplyr::mutate(  MachineKey = MachineReportHeader$MachineKey)
     # products %>% dplyr::glimpse()
 
     cat(" -hprdata-getPricematrixes \n")
     pricematrixes <- sf2010r::getProductMatrixes(doc) %>%
-      mutate( MachineKey = MachineReportHeader$MachineKey,
-              CreationDate = MachineReportHeader$CreationDate)
+      mutate( MachineKey = MachineReportHeader$MachineKey)
     # pricematrixes %>% dplyr::glimpse()
 
     cat(" -hprdata-getStemTypes; \n")
@@ -94,7 +92,7 @@ hprdata<- function(hprfile){
              MachineKey = MachineReportHeader$MachineKey
              #, CreationDate = MachineReportHeader$CreationDate
              ) %>%
-      dplyr::left_join( (speciesgroups %>% dplyr::select( SpeciesGroupKey, SpeciesGroupName)), by = "SpeciesGroupKey")
+      dplyr::left_join( (speciesgroups %>% dplyr::select( .data$SpeciesGroupKey, .data$SpeciesGroupName)), by = "SpeciesGroupKey")
     # Stemdat %>% dplyr::glimpse()
 
 
@@ -131,16 +129,16 @@ hprdata<- function(hprfile){
       dplyr::ungroup()
 
     topsonbark = logmeter %>%
-      dplyr::select( StemKey, LogKey, diapos = LogEndHeight, dia = `Top ob`)
+      dplyr::select( StemKey, .data$LogKey, diapos = .data$LogEndHeight, dia = .data$`Top ob`)
     midsonbark = logmeter %>%
-      dplyr::select( StemKey, LogKey, diapos = LogMidHeight, dia = `Mid ob`)
+      dplyr::select( StemKey, LogKey, diapos = .data$LogMidHeight, dia = .data$`Mid ob`)
     stemlogdiasonbark <- dplyr::bind_rows(midsonbark, topsonbark)
 
 
     if("`Butt ob`" %in% colnames(logmeter) ){
       butsonbark = logmeter %>%
-        dplyr::select( StemKey, LogKey, diapos = LogStartHeight,
-                       dia = `Butt ob`)
+        dplyr::select( StemKey, LogKey, diapos = .data$LogStartHeight,
+                       dia = .data$`Butt ob`)
       stemlogdiasonbark <- dplyr::bind_rows(stemlogdiasonbark, butsonbark)
     }
     stemlogdiasonbark <- stemlogdiasonbark %>%
@@ -150,15 +148,15 @@ hprdata<- function(hprfile){
 
     topsubark = logmeter %>%
       dplyr::select( StemKey, LogKey,
-                     diapos = LogEndHeight, dia = `Top ub`)
+                     diapos = .data$LogEndHeight, dia = .data$`Top ub`)
     midsubark = logmeter %>%
       dplyr::select( StemKey, LogKey,
-                     diapos = LogMidHeight, dia = `Mid ub`)
+                     diapos = .data$LogMidHeight, dia = .data$`Mid ub`)
 
     stemlogdiasubark <- dplyr::bind_rows(midsubark, topsubark)
     if("`Butt ub`" %in% colnames(logmeter) ){
       butsubark = logmeter %>%
-        dplyr::select( StemKey, LogKey, diapos = LogStartHeight,
+        dplyr::select( StemKey, LogKey, diapos = .data$LogStartHeight,
                        dia = `Butt ub`)
       stemlogdiasubark <- bind_rows(stemlogdiasubark, butsubark)
     }

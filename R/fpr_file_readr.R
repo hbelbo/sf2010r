@@ -89,7 +89,7 @@ fprdata<- function(fprfile){
 
     ByLoad <-
       Loads %>%
-      dplyr::group_by(MachineKey, LoadKey) %>%
+      dplyr::group_by(.data$MachineKey, LoadKey) %>%
      dplyr::summarise(
        dplyr::across(3:4, ~ dplyr::first(.x)),
         dplyr::across(.cols = tidyselect::starts_with("Load_"), ~ sum(.x))
@@ -98,7 +98,7 @@ fprdata<- function(fprfile){
 
     ByDelivery <-
       Loads %>%
-      dplyr::group_by(MachineKey, DeliveryKey) %>%
+      dplyr::group_by(.data$MachineKey, .data$DeliveryKey) %>%
       dplyr::summarise(
         dplyr::across(3:4, ~ dplyr::first(.x)),
         dplyr::across(.cols = tidyselect::starts_with("Load_"), ~ sum(.x))

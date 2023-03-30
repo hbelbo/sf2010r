@@ -1,10 +1,10 @@
 
 #' HQC-file reader function
 #'
-#' @param hqc file filename and path of the hqc file to read
+#' @param hqcfile file filename and path of the hqc file to read
 
 #' @return A list of data.frames: stems, products, logs, machinereport_meta,
-#'  operators, objects, stem_grades, pricematrixes,
+#'  operators, objects, stem_grades,
 #'  stemdiametervectors, and stemtypes.
 #' @export
 #'
@@ -187,7 +187,7 @@ hqcdata<- function(hqcfile){
 
   Ret <- list(stems=Stemdat, products=products, logs = logs, machinereport_meta =  machinereport_meta,
               operators = operators, objects = objects,
-              grades = grades, pricematrixes = pricematrixes,
+              grades = grades,
               stemdiasonbark = stemdiasonbark, stemtypes = stemtypes)
   return(Ret)
 }

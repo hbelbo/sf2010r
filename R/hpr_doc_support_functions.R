@@ -172,10 +172,6 @@ getSTPlogs <- function(x) {
   } else {logdat = NULL}
   return(logdat)
 }
-# getSTPlogs(stemlist[1])
-
-
-
 
 
 
@@ -284,8 +280,6 @@ getLogs <- function(doc){
 
 
 
-
-
 #' get SingleTreeProcessed tree's diametres
 #'
 #' @param doc a hpr document (xml)
@@ -301,7 +295,7 @@ getLogs <- function(doc){
 #' doc <- xml2::read_xml(hprfiles[3])
 #' getSTP_stemdiameters(doc)
 getSTP_stemdiameters <- function(doc) {
-
+# Could probably be a lot more efficient!
   x <- xml2::xml_find_all(doc, ".//d1:Stem")
 
   ProcessingCategory =  xml2::xml_text(  xml2::xml_find_all(x, "./d1:ProcessingCategory"))
@@ -375,4 +369,5 @@ getStemsAndLogs <- function(doc){
     retlist <- list(stems=stems, stplogs = stplogs, mtplogs = mtplogs, stemgrades = stemgrades, stemdias = stemdias)
   return(retlist)
 }
+
 
