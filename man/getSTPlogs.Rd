@@ -16,10 +16,13 @@ a tibble with all logs belonging to one stem
 Fetch the single tree processed logs from one stem node tree
 }
 \examples{
-hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+ pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
-wtch <-  which(xml2::xml_text(  xml2::xml_find_all(stemlist, ".//d1:ProcessingCategory")) == "MultiTreeProcessing")
+wtch <-  which(xml2::xml_text(
+     xml2::xml_find_all(
+        stemlist, ".//d1:ProcessingCategory")) == "MultiTreeProcessing")
 getSTPlogs(stemlist[1]) \%>\% dplyr::glimpse()
 if(length(wtch) > 0) { getSTPlogs(stemlist[wtch[1]]) \%>\% dplyr::glimpse()}
 }

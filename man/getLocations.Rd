@@ -16,7 +16,8 @@ a tibble
 Get location data for all locations within a SF2010 .fpr file
 }
 \examples{
-fprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".fpr", recursive = TRUE, full.names= TRUE)
+fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".fpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(fprfiles[1])
 getLocations(doc)
 }

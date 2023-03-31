@@ -7,11 +7,11 @@
 hqcdata(hqcfile)
 }
 \arguments{
-\item{hqc}{file filename and path of the hqc file to read}
+\item{hqcfile}{file filename and path of the hqc file to read}
 }
 \value{
 A list of data.frames: stems, products, logs, machinereport_meta,
- operators, objects, stem_grades, pricematrixes,
+ operators, objects, stem_grades,
  stemdiametervectors, and stemtypes.
 }
 \description{
@@ -22,5 +22,4 @@ hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
 pattern = ".hqc", recursive = TRUE, full.names= TRUE)
 hqctest1 <- hqcdata(hqcfiles[1])
 hqctest2 <- hqcdata(hqcfiles[2])
-hqctest3 <- hqcdata(hqcfiles[3])
 }

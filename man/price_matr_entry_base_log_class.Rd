@@ -24,7 +24,8 @@ a tibble of all products' base logs and pricetags
 For all productKeys: find the 49/20 log value
 }
 \examples{
-hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 pricematrixes <- getProductMatrixes(doc)
 price_matr_entry_base_log_class(pricematrixes)

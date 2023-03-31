@@ -16,7 +16,8 @@ A tibble, or NULL if no products are defined
 Get the Product Matrix items
 }
 \examples{
-hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 Productslist <- xml2::xml_find_all(doc, ".//d1:ProductDefinition" )
 getProductMatrixItems(Productslist[[1]])

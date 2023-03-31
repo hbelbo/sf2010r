@@ -16,7 +16,8 @@ a tibble. If no diametervector is present, a message and NULL.
 get SingleTreeProcessed tree's diametres
 }
 \examples{
-hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 getSTP_stemdiameters(doc)
 doc <- xml2::read_xml(hprfiles[2])

@@ -13,7 +13,8 @@ getLoad(x)
 Load data from one Load  node
 }
 \examples{
-fprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
+fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(fprfiles[1])
 nodelist <- xml2::xml_find_all(doc, ".//d1:Load")
 getLoad(nodelist[[1]]) \%>\% dplyr::glimpse()

@@ -10,13 +10,18 @@
 #'
 #' @examples
 #' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
-#' pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#'   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' hprtest1 <- hprdata(hprfiles[1])
 #' hprtest2 <- hprdata(hprfiles[2])
 #' hprtest3 <- hprdata(hprfiles[3])
+#' hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'   pattern = ".hqc", recursive = TRUE, full.names= TRUE)
+#' hqctest1 <- hprdata(hqcfiles[1])
+#' hqctest2 <- hprdata(hqcfiles[2])
 hprdata<- function(hprfile){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[1]
+  # hprfile = hqcfiles[2]
   cat(" -hprdata() parsing ", hprfile,"- \n")
    doc <- xml2::read_xml(hprfile)
    md5 <- digest::digest(file(hprfile))
@@ -63,13 +68,13 @@ hprdata<- function(hprfile){
     # speciesgroups %>% dplyr::glimpse()
 
     cat(" -hprdata-getProductDefs- \n")
-    products <- sf2010r::getProductDefs(doc) %>%
-      dplyr::mutate(  MachineKey = MachineReportHeader$MachineKey)
+    products <- sf2010r::getProductDefs(doc) #%>%
+      #dplyr::mutate(  MachineKey = MachineReportHeader$MachineKey)
     # products %>% dplyr::glimpse()
 
     cat(" -hprdata-getPricematrixes \n")
-    pricematrixes <- sf2010r::getProductMatrixes(doc) %>%
-      mutate( MachineKey = MachineReportHeader$MachineKey)
+    pricematrixes <- sf2010r::getProductMatrixes(doc) # %>%
+    # mutate( MachineKey = MachineReportHeader$MachineKey)
     # pricematrixes %>% dplyr::glimpse()
 
     cat(" -hprdata-getStemTypes; \n")
@@ -92,7 +97,7 @@ hprdata<- function(hprfile){
              MachineKey = MachineReportHeader$MachineKey
              #, CreationDate = MachineReportHeader$CreationDate
              ) %>%
-      dplyr::left_join( (speciesgroups %>% dplyr::select( .data$SpeciesGroupKey, .data$SpeciesGroupName)), by = "SpeciesGroupKey")
+      dplyr::left_join( (speciesgroups %>% dplyr::select( "SpeciesGroupKey", "SpeciesGroupName")), by = "SpeciesGroupKey")
     # Stemdat %>% dplyr::glimpse()
 
 
@@ -110,9 +115,11 @@ hprdata<- function(hprfile){
     # Grade vector for each tree: -------
 
     #Denne IF() skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
-    if (min(StemsLogs$stemgrades$gradestartpos_cm[StemsLogs$stemgrades$gradestartpos_cm > 0])<20){ #DETTE skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
-      StemsLogs$stemgrades$gradestartpos_cm = StemsLogs$stemgrades$gradestartpos_cm*10
-    }
+    if(sum(StemsLogs$stemgrades$gradestartpos_cm > 0)>0){
+      if (min(StemsLogs$stemgrades$gradestartpos_cm[StemsLogs$stemgrades$gradestartpos_cm > 0])<20){ #DETTE skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
+        StemsLogs$stemgrades$gradestartpos_cm = StemsLogs$stemgrades$gradestartpos_cm*10
+      }}
+
     grades <- StemsLogs$stemgrades %>% dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
 
 
@@ -128,41 +135,54 @@ hprdata<- function(hprfile){
       dplyr::mutate(LogMidHeight   = .data$LogStartHeight + 0.5* .data$LogLength) %>%
       dplyr::ungroup()
 
-    topsonbark = logmeter %>%
-      dplyr::select( StemKey, .data$LogKey, diapos = .data$LogEndHeight, dia = .data$`Top ob`)
-    midsonbark = logmeter %>%
-      dplyr::select( StemKey, LogKey, diapos = .data$LogMidHeight, dia = .data$`Mid ob`)
-    stemlogdiasonbark <- dplyr::bind_rows(midsonbark, topsonbark)
+    stemlogdiasonbark = logmeter %>%
+      dplyr::select( "StemKey", "LogKey", diapos = "LogEndHeight", dia = "Top.ob")
+
+    if("Mid.ob" %in% colnames(logmeter) ){
+      midsonbark = logmeter %>%
+        dplyr::select( "StemKey", "LogKey", "diapos" = "LogMidHeight", dia = "Mid.ob")
+      stemlogdiasonbark <- dplyr::bind_rows(stemlogdiasonbark, midsonbark)
+    }
 
 
-    if("`Butt ob`" %in% colnames(logmeter) ){
+    if("But.ob" %in% colnames(logmeter) ){
+      cat(" - hprdata- fetch 'Butt ob'")
       butsonbark = logmeter %>%
-        dplyr::select( StemKey, LogKey, diapos = .data$LogStartHeight,
-                       dia = .data$`Butt ob`)
+        dplyr::select( "StemKey", "LogKey", diapos = "LogStartHeight",
+                       dia = "But.ob")
       stemlogdiasonbark <- dplyr::bind_rows(stemlogdiasonbark, butsonbark)
     }
+
     stemlogdiasonbark <- stemlogdiasonbark %>%
       dplyr::arrange( .data$StemKey, .data$diapos) %>%
       dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
 
 
-    topsubark = logmeter %>%
-      dplyr::select( StemKey, LogKey,
-                     diapos = .data$LogEndHeight, dia = .data$`Top ub`)
-    midsubark = logmeter %>%
-      dplyr::select( StemKey, LogKey,
-                     diapos = .data$LogMidHeight, dia = .data$`Mid ub`)
+    stemlogdiasubark <- tibble::tibble()
+    if("Top.ub`" %in% colnames(logmeter) ){
+    stemlogdiasubark = logmeter %>%
+      dplyr::select( "StemKey", "LogKey",
+                     "diapos" = "LogEndHeight", "dia" = "Top.ub")
+    }
 
-    stemlogdiasubark <- dplyr::bind_rows(midsubark, topsubark)
-    if("`Butt ub`" %in% colnames(logmeter) ){
+    if("mid.ub`" %in% colnames(logmeter) ){
+    midsubark = logmeter %>%
+      dplyr::select( "StemKey", "LogKey",
+                     diapos = "LogMidHeight", dia = "Mid.ub")
+    stemlogdiasubark <- dplyr::bind_rows(stemlogdiasubark, midsubark)
+    }
+
+     if("Butt.ub`" %in% colnames(logmeter) ){
       butsubark = logmeter %>%
-        dplyr::select( StemKey, LogKey, diapos = .data$LogStartHeight,
-                       dia = `Butt ub`)
+        dplyr::select( "StemKey", "LogKey", diapos = "LogStartHeight",
+                       dia = "Butt.ub")
       stemlogdiasubark <- bind_rows(stemlogdiasubark, butsubark)
     }
-    stemlogdiasubark <- stemlogdiasubark %>%
+    if(nrow(stemlogdiasubark)){
+      stemlogdiasubark <- stemlogdiasubark %>%
       dplyr::arrange( .data$StemKey, .data$diapos) %>%
       dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
+    }
 
     if(!is.null(StemsLogs$stemdias)){
         stemdiametervector <- StemsLogs$stemdias %>%

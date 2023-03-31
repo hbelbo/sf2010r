@@ -16,7 +16,8 @@ a tibble with all control log diameters belonging to one stem
 Fetch all control logs  from one stem entry (.hqc files)
 }
 \examples{
-hqcfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = "hqc", recursive = TRUE, full.names= TRUE)
+hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
+   pattern = "hqc", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hqcfiles[1])
 hqc_stems <- xml2::xml_find_all(doc, ".//d1:Stem")
 getControlLogs(hqc_stems[1]) \%>\% dplyr::glimpse()

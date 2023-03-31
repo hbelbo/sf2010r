@@ -13,7 +13,6 @@
 #' pattern = ".hqc", recursive = TRUE, full.names= TRUE)
 #' hqctest1 <- hqcdata(hqcfiles[1])
 #' hqctest2 <- hqcdata(hqcfiles[2])
-#' hqctest3 <- hqcdata(hqcfiles[3])
 hqcdata<- function(hqcfile){
   ## TMP for assisting function development
   #
@@ -84,7 +83,7 @@ hqcdata<- function(hqcfile){
              MachineKey = MachineReportHeader$MachineKey,
              CreationDate = MachineReportHeader$CreationDate
              ) %>%
-      dplyr::left_join( (speciesgroups %>% dplyr::select( .data$SpeciesGroupKey, .data$SpeciesGroupName)), by = "SpeciesGroupKey")
+      dplyr::left_join( (speciesgroups %>% dplyr::select( "SpeciesGroupKey", "SpeciesGroupName")), by = "SpeciesGroupKey")
     # Stemdat %>% dplyr::glimpse()
 
 
@@ -104,9 +103,10 @@ hqcdata<- function(hqcfile){
     # Grade vector for each tree: -------
 
     #Denne IF() skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
-    if (min(StemsLogs$stemgrades$gradestartpos_cm[StemsLogs$stemgrades$gradestartpos_cm > 0])<20){ #DETTE skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
-      StemsLogs$stemgrades$gradestartpos_cm = StemsLogs$stemgrades$gradestartpos_cm*10
-    }
+    if(sum(StemsLogs$stemgrades$gradestartpos_cm > 0)>0){
+      if (min(StemsLogs$stemgrades$gradestartpos_cm[StemsLogs$stemgrades$gradestartpos_cm > 0])<20){ #DETTE skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
+        StemsLogs$stemgrades$gradestartpos_cm = StemsLogs$stemgrades$gradestartpos_cm*10
+        }}
     grades <- StemsLogs$stemgrades %>% dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
 
 
@@ -115,41 +115,51 @@ hqcdata<- function(hqcfile){
     logmeter <- StemsLogs$stplogs %>%
       select( -tidyselect::starts_with("m3"))  %>%
       dplyr::ungroup() %>%
-      dplyr::group_by( .data$StemKey) %>%
+      dplyr::group_by( StemKey) %>%
       dplyr:: mutate( LogEndHeight   = cumsum(.data$LogLength)) %>%
       dplyr::mutate(LogStartHeight = .data$LogEndHeight - .data$LogLength) %>%
       dplyr::mutate(LogMidHeight   = .data$LogStartHeight + 0.5* .data$LogLength) %>%
       dplyr::ungroup()
 
-    topsonbark = logmeter %>%
-      dplyr::select( .data$StemKey, .data$LogKey, diapos = .data$LogEndHeight, dia = .data$`Top ob`)
-    midsonbark = logmeter %>%
-      dplyr::select( .data$StemKey, .data$LogKey, diapos = .data$LogMidHeight, dia = .data$`Mid ob`)
-    stemdiasonbark <- dplyr::bind_rows(midsonbark, topsonbark)
+    stemdiasonbark = logmeter %>%
+      dplyr::select( "StemKey", "LogKey", "diapos" = "LogEndHeight", "dia" = "Top.ob")
 
 
-    if("`Butt ob`" %in% colnames(logmeter) ){
+
+    if("Mid.ob" %in% colnames(logmeter) ){
+      midsonbark = logmeter %>%
+        dplyr::select( "StemKey", "LogKey", "diapos" = "LogMidHeight", "dia" = "Mid.ob")
+      stemdiasonbark <- dplyr::bind_rows(stemdiasonbark, midsonbark)
+    }
+
+
+    if("Butt.ob" %in% colnames(logmeter) ){
       butsonbark = logmeter %>%
-        dplyr::select( .data$StemKey, .data$LogKey, diapos = .data$LogStartHeight,
-                       dia = .data$`Butt ob`)
+        dplyr::select( "StemKey", "LogKey", "diapos" = "LogStartHeight",
+                       "dia" = "Butt.ob")
       stemdiasonbark <- dplyr::bind_rows(stemdiasonbark, butsonbark)
     }
     stemdiasonbark <- stemdiasonbark %>% dplyr::arrange( .data$StemKey, .data$diapos)
 
-
-    topsubark = logmeter %>% dplyr::select( .data$StemKey, .data$LogKey,
-                                     diapos = .data$LogEndHeight, dia = .data$`Top ub`)
-    midsubark = logmeter %>% dplyr::select( .data$StemKey, .data$LogKey,
-                                     diapos = .data$LogMidHeight, dia = .data$`Mid ub`)
-
-    stemdiasubark <- dplyr::bind_rows(midsubark, topsubark)
-    if("`Butt ub`" %in% colnames(logmeter) ){
-      butsubark = logmeter %>%
-        dplyr::select( .data$StemKey, .data$LogKey, diapos = .data$LogStartHeight,
-                       dia = .data$`Butt ub`)
-      stemdiasubark <- bind_rows(stemdiasubark, butsubark)
+    stemdiasubark <- tibble::tibble()
+    if("Top.ub" %in% colnames(logmeter) ){
+    topsubark = logmeter %>% dplyr::select( "StemKey", "LogKey",
+                                     "diapos" = "LogEndHeight", "dia" = "Top.ub")
+    stemdiasubark <- dplyr::bind_rows(stemdiasubark, topsubark)
     }
-    stemdiasubark <- stemdiasubark %>% arrange( .data$StemKey, .data$diapos)
+
+    if("Mid.ub" %in% colnames(logmeter) ){
+    stemdiasubark <- dplyr::bind_rows(stemdiasubark, logmeter %>% dplyr::select( "StemKey", "LogKey",
+                                     diapos = "LogMidHeight", "dia" = "Mid.ub"))
+    }
+
+    if("Butt.ub" %in% colnames(logmeter) ){
+      stemdiasubark <- dplyr::bind_rows(stemdiasubark,  logmeter %>%
+        dplyr::select( "StemKey", "LogKey", "diapos" = "LogStartHeight",
+                       "dia" = "Butt.ub"))
+    }
+
+    if(nrow(stemdiasubark)){ stemdiasubark <- stemdiasubark %>% arrange( .data$StemKey, .data$diapos)}
 
     # Logs products productmatrixes
 

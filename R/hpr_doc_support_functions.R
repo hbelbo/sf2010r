@@ -6,7 +6,8 @@
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[3])
 #' stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
 #' getStemdata(stemlist[[1]]) %>% dplyr::glimpse()
@@ -59,7 +60,8 @@ getStemdata <- function(x) {
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[3])
 #' getStems(doc)
 getStems <- function(doc){
@@ -81,7 +83,8 @@ getStems <- function(doc){
 #'
 #' @details  NB: One stem section might have several grades simultaneously
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
 #' getStemGrades(stemlist[[1]])
@@ -113,15 +116,19 @@ getStemGrades <- function(x){
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
-#' wtch <-  which(xml2::xml_text(  xml2::xml_find_all(stemlist, ".//d1:ProcessingCategory")) == "MultiTreeProcessing")
+#' wtch <-  which(xml2::xml_text(
+#'      xml2::xml_find_all(
+#'         stemlist, ".//d1:ProcessingCategory")) == "MultiTreeProcessing")
 #' getSTPlogs(stemlist[1]) %>% dplyr::glimpse()
 #' if(length(wtch) > 0) { getSTPlogs(stemlist[wtch[1]]) %>% dplyr::glimpse()}
 getSTPlogs <- function(x) {
   # x <- stemlist[1]
   # x <- stemlist[wtch[1]]
+
   ProcessingCategory =  xml2::xml_text(  xml2::xml_find_all(x, ".//d1:ProcessingCategory"))
 
   if( ProcessingCategory == "SingleTreeProcessing"){
@@ -167,6 +174,8 @@ getSTPlogs <- function(x) {
       dplyr::left_join(LogVolume, by = "LogKey") %>%
       dplyr::left_join(LogDiameters, by = "LogKey")
 
+   # ensure colnames are valid
+    names(logdat) <- make.names(names(logdat), unique = TRUE)
 
 
   } else {logdat = NULL}
@@ -183,10 +192,13 @@ getSTPlogs <- function(x) {
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
-#' wtch <-  which(xml2::xml_text(  xml2::xml_find_all(stemlist, ".//d1:ProcessingCategory")) == "MultiTreeProcessing")
+#' wtch <-  which(xml2::xml_text(
+#'      xml2::xml_find_all(
+#'         stemlist, ".//d1:ProcessingCategory")) == "MultiTreeProcessing")
 #' getMTPlogs(stemlist[1])
 #' if(length(wtch) > 0) { getMTPlogs(stemlist[wtch[1]])}
 getMTPlogs <- function(x) {
@@ -240,6 +252,9 @@ getMTPlogs <- function(x) {
     ) %>%
       dplyr::left_join( LogVolume, by = "LogKey" ) %>%
       dplyr::left_join(LogDiameters, by = "LogKey")
+
+  # ensure colnames are valid
+  names(logdat) <- make.names(names(logdat), unique = TRUE)
   } else {logdat = NULL}
 
   return(logdat)
@@ -255,8 +270,13 @@ getMTPlogs <- function(x) {
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#' pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
+#' all_logs <- getLogs(doc)
+#' hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
+#' pattern = ".hqc", recursive = TRUE, full.names= TRUE)
+#' doc <- xml2::read_xml(hqcfiles[1])
 #' all_logs <- getLogs(doc)
 getLogs <- function(doc){
   stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
@@ -287,7 +307,8 @@ getLogs <- function(doc){
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#' pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' getSTP_stemdiameters(doc)
 #' doc <- xml2::read_xml(hprfiles[2])
@@ -296,6 +317,7 @@ getLogs <- function(doc){
 #' getSTP_stemdiameters(doc)
 getSTP_stemdiameters <- function(doc) {
 # Could probably be a lot more efficient!
+
   x <- xml2::xml_find_all(doc, ".//d1:Stem")
 
   ProcessingCategory =  xml2::xml_text(  xml2::xml_find_all(x, "./d1:ProcessingCategory"))
@@ -321,6 +343,7 @@ getSTP_stemdiameters <- function(doc) {
       diadat <- tibble::tibble(DiameterPositions = DiameterPositions,
                              StemDiameters = StemDiameters,
                              StemKey = StemKey2)
+
     } else {
       diadat <- tibble::tibble()
     }
@@ -344,7 +367,8 @@ getSTP_stemdiameters <- function(doc) {
 #' @export
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#' pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' stl <- getStemsAndLogs(doc)
 #' doc <- xml2::read_xml(hprfiles[2])

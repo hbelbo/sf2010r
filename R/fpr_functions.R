@@ -4,7 +4,8 @@
 #' @export
 #'
 #' @examples
-#' fprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
+#' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(fprfiles[1])
 #' locationlist <- xml2::xml_find_all(doc, ".//d1:LocationDefinition")
 #' getLocation(locationlist[[1]]) %>% dplyr::glimpse()
@@ -32,7 +33,8 @@ getLocation <- function(x) {
 #' @export
 #'
 #' @examples
-#' fprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".fpr", recursive = TRUE, full.names= TRUE)
+#' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".fpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(fprfiles[1])
 #' getLocations(doc)
 getLocations <- function(doc){
@@ -52,7 +54,8 @@ getLocations <- function(doc){
 #' @export
 #'
 #' @examples
-#' fprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
+#' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(fprfiles[1])
 #' nodelist <- xml2::xml_find_all(doc, ".//d1:DeliveryDefinition")
 #' getDelivery(nodelist[[1]]) %>% dplyr::glimpse()
@@ -77,7 +80,8 @@ getLocations <- function(doc){
   #' @export
   #'
   #' @examples
-  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".fpr", recursive = TRUE, full.names= TRUE)
+  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+  #'    pattern = ".fpr", recursive = TRUE, full.names= TRUE)
   #' doc <- xml2::read_xml(fprfiles[1])
   #' getDeliveries(doc)
   getDeliveries <- function(doc){
@@ -107,7 +111,8 @@ getLocations <- function(doc){
   #' @export
   #'
   #' @examples
-  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
+  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+  #'  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
   #' doc <- xml2::read_xml(fprfiles[1])
   #' nodelist <- xml2::xml_find_all(doc, ".//d1:Load")
   #' getPartialLoad(nodelist[[1]]) %>% dplyr::glimpse()
@@ -132,7 +137,8 @@ getLocations <- function(doc){
   #' @export
   #'
   #' @examples
-  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
+  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+  #'   pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
   #' doc <- xml2::read_xml(fprfiles[1])
   #' nodelist <- xml2::xml_find_all(doc, ".//d1:Load")
   #' getLoad(nodelist[[1]]) %>% dplyr::glimpse()
@@ -162,7 +168,8 @@ getLocations <- function(doc){
   #' @export
   #'
   #' @examples
-  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".fpr", recursive = TRUE, full.names= TRUE)
+  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+  #'    pattern = ".fpr", recursive = TRUE, full.names= TRUE)
   #' doc <- xml2::read_xml(fprfiles[1])
   #' getLoads(doc)
   getLoads <- function(doc){

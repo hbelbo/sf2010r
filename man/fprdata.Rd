@@ -22,5 +22,4 @@ fprfiles <- list.files(path =  system.file(package = "sf2010r"),
 pattern = ".fpr", recursive = TRUE, full.names= TRUE)
 fprtest1 <- fprdata(fprfiles[1])
 fprtest2 <- fprdata(fprfiles[2])
-fprtest3 <- fprdata(fprfiles[3])
 }

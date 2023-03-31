@@ -16,7 +16,8 @@ a tibble, number of rows = number of sub objects
 Extracting all data defining one cut object from one ObjectDefinition xml-tree
 }
 \examples{
-hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 Objects_nodes <- xml2::xml_find_all(doc, "//d1:ObjectDefinition")
 getObjectDefinition(Objects_nodes[1])

@@ -13,7 +13,8 @@ getMom.cmwt.data(x)
 Combined machine work time data from one combined machine work time node
 }
 \examples{
-momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
+momfiles <- list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 momfiles_cmwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "combined_mwt"))]
 doc <- xml2::read_xml(momfiles_cmwt[2])#'
 cmwtlist <- xml2::xml_find_all(doc, ".//d1:CombinedMachineWorkTime")

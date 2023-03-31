@@ -19,8 +19,12 @@ Hpr-file reader function
 }
 \examples{
 hprfiles <- list.files(path =  system.file(package = "sf2010r"),
-pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 hprtest1 <- hprdata(hprfiles[1])
 hprtest2 <- hprdata(hprfiles[2])
 hprtest3 <- hprdata(hprfiles[3])
+hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
+  pattern = ".hqc", recursive = TRUE, full.names= TRUE)
+hqctest1 <- hprdata(hqcfiles[1])
+hqctest2 <- hprdata(hqcfiles[2])
 }

@@ -15,7 +15,8 @@
 #' @export
 #'
 #' @examples
-#' momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom$", recursive = TRUE,  ignore.case = TRUE,   full.names= TRUE)
+#' momfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".mom$", recursive = TRUE,  ignore.case = TRUE,   full.names= TRUE)
 #' momtest1 <- getMom.all(momfiles[1])
 #' momtest2 <- getMom.all(momfiles[2])
 #' momtest3 <- getMom.all(momfiles[3])

@@ -17,10 +17,12 @@ Tracking data from mom-files#'
 Tracking data from mom-files#'
 }
 \examples{
-momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
+momfiles <- list.files(path =  system.file(package = "sf2010r"),
+    pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(momfiles[3])#'
 getTracking.data(doc) \%>\% dplyr::glimpse()
-momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
+momfiles <- list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(momfiles[3])#'
 getTracking.data(doc) \%>\% dplyr::glimpse()
 }

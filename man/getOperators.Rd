@@ -16,7 +16,8 @@ a tibble, one row for each operator
 Get the operator definitions from a StanFord2010 xml document
 }
 \examples{
-hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 getOperators(doc)
 }

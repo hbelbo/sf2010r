@@ -17,13 +17,15 @@ Indivdual machine work time activity data from one indivdual machine work time n
 Indivdual machine work time activity data from one indivdual machine work time node
 }
 \examples{
-momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
+momfiles <- list.files(path =  system.file(package = "sf2010r"),
+    pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 momfiles_imwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "individual_mwt"))]
 doc <- xml2::read_xml(momfiles_imwt[2])
 imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
 getMom.imwt.activity(imwtlist[[41]]) \%>\% dplyr::glimpse()
  plyr::ldply(imwtlist[25:42], getMom.imwt.activity)
-momfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
+momfiles <- list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 momfiles_imwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "individual_mwt"))]
 doc <- xml2::read_xml(momfiles_imwt[2])
 imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")

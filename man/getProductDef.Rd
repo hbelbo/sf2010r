@@ -13,7 +13,8 @@ getProductDef(x)
 Product def from product definition nodetree
 }
 \examples{
-hprfiles <-  list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 ProductsList <- xml2::xml_find_all(doc, ".//d1:ProductDefinition" )
 getProductDef(ProductsList[[1]]) \%>\% dplyr::glimpse()
