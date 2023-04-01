@@ -11,18 +11,18 @@
 #' @examples
 #' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' hprtest1 <- hprdata(hprfiles[1])
-#' hprtest2 <- hprdata(hprfiles[2])
-#' hprtest3 <- hprdata(hprfiles[3])
+#' hprtest1 <- hpr_file_readr(hprfiles[1])
+#' hprtest2 <- hpr_file_readr(hprfiles[2])
+#' hprtest3 <- hpr_file_readr(hprfiles[3])
 #' hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'   pattern = ".hqc", recursive = TRUE, full.names= TRUE)
-#' hqctest1 <- hprdata(hqcfiles[1])
-#' hqctest2 <- hprdata(hqcfiles[2])
-hprdata<- function(hprfile){
+#' hqctest1 <- hpr_file_readr(hqcfiles[1])
+#' hqctest2 <- hpr_file_readr(hqcfiles[2])
+hpr_file_readr <- function(hprfile){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[1]
   # hprfile = hqcfiles[2]
-  cat(" -hprdata() parsing ", hprfile,"- \n")
+  cat(" -hpr_file_readr() parsing ", hprfile,"- \n")
    doc <- xml2::read_xml(hprfile)
    md5 <- digest::digest(file(hprfile))
 
@@ -63,21 +63,21 @@ hprdata<- function(hprfile){
 
 
     # Species and product definitions ----
-    cat(" -hprdata-getSpeciesGroupDefs- \n")
+    cat(" -hpr_file_readr-getSpeciesGroupDefs- \n")
     speciesgroups <- sf2010r::getSpeciesGroupDefinitions(doc)
     # speciesgroups %>% dplyr::glimpse()
 
-    cat(" -hprdata-getProductDefs- \n")
+    cat(" -hpr_file_readr-getProductDefs- \n")
     products <- sf2010r::getProductDefs(doc) #%>%
       #dplyr::mutate(  MachineKey = MachineReportHeader$MachineKey)
     # products %>% dplyr::glimpse()
 
-    cat(" -hprdata-getPricematrixes \n")
+    cat(" -hpr_file_readr-getPricematrixes \n")
     pricematrixes <- sf2010r::getProductMatrixes(doc) # %>%
     # mutate( MachineKey = MachineReportHeader$MachineKey)
     # pricematrixes %>% dplyr::glimpse()
 
-    cat(" -hprdata-getStemTypes; \n")
+    cat(" -hpr_file_readr-getStemTypes; \n")
     stemtypes <- sf2010r::getStemTypes(doc) %>%
       mutate( MachineKey = MachineReportHeader$MachineKey)
     # stemtypes %>% dplyr::glimpse()
@@ -85,7 +85,7 @@ hprdata<- function(hprfile){
 
 
     ## Harvested stems and logs ----
-    cat(" hprdata-getStemsAndLogs;  \n")
+    cat(" hpr_file_readr-getStemsAndLogs;  \n")
     StemsLogs <- sf2010r::getStemsAndLogs(doc)
 
 
@@ -125,7 +125,7 @@ hprdata<- function(hprfile){
 
     # height diameter dataset: StemKey diaheight dia_ob_cm, dia_ub_cm -------
 
-    cat(" - hprdata- create height diameter dataset from logs- \n")
+    cat(" - hpr_file_readr- create height diameter dataset from logs- \n")
     logmeter <- StemsLogs$stplogs %>%
       select( -tidyselect::starts_with("m3"))  %>%
       dplyr::ungroup() %>%
@@ -146,7 +146,7 @@ hprdata<- function(hprfile){
 
 
     if("But.ob" %in% colnames(logmeter) ){
-      cat(" - hprdata- fetch 'Butt ob'")
+      cat(" - hpr_file_readr- fetch 'Butt ob'")
       butsonbark = logmeter %>%
         dplyr::select( "StemKey", "LogKey", diapos = "LogStartHeight",
                        dia = "But.ob")
@@ -237,7 +237,7 @@ hprdata<- function(hprfile){
               , stemdiametervector = stemdiametervector
               )
   return(Ret)
-  cat(" -hprdata complete - \n")
+  cat(" -hpr_file_readr complete - \n")
 }
 
 

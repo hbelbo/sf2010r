@@ -17,11 +17,11 @@
 #' @examples
 #' momfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".mom$", recursive = TRUE,  ignore.case = TRUE,   full.names= TRUE)
-#' momtest1 <- getMom.all(momfiles[1])
-#' momtest2 <- getMom.all(momfiles[2])
-#' momtest3 <- getMom.all(momfiles[3])
-#' momtest4 <- getMom.all(momfiles[4])
-getMom.all <- function(momfile){
+#' momtest1 <- mom_file_readr(momfiles[1])
+#' momtest2 <- mom_file_readr(momfiles[2])
+#' momtest3 <- mom_file_readr(momfiles[3])
+#' momtest4 <- mom_file_readr(momfiles[4])
+mom_file_readr <- function(momfile){
  # "/MOM_Komatsu_harvester_sf2010v30_combined_mwt.MOM"
  # "/MOM_Ponsse_Forw_sf2010v31_individual_mwt.mom"
  # "/MOM_V3_3_MaxiXT_1_7_combined_mwt.mom"

@@ -11,9 +11,9 @@
 #' @examples
 #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
 #' pattern = ".fpr", recursive = TRUE, full.names= TRUE)
-#' fprtest1 <- fprdata(fprfiles[1])
-#' fprtest2 <- fprdata(fprfiles[2])
-fprdata<- function(fprfile){
+#' fprtest1 <- fpr_file_readr(fprfiles[1])
+#' fprtest2 <- fpr_file_readr(fprfiles[2])
+fpr_file_readr <- function(fprfile){
   # fprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".fpr", recursive = TRUE, full.names= TRUE)
   # fprfile = fprfiles[1]
    doc <- xml2::read_xml(fprfile)
@@ -56,31 +56,31 @@ fprdata<- function(fprfile){
 
 
     # Species and product definitions ----
-    cat(" -fprdata-getSpeciesGroupDefs- ")
+    cat(" -fpr_file_readr-getSpeciesGroupDefs- ")
     speciesgroups <- sf2010r::getSpeciesGroupDefinitions(doc)
     # speciesgroups %>% dplyr::glimpse()
 
-    cat(" -fprdata-getProductDefs \n")
+    cat(" -fpr_file_readr-getProductDefs \n")
     products <- sf2010r::getProductDefs(doc) %>%
       dplyr::mutate(  MachineKey = MachineReportHeader$MachineKey,
              CreationDate = MachineReportHeader$CreationDate)
     # products %>% dplyr::glimpse()
 
 
-    cat(" -fprdata-getStemTypes \n")
+    cat(" -fpr_file_readr-getStemTypes \n")
     stemtypes <- sf2010r::getStemTypes(doc) %>%
       mutate( MachineKey = MachineReportHeader$MachineKey)
     # stemtypes %>% dplyr::glimpse()
 
-    cat(" -fprdata-getLocations \n")
+    cat(" -fpr_file_readr-getLocations \n")
     locations <- sf2010r::getLocations(doc)
 
-    cat(" -fprdata-getDeliveries \n")
+    cat(" -fpr_file_readr-getDeliveries \n")
     deliveries <- sf2010r::getDeliveries(doc)
 
 
     ## forwarded loads  ----
-    cat(" -fprdata-getLoads \n")
+    cat(" -fpr_file_readr-getLoads \n")
     Loads <- sf2010r::getLoads(doc)
     Loads <- readr::type_convert(Loads)
     # dplyr::glimpse(Loads)
