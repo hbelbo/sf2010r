@@ -116,7 +116,9 @@ getMachineReportHeader <- function(doc){
   # ..Contractor info
   nodes <- xml2::xml_find_all(doc, ".//d1:LoggingContractor")
   contractordata <- dplyr::bind_rows(nodes %>% xml_childs_nchr())
-  contractordata <- dplyr::rename_with(contractordata, ~ paste0("Contractor_", .x))
+  if(all(dim(contractordata)!=0)){
+    contractordata <- dplyr::rename_with(contractordata, ~ paste0("Contractor_", .x))
+    } else { contractordata <- NULL}
 
   machineReportHeader <- dplyr::bind_cols(ReportHeader, basemachinedata, contractordata)
 
