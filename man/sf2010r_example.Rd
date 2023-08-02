@@ -8,8 +8,6 @@ sf2010r_example(fileending = NULL)
 }
 \arguments{
 \item{fileending}{one of the file endings in StanFord2010; "hpr", "hqc" etc}
-
-\item{file}{Name of file. If `NULL`, the example files will be listed.}
 }
 \description{
 sf2010r comes bundled with a number of sample files in its `inst/extdata`
