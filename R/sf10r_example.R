@@ -4,7 +4,6 @@
 #' directory. This function make them easy to access.
 #' The function is inspired by the readr_example in the readr package
 #'
-#' @param file Name of file. If `NULL`, the example files will be listed.
 #' @param fileending one of the file endings in StanFord2010; "hpr", "hqc" etc
 #' @export
 #' @examples
@@ -12,13 +11,14 @@
 #' sf2010r_example(fileending = "hpr")
 sf2010r_example <- function( fileending = NULL) {
   if ( is.null(fileending)) {
-    directory <- system.file("extdata", package = "sf2010r")
+    #directory <- system.file("extdata", package = "sf2010r")
     files <- dir(system.file("extdata", package = "sf2010r"))
-    return(paste(directory, files, sep = "/"))
+    #return(paste(directory, files, sep = "/"))
+    return(files)
   } else if(  !is.null(fileending)) {
     directory <- system.file("extdata", package = "sf2010r")
     files <- dir(system.file("extdata", package = "sf2010r"))
-    files <- files[which(stringr::str_detect(files, fileending))]
+    files <- files[which(stringr::str_detect(tolower(files), tolower(fileending)))]
     return(paste(directory, files, sep = "/"))
   }
   }
