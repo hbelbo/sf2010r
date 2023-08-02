@@ -21,7 +21,7 @@
 hpr_file_readr <- function(hprfile){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[1]
-  # hprfile = hqcfiles[2]
+  # hprfile = hqcfiles[1]
   cat(" -hpr_file_readr() parsing ", hprfile,"- \n")
    doc <- xml2::read_xml(hprfile)
    md5 <- digest::digest(file(hprfile))
