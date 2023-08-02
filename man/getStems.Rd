@@ -18,6 +18,6 @@ Get stemdata for all stems within a SF2010 .hpr file
 \examples{
 hprfiles <- list.files(path =  system.file(package = "sf2010r"),
    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-doc <- xml2::read_xml(hprfiles[3])
+doc <- xml2::read_xml(hprfiles[2])
 getStems(doc)
 }
