@@ -14,26 +14,46 @@
 #' plyr::ldply(stemlist[1:10], getStemdata)
 getStemdata <- function(x) {
   # x = stemlist[[1]]
-
+# hprfile 2 har ikke Boompos
+# hprfile 3  har
   stm <- xml_childs_nchr(x)
 
   gps_bm <-  xml2::xml_find_all(x, "./d1:StemCoordinates[@receiverPosition='Base machine position']") %>%
-    purrr::map_dfr( ~ sf2010r::xml_childs_nchr(.x)) %>%
-    dplyr::rename_with(~paste0(., "_bm"))
+    purrr::map_dfr( ~ sf2010r::xml_childs_nchr(.x))
+  if( all(dim(gps_bm) != 0)){
+    gps_bm <- gps_bm  %>%
+      dplyr::rename_with(~paste0(., "_bm"))
+  }
+
+
+
 
 
   CoordinateDate = xml2::xml_text(  xml2::xml_find_first(x, ".//d1:CoordinateDate"))
 
   gps_ctf <-  xml2::xml_find_all(x, "./d1:StemCoordinates[@receiverPosition='Crane tip position when felling the tree']") %>%
-    purrr::map_dfr( ~ sf2010r::xml_childs_nchr(.x)) %>%
-    dplyr::rename_with(~paste0(., "_ctf"))
+    purrr::map_dfr( ~ sf2010r::xml_childs_nchr(.x))
+
+  if( all(dim(gps_ctf) != 0)){
+    gps_ctf <- gps_ctf  %>%
+      dplyr::rename_with(~paste0(., "_ctf"))
+  }
+
 
   lat_dir =  xml2::xml_attr(xml2::xml_find_first(x,  "./d1:StemCoordinates/d1:Latitude"), attr = "latitudeCategory")
   lon_dir =  xml2::xml_attr(xml2::xml_find_first(x,  "./d1:StemCoordinates/d1:Longitude"), attr = "longitudeCategory")
 
-  BoomPosFelling <-   xml2::xml_find_all(x, ".//d1:BoomPositioning[@boomPositioningCategory='Felling']") %>%
-    purrr::map_dfr( ~ sf2010r::xml_childs_nchr(.x)) %>%
-    dplyr::rename_with(~paste0(., "_felling"))
+  BoomPosFelling <-
+    xml2::xml_find_all(x, ".//d1:BoomPositioning[@boomPositioningCategory='Felling']") %>%
+      purrr::map_dfr( ~ sf2010r::xml_childs_nchr(.x))
+
+  if( all(dim(BoomPosFelling) != 0)){
+    BoomPosFelling <- BoomPosFelling  %>%
+      dplyr::rename_with(~paste0(., "_felling"))
+  }
+
+
+
 
 
   # Then make the resulting tibble:
@@ -45,7 +65,8 @@ getStemdata <- function(x) {
   }
   if(!is.na(CoordinateDate)){ stemdat <- dplyr::mutate(stemdat, CoordinateDate)}
   if(nrow(gps_ctf)) { stemdat <- dplyr::mutate(stemdat, gps_ctf)}
-  if(nrow(BoomPosFelling)) { stemdat <- dplyr::mutate(stemdat, BoomPosFelling)}
+  if(nrow(BoomPosFelling)) {
+    stemdat <- dplyr::mutate(stemdat, BoomPosFelling)}
 
   stemdat <- stemdat %>% dplyr::mutate(dplyr::across(tidyselect::ends_with("Key"), as.integer))
   return(stemdat)
@@ -62,7 +83,7 @@ getStemdata <- function(x) {
 #' @examples
 #' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' doc <- xml2::read_xml(hprfiles[3])
+#' doc <- xml2::read_xml(hprfiles[2])
 #' getStems(doc)
 getStems <- function(doc){
   stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
