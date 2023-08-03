@@ -59,27 +59,36 @@ mom_file_readr <- function(momfile){
 
 
   # Species and product definitions ----
-  speciesgroups <- sf2010r::getSpeciesGroupDefinitions(doc)
+  speciesgroups <- sf2010r::getSpeciesGroupDefinitions(doc) %>% dplyr::mutate(MachineKey = header$MachineKey)
   # speciesgroups %>% dplyr::glimpse()
 
+
+  returnlist <- list(header = header, speciesgroups = speciesgroups, objects = objects,
+                     operators = operators)
+
+
   products <- sf2010r::getProductDefs(doc)
+  if(length(products)){
+    returnlist <- c(returnlist, products = list(products))
+  }
+
+
 
   # products %>% dplyr::glimpse()
   tracking <- sf2010r::getTracking.data(doc)
-
-  returnlist <- list(header = header, speciesgroups = speciesgroups, objects = objects, products = products,
-                     operators = operators,   tracking = tracking)
-
+  if(length(tracking)){
+    tracking <- tracking %>% dplyr::mutate(MachineKey = header$MachineKey)
+    returnlist <- c(returnlist, tracking = list(tracking))
+  }
 
 
 
   # Individual machine time data
   imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
 
-
-  if(length(imwtlist)) {
-  imwt_activity <- plyr::ldply(imwtlist, getMom.imwt.activity)
-  imwt_production <- plyr::ldply(imwtlist, getMom.imwt.production)
+    if(length(imwtlist)) {
+  imwt_activity <- plyr::ldply(imwtlist, getMom.imwt.activity) %>% dplyr::mutate(MachineKey = header$MachineKey)
+  imwt_production <- plyr::ldply(imwtlist, getMom.imwt.production) %>% dplyr::mutate(MachineKey = header$MachineKey)
     returnlist <- c(returnlist, imwt_activity = list(imwt_activity), imwt_production = list(imwt_production))
   }
 
@@ -87,7 +96,7 @@ mom_file_readr <- function(momfile){
   # # Combined machine time data
    cmwtlist <- xml2::xml_find_all(doc, ".//d1:CombinedMachineWorkTime")
    if(length(cmwtlist)){
-     cmwt_data <- plyr::ldply(cmwtlist, getMom.cmwt.data)
+     cmwt_data <- plyr::ldply(cmwtlist, getMom.cmwt.data) %>% dplyr::mutate(MachineKey = header$MachineKey)
      returnlist <- c(returnlist, cmwt_data = list(cmwt_data))
    }
 
