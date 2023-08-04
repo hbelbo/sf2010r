@@ -10,7 +10,7 @@ getSpeciesGroupDefinitions(doc)
 \item{doc}{a StanFord2010 xml document}
 }
 \value{
-a tibble
+a tibble. If not species defs: NULL
 }
 \description{
 Get all species definitions within a SF2010 doc

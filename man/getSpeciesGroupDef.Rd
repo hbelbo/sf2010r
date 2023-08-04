@@ -9,6 +9,9 @@ getSpeciesGroupDef(x)
 \arguments{
 \item{x}{is a node tree for one SpeciesGrouDefinition}
 }
+\value{
+a tibble.
+}
 \description{
 Species group def from one SpeciesGroupDefinition node
 }
