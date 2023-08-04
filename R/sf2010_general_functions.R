@@ -169,7 +169,7 @@ MtcClean <- function(mtc){
 #' Species group def from one SpeciesGroupDefinition node
 #' @param x is a node tree for one SpeciesGrouDefinition
 #'
-#'
+#' @return a tibble.
 #' @export
 #'
 #' @examples
@@ -193,7 +193,7 @@ getSpeciesGroupDef <- function(x) {
 #'
 #' @param doc a StanFord2010 xml document
 #'
-#' @return a tibble
+#' @return a tibble. If not species defs: NULL
 #' @export
 #'
 #' @examples
@@ -212,7 +212,7 @@ getSpeciesGroupDefinitions <- function(doc){
     bmatrix <- bmatrix %>% dplyr::select_if(not_all_na)
     return(bmatrix)
   } else {
-    return(tibble::tibble())}
+    return(NULL)}
 }
 
 
