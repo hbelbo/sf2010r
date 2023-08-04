@@ -114,7 +114,7 @@ fpr_file_readr <- function(fprfile){
      dplyr::summarise(
        dplyr::across(3:4, ~ dplyr::first(.x)),
         dplyr::across(.cols = tidyselect::starts_with("Load_"), ~ sum(.x))
-      )
+      ) %>% ungroup()
     returnlist <- c(returnlist, ByLoad = list(ByLoad))
 
 
@@ -124,7 +124,11 @@ fpr_file_readr <- function(fprfile){
       dplyr::summarise(
         dplyr::across(3:4, ~ dplyr::first(.x)),
         dplyr::across(.cols = tidyselect::starts_with("Load_"), ~ sum(.x))
-      ) %>% dplyr::left_join( select(deliveries, tidyselect::starts_with("Delivery")), by = "DeliveryKey")
+      ) %>%
+      dplyr::left_join(
+        select(deliveries, tidyselect::starts_with("Delivery")), by = "DeliveryKey") %>%
+      ungroup()
+
 
     returnlist <- c(returnlist, ByDelivery = list(ByDelivery))
 
