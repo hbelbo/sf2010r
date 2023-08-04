@@ -57,15 +57,15 @@ mom_file_readr <- function(momfile){
   objects <- sf2010r::getObjects( doc) # returns data_frame(ObjectKey, SubObjectKey, ObjectUserID, ObjectName, SubObjectName,  LoggingFormCode,  LoggingFormDesc )
   # objects %>% dplyr::glimpse()
 
+  returnlist <- list(header = header, operators = operators,  objects = objects)
 
   # Species and product definitions ----
-  speciesgroups <- sf2010r::getSpeciesGroupDefinitions(doc) %>% dplyr::mutate(MachineKey = header$MachineKey)
+  speciesgroups <- sf2010r::getSpeciesGroupDefinitions(doc)
   # speciesgroups %>% dplyr::glimpse()
 
-
-  returnlist <- list(header = header, speciesgroups = speciesgroups, objects = objects,
-                     operators = operators)
-
+  if(length(speciesgroups)){
+  returnlist <- list(returnlist, speciesgroups = list(speciesgroups))
+  }
 
   products <- sf2010r::getProductDefs(doc)
   if(length(products)){
@@ -86,11 +86,22 @@ mom_file_readr <- function(momfile){
   # Individual machine time data
   imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
 
-    if(length(imwtlist)) {
-  imwt_activity <- plyr::ldply(imwtlist, getMom.imwt.activity) %>% dplyr::mutate(MachineKey = header$MachineKey)
-  imwt_production <- plyr::ldply(imwtlist, getMom.imwt.production) %>% dplyr::mutate(MachineKey = header$MachineKey)
-    returnlist <- c(returnlist, imwt_activity = list(imwt_activity), imwt_production = list(imwt_production))
+  if(length(imwtlist)) {
+      imwt_activity <- plyr::ldply(imwtlist, getMom.imwt.activity)
+      imwt_production <- plyr::ldply(imwtlist, getMom.imwt.production)
+
+      if(length(imwt_activity)){
+        imwt_activity <- imwt_activity %>% dplyr::mutate(MachineKey = header$MachineKey)
+        returnlist <- c(returnlist, imwt_activity = list(imwt_activity))
+      }
+
+      if(length(imwt_production)){
+        imwt_production <- imwt_production %>% dplyr::mutate(MachineKey = header$MachineKey)
+        returnlist <- c(returnlist, imwt_production = list(imwt_production))
+      }
   }
+
+
 
 
   # # Combined machine time data
