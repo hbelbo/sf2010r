@@ -18,6 +18,7 @@ getStemdata <- function(x) {
 # hprfile 3  har
   stm <- xml_childs_nchr(x)
 
+  dbh <-  xml2::xml_double( xml2::xml_find_first(x, ".//d1:DBH"))
   gps_bm <-  xml2::xml_find_all(x, "./d1:StemCoordinates[@receiverPosition='Base machine position']") %>%
     purrr::map_dfr( ~ sf2010r::xml_childs_nchr(.x))
   if( all(dim(gps_bm) != 0)){
@@ -26,7 +27,8 @@ getStemdata <- function(x) {
   }
 
 
-
+  extension <- xml2::xml_find_all(x, "./d1:Extension") %>%
+    purrr::map_dfr( ~ sf2010r::xml_childs_nchr(.x))
 
 
   CoordinateDate = xml2::xml_text(  xml2::xml_find_first(x, ".//d1:CoordinateDate"))
@@ -58,15 +60,21 @@ getStemdata <- function(x) {
 
   # Then make the resulting tibble:
   stemdat <- dplyr::bind_rows(stm)
+  stemdat$dbh <- dbh
 
   if(nrow(gps_bm)) {
     stemdat <- dplyr::mutate(stemdat, gps_bm)
     stemdat <- dplyr::mutate(stemdat,lat_dir, lon_dir)
   }
+
   if(!is.na(CoordinateDate)){ stemdat <- dplyr::mutate(stemdat, CoordinateDate)}
+
   if(nrow(gps_ctf)) { stemdat <- dplyr::mutate(stemdat, gps_ctf)}
-  if(nrow(BoomPosFelling)) {
-    stemdat <- dplyr::mutate(stemdat, BoomPosFelling)}
+
+  if(nrow(BoomPosFelling)){ stemdat <- dplyr::mutate(stemdat, BoomPosFelling)}
+
+  if(nrow(extension)) { stemdat <- dplyr::mutate(stemdat,extension)  }
+
 
   stemdat <- stemdat %>% dplyr::mutate(dplyr::across(tidyselect::ends_with("Key"), as.integer))
   return(stemdat)
@@ -321,7 +329,7 @@ getLogs <- function(doc){
 
 
 
-#' get SingleTreeProcessed tree's diametres
+#' get SingleTreeProcessed tree's diameter vector. By default not present in the hpr files.
 #'
 #' @param doc a hpr document (xml)
 #' @return a tibble. If no diametervector is present, a message and NULL.
