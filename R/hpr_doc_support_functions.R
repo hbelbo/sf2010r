@@ -400,15 +400,15 @@ getSTP_stemdiameters <- function(doc) {
 #' @export
 getStemsAndLogs <- function(doc){
   stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
-  cat("getStemsAndLogs-getStemdata \n")
+  cat(" getStemsAndLogs-getStemdata; ")
   stems <- plyr::ldply(stemlist, sf2010r::getStemdata)
-  cat("getStemsAndLogs-getSTPlogs \n")
+  cat(" getStemsAndLogs-getSTPlogs;")
   stplogs <- plyr::ldply(stemlist, sf2010r::getSTPlogs)
-  cat("getStemsAndLogs-getMTPlogs \n")
+  cat(" getStemsAndLogs-getMTPlogs;")
   mtplogs <- plyr::ldply(stemlist, sf2010r::getMTPlogs)
-  cat("getStemsAndLogs-getStemGrades \n")
+  cat(" getStemsAndLogs-getStemGrades; ")
   stemgrades <- plyr::ldply(stemlist, sf2010r::getStemGrades)
-  cat("getStemsAndLogs-getSTP_stemdiameters \n")
+  cat(" getStemsAndLogs-getSTP_stemdiameters;\n")
   stemdias <- sf2010r::getSTP_stemdiameters(doc)
 
     retlist <- list(stems=stems, stplogs = stplogs, mtplogs = mtplogs, stemgrades = stemgrades, stemdias = stemdias)
