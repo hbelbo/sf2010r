@@ -85,7 +85,7 @@ hpr_file_readr <- function(hprfile){
 
 
     ## Harvested stems and logs ----
-    cat(" hpr_file_readr-getStemsAndLogs;  \n")
+    cat(" -hpr_file_readr-getStemsAndLogs;  \n")
     StemsLogs <- sf2010r::getStemsAndLogs(doc)
 
 
@@ -207,22 +207,7 @@ hpr_file_readr <- function(hprfile){
 
 
     #---------------
-
-  } else {
-    machinereport_meta = NULL
-    Stemdat = NULL
-    products = NULL
-    objects = NULL
-    grades = NULL
-    logs = NULL
-    pricematrixes = NULL
-    stemlogdiasonbark = NULL
-    stemlogdiasubark = NULL
-    stemtypes = NULL
-    stemdiametervector = NULL
-  }
-
-  Ret <- list(machinereport_meta =  machinereport_meta
+    Ret <- list(machinereport_meta =  machinereport_meta
               , speciesgroups = speciesgroups
               , products=products
               , stems=Stemdat
@@ -236,7 +221,13 @@ hpr_file_readr <- function(hprfile){
               , stemtypes = stemtypes
               , stemdiametervector = stemdiametervector
               )
-  return(Ret)
+    return(Ret)
+
+    } else {
+    return(NULL)
+  }
+
+
   cat(" -hpr_file_readr complete - \n")
 }
 
