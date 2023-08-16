@@ -2,7 +2,7 @@
 % Please edit documentation in R/hpr_doc_support_functions.R
 \name{getSTP_stemdiameters}
 \alias{getSTP_stemdiameters}
-\title{get SingleTreeProcessed tree's diametres}
+\title{get SingleTreeProcessed tree's diameter vector. By default not present in the hpr files.}
 \usage{
 getSTP_stemdiameters(doc)
 }
@@ -13,7 +13,7 @@ getSTP_stemdiameters(doc)
 a tibble. If no diametervector is present, a message and NULL.
 }
 \description{
-get SingleTreeProcessed tree's diametres
+get SingleTreeProcessed tree's diameter vector. By default not present in the hpr files.
 }
 \examples{
 hprfiles <- list.files(path =  system.file(package = "sf2010r"),
