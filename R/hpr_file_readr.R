@@ -2,6 +2,8 @@
 #' Hpr-file reader function
 #'
 #' @param hprfile filename and path of the hpr file to read
+#' @param read.diavector flag to read diameter vector or not.
+#'  if read.diavector is TRUE, function may take long time.
 
 #' @return A list of data.frames: stems, products, logs, machinereport_meta,
 #'  operators, objects, stem_grades, pricematrixes,
@@ -14,11 +16,12 @@
 #' hprtest1 <- hpr_file_readr(hprfiles[1])
 #' hprtest2 <- hpr_file_readr(hprfiles[2])
 #' hprtest3 <- hpr_file_readr(hprfiles[3])
+#' hprtest4 <- hpr_file_readr(hprfiles[3], read.diavector = TRUE)
 #' hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'   pattern = ".hqc", recursive = TRUE, full.names= TRUE)
 #' hqctest1 <- hpr_file_readr(hqcfiles[1])
 #' hqctest2 <- hpr_file_readr(hqcfiles[2])
-hpr_file_readr <- function(hprfile){
+hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[1]
   # hprfile = hqcfiles[1]
@@ -85,9 +88,15 @@ hpr_file_readr <- function(hprfile){
 
 
     ## Harvested stems and logs ----
+
     cat(" -hpr_file_readr-getStemsAndLogs;  \n")
     StemsLogs <- sf2010r::getStemsAndLogs(doc)
 
+   stemdias <- NULL
+   if(read.diavector == TRUE){
+    cat(" -hpr_file_readr- getSTP_stemdiameters;\n")
+    stemdias <- sf2010r::getSTP_stemdiameters(doc)
+   }
 
     # Stemdat modifications, joining summary data  from logs  ----------
     Stemdat <- StemsLogs$stems
@@ -184,10 +193,11 @@ hpr_file_readr <- function(hprfile){
       dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
     }
 
-    if(!is.null(StemsLogs$stemdias)){
-        stemdiametervector <- StemsLogs$stemdias %>%
-          dplyr::mutate(MachineKey = MachineReportHeader$MachineKey)
-    } else { stemdiametervector <- NULL}
+    if(is.null(stemdias)){
+      stemdiametervector <- NULL
+    } else {
+      stemdiametervector <- stemdias %>%
+        dplyr::mutate(MachineKey = MachineReportHeader$MachineKey)}
 
 
 

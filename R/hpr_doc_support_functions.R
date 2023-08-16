@@ -416,10 +416,9 @@ getStemsAndLogs <- function(doc){
   mtplogs <- plyr::ldply(stemlist, sf2010r::getMTPlogs)
   cat(" getStemsAndLogs-getStemGrades; ")
   stemgrades <- plyr::ldply(stemlist, sf2010r::getStemGrades)
-  cat(" getStemsAndLogs-getSTP_stemdiameters;\n")
-  stemdias <- sf2010r::getSTP_stemdiameters(doc)
 
-    retlist <- list(stems=stems, stplogs = stplogs, mtplogs = mtplogs, stemgrades = stemgrades, stemdias = stemdias)
+
+    retlist <- list(stems=stems, stplogs = stplogs, mtplogs = mtplogs, stemgrades = stemgrades)
   return(retlist)
 }
 

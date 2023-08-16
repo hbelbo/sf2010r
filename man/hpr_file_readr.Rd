@@ -4,10 +4,13 @@
 \alias{hpr_file_readr}
 \title{Hpr-file reader function}
 \usage{
-hpr_file_readr(hprfile)
+hpr_file_readr(hprfile, read.diavector = FALSE)
 }
 \arguments{
 \item{hprfile}{filename and path of the hpr file to read}
+
+\item{read.diavector}{flag to read diameter vector or not.
+if read.diavector is TRUE, function may take long time.}
 }
 \value{
 A list of data.frames: stems, products, logs, machinereport_meta,
@@ -23,6 +26,7 @@ hprfiles <- list.files(path =  system.file(package = "sf2010r"),
 hprtest1 <- hpr_file_readr(hprfiles[1])
 hprtest2 <- hpr_file_readr(hprfiles[2])
 hprtest3 <- hpr_file_readr(hprfiles[3])
+hprtest4 <- hpr_file_readr(hprfiles[3], read.diavector = TRUE)
 hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
   pattern = ".hqc", recursive = TRUE, full.names= TRUE)
 hqctest1 <- hpr_file_readr(hqcfiles[1])
