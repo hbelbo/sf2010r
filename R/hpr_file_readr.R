@@ -13,14 +13,16 @@
 #' @examples
 #' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' hprtest1 <- hpr_file_readr(hprfiles[1])
+#' hprtest1 <- hpr_file_readr(hprfiles[1], read.diavector = TRUE)
 #' hprtest2 <- hpr_file_readr(hprfiles[2])
 #' hprtest3 <- hpr_file_readr(hprfiles[3])
 #' hprtest4 <- hpr_file_readr(hprfiles[3], read.diavector = TRUE)
 #' hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'   pattern = ".hqc", recursive = TRUE, full.names= TRUE)
 #' hqctest1 <- hpr_file_readr(hqcfiles[1])
+#' hqctest1 <- hpr_file_readr(hqcfiles[1], read.diavector = TRUE)
 #' hqctest2 <- hpr_file_readr(hqcfiles[2])
+#' hqctest2 <- hpr_file_readr(hqcfiles[2], read.diavector = TRUE)
 hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[1]
@@ -75,17 +77,20 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
       #dplyr::mutate(  MachineKey = MachineReportHeader$MachineKey)
     # products %>% dplyr::glimpse()
 
+
+    returnlist <- list( objects = objects,
+                 products = products,
+                 speciesgroups = speciesgroups,
+                 operators = operators)
+
     cat(" -hpr_file_readr-getPricematrixes \n")
     pricematrixes <- sf2010r::getProductMatrixes(doc) # %>%
     # mutate( MachineKey = MachineReportHeader$MachineKey)
     # pricematrixes %>% dplyr::glimpse()
 
-    returnlist <- list( objects = objects,
-                 products = products,
-                 speciesgroups = speciesgroups,
-                 pricematrixes = pricematrixes,
-                 operators = operators)
-
+    if(!is.null(pricematrixes)){
+      returnlist <- c(returnlist, pricematrixes = list(pricematrixes))
+    }
 
 
     cat(" -hpr_file_readr-getStemTypes; \n")
@@ -216,7 +221,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
       cat(" -hpr_file_readr- getSTP_stemdiameters;\n")
       stemdias <- sf2010r::getSTP_stemdiameters(doc)
 
-      if(nrow(stemdias)>0){
+      if( !is.null(stemdias)){
        stemdiametervector <- stemdias %>%
         dplyr::mutate(MachineKey = MachineReportHeader$MachineKey)
         returnlist <- c(returnlist, stemdias = list(stemdias))

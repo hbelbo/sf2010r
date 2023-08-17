@@ -23,12 +23,14 @@ Hpr-file reader function
 \examples{
 hprfiles <- list.files(path =  system.file(package = "sf2010r"),
   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-hprtest1 <- hpr_file_readr(hprfiles[1])
+hprtest1 <- hpr_file_readr(hprfiles[1], read.diavector = TRUE)
 hprtest2 <- hpr_file_readr(hprfiles[2])
 hprtest3 <- hpr_file_readr(hprfiles[3])
 hprtest4 <- hpr_file_readr(hprfiles[3], read.diavector = TRUE)
 hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
   pattern = ".hqc", recursive = TRUE, full.names= TRUE)
 hqctest1 <- hpr_file_readr(hqcfiles[1])
+hqctest1 <- hpr_file_readr(hqcfiles[1], read.diavector = TRUE)
 hqctest2 <- hpr_file_readr(hqcfiles[2])
+hqctest2 <- hpr_file_readr(hqcfiles[2], read.diavector = TRUE)
 }
