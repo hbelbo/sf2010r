@@ -13,9 +13,10 @@
 #' getStemdata(stemlist[[1]]) %>% dplyr::glimpse()
 #' plyr::ldply(stemlist[1:10], getStemdata)
 getStemdata <- function(x) {
-  # x = stemlist[[1]]
+  # x = stemlist[[14]]
 # hprfile 2 har ikke Boompos
 # hprfile 3  har
+# hprfile 3 har Extension
   stm <- xml_childs_nchr(x)
 
   dbh <-  xml2::xml_double( xml2::xml_find_first(x, ".//d1:DBH"))
@@ -27,8 +28,14 @@ getStemdata <- function(x) {
   }
 
 
-  extension <- xml2::xml_find_all(x, "./d1:Extension") %>%
-    purrr::map_dfr( ~ sf2010r::xml_childs_nchr(.x))
+  extension <- xml2::xml_find_first(x, "./d1:Extension") %>%
+    sf2010r::xml_childs_nchr()
+  dups <- names(extension)[duplicated(names(extension))]
+  keep <- !(names(extension) %in% dups)
+  extension <- subset(extension, keep)
+  extension <- bind_rows(extension)
+
+  #%>% bind_rows()
 
 
   CoordinateDate = xml2::xml_text(  xml2::xml_find_first(x, ".//d1:CoordinateDate"))
