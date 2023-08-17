@@ -80,23 +80,31 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
     # mutate( MachineKey = MachineReportHeader$MachineKey)
     # pricematrixes %>% dplyr::glimpse()
 
+    returnlist <- list( objects = objects,
+                 products = products,
+                 speciesgroups = speciesgroups,
+                 pricematrixes = pricematrixes,
+                 operators = operators)
+
+
+
     cat(" -hpr_file_readr-getStemTypes; \n")
     stemtypes <- sf2010r::getStemTypes(doc) %>%
       mutate( MachineKey = MachineReportHeader$MachineKey)
     # stemtypes %>% dplyr::glimpse()
 
-
+    if(nrow(stemtypes)>0){
+      returnlist <- c(returnlist, stemtypes = list(stemtypes))
+    }
 
     ## Harvested stems and logs ----
 
     cat(" -hpr_file_readr-getStemsAndLogs;  \n")
     StemsLogs <- sf2010r::getStemsAndLogs(doc)
 
-   stemdias <- NULL
-   if(read.diavector == TRUE){
-    cat(" -hpr_file_readr- getSTP_stemdiameters;\n")
-    stemdias <- sf2010r::getSTP_stemdiameters(doc)
-   }
+    # Logs (single tree processed logs. Need to include multistemming later)
+    returnlist <- c(returnlist,
+                    logs = list((StemsLogs$stplogs %>% dplyr::mutate(MachineKey = MachineReportHeader$MachineKey))))
 
     # Stemdat modifications, joining summary data  from logs  ----------
     Stemdat <- StemsLogs$stems
@@ -120,6 +128,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
       )
     Stemdat <- dplyr::left_join(Stemdat, stemdatfromlogs, by = "StemKey")
 
+    returnlist <- c(returnlist, stemdat = list(Stemdat))
 
     # Grade vector for each tree: -------
 
@@ -130,7 +139,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
       }}
 
     grades <- StemsLogs$stemgrades %>% dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
-
+    returnlist <- c(returnlist, grades = list(grades))
 
     # height diameter dataset: StemKey diaheight dia_ob_cm, dia_ub_cm -------
 
@@ -154,53 +163,65 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
     }
 
 
-    if("But.ob" %in% colnames(logmeter) ){
+    if("Butt.ob" %in% colnames(logmeter) ){
       cat(" - hpr_file_readr- fetch 'Butt ob'")
       butsonbark = logmeter %>%
         dplyr::select( "StemKey", "LogKey", diapos = "LogStartHeight",
-                       dia = "But.ob")
+                       dia = "Butt.ob")
       stemlogdiasonbark <- dplyr::bind_rows(stemlogdiasonbark, butsonbark)
     }
 
-    stemlogdiasonbark <- stemlogdiasonbark %>%
+    if(nrow(stemlogdiasonbark)){
+      stemlogdiasonbark <- stemlogdiasonbark %>%
       dplyr::arrange( .data$StemKey, .data$diapos) %>%
       dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
 
+    returnlist <- c(returnlist, stemlogdiasonbark = list(stemlogdiasonbark))
+    }
 
-    stemlogdiasubark <- tibble::tibble()
-    if("Top.ub`" %in% colnames(logmeter) ){
+    # Stem diameters under bark from log diameters under bark
+
+    if("Top.ub" %in% colnames(logmeter) ){
     stemlogdiasubark = logmeter %>%
       dplyr::select( "StemKey", "LogKey",
                      "diapos" = "LogEndHeight", "dia" = "Top.ub")
-    }
 
-    if("mid.ub`" %in% colnames(logmeter) ){
-    midsubark = logmeter %>%
-      dplyr::select( "StemKey", "LogKey",
-                     diapos = "LogMidHeight", dia = "Mid.ub")
-    stemlogdiasubark <- dplyr::bind_rows(stemlogdiasubark, midsubark)
-    }
+         if("Mid.ub" %in% colnames(logmeter) ){
+          midsubark = logmeter %>%
+            dplyr::select( "StemKey", "LogKey",
+                           diapos = "LogMidHeight", dia = "Mid.ub")
+          stemlogdiasubark <- dplyr::bind_rows(stemlogdiasubark, midsubark)
+          }
 
-     if("Butt.ub`" %in% colnames(logmeter) ){
-      butsubark = logmeter %>%
-        dplyr::select( "StemKey", "LogKey", diapos = "LogStartHeight",
-                       dia = "Butt.ub")
-      stemlogdiasubark <- bind_rows(stemlogdiasubark, butsubark)
-    }
-    if(nrow(stemlogdiasubark)){
-      stemlogdiasubark <- stemlogdiasubark %>%
+         if("Butt.ub" %in% colnames(logmeter) ){
+          butsubark = logmeter %>%
+            dplyr::select( "StemKey", "LogKey", diapos = "LogStartHeight",
+                           dia = "Butt.ub")
+          stemlogdiasubark <- bind_rows(stemlogdiasubark, butsubark)
+        }
+
+    stemlogdiasubark <- stemlogdiasubark %>%
       dplyr::arrange( .data$StemKey, .data$diapos) %>%
       dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
+    returnlist <- c(returnlist, stemlogdiasubark = list(stemlogdiasubark))
+
+
     }
 
-    if(is.null(stemdias)){
-      stemdiametervector <- NULL
-    } else {
-      stemdiametervector <- stemdias %>%
-        dplyr::mutate(MachineKey = MachineReportHeader$MachineKey)}
 
 
 
+
+    if(read.diavector == TRUE){
+      cat(" -hpr_file_readr- getSTP_stemdiameters;\n")
+      stemdias <- sf2010r::getSTP_stemdiameters(doc)
+
+      if(nrow(stemdias)>0){
+       stemdiametervector <- stemdias %>%
+        dplyr::mutate(MachineKey = MachineReportHeader$MachineKey)
+        returnlist <- c(returnlist, stemdias = list(stemdias))
+      }
+    }
 
     # Set up machine report table. One machine report = one observation. ----
 
@@ -215,23 +236,9 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
                                     filetype = filetype
                                     )
 
+    returnlist <- c(returnlist, machinereport_meta = list(machinereport_meta))
 
-    #---------------
-    Ret <- list(machinereport_meta =  machinereport_meta
-              , speciesgroups = speciesgroups
-              , products=products
-              , stems=Stemdat
-              , logs = (StemsLogs$stplogs %>% dplyr::mutate(MachineKey = MachineReportHeader$MachineKey))
-              , operators = operators
-              , objects = objects
-              , grades = grades
-              , pricematrixes = pricematrixes
-              , stemlogdiasonbark = stemlogdiasonbark
-              , stemlogdiasubark = stemlogdiasubark
-              , stemtypes = stemtypes
-              , stemdiametervector = stemdiametervector
-              )
-    return(Ret)
+    return(returnlist)
 
     } else {
     return(NULL)
