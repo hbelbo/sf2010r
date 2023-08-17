@@ -316,9 +316,15 @@ getMTPlogs <- function(x) {
 #' all_logs <- getLogs(doc)
 getLogs <- function(doc){
   stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
-  STPlogs <- purrr::map_dfr(stemlist, ~getSTPlogs(.x))
+  ProcessingCategory <-  purrr::map_chr(stemlist, ~ xml2::xml_text( xml2::xml_find_first(.x, ".//d1:ProcessingCategory")))
+
+  wstps <- which(ProcessingCategory == "SingleTreeProcessing")
+  STPlogs <- purrr::map_dfr(stemlist[wstps], ~getSTPlogs(.x))
   #STPlogs <- plyr::ldply(stemlist, getSTPlogs)
-  MTPlogs <- purrr::map_dfr(stemlist, ~getMTPlogs(.x))
+
+  wmtps <- which(ProcessingCategory == "MultiTreeProcessing")
+  MTPlogs <- purrr::map_dfr(stemlist[wmtps], ~getMTPlogs(.x))
+
   MachineKey <-xml2::xml_text(  xml2::xml_find_first(doc, ".//d1:MachineKey"))
 
 
