@@ -395,7 +395,7 @@ getSTP_stemdiameters <- function(doc) {
 }
 
 
-#' Fetch all stems and all logs in hpr
+#' Fetch all stems and all logs in hpr and hqc
 #'
 #' @param doc a StanFord2010 .hpr document
 #'
@@ -417,7 +417,10 @@ getSTP_stemdiameters <- function(doc) {
 #' stl <- getStemsAndLogs(doc)
 #' doc <- xml2::read_xml(hprfiles[3])
 #' stl <- getStemsAndLogs(doc)
-#'
+#' hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
+#' pattern = ".hqc", recursive = TRUE, full.names= TRUE)
+#' doc <- xml2::read_xml(hqcfiles[1])
+#' stl <- getStemsAndLogs(doc)
 #' @export
 getStemsAndLogs <- function(doc){
   stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
@@ -427,7 +430,7 @@ getStemsAndLogs <- function(doc){
   stplogs <- plyr::ldply(stemlist, sf2010r::getSTPlogs)
   cat(" getStemsAndLogs-getMTPlogs;")
   mtplogs <- plyr::ldply(stemlist, sf2010r::getMTPlogs)
-  cat(" getStemsAndLogs-getStemGrades; ")
+  cat(" getStemsAndLogs-getStemGrades; \n")
   stemgrades <- plyr::ldply(stemlist, sf2010r::getStemGrades)
 
 

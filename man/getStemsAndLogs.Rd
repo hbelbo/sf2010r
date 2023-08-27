@@ -2,7 +2,7 @@
 % Please edit documentation in R/hpr_doc_support_functions.R
 \name{getStemsAndLogs}
 \alias{getStemsAndLogs}
-\title{Fetch all stems and all logs in hpr}
+\title{Fetch all stems and all logs in hpr and hqc}
 \usage{
 getStemsAndLogs(doc)
 }
@@ -29,5 +29,8 @@ doc <- xml2::read_xml(hprfiles[2])
 stl <- getStemsAndLogs(doc)
 doc <- xml2::read_xml(hprfiles[3])
 stl <- getStemsAndLogs(doc)
-
+hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
+pattern = ".hqc", recursive = TRUE, full.names= TRUE)
+doc <- xml2::read_xml(hqcfiles[1])
+stl <- getStemsAndLogs(doc)
 }
