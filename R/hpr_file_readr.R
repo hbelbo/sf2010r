@@ -148,7 +148,8 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
     # height diameter dataset: StemKey diaheight dia_ob_cm, dia_ub_cm -------
 
-    cat(" - hpr_file_readr- create height diameter dataset from logs- \n")
+    cat(" - hpr_file_readr- create height diameter dataset from logs- \n
+         - NBNBNB This part need to be checked if it work as intended! ")
     logmeter <- StemsLogs$stplogs %>%
       select( -tidyselect::starts_with("m3"))  %>%
       dplyr::ungroup() %>%
