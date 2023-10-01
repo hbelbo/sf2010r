@@ -23,7 +23,7 @@
 #' hqctest1 <- hpr_file_readr(hqcfiles[1], read.diavector = TRUE)
 #' hqctest2 <- hpr_file_readr(hqcfiles[2])
 #' hqctest2 <- hpr_file_readr(hqcfiles[2], read.diavector = TRUE)
-hpr_file_readr <- function(hprfile, read.diavector = FALSE){
+hpr_file_readr_II <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[1]
   # hprfile = hqcfiles[1]
@@ -105,9 +105,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
     ## Harvested stems and logs ----
 
     cat(" -hpr_file_readr-getStemsAndLogs;  \n")
-    StemsLogs <- sf2010r::getStemsAndLogs(doc)
-    #StemsLogs <- sf2010r::getStemsAndLogs2(doc)
-
+    StemsLogs <- sf2010r::getStemsAndLogs2(doc)
     # Logs (single tree processed logs. Need to include multistemming later)
     returnlist <- c(returnlist,
                     logs = list((StemsLogs$stplogs %>% dplyr::mutate(MachineKey = MachineReportHeader$MachineKey))))

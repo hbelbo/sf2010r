@@ -64,7 +64,7 @@ mom_file_readr <- function(momfile){
   # speciesgroups %>% dplyr::glimpse()
 
   if(length(speciesgroups)){
-  returnlist <- list(returnlist, speciesgroups = list(speciesgroups))
+  returnlist <- c(returnlist, speciesgroups = list(speciesgroups))
   }
 
   products <- sf2010r::getProductDefs(doc)

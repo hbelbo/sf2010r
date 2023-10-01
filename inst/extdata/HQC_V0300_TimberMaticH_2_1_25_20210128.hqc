@@ -1088,52 +1088,50 @@
 						<LogVolume logVolumeCategory="m3 (price)" logMeasurementCategory="Machine">0.395</LogVolume>
 						<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Machine">0.39</LogVolume>
 						<LogVolume logVolumeCategory="m3sub" logMeasurementCategory="Machine">0.355</LogVolume>
-						
-<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Operator">0.396</LogVolume>
-<CuttingCategory>
+						<LogVolume logVolumeCategory="m3sob" logMeasurementCategory="Operator">0.396</LogVolume>
+						<CuttingCategory>
 							<CuttingReason>Automatic</CuttingReason>
 						</CuttingCategory>
 						<LogMeasurement logMeasurementCategory="Machine">
 							<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">277</LogDiameter>
 							<LogLength>553</LogLength>
 							<MeasurementDate>2021-01-28T11:33:07.999+01:00</MeasurementDate>
-						
-<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">304</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">302</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">294</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">290</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">286</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">284</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">281</ControlLogDiameter>
-</LogMeasurement>
-<LogMeasurement logMeasurementCategory="Operator">
-<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">291</LogDiameter>
-<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="First">293</LogDiameter>
-<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Second">288</LogDiameter>
-<LogLength>556</LogLength><MeasurementDate>2021-01-28T12:33:15.234+01:00</MeasurementDate>
-<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">308</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">306</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">309</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">303</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">301</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">305</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">305</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">305</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">305</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">300</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">300</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">300</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">298</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">298</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">298</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">295</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">295</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">295</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">292</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">291</ControlLogDiameter>
-<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">292</ControlLogDiameter>
-</LogMeasurement>
-<CalibrationUseLog>1</CalibrationUseLog>
+							<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">304</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">302</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">294</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">290</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">286</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">284</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">281</ControlLogDiameter>
+						</LogMeasurement>
+							<LogMeasurement logMeasurementCategory="Operator">
+							<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Average">291</LogDiameter>
+							<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="First">293</LogDiameter>
+							<LogDiameter logDiameterCategory="Top ob" diameterMeasurementCategory="Second">288</LogDiameter>
+							<LogLength>556</LogLength><MeasurementDate>2021-01-28T12:33:15.234+01:00</MeasurementDate>
+							<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">308</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">306</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="149" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">309</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">303</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">301</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="183" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">305</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">305</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">305</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="254" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">305</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">300</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">300</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="309" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">300</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">298</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">298</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="373" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">298</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">295</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">295</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="432" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">295</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="Average">292</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="First">291</ControlLogDiameter>
+							<ControlLogDiameter diameterPosition="490" controlLogDiameterCategory="ob" diameterMeasurementCategory="Second">292</ControlLogDiameter>
+						</LogMeasurement>
+						<CalibrationUseLog>1</CalibrationUseLog>
 
 					</Log>
 					<Log>
