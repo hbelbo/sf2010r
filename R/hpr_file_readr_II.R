@@ -13,26 +13,25 @@
 #' @examples
 #' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' hprtest1 <- hpr_file_readr(hprfiles[1], read.diavector = TRUE)
-#' hprtest2 <- hpr_file_readr(hprfiles[2])
-#' hprtest3 <- hpr_file_readr(hprfiles[3])
-#' hprtest4 <- hpr_file_readr(hprfiles[3], read.diavector = TRUE)
-#' hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
-#'   pattern = ".hqc", recursive = TRUE, full.names= TRUE)
-#' hqctest1 <- hpr_file_readr(hqcfiles[1])
-#' hqctest1 <- hpr_file_readr(hqcfiles[1], read.diavector = TRUE)
-#' hqctest2 <- hpr_file_readr(hqcfiles[2])
-#' hqctest2 <- hpr_file_readr(hqcfiles[2], read.diavector = TRUE)
-hpr_file_readr <- function(hprfile, read.diavector = FALSE){
+#' hprtest1 <- hpr_file_readr_II(hprfiles[1], read.diavector = TRUE)
+#' hprtest2 <- hpr_file_readr_II(hprfiles[2])
+#' hprtest3 <- hpr_file_readr_II(hprfiles[3])
+#' hprtest4 <- hpr_file_readr_II(hprfiles[3], read.diavector = TRUE)
+hpr_file_readr_II <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[1]
-  # hprfile = hqcfiles[1]
+
   cat(" -hpr_file_readr() parsing ", hprfile,"- \n")
+  filename <- hprfile
+  tmp <- nchar(filename)
+  filetype <- substring(filename, tmp-2, tmp)
+  stopifnot(filetype == "hpr")
+
    doc <- xml2::read_xml(hprfile)
    md5 <- digest::digest(file(hprfile))
 
    if(nchar(Sys.getlocale()) < 3){
-     Sys.setlocale(category = "LC_ALL", locale = "") #becouse of an R-studio Rstartup issue at HB's computer
+     Sys.setlocale(category = "LC_ALL", locale = "") #because of an R-studio Rstartup issue at HB's computer
      }
 
 
@@ -43,13 +42,6 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   if(length(StemKey)){
 
     ## then extract values
-
-    # .. cut object info
-    filename <- hprfile
-    tmp <- nchar(filename)
-    filetype <- substring(filename, tmp-2, tmp)
-
-
     # .. from the header
     MachineReportHeader <- sf2010r::getMachineReportHeader(doc)
     # MachineReportHeader %>% dplyr::glimpse()
@@ -105,9 +97,8 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
     ## Harvested stems and logs ----
 
     cat(" -hpr_file_readr-getStemsAndLogs;  \n")
-    StemsLogs <- sf2010r::getStemsAndLogs(doc)
-    #StemsLogs <- sf2010r::getStemsAndLogs2(doc)
-
+    StemsLogs <- getStemsAndLogs_II(doc)
+    #StemsLogs <- sf2010r::getStemsAndLogs_II(doc)
     # Logs (single tree processed logs. Need to include multistemming later)
     returnlist <- c(returnlist,
                     logs = list((StemsLogs$stplogs %>% dplyr::mutate(MachineKey = MachineReportHeader$MachineKey))))
@@ -138,23 +129,22 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
     # Grade vector for each tree: -------
 
-    #Denne IF() skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
-    if(sum(StemsLogs$stemgrades$gradestartpos_cm > 0)>0){
-      if (min(StemsLogs$stemgrades$gradestartpos_cm[StemsLogs$stemgrades$gradestartpos_cm > 0])<20){ #DETTE skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
-        StemsLogs$stemgrades$gradestartpos_cm = StemsLogs$stemgrades$gradestartpos_cm*10
-      }}
-
-    grades <- StemsLogs$stemgrades %>% dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
-    returnlist <- c(returnlist, grades = list(grades))
+    # #Denne IF() skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
+    # if(sum(StemsLogs$stemgrades$gradestartpos_cm > 0)>0){
+    #   if (min(StemsLogs$stemgrades$gradestartpos_cm[StemsLogs$stemgrades$gradestartpos_cm > 0])<20){ #DETTE skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
+    #     StemsLogs$stemgrades$gradestartpos_cm = StemsLogs$stemgrades$gradestartpos_cm*10
+    #   }}
+    #
+    # grades <- StemsLogs$stemgrades %>% dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
+    # returnlist <- c(returnlist, grades = list(grades))
 
     # height diameter dataset: StemKey diaheight dia_ob_cm, dia_ub_cm -------
 
-    cat(" - hpr_file_readr- create height diameter dataset from logs- \n
-         - NBNBNB This part need to be checked if it work as intended! ")
+    cat(" - hpr_file_readr- create height diameter dataset from logs- \n")
     logmeter <- StemsLogs$stplogs %>%
       select( -tidyselect::starts_with("m3"))  %>%
       dplyr::ungroup() %>%
-      dplyr::group_by( .data$StemKey) %>%
+      dplyr::group_by( StemKey) %>%
       dplyr:: mutate( LogEndHeight   = cumsum(.data$LogLength)) %>%
       dplyr::mutate(LogStartHeight = .data$LogEndHeight - .data$LogLength) %>%
       dplyr::mutate(LogMidHeight   = .data$LogStartHeight + 0.5* .data$LogLength) %>%
@@ -163,7 +153,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
     stemlogdiasonbark = logmeter %>%
       dplyr::select( "StemKey", "LogKey", diapos = "LogEndHeight", dia = "Top.ob")
 
-    if("Mid.ob" %in% colnames(logmeter) ){
+    if("Midob" %in% colnames(logmeter) ){
       midsonbark = logmeter %>%
         dplyr::select( "StemKey", "LogKey", "diapos" = "LogMidHeight", dia = "Mid.ob")
       stemlogdiasonbark <- dplyr::bind_rows(stemlogdiasonbark, midsonbark)
@@ -221,7 +211,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
     if(read.diavector == TRUE){
       cat(" -hpr_file_readr- getSTP_stemdiameters;\n")
-      stemdias <- sf2010r::getSTP_stemdiameters(doc)
+      stemdias <- sf2010r::getSTP_stemdiameters_II(doc)
 
       if( !is.null(stemdias)){
        stemdiametervector <- stemdias %>%
