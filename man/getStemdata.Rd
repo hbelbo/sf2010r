@@ -18,5 +18,6 @@ hprfiles <- list.files(path =  system.file(package = "sf2010r"),
 doc <- xml2::read_xml(hprfiles[3])
 stemlist <- xml2::xml_find_all(doc, ".//d1:Stem")
 getStemdata(stemlist[[1]]) \%>\% dplyr::glimpse()
-plyr::ldply(stemlist[1:10], getStemdata)
+getStemdata(stemlist[[3]]) \%>\% dplyr::glimpse()
+plyr::ldply(stemlist[1:2], getStemdata)
 }
