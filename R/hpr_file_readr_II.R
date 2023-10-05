@@ -87,7 +87,7 @@ hpr_file_readr_II <- function(hprfile, read.diavector = FALSE){
 
     cat(" -hpr_file_readr-getStemTypes; \n")
     stemtypes <- sf2010r::getStemTypes(doc) %>%
-      mutate( MachineKey = MachineReportHeader$MachineKey)
+      dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
     # stemtypes %>% dplyr::glimpse()
 
     if(nrow(stemtypes)>0){

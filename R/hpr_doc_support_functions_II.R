@@ -110,8 +110,7 @@ getStemsAndLogs_II <- function(doc){
       w <- which(nobs == max(nobs))
       dt1 <- dt1[w]
       dt1 <- list2DF(dt1) %>% utils::type.convert(as.is = TRUE)
-
-      dt1$StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_find_all(doc, xpt1)), "./d1:StemKey"))
+      dt1$StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, to_map[1]))), "./d1:StemKey"))
 
       extensions <- dt1
       stems <- dplyr::left_join(stems, extensions, by = c("StemKey"))
