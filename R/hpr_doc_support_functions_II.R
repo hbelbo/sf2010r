@@ -137,7 +137,8 @@ getStemsAndLogs_II <- function(doc){
     dt1 <- dt1[w]
     dt1 <- list2DF(dt1) %>% utils::type.convert(as.is = TRUE)
 
-    dt1$StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_find_all(doc, xpt1)), "./d1:StemKey"))
+    #dt1$StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_find_all(doc, xpt1)), "./d1:StemKey"))
+    dt1$StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, to_map[1]))), "./d1:StemKey"))
 
     Boompos <- dt1
     stems <- dplyr::left_join(stems, Boompos, by = c("StemKey"))
@@ -253,8 +254,8 @@ getStemsAndLogs_II <- function(doc){
 
 
       dt_logs <- dplyr::bind_cols(dt1, dt2) %>%
-        mutate(logkeydiff = .data$LogKey - dplyr::lag(.data$LogKey, 1, 1)) %>%
-        mutate(stemkeyshift = ifelse(.data$logkeydiff !=1, 1, 0),
+        dplyr::mutate(logkeydiff = .data$LogKey - dplyr::lag(.data$LogKey, 1, 1)) %>%
+        dplyr::mutate(stemkeyshift = ifelse(.data$logkeydiff !=1, 1, 0),
                tmp_stemnumber = cumsum(.data$stemkeyshift))
       numlogs_per_stem <- dt_logs %>% dplyr::group_by(.data$tmp_stemnumber) %>% dplyr::summarise(n = dplyr::n())
       dt_logs$StemKey <- rep(StemKeys, numlogs_per_stem$n)
@@ -395,8 +396,8 @@ getStemsAndLogs_II <- function(doc){
       dt2 <- list2DF(dt2) %>% utils::type.convert(as.is = TRUE)
 
       dt_logs <- dplyr::bind_cols(dt1, dt2) %>%
-        mutate(logkeydiff = .data$LogKey - dplyr::lag(.data$LogKey, 1, 1)) %>%
-        mutate(stemkeyshift = ifelse(.data$logkeydiff !=1, 1, 0),
+        dplyr::mutate(logkeydiff = .data$LogKey - dplyr::lag(.data$LogKey, 1, 1)) %>%
+        dplyr::mutate(stemkeyshift = ifelse(.data$logkeydiff !=1, 1, 0),
                tmp_stemnumber = cumsum(.data$stemkeyshift))
 
       numlogs_per_stem <- dt_logs %>% dplyr::group_by(.data$tmp_stemnumber) %>% dplyr::summarise(n = dplyr::n())
