@@ -21,7 +21,7 @@ hpr_file_readr_II <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[1]
 
-  cat(" -hpr_file_readr() parsing ", hprfile,"- \n")
+  cat("\n-hpr_file_readr() parsing ", hprfile,"- \n")
   filename <- hprfile
   tmp <- nchar(filename)
   filetype <- substring(filename, tmp-2, tmp)

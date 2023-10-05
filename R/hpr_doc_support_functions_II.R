@@ -96,24 +96,29 @@ getStemsAndLogs_II <- function(doc){
     xpt1 <- ".//d1:Stem/d1:Extension"  ###### Getting Extensions if present -------
     nodecase  <- xml2::xml_find_first(doc,  xpt1)
     if(!is.na(nodecase)){
+      nodecases  <- xml2::xml_find_all(doc,  xpt1) # All Extension nodes
       nodename <- xml2::xml_name(nodecase)
       node_childrens <-  xml2::xml_children(nodecase)
       ws0 <- which(xml2::xml_length(node_childrens)==0)
       childrens_1 <- node_childrens[ws0]
       childrens_1_names <- xml2::xml_name(childrens_1)
-
+      childrens_1_names <- unique(childrens_1_names)
       to_map <- paste(".//d1:Stem/d1:", nodename, "/d1:",childrens_1_names, sep = "")
 
       dt1 <- Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map)
       names(dt1) <- childrens_1_names
-      nobs <- sapply(dt1, length)
-      w <- which(nobs == max(nobs))
+      nobs <- sapply(dt1, length) #number of obs per extension variable. Not always one per node.
+      w <- which(nobs == length(nodecases)) # We keep only those having one per node
       dt1 <- dt1[w]
       dt1 <- list2DF(dt1) %>% utils::type.convert(as.is = TRUE)
-      dt1$StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, to_map[1]))), "./d1:StemKey"))
+      ext_StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, to_map[1]))), "./d1:StemKey"))
+      if(length(ext_StemKey) <= length(StemKeys)){
+        dt1$StemKey <- ext_StemKey
+       extensions <- dt1
+       stems <- dplyr::left_join(stems, extensions, by = c("StemKey"))
+      }
 
-      extensions <- dt1
-      stems <- dplyr::left_join(stems, extensions, by = c("StemKey"))
+
     }
 
 
@@ -122,6 +127,7 @@ getStemsAndLogs_II <- function(doc){
   nodecase  <- xml2::xml_find_first(doc,  xpt1)
   if(!is.na(nodecase)){
     nodename <- xml2::xml_name(nodecase)
+    nodecases  <- xml2::xml_find_all(doc,  xpt1) # All  nodes
     node_childrens <-  xml2::xml_children(nodecase)
     # xml2::xml_attr(stm_coords_1, attr = "boomPositioningCategory=") %>% unique() # BoomPositionCategori to be included
     ws0 <- which(xml2::xml_length(node_childrens)==0)
@@ -133,7 +139,7 @@ getStemsAndLogs_II <- function(doc){
     dt1 <- Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map)
     names(dt1) <- childrens_1_names
     nobs <- sapply(dt1, length)
-    w <- which(nobs == max(nobs))
+    w <- which(nobs == length(nodecases)) # We keep only those having one per node
     dt1 <- dt1[w]
     dt1 <- list2DF(dt1) %>% utils::type.convert(as.is = TRUE)
 
