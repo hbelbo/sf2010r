@@ -110,7 +110,7 @@ hpr_file_readr_II <- function(hprfile, read.diavector = FALSE){
     Stemdat <- StemsLogs$stems
     # Stemdat %>% dplyr::glimpse()
     Stemdat <- Stemdat %>%
-      mutate(
+      dplyr::mutate(
              MachineKey = MachineReportHeader$MachineKey
              #, CreationDate = MachineReportHeader$CreationDate
              ) %>%
@@ -145,7 +145,7 @@ hpr_file_readr_II <- function(hprfile, read.diavector = FALSE){
 
     cat(" - hpr_file_readr- create height diameter dataset from logs- \n")
     logmeter <- StemsLogs$stplogs %>%
-      select( -tidyselect::starts_with("m3"))  %>%
+      dplyr::select( -tidyselect::starts_with("m3"))  %>%
       dplyr::ungroup() %>%
       dplyr::group_by( StemKey) %>%
       dplyr:: mutate( LogEndHeight   = cumsum(.data$LogLength)) %>%
@@ -197,7 +197,7 @@ hpr_file_readr_II <- function(hprfile, read.diavector = FALSE){
           butsubark = logmeter %>%
             dplyr::select( "StemKey", "LogKey", diapos = "LogStartHeight",
                            dia = "Butt.ub")
-          stemlogdiasubark <- bind_rows(stemlogdiasubark, butsubark)
+          stemlogdiasubark <- dplyr::bind_rows(stemlogdiasubark, butsubark)
         }
 
     stemlogdiasubark <- stemlogdiasubark %>%
