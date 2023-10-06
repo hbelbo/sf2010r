@@ -552,7 +552,7 @@ getSTP_stemdiameters_II <- function(doc) {
     diastemnr = cumsum(newstemindicator)
     diadf <- data.frame(Position = all_diameterpositions, dia_ob = all_diameters, diastemnr = diastemnr)
 
-    diadf <- diadf %>% dplyr::left_join(diastems, by = c("diastemnr")) %>% select(-diastemnr)
+    diadf <- diadf %>% dplyr::left_join(diastems, by = c("diastemnr")) %>% dplyr::select(-diastemnr)
      # head(diadf)
 
     return(diadf)

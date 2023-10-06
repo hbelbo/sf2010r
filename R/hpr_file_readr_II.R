@@ -20,7 +20,10 @@
 hpr_file_readr_II <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[1]
-  # hprfile = unparsedfiles[1]
+  # hprfile = unparsedfiles[i]
+#  hprtest4 <- hpr_file_readr_II(unparsedfiles[i], read.diavector = TRUE)
+#  hprtest4 <- hpr_file_readr_II(unparsedfiles[i])
+
   cat("\n-hpr_file_readr() parsing ", hprfile,"- \n")
   filename <- hprfile
   tmp <- nchar(filename)
