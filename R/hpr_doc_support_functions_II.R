@@ -94,29 +94,49 @@ getStemsAndLogs_II <- function(doc){
     }
 
     xpt1 <- ".//d1:Stem/d1:Extension"  ###### Getting Extensions if present -------
-    nodecase  <- xml2::xml_find_first(doc,  xpt1)
+    nodecase  <- xml2::xml_find_first(doc,  xpt1) # use first node as example to create dataset
     if(!is.na(nodecase)){
-      nodecases  <- xml2::xml_find_all(doc,  xpt1) # All Extension nodes
-      nodename <- xml2::xml_name(nodecase)
+      nodename <- xml2::xml_name(nodecase) # is Extension
       node_childrens <-  xml2::xml_children(nodecase)
       ws0 <- which(xml2::xml_length(node_childrens)==0)
       childrens_1 <- node_childrens[ws0]
       childrens_1_names <- xml2::xml_name(childrens_1)
-      childrens_1_names <- unique(childrens_1_names)
+      childrens_1_names <- unique(childrens_1_names) # some may have multiple records, but that is not collected currently
       to_map <- paste(".//d1:Stem/d1:", nodename, "/d1:",childrens_1_names, sep = "")
 
-      dt1 <- Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map)
-      names(dt1) <- childrens_1_names
-      nobs <- sapply(dt1, length) #number of obs per extension variable. Not always one per node.
-      w <- which(nobs == length(nodecases)) # We keep only those having one per node
-      dt1 <- dt1[w]
-      dt1 <- list2DF(dt1) %>% utils::type.convert(as.is = TRUE)
-      ext_StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, to_map[1]))), "./d1:StemKey"))
-      if(length(ext_StemKey) <= length(StemKeys)){
-        dt1$StemKey <- ext_StemKey
-       extensions <- dt1
-       stems <- dplyr::left_join(stems, extensions, by = c("StemKey"))
+      dt1 <- Map(function(x) {  # For each extension variables, create a data.frame having the extension variable and corresponding StemKey
+        df <- data.frame(xml2::xml_text(xml2::xml_find_all(doc, x)),
+           StemKey = xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, x))), "./d1:StemKey")))
+        names(df)[1] = stringr::str_extract(string = x, pattern = "\\w*$")
+        return(df)
+                } , to_map)
+      names(dt1) <- stringr::str_extract(string = names(dt1), pattern = "\\w*$")
+
+
+      if(length(dt1) > 1) {
+        #df_list %>% purrr::reduce(dplyr::inner_join, by = bykey)
+        extensions <- dt1[[1]]
+        for (i in 2:length(dt1)) {
+          #i = 2
+          extensions <- dplyr::full_join(extensions, dt1[[i]], by = c("StemKey"))
+        }
+      } else {
+        extensions <- dt1[[1]]
       }
+      stems <- dplyr::left_join(stems, extensions, by = c("StemKey"))
+
+#       dt1 <- Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map)
+#       names(dt1) <- childrens_1_names
+#       nobs <- sapply(dt1, length) #number of obs per extension variable. Not always one per node.
+#       w <- which(nobs == length(nodecases)) # We keep only those having one per node
+#       dt1 <- dt1[w]
+#       dt1 <- list2DF(dt1) %>% utils::type.convert(as.is = TRUE)
+#       ext_StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, to_map[1]))), "./d1:StemKey"))
+#       if((length(ext_StemKey) <= length(StemKeys)) & length(ext_StemKey) == length(nodecases)){
+#         dt1$StemKey <- ext_StemKey
+#        extensions <- dt1
+#        stems <- dplyr::left_join(stems, extensions, by = c("StemKey"))
+#       }
 
 
     }
@@ -541,4 +561,19 @@ getSTP_stemdiameters_II <- function(doc) {
 }
 
 
+# # Create a function to perform inner joins on a list of data frames
+# perform_full_join <- function(df_list, bykey = "key") {
+#   if(length(df_list) > 1) {
+#     #df_list %>% purrr::reduce(dplyr::inner_join, by = bykey)
+#     result_df <- df_list[[1]]
+#     for (i in 2:length(df_list)) {
+#       #i = 2
+#       result_df <- full_join(result_df, df_list[[i]], by = bykey)
+#     }
+#     return(result_df)
+#   } else {
+#     return(df_list[[1]])
+#   }
+# }
+#
 
