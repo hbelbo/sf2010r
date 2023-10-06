@@ -92,7 +92,7 @@ getStemsAndLogs_II <- function(doc){
 
       stems <- dplyr::left_join(stems, coords_df,  by = c("StemKey"))
     }
-
+cat("\n going  Extension")
     xpt1 <- ".//d1:Stem/d1:Extension"  ###### Getting Extensions if present -------
     nodecase  <- xml2::xml_find_first(doc,  xpt1) # use first node as example to create dataset
     if(!is.na(nodecase)){
@@ -143,6 +143,7 @@ getStemsAndLogs_II <- function(doc){
 
 
   ###### Getting Boom position if present -----------
+  cat("\n going  BoomPos")
   xpt1 <- ".//d1:Stem/d1:BoomPositioning"
   nodecase  <- xml2::xml_find_first(doc,  xpt1)
   if(!is.na(nodecase)){
@@ -172,6 +173,7 @@ getStemsAndLogs_II <- function(doc){
 
 
     ##### Single Tree Processed stems ##### ------------
+  cat("\n going  SingleTreeProcessedStem")
     xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem"
     nodecase  <- xml2::xml_find_first(doc,  xpt1)
     if(!is.na(nodecase)){
@@ -197,6 +199,7 @@ getStemsAndLogs_II <- function(doc){
     } else {stemdat1 = data.frame()}
 
     ###### Multitree processed stems ----------
+    cat("\n going  multiTreeProcessingStem")
     xpt1 <- ".//d1:Stem/d1:MultiTreeProcessedStem"
     nodecase  <- xml2::xml_find_first(doc,  xpt1)
     if(!is.na(nodecase)){
@@ -233,7 +236,7 @@ getStemsAndLogs_II <- function(doc){
 
 
   #### STP Logs ######
-
+    cat("\n going  STP_Logs")
     xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:Log"
     nodecase  <- xml2::xml_find_first(doc,  xpt1)
     if (!is.na(nodecase)){
@@ -316,6 +319,7 @@ getStemsAndLogs_II <- function(doc){
       dt_logs <- dplyr::bind_cols(dt_logs, logdt_MMeasurement)
 
       ### Log data extension
+      cat("\n going  Log STP extension")
       xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:Log/d1:Extension"
       # xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:Log/d1:Fake"
       nodecase  <- xml2::xml_find_first(doc,  xpt1)
@@ -346,6 +350,7 @@ getStemsAndLogs_II <- function(doc){
 
 
       ### Log cutting category
+      cat("\n going  STP Log CuttingCategory")
       xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:Log/d1:CuttingCategory"
       nodecase  <- xml2::xml_find_first(doc,  xpt1)
       nodename <- xml2::xml_name(nodecase)
@@ -378,6 +383,7 @@ getStemsAndLogs_II <- function(doc){
 
   ### MTP Logs --------------
     # paste(".//d1:Stem[./d1:ProcessingCategory/text() = 'MultiTreeProcessing']/d1:MultiTreeProcessedStem/d1:"
+    cat("\n going MTPStem-Log")
     xpt1 <- ".//d1:Stem/d1:MultiTreeProcessedStem/d1:Log"
     # xpt1 <- ".//d1:Stem/d1:MultiTreeProcessedStem/d1:Lohjkg"
     nodecase  <- xml2::xml_find_first(doc,  xpt1)
@@ -385,7 +391,6 @@ getStemsAndLogs_II <- function(doc){
       StemKeys <- xml2::xml_integer(xml2::xml_find_all( xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, xpt1))), "./d1:StemKey"))
       nodename <- xml2::xml_name(nodecase)
       node_childrens <-  xml2::xml_children(nodecase)
-
 
       ws0 <- which(xml2::xml_length(node_childrens)==0)
       childrens_0 <- node_childrens[ws0]
@@ -459,6 +464,7 @@ getStemsAndLogs_II <- function(doc){
 
 
       ### Log data extension ----
+      cat("\n going  MTPStem Log Extension")
       xpt1 <- ".//d1:Stem/d1:MultiTreeProcessedStem/d1:Log/d1:Extension"
       nodecase  <- xml2::xml_find_first(doc,  xpt1)
       if( length(nodecase) > 0){
@@ -486,6 +492,7 @@ getStemsAndLogs_II <- function(doc){
       }
 
       ### Log cutting category ------
+      cat("\n going  MTP Log CuttingCategory")
       xpt1 <- ".//d1:Stem/d1:MultiTreeProcessedStem/d1:Log/d1:CuttingCategory"
       nodecase  <- xml2::xml_find_first(doc,  xpt1)
       nodename <- xml2::xml_name(nodecase)
