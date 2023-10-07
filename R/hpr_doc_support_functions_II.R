@@ -92,7 +92,7 @@ getStemsAndLogs_II <- function(doc){
 
       stems <- dplyr::left_join(stems, coords_df,  by = c("StemKey"))
     }
-cat("\n going  Extension")
+cat("\n going Extension")
     xpt1 <- ".//d1:Stem/d1:Extension"  ###### Getting Extensions if present -------
     nodecase  <- xml2::xml_find_first(doc,  xpt1) # use first node as example to create dataset
     if(!is.na(nodecase)){
@@ -306,17 +306,39 @@ cat("\n going  Extension")
       attrnames[is.na(attrnames)] <- ""
       attrxp <- ifelse(attrnames == "", "", paste("[@", attrnames, " = '", children_0_names_attr_lvc, "']", sep = ""))
       to_map <- paste(xpt1, "/d1:",childrens_0_names, attrxp, sep = "")
-      dt1 <-  Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map)
+
       varnames <- tibble::tibble(childrens_0_names = childrens_0_names, children_0_names_attr_lvc = children_0_names_attr_lvc) %>%
         dplyr::mutate( vn = dplyr::case_when( nchar(children_0_names_attr_lvc)==0 ~ childrens_0_names, TRUE ~ children_0_names_attr_lvc)) %>%
         dplyr::pull("vn") %>%
         make.names()
-      names(dt1) <- varnames
-      dt1<- list2DF(dt1) %>% utils::type.convert(as.is = TRUE)
-      logdt_MMeasurement <- dt1
 
 
-      dt_logs <- dplyr::bind_cols(dt_logs, logdt_MMeasurement)
+      # x = to_map[1]
+      # Tedious approach because not all measurements are present for all logs.
+      dt1 <- Map(function(x, xnames) {  # For each measurement variables, create a data.frame having the  variable and corresponding StemKey.
+        df = data.frame(v1 = xml2::xml_text(xml2::xml_find_all(doc, x)),
+                         LogKey =  xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, x))), "./d1:LogKey")) ) %>%
+          dplyr::mutate(tmpstemnrchange = dplyr::if_else(((.data$LogKey == 1) | .data$LogKey - dplyr::lag(.data$LogKey, default = 9)<1 ), 1, 0),
+                tmpstmnr = cumsum(.data$tmpstemnrchange))
+        names(df)[1] = xnames
+
+         #names(df)[1] = stringr::str_extract(string = x, pattern = "\\w*$")
+         stmk = data.frame(StemKey = xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, x))))), "./d1:StemKey"))) %>%
+                           dplyr::mutate( tmpstmnr = dplyr::row_number())
+         df = df %>% dplyr::left_join(stmk, by = c("tmpstmnr")) %>% dplyr::select(-tidyselect::starts_with("tmp"))
+         return(df)
+      } , to_map, varnames)
+
+      logmeas <- dt1[[1]]
+      if(length(dt1) > 1) {
+        for (i in 2:length(dt1)) {
+          logmeas <- dplyr::full_join(logmeas, dt1[[i]], by = c("StemKey", "LogKey"))
+        }
+      }
+      logmeas <- logmeas %>% utils::type.convert(as.is = TRUE)
+
+      # Then merge log dia og length measurements with the rest of log data
+      dt_logs <- dplyr::left_join(dt_logs, logmeas, by = c("StemKey", "LogKey"))
 
       ### Log data extension
       cat("\n going  Log STP extension")
@@ -372,8 +394,7 @@ cat("\n going  Extension")
         make.names()
       names(dt1) <- varnames
       dt1 <- list2DF(dt1) %>% utils::type.convert(as.is = TRUE)
-      logdt_cuttingCat <- dt1
-      dt_logs <- dplyr::bind_cols(dt_logs, logdt_cuttingCat)
+      dt_logs <- dplyr::bind_cols(dt_logs, dt1)
 
 
 
