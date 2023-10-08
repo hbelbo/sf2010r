@@ -239,6 +239,7 @@ cat("\n going Extension")
     cat("\n going  STP_Logs")
     xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:Log"
     nodecase  <- xml2::xml_find_first(doc,  xpt1)
+
     if (!is.na(nodecase)){
       StemKeys <- xml2::xml_integer(xml2::xml_find_all( xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, xpt1))), "./d1:StemKey"))
 
@@ -260,36 +261,45 @@ cat("\n going Extension")
       attrxp <- unname(logdtstring)
       to_map <- paste(xpt1, "/d1:",childrens_0_names, attrxp, sep = "")
 
-      # For variables without attributes
-      slice1 <- which(!stringr::str_detect(to_map, pattern = "@"))
-      to_map1 <- to_map[slice1]
-      dt1 <-  Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map1)
-      varnames1 <- childrens_0_names[slice1]
-      names(dt1) <- varnames1
-      dt1 <- list2DF(dt1) %>% utils::type.convert(as.is = TRUE)
+      ### Test approach
 
 
-      # For logMeasurementCategory="Machine"; m3.price, m3sob, ...
-      slice2 <-  which(stringr::str_detect(to_map, pattern = "@logMeasurementCategory = 'Machine']"))
-      to_map2 <- to_map[slice2]
-      dt2 <-  Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map2)
-      varnames2 <- tibble::tibble(childrens_0_names = childrens_0_names[slice2], children_0_names_attr_lvc = children_0_names_attr_lvc[slice2]) %>%
+      varnames <-  tibble::tibble(childrens_0_names = childrens_0_names, children_0_names_attr_lvc = children_0_names_attr_lvc) %>%
         dplyr::mutate( vn = dplyr::case_when( nchar(children_0_names_attr_lvc)==0 ~ childrens_0_names, TRUE ~ children_0_names_attr_lvc)) %>%
         dplyr::pull("vn") %>%
         stringr::str_replace_all( "[()]", "") %>%
         make.names()
-      names(dt2) <- varnames2
-      dt2 <- list2DF(dt2) %>% utils::type.convert(as.is = TRUE)
 
 
-      dt_logs <- dplyr::bind_cols(dt1, dt2) %>%
-        dplyr::mutate(logkeydiff = .data$LogKey - dplyr::lag(.data$LogKey, 1, 1)) %>%
-        dplyr::mutate(stemkeyshift = ifelse(.data$logkeydiff !=1, 1, 0),
-               tmp_stemnumber = cumsum(.data$stemkeyshift))
-      numlogs_per_stem <- dt_logs %>% dplyr::group_by(.data$tmp_stemnumber) %>% dplyr::summarise(n = dplyr::n())
-      dt_logs$StemKey <- rep(StemKeys, numlogs_per_stem$n)
-      dt_logs <- dt_logs %>% dplyr::select(-tidyselect::all_of(c("logkeydiff", "stemkeyshift", "tmp_stemnumber")))
-      #dt_logs <- dt_logs %>% dplyr::select(-logkeydiff, -stemkeyshift, -tmp_stemnumber)
+       # x = to_map[1]
+       # Tedious approach because not all measurements are present for all logs.
+       dt1 <- Map(function(x, xnames) {  # For each measurement variables, create a data.frame having the  variable and corresponding StemKey.
+         df = data.frame(v1 = xml2::xml_text(xml2::xml_find_all(doc, x))
+           , LogKeyII =  xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_find_all(doc, x)), "./d1:LogKey")))  %>%
+           dplyr::mutate(tmpstemnrchange = dplyr::if_else(((.data$LogKeyII == 1) | .data$LogKeyII - dplyr::lag(.data$LogKeyII, default = 9)<1 ), 1, 0),
+                         tmpstmnr = cumsum(.data$tmpstemnrchange))
+         names(df)[1] = xnames
+
+         #names(df)[1] = stringr::str_extract(string = x, pattern = "\\w*$")
+         stmk = data.frame(StemKey = xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, x)))), "./d1:StemKey"))) %>%
+           dplyr::mutate( tmpstmnr = dplyr::row_number())
+         df = df %>% dplyr::left_join(stmk, by = c("tmpstmnr")) %>% dplyr::select(-tidyselect::starts_with("tmp"))
+         return(df)
+       } , to_map, varnames)
+
+       #dt1[[1]] %>% tibble::as_tibble() %>% utils::type.convert(as.is=TRUE) %>% dplyr::filter(.data$LogKey != .data$LogKeyII) %>% head()
+
+
+       logdt <- dt1[[1]]
+      if(length(dt1) > 1) {
+        for (i in 2:length(dt1)) {
+          logdt <- dplyr::full_join(logdt, dt1[[i]], by = c("StemKey", "LogKeyII"))
+        }
+      }
+       dt_logs <- logdt %>% utils::type.convert(as.is = TRUE) %>% select(-.data$LogKeyII)
+
+
+
 
   ### Log measurements by machine; Butt.ob, Butt.ub, Mid.ob, Mid.ub, ...
       xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:Log/d1:LogMeasurement[@logMeasurementCategory = 'Machine']"
