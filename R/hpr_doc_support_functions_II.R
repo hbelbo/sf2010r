@@ -105,13 +105,21 @@ cat("\n going Extension")
       to_map <- paste(".//d1:Stem/d1:", nodename, "/d1:",childrens_1_names, sep = "")
 
       dt1 <- Map(function(x) {  # For each extension variables, create a data.frame having the extension variable and corresponding StemKey
-        df <- data.frame(xml2::xml_text(xml2::xml_find_all(doc, x)),
-           StemKey = xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, x))), "./d1:StemKey")))
-        names(df)[1] = stringr::str_extract(string = x, pattern = "\\w*$")
-        return(df)
-                } , to_map)
-      names(dt1) <- stringr::str_extract(string = names(dt1), pattern = "\\w*$")
+        print(x);
+        df <- data.frame(xml2::xml_text(xml2::xml_find_all(doc, x)))
+        StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, x))), "./d1:StemKey"))
+        if(nrow(df)==length(StemKey)){ # Cant handle Extras if correspoinding StemKey is not found
+          df$StemKey = StemKey
+          names(df)[1] = stringr::str_extract(string = x, pattern = "\\w*$")
+          return(df)
+        } else {return(NULL)}
 
+                } , to_map)
+      names(dt1) <- stringr::str_extract( # Keep only last word of xpath as name
+        string = names(dt1), pattern = "\\w*$")
+
+      valids <- which(!(sapply(dt1, (is.null)))) #
+      dt1 <- dt1[valids]
 
       if(length(dt1) > 1) {
         extensions <- dt1[[1]]
