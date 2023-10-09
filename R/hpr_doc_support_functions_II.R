@@ -114,7 +114,6 @@ cat("\n going Extension")
 
 
       if(length(dt1) > 1) {
-        #df_list %>% purrr::reduce(dplyr::inner_join, by = bykey)
         extensions <- dt1[[1]]
         for (i in 2:length(dt1)) {
           #i = 2
@@ -123,6 +122,8 @@ cat("\n going Extension")
       } else {
         extensions <- dt1[[1]]
       }
+
+      extensions <- extensions %>% utils::type.convert(as.is = TRUE)
       stems <- dplyr::left_join(stems, extensions, by = c("StemKey"))
 
 #       dt1 <- Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map)
@@ -167,7 +168,7 @@ cat("\n going Extension")
     #dt1$StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_find_all(doc, xpt1)), "./d1:StemKey"))
     dt1$StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, to_map[1]))), "./d1:StemKey"))
 
-    Boompos <- dt1
+    Boompos <- dt1  %>% utils::type.convert(as.is = TRUE)
     stems <- dplyr::left_join(stems, Boompos, by = c("StemKey"))
   }
 
