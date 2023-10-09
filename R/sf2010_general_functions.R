@@ -95,7 +95,7 @@ xml_childs_dt <- function(y) {
 #' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
-#' getMachineReportHeader(doc)
+#' getMachineReportHeader(doc) %>% str()
 getMachineReportHeader <- function(doc){
 
    # .. from the header
@@ -358,6 +358,7 @@ getProductDefs <- function(doc){
   bmatrix <- plyr::ldply(ProductsList, sf2010r::getProductDef)
    MachineKey <- xml2::xml_text(xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
    bmatrix$MachineKey = MachineKey
+   bmatrix <- sf2010_type.convert(bmatrix)
   return(bmatrix)
    } else { return(NULL)}
 
@@ -534,6 +535,7 @@ getOperators <- function(doc){
     bmatrix <- plyr::ldply(OperatorList, getOperatorDef)
     MachineKey <- xml2::xml_text(xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
     bmatrix$MachineKey = MachineKey
+    bmatrix <- sf2010_type.convert(bmatrix)
     return(bmatrix)
     } else {
       return(NULL)
@@ -566,7 +568,7 @@ getObjectDefinition <- function(x){
   ObjectName <- xml2::xml_text(xml2::xml_find_first(x, "./d1:ObjectName"))
 
   #Tricky part; Logging form. Keep an eye on this approach
-  LoggingFormCode <- 10
+  LoggingFormCode <- "10"
   LoggingFormDesc <- "unknown"
   ObjLoggingFormCode <-  xml2::xml_integer(xml2::xml_find_first(x, "./d1:LoggingForm/d1:LoggingFormCode"))
   ObjLoggingFormDesc <- xml2::xml_text(xml2::xml_find_first(x, "./d1:LoggingForm/d1:LoggingFormDescription"))
@@ -581,8 +583,8 @@ getObjectDefinition <- function(x){
   LL <- length(SubObjectKey)
 
   if(LL){
-    LoggingFormCode <- rep(10, LL)
-    LoggingFormDesc <- rep("unknown", LL)
+    LoggingFormCode <- rep(LoggingFormCode, LL)
+    LoggingFormDesc <- rep(LoggingFormDesc, LL)
   }
 
   if(!is.null(ObjLoggingFormCode)) {LoggingFormCode[1:LL] <- ObjLoggingFormCode}
@@ -592,9 +594,9 @@ getObjectDefinition <- function(x){
     SubObjectName <- xml2::xml_text(xml2::xml_find_all(x, "./d1:SubObject/d1:SubObjectName"))
 
 
-    SubObjLoggingFormDesc <- rep(NA, LL)
-    SubObjLoggingFormCode <- rep(NA, LL)
-    SubObjectUserID <- rep(NA, LL)
+    SubObjLoggingFormDesc <- rep(NA_character_, LL)
+    SubObjLoggingFormCode <- rep(NA_character_, LL)
+    SubObjectUserID <- rep(NA_character_, LL)
     RealEstateIDSubObject <- xml2::xml_text(xml2::xml_find_all(x, "./d1:SubObject/d1:RealEstateIDSubObject"))
 
     subobjnodesets <- xml2::xml_find_all(x,  "./d1:SubObject")
@@ -616,8 +618,8 @@ getObjectDefinition <- function(x){
     SubObjectName <- "1"
     RealEstateIDSubObject<-  "1"
 
-    SubObjLoggingFormDesc <- NA
-    SubObjLoggingFormCode <- NA
+    SubObjLoggingFormDesc <- NA_character_
+    SubObjLoggingFormCode <- NA_character_
 
   }
 
@@ -647,7 +649,7 @@ getObjectDefinition <- function(x){
 #' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
-#' getObjects(doc)
+#' getObjects(doc) %>% str()
 #' @export
 getObjects <- function(doc){
   MachineKey = xml2::xml_text(xml2::xml_find_first(doc, "//d1:Machine/d1:MachineKey")) # alphanumeric key of length 18-60. GUI, following bucking computer.
@@ -655,6 +657,7 @@ getObjects <- function(doc){
   #bmatrix <- plyr::ldply(Objects_Nodesets, getObjectDefinition)
   bmatrix <- plyr::ldply(Objects_Nodesets, sf2010r::getObjectDefinition)
   bmatrix$MachineKey = MachineKey
+  bmatrix <- sf2010_type.convert(bmatrix)
   return(bmatrix)
 
 }
@@ -665,6 +668,28 @@ getObjects <- function(doc){
 
 
 
+#' Ensure correct data type for some StanForD2010 key variables
+#' @param df should be a data.frame
+#'
+#' @return the same data frame, but certain variables set to
+#' "correct" sf2010 data type
+#'
+#' @examples
+#' dataframe <- data.frame(MachineKey = 1:2L, ObjUserID = 1:2, LoggingFormDesc  = 1:2,
+#' v3 = c("a","b"), v4 = c(1:2))
+#' sf2010_type.convert(dataframe) %>% str()
+#' @export
+sf2010_type.convert <- function(df){
+  df <- utils::type.convert(df, as.is = TRUE)
+  #target_columns <- c("MachineKey", "MachineUserID", "ObjectUserID", "OperatorUserID", "ProductUserID")
+  target_columns <- c("MachineKey", colnames(df)[stringr::str_detect(colnames(df), "(UserID|Desc)$")])
+  existing_columns <- intersect(target_columns, colnames(df))
+  if (length(existing_columns) > 0) {
+    # Convert the columns to character vectors
+    df[existing_columns] <- lapply(df[existing_columns], as.character)
+  }
+  return(df)
+}
 
 
 
