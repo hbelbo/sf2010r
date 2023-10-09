@@ -676,17 +676,19 @@ getObjects <- function(doc){
 #'
 #' @examples
 #' dataframe <- data.frame(MachineKey = 1:2L, ObjUserID = 1:2, LoggingFormDesc  = 1:2,
-#' v3 = c("a","b"), v4 = c(1:2))
+#' v3 = c("a","b"), v4 = c(1:2), v5 = c("1", "3"))
 #' sf2010_type.convert(dataframe) %>% str()
 #' @export
 sf2010_type.convert <- function(df){
-  df <- utils::type.convert(df, as.is = TRUE)
+# df = dataframe
   #target_columns <- c("MachineKey", "MachineUserID", "ObjectUserID", "OperatorUserID", "ProductUserID")
   target_columns <- c("MachineKey", colnames(df)[stringr::str_detect(colnames(df), "(UserID|Desc)$")])
   existing_columns <- intersect(target_columns, colnames(df))
   if (length(existing_columns) > 0) {
     # Convert the columns to character vectors
     df[existing_columns] <- lapply(df[existing_columns], as.character)
+    df[!(names(df) %in% existing_columns)] <- lapply(df[!(names(df) %in% existing_columns)], utils::type.convert, as.is = TRUE)
+    #df <- utils::type.convert(df, as.is = TRUE)
   }
   return(df)
 }

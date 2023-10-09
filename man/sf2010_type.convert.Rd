@@ -18,6 +18,6 @@ Ensure correct data type for some StanForD2010 key variables
 }
 \examples{
 dataframe <- data.frame(MachineKey = 1:2L, ObjUserID = 1:2, LoggingFormDesc  = 1:2,
-v3 = c("a","b"), v4 = c(1:2))
+v3 = c("a","b"), v4 = c(1:2), v5 = c("1", "3"))
 sf2010_type.convert(dataframe) \%>\% str()
 }
