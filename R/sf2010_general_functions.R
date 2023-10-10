@@ -570,7 +570,7 @@ getObjectDefinition <- function(x){
   #    str(xml2::xml_integer(xml2::xml_find_first(x, "./d1:doesentexist")))
   #    str(xml2::xml_text(xml2::xml_find_first(x, "./d1:doesentexist")))
 
-  object_def <- as.data.frame(t(xml_childs_nchr(x))) %>%
+  object_def <- tibble::as_tibble(t(xml_childs_nchr(x))) %>%
     dplyr::mutate(ObjectKey = as.integer(.data$ObjectKey))
 
   sub_object_nodes  <- xml2::xml_find_all(x, "//d1:SubObject")
@@ -579,11 +579,11 @@ getObjectDefinition <- function(x){
 
     object_def <- do.call(rbind, replicate(length(sub_object_nodes), object_def, simplify = FALSE))
     subobj_defs <- lapply(X = sub_object_nodes, FUN = function(X){
-      as.data.frame(t(xml_childs_nchr(X))) %>%
+      tibble::as_tibble(t(xml_childs_nchr(X))) %>%
         dplyr::mutate(SubObjectKey = as.integer(.data$SubObjectKey))
     })
 
-    subobj_defs <- do.call(dplyr::bind_rows, lapply(subobj_defs, as.data.frame)) %>%
+    subobj_defs <- do.call(dplyr::bind_rows, lapply(subobj_defs, tibble::as_tibble)) %>%
       dplyr::mutate(SubObjectKey = as.integer(.data$SubObjectKey))
     object_def <- dplyr::bind_cols(object_def, subobj_defs)
 
