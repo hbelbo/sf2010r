@@ -19,5 +19,5 @@ Get the operator definitions from a StanFord2010 xml document
 hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
-getOperators(doc)
+getOperators(doc) \%>\% str()
 }

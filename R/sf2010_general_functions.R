@@ -177,7 +177,7 @@ MtcClean <- function(mtc){
 #'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' SpeciesList <- xml2::xml_find_all(doc, ".//d1:SpeciesGroupDefinition" )
-#' getSpeciesGroupDef(SpeciesList[[1]])
+#' getSpeciesGroupDef(SpeciesList[[1]]) %>% str()
 #' species <- plyr::ldply(SpeciesList, getSpeciesGroupDef)
 getSpeciesGroupDef <- function(x) {
   # x <- SpeciesList[[1]]
@@ -200,7 +200,7 @@ getSpeciesGroupDef <- function(x) {
 #' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
-#' getSpeciesGroupDefinitions(doc)
+#' getSpeciesGroupDefinitions(doc) %>% str()
 getSpeciesGroupDefinitions <- function(doc){
   SpeciesList <- xml2::xml_find_all(doc, ".//d1:SpeciesGroupDefinition" )
   if(length(SpeciesList)){
@@ -264,7 +264,7 @@ getStemTypes <- function(doc){
   SpeciesList <- xml2::xml_find_all(doc, ".//d1:SpeciesGroupDefinition" )
   if(length(SpeciesList)) {
     bmatrix <- plyr::ldply(SpeciesList, sf2010r::getStemTypeDefs)
-    MachineKey <-  xml2::xml_text( xml2::xml_find_all(doc, ".//d1:Machine/d1:MachineKey"))
+    MachineKey <-  xml2::xml_text( xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
     bmatrix$MachineKey = MachineKey
     return(bmatrix)
   } else {
@@ -285,7 +285,7 @@ getStemTypes <- function(doc){
 #'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
 #' ProductsList <- xml2::xml_find_all(doc, ".//d1:ProductDefinition" )
-#' getProductDef(ProductsList[[1]]) %>% dplyr::glimpse()
+#' getProductDef(ProductsList[[1]]) %>% str()
 #' plyr::ldply(ProductsList, getProductDef )
 getProductDef <- function(x) {
   # x <- ProductsList[[1]]
@@ -347,7 +347,7 @@ getProductDef <- function(x) {
 #' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
-#' getProductDefs(doc)
+#' getProductDefs(doc) %>% str()
 #' doc <- xml2::read_xml(hprfiles[2])
 #' getProductDefs(doc)
 getProductDefs <- function(doc){
@@ -358,7 +358,7 @@ getProductDefs <- function(doc){
   bmatrix <- plyr::ldply(ProductsList, sf2010r::getProductDef)
    MachineKey <- xml2::xml_text(xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
    bmatrix$MachineKey = MachineKey
-   bmatrix <- sf2010_type.convert(bmatrix)
+   #bmatrix <- sf2010_type.convert(bmatrix)
   return(bmatrix)
    } else { return(NULL)}
 
@@ -528,14 +528,14 @@ getOperatorDef <- function(x) {
 #' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
-#' getOperators(doc)
+#' getOperators(doc) %>% str()
 getOperators <- function(doc){
  OperatorList <- xml2::xml_find_all(doc, "//d1:OperatorDefinition")
   if(length(OperatorList)){
     bmatrix <- plyr::ldply(OperatorList, getOperatorDef)
     MachineKey <- xml2::xml_text(xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
     bmatrix$MachineKey = MachineKey
-    bmatrix <- sf2010_type.convert(bmatrix)
+    #bmatrix <- sf2010_type.convert(bmatrix)
     return(bmatrix)
     } else {
       return(NULL)
@@ -554,88 +554,122 @@ getOperators <- function(doc){
 #' @examples
 #' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' doc <- xml2::read_xml(hprfiles[1])
+#' doc <- xml2::read_xml(hprfiles[2])
 #' Objects_nodes <- xml2::xml_find_all(doc, "//d1:ObjectDefinition")
-#' getObjectDefinition(Objects_nodes[1])
+#' getObjectDefinition(Objects_nodes[1]) %>% str()
+#' plyr::ldply(Objects_nodes, getObjectDefinition)
+#' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'  pattern = ".fpr", recursive = TRUE, full.names= TRUE)
+#' doc <- xml2::read_xml(fprfiles[1])
+#' Objects_nodes <- xml2::xml_find_all(doc, "//d1:ObjectDefinition")
+#' getObjectDefinition(Objects_nodes[1]) %>% str()
 #' plyr::ldply(Objects_nodes, getObjectDefinition)
 #' @export
 getObjectDefinition <- function(x){
   # x =Objects_nodes[[1]]
+  #    str(xml2::xml_integer(xml2::xml_find_first(x, "./d1:doesentexist")))
+  #    str(xml2::xml_text(xml2::xml_find_first(x, "./d1:doesentexist")))
 
-  ObjectKey <- xml2::xml_integer(xml2::xml_find_first(x, "./d1:ObjectKey"))
+  object_def <- as.data.frame(t(xml_childs_nchr(x))) %>%
+    dplyr::mutate(ObjectKey = as.integer(.data$ObjectKey))
 
-  ObjectUserID <- xml2::xml_text(xml2::xml_find_first(x, "./d1:ObjectUserID")) # GUID, equals Logging unit (Var21.1) in old stanford.
-  ObjectName <- xml2::xml_text(xml2::xml_find_first(x, "./d1:ObjectName"))
+  sub_object_nodes  <- xml2::xml_find_all(x, "//d1:SubObject")
+  if(length(sub_object_nodes)){
+    # replicate the object definition row n = number of sub object defs
 
-  #Tricky part; Logging form. Keep an eye on this approach
-  LoggingFormCode <- "10"
-  LoggingFormDesc <- "unknown"
-  ObjLoggingFormCode <-  xml2::xml_integer(xml2::xml_find_first(x, "./d1:LoggingForm/d1:LoggingFormCode"))
-  ObjLoggingFormDesc <- xml2::xml_text(xml2::xml_find_first(x, "./d1:LoggingForm/d1:LoggingFormDescription"))
+    object_def <- do.call(rbind, replicate(length(sub_object_nodes), object_def, simplify = FALSE))
+    subobj_defs <- lapply(X = sub_object_nodes, FUN = function(X){
+      as.data.frame(t(xml_childs_nchr(X))) %>%
+        dplyr::mutate(SubObjectKey = as.integer(.data$SubObjectKey))
+    })
 
-
-  ContractNumber <-  xml2::xml_text(xml2::xml_find_first(x, "./d1:ContractNumber"))
-  RealEstateIDObject <-  xml2::xml_text(xml2::xml_find_first(x, "./d1RealEstateIDObject"))
-  StartDate <-  xml2::xml_text(xml2::xml_find_first(x, "./d1:StartDate"))
-
-  # Sub object data
-  SubObjectKey <- xml2::xml_integer(xml2::xml_find_all(x, "./d1:SubObject/d1:SubObjectKey"))
-  LL <- length(SubObjectKey)
-
-  if(LL){
-    LoggingFormCode <- rep(LoggingFormCode, LL)
-    LoggingFormDesc <- rep(LoggingFormDesc, LL)
-  }
-
-  if(!is.null(ObjLoggingFormCode)) {LoggingFormCode[1:LL] <- ObjLoggingFormCode}
-  if(!is.null(ObjLoggingFormDesc)) {LoggingFormDesc[1:LL] <- ObjLoggingFormDesc}
-
-  if(LL){
-    SubObjectName <- xml2::xml_text(xml2::xml_find_all(x, "./d1:SubObject/d1:SubObjectName"))
-
-
-    SubObjLoggingFormDesc <- rep(NA_character_, LL)
-    SubObjLoggingFormCode <- rep(NA_character_, LL)
-    SubObjectUserID <- rep(NA_character_, LL)
-    RealEstateIDSubObject <- xml2::xml_text(xml2::xml_find_all(x, "./d1:SubObject/d1:RealEstateIDSubObject"))
-
-    subobjnodesets <- xml2::xml_find_all(x,  "./d1:SubObject")
-    for (i in 1:length(subobjnodesets)){
-      parsedset <- subobjnodesets[i]
-      SubObjectUserID[i] <- xml2::xml_text(xml2::xml_find_all(parsedset, "./d1:SubObjectUserID"))
-
-      lfc <- xml2::xml_text(xml2::xml_find_first(parsedset, ".//d1:LoggingFormCode"))
-      lfd <- xml2::xml_text(xml2::xml_find_first(parsedset, ".//d1:LoggingFormDescription"))
-
-      if(length(lfc)) {SubObjLoggingFormCode[i] <- lfc}
-      if(length(lfd)) {SubObjLoggingFormDesc[i] <- lfd}
-    }
-
-
-  } else { #if there is no subobjectkey
-    SubObjectUserID <-  "1"
-    SubObjectKey <- 1
-    SubObjectName <- "1"
-    RealEstateIDSubObject<-  "1"
-
-    SubObjLoggingFormDesc <- NA_character_
-    SubObjLoggingFormCode <- NA_character_
+    subobj_defs <- do.call(dplyr::bind_rows, lapply(subobj_defs, as.data.frame)) %>%
+      dplyr::mutate(SubObjectKey = as.integer(.data$SubObjectKey))
+    object_def <- dplyr::bind_cols(object_def, subobj_defs)
 
   }
 
-  LoggingFormCode[!is.na(SubObjLoggingFormCode)] = SubObjLoggingFormCode[!is.na(SubObjLoggingFormCode)]
-  LoggingFormDesc[!is.na(SubObjLoggingFormDesc)] = SubObjLoggingFormDesc[!is.na(SubObjLoggingFormDesc)]
+#### The following to be removed ---------
+  # ObjectKey <- xml2::xml_integer(xml2::xml_find_first(x, "./d1:ObjectKey"))
+  # ObjectUserID <- xml2::xml_text(xml2::xml_find_first(x, "./d1:ObjectUserID")) # GUID, equals Logging unit (Var21.1) in old stanford.
+  # ObjectName <- xml2::xml_text(xml2::xml_find_first(x, "./d1:ObjectName"))
+  #
+  #
+  #
+  # ContractNumber <-  xml2::xml_text(xml2::xml_find_first(x, "./d1:ContractNumber"))
+  # RealEstateIDObject <-  xml2::xml_text(xml2::xml_find_first(x, "./d1:RealEstateIDObject"))
+  # StartDate <-  xml2::xml_text(xml2::xml_find_first(x, "./d1:StartDate"))
+  #
+  # #Tricky part; Logging form. Keep an eye on this approach
+  # LoggingFormCode <- "none"
+  # LoggingFormDesc <- "none"
+  # ObjLoggingFormCode <-  stringr::str_replace(xml2::xml_text(xml2::xml_find_first(x, "./d1:LoggingForm/d1:LoggingFormCode")), pattern = "[\\n\\t]*", replacement = "")
+  # ObjLoggingFormDesc <- stringr::str_replace(string =  xml2::xml_text(xml2::xml_find_first(x, "./d1:LoggingForm/d1:LoggingFormDescription")), pattern = "[\\n\\t]*", replacement = "")
+  #
+  # # Sub object data
+  # SubObjectKey <- xml2::xml_integer(xml2::xml_find_all(x, "./d1:SubObject/d1:SubObjectKey"))
+  # LL <- length(SubObjectKey)
 
-  ObjectUserID <- rep(ObjectUserID,  length(SubObjectKey))
+
+  # if(LL>0){
+  #   #These variables may or may not be present in each subobject. To ensure
+  #   # correct allocation of data we use the following approach
+  #   SubObjectName <- xml2::xml_text(xml2::xml_find_all(x, "./d1:SubObject/d1:SubObjectName"))
+  #
+  #   LoggingFormCode <- rep(LoggingFormCode, LL)
+  #   LoggingFormDesc <- rep(LoggingFormDesc, LL)
+  #   if(!is.null(ObjLoggingFormCode)) {LoggingFormCode[1:LL] <- ObjLoggingFormCode}
+  #   if(!is.null(ObjLoggingFormDesc)) {LoggingFormDesc[1:LL] <- ObjLoggingFormDesc}
+  #
+  #   SubObjLoggingFormDesc <- rep(NA_character_, LL)
+  #   SubObjLoggingFormCode <- rep(NA_character_, LL)
+  #   SubObjectUserID <- rep(NA_character_, LL)
+  #   RealEstateIDSubObject <- stringr::str_replace(xml2::xml_text(xml2::xml_find_all(x, "./d1:SubObject/d1:RealEstateIDSubObject")), pattern = "[\\n\\t]*", replacement = "")
+  #
+  #   subobjnodesets <- xml2::xml_find_all(x,  "./d1:SubObject")
+  #   for (i in 1:length(subobjnodesets)){
+  #     parsedset <- subobjnodesets[i]
+  #     SubObjectUserID[i] <- xml2::xml_text(xml2::xml_find_first(parsedset, "./d1:SubObjectUserID"))
+  #
+  #     # str( xml2::xml_text(xml2::xml_find_first(parsedset, ".//d1:doesentexist")))
+  #     # no_demo <- xml2::xml_text(xml2::xml_find_first(parsedset, ".//d1:doesentexist"))
+  #
+  #     lfc <- stringr::str_replace(xml2::xml_text(xml2::xml_find_first(parsedset, ".//d1:LoggingFormCode")), pattern = "[\\n\\t]*", replacement = "")
+  #     lfd <- stringr::str_replace(xml2::xml_text(xml2::xml_find_first(parsedset, ".//d1:LoggingFormDescription")), pattern = "[\\n\\t]*", replacement = "")
+  #
+  #
+  #     if(!is.na(lfc) & nchar(lfc)>0) {SubObjLoggingFormCode[i] <- lfc}
+  #     if(!is.na(lfd)& nchar(lfd)>0) {SubObjLoggingFormDesc[i] <- lfd}
+  #
+  #
+  #   }
+  #
+  #
+  # } else { #if there is no subobjectkey
+  #   SubObjectUserID <-  "1"
+  #   SubObjectKey <- 1
+  #   SubObjectName <- "1"
+  #   RealEstateIDSubObject<-  "1"
+  #
+  #   SubObjLoggingFormCode <- NA_character_
+  #   SubObjLoggingFormDesc <- NA_character_
+  #
+  #
+  # }
+  #
+  # LoggingFormCode[!is.na(SubObjLoggingFormCode)] = SubObjLoggingFormCode[!is.na(SubObjLoggingFormCode)]
+  # LoggingFormDesc[!is.na(SubObjLoggingFormDesc)] = SubObjLoggingFormDesc[!is.na(SubObjLoggingFormDesc)]
+  #
+  # ObjectUserID <- rep(ObjectUserID,  length(SubObjectKey))
+  #
+  #
+  # ObjectDefinition <- tibble::tibble(ObjectUserID, ObjectName, ObjectKey,
+  #                                SubObjectUserID, SubObjectName, SubObjectKey,
+  #                                LoggingFormCode,  LoggingFormDesc,
+  #                                RealEstateIDObject, RealEstateIDSubObject, ContractNumber, StartDate)
 
 
-  ObjectDefinition <- tibble::tibble(ObjectUserID, ObjectName, ObjectKey,
-                                 SubObjectUserID, SubObjectName, SubObjectKey,
-                                 LoggingFormCode,  LoggingFormDesc,
-                                 RealEstateIDObject, RealEstateIDSubObject, ContractNumber, StartDate)
-
-
-   return(ObjectDefinition)
+   return(object_def)
 }
 
 
@@ -648,7 +682,11 @@ getObjectDefinition <- function(x){
 #' @examples
 #' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' doc <- xml2::read_xml(hprfiles[1])
+#' doc <- xml2::read_xml(hprfiles[2])
+#' getObjects(doc) %>% str()
+#' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'  pattern = ".fpr", recursive = TRUE, full.names= TRUE)
+#' doc <- xml2::read_xml(fprfiles[1])
 #' getObjects(doc) %>% str()
 #' @export
 getObjects <- function(doc){
@@ -657,7 +695,7 @@ getObjects <- function(doc){
   #bmatrix <- plyr::ldply(Objects_Nodesets, getObjectDefinition)
   bmatrix <- plyr::ldply(Objects_Nodesets, sf2010r::getObjectDefinition)
   bmatrix$MachineKey = MachineKey
-  bmatrix <- sf2010_type.convert(bmatrix)
+ # bmatrix <- sf2010_type.convert(bmatrix)
   return(bmatrix)
 
 }

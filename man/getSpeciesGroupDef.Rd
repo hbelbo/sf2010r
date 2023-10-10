@@ -20,6 +20,6 @@ hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
 SpeciesList <- xml2::xml_find_all(doc, ".//d1:SpeciesGroupDefinition" )
-getSpeciesGroupDef(SpeciesList[[1]])
+getSpeciesGroupDef(SpeciesList[[1]]) \%>\% str()
 species <- plyr::ldply(SpeciesList, getSpeciesGroupDef)
 }

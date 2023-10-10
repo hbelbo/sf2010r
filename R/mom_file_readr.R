@@ -27,7 +27,7 @@ mom_file_readr <- function(momfile){
  # "/MOM_V3_3_MaxiXT_1_7_combined_mwt.mom"
  # "/MOM_Vimek_harvester_sf2010v20_individual_mwt.MOM"
 
-    # momfile <- momfiles[1]
+    # momfile <- momfiles[4]
 
   doc <- xml2::read_xml(momfile)
   con <- file(momfile)

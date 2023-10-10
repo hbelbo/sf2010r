@@ -19,5 +19,5 @@ Get all species definitions within a SF2010 doc
 hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(hprfiles[1])
-getSpeciesGroupDefinitions(doc)
+getSpeciesGroupDefinitions(doc) \%>\% str()
 }
