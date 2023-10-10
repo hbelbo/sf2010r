@@ -567,21 +567,21 @@ getOperators <- function(doc){
 #' @export
 getObjectDefinition <- function(x){
   # x =Objects_nodes[[1]]
+  # x = Objects_Nodesets[[1]]
   #    str(xml2::xml_integer(xml2::xml_find_first(x, "./d1:doesentexist")))
   #    str(xml2::xml_text(xml2::xml_find_first(x, "./d1:doesentexist")))
 
-  object_def <- tibble::as_tibble(t(xml_childs_nchr(x))) %>%
+  object_def <- tibble::as_tibble(t(xml_childs_nchr(x) ), .name_repair = "universal") %>%
     dplyr::mutate(ObjectKey = as.integer(.data$ObjectKey))
 
   sub_object_nodes  <- xml2::xml_find_all(x, "//d1:SubObject")
   if(length(sub_object_nodes)){
     # replicate the object definition row n = number of sub object defs
-
     object_def <- do.call(rbind, replicate(length(sub_object_nodes), object_def, simplify = FALSE))
+
     subobj_defs <- lapply(X = sub_object_nodes, FUN = function(X){
-      tibble::as_tibble(t(xml_childs_nchr(X))) %>%
-        dplyr::mutate(SubObjectKey = as.integer(.data$SubObjectKey))
-    })
+      tibble::as_tibble(t(xml_childs_nchr(X)), .name_repair = "universal") %>%
+        dplyr::mutate(SubObjectKey = as.integer(.data$SubObjectKey))})
 
     subobj_defs <- do.call(dplyr::bind_rows, lapply(subobj_defs, tibble::as_tibble)) %>%
       dplyr::mutate(SubObjectKey = as.integer(.data$SubObjectKey))
