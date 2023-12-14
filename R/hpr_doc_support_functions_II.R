@@ -243,6 +243,31 @@ cat("\n going Extension")
 
     returnlist <- list(stems = stems)
 
+  ##### StemGrades -----------------
+    # Detect StemGrades in single tree processed stems
+    xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:StemGrade"
+    grade_stem1 <-  xml2::xml_parent(xml2::xml_find_first(doc, xpt1))
+    if(!is.na(grade_stem1)){
+      gvs <- xml2::xml_find_all(doc, xpt1)
+      p_grades_stp <-  xml2::xml_parent(xml2::xml_find_all(doc, xpt1))
+      stemgrades <-  xml2::xml_integer(xml2::xml_find_all(gvs, "./d1:GradeValue"))
+      StemKeys2 <- unlist(sapply(p_grades_stp, function(y) { # Create a vector of stemkeys cooresponding to each entry of StemGrade
+        rep(xml2::xml_integer(  #For each stem entry having Stemgrade, repeat the corresponding stemkey for each StemGrade
+          xml2::xml_find_first(
+            xml2::xml_parent(y), "./d1:StemKey")),
+          each = length(xml2::xml_find_all(y, xpath = "./d1:StemGrade")))
+        }))
+
+      gradestartpos <-  as.numeric( unlist(sapply(gvs, function(y) {
+        xml2::xml_attr(xml2::xml_child(y), attr = "gradeStartPosition")
+      })))
+
+      stemgrades <- data.frame(StemKey = StemKeys2, GradeStartPosition = gradestartpos, Grade = stemgrades )
+      returnlist <- c(returnlist, list(stemgrades = stemgrades))
+    }
+
+
+
 
   #### STP Logs ######
     cat("\n going  STP_Logs")
