@@ -133,13 +133,13 @@ hpr_file_readr_II <- function(hprfile, read.diavector = FALSE){
     # Grade vector for each tree: -------
 
     # #Denne IF() skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
-    # if(sum(StemsLogs$stemgrades$gradestartpos_cm > 0)>0){
-    #   if (min(StemsLogs$stemgrades$gradestartpos_cm[StemsLogs$stemgrades$gradestartpos_cm > 0])<20){ #DETTE skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
-    #     StemsLogs$stemgrades$gradestartpos_cm = StemsLogs$stemgrades$gradestartpos_cm*10
-    #   }}
-    #
-    # grades <- StemsLogs$stemgrades %>% dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
-    # returnlist <- c(returnlist, grades = list(grades))
+     if(sum(StemsLogs$stemgrades$gradestartpos_cm > 0)>0){
+       if (min(StemsLogs$stemgrades$gradestartpos_cm[StemsLogs$stemgrades$gradestartpos_cm > 0])<20){ #DETTE skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
+         StemsLogs$stemgrades$gradestartpos_cm = StemsLogs$stemgrades$gradestartpos_cm*10
+       }}
+
+     grades <- StemsLogs$stemgrades %>% dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
+     returnlist <- c(returnlist, grades = list(grades))
 
     # height diameter dataset: StemKey diaheight dia_ob_cm, dia_ub_cm -------
 
