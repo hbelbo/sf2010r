@@ -1,5 +1,53 @@
 
 
+
+
+
+#' Type converter for sf2010 data frames
+#' @description This function applies readr::type_convert()
+#' on character columns of a data frame,
+#' except for column named MachineKey which is forced to keep the original type,
+#' other *Key variables which are being converted to integer if they are numeric
+#' and except non-character columns
+#' @param df data.frame or tbl_df
+#'
+#' @return  tbl_df, with same columns as input data frame.
+#' @export
+#'
+#' @examples
+#' df <- data.frame(MachineKey = rep("a", 3), ObjectKey = "1", StemKey = 1:3, dbh = as.character(seq(20, 24, length = 3)))
+#' str(type_convert_sf2010(df))
+type_convert_sf2010 <- function(df){
+  #dfch_tc <- df[, sapply(df, class) == 'character']
+  dfch_tc <- df %>% select(where(is.character))
+  dfrest <- df %>% select(!where(is.character))
+  df_return <- data.frame(tmp1 = 1:nrow(df))
+  if(ncol(dfrest)>0) {
+    df_return <- dplyr::bind_cols(df_return, dfrest)
+  }
+
+  if("MachineKey" %in% names(dfch_tc)){
+    df_return <- dplyr::bind_cols(df_return, dfch_tc %>% dplyr::select(MachineKey))
+    dfch_tc <- dfch_tc %>% dplyr::select(-MachineKey)
+  }
+
+  if(ncol(dfch_tc)>0){
+    if(any(stringr::str_detect(names(dfch_tc), "Key$"))){
+
+      dfch_tc_keys <- readr::type_convert(dfch_tc %>% dplyr::select(dplyr::ends_with("Key")), guess_integer = TRUE)
+      df_return <- dplyr::bind_cols(df_return, dfch_tc_keys )
+    }
+    if(any(!stringr::str_detect(names(dfch_tc), "Key$"))){
+      dfch_tc_rest <- readr::type_convert(dfch_tc %>% dplyr::select(-dplyr::ends_with("Key")))
+      df_return <- dplyr::bind_cols(df_return, dfch_tc_rest )
+    }
+  }
+  df_return <- df_return %>% dplyr::select(-tmp1)
+  return(df_return)
+}
+
+
+
 #' Make a named character vector of children values
 #' @description This function takes a xml node and return a
 #' named character vector, where the names are the child node names
