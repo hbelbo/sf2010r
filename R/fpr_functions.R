@@ -177,7 +177,7 @@ getLocations <- function(doc){
     bmatrix <- plyr::ldply(loadlist, sf2010r::getLoad)
     #bmatrix <- plyr::ldply(loadlist, getLoad)
     onepartialload <- xml2::xml_find_first(loadlist[[1]], ".//d1:PartialLoad")
-    plvsc <-xml2::xml_attr(xml2::xml_find_all(onepartialload, ".//d1:LoadVolume"), attr = "loadVolumeCategory"  )
+    plvsc <- xml2::xml_attr(xml2::xml_find_all(onepartialload, ".//d1:LoadVolume"), attr = "loadVolumeCategory"  )
     plvsc <- stringr::str_replace(ifelse(stringr::str_detect(plvsc, pattern = "m3sob|m3sub"), yes = plvsc, no = "Load_othervm"), pattern = "Volume, ", "Load_")
 
     tst <- names(bmatrix)
@@ -188,5 +188,81 @@ getLocations <- function(doc){
     bmatrix$MachineKey = MachineKey
     return(bmatrix)
   }
+
+
+
+#' getLoads2 - alternative and hopefully faster altenative to getLoads()
+#'
+#' @param doc a StanFord2010 .fpr xml-document
+#'
+#' @return  a tibble
+#' @export
+#'
+#' @examples
+#' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".fpr", recursive = TRUE, full.names= TRUE)
+#' doc <- xml2::read_xml(fprfiles[1])
+#' getLoads2(doc)
+getLoads2 <- function(doc){
+    xpt1 <- ".//d1:PartialLoad"
+    pload1 <-  xml2::xml_find_first(doc, xpt1)
+    load1 <-  xml2::xml_parent(xml2::xml_find_first(doc, xpt1))
+
+    stopifnot( !is.na(pload1) )
+
+    # Create XPath expressions for each child node ( load data entry)
+    ldnames <- xml2::xml_name(xml2::xml_children(load1))
+    ldnames <- ldnames[ldnames != "PartialLoad"]
+    xpath_expressions <- paste0(".//d1:Load/d1:", ldnames)
+    #Get data
+    lvalues <- lapply(xpath_expressions, function(xpath) xml2::xml_text(xml2::xml_find_all(doc, xpath)) )
+    # Reshuffle to dataframe format
+    lvalues <- matrix(unlist(lvalues), ncol = length(lvalues), byrow = FALSE)
+    lvalues <- as.data.frame(lvalues)
+    # Create and insert good names
+    colnames(lvalues) <- ldnames
+    lvalues <- dplyr::mutate(lvalues, dplyr::across( .cols = tidyselect::ends_with("Key"), .fns = as.integer))
+
+     # Create XPath expressions for each child node (partial load data entry)
+    pls <- xml2::xml_find_all(doc, xpt1)
+    plsp <- xml2::xml_parent(pls)
+    plv_attr_ <- xml2::xml_attr(xml2::xml_children(pload1),  attr = "loadVolumeCategory"  )
+    plnames <- xml2::xml_name(xml2::xml_children(pload1))
+    xpath_expressions <- mapply(x = plv_attr_, y = plnames,
+           FUN = function(x, y){ ifelse(is.na(x),
+                        paste0(".//d1:PartialLoad/d1:", y),
+                        paste0(".//d1:PartialLoad/d1:", y, "[@loadVolumeCategory = '", x, "']"))}
+             )
+    xpath_expressions <- unname(xpath_expressions)
+    # Get all partial load values in one go for each partial load variable name
+    plvalues <- lapply(xpath_expressions, function(xpath) xml2::xml_text(xml2::xml_find_all(doc, xpath)) )
+    # Reshuffle to dataframe format
+    plvalues <- matrix(unlist(plvalues), ncol = length(plvalues), byrow = FALSE)
+    plvalues <- as.data.frame(plvalues)
+
+    # Create and insert good names
+    plv_attr <- xml2::xml_attr(xml2::xml_find_all(pload1, ".//d1:LoadVolume"), attr = "loadVolumeCategory"  )
+    plvsc_attr <- stringr::str_replace(ifelse(stringr::str_detect(plv_attr, pattern = "m3sob|m3sub"), yes = plv_attr, no = "Load_othervm"), pattern = "Volume, ", "Load_")
+    plvsc_attr <- make.names(plvsc_attr, unique = TRUE)
+    plnames_ <- c(plnames[!stringr::str_detect(plnames, pattern = "LoadVolume")], plvsc_attr)
+    colnames(plvalues) <- plnames_
+    # dplyr::glimpse(plvalues)
+
+    plvalues <- dplyr::mutate(plvalues, dplyr::across( .cols = tidyselect::ends_with("Key"), .fns = as.integer))
+
+
+    # Add LoadKey from parent loads
+    LoadKeys <- unlist(sapply(plsp, function(y) { # Create a vector of stemkeys cooresponding to each entry of StemGrade
+      rep(xml2::xml_integer(  #For each stem entry having Stemgrade, repeat the corresponding stemkey for each StemGrade
+        xml2::xml_find_first(y, "./d1:LoadKey")),
+        each = length(xml2::xml_find_all(y, xpath = "./d1:PartialLoad")))
+    }))
+    plvalues$LoadKey <- LoadKeys
+
+    loaddf <- dplyr::left_join(plvalues, lvalues, by = c("LoadKey"))
+    return(loaddf)
+
+  }
+
 
 
