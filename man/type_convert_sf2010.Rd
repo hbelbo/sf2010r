@@ -20,6 +20,7 @@ other *Key variables which are being converted to integer if they are numeric
 and except non-character columns
 }
 \examples{
-df <- data.frame(MachineKey = rep("a", 3), ObjectKey = "1", StemKey = 1:3, dbh = as.character(seq(20, 24, length = 3)))
+df <- data.frame(MachineKey = rep("a", 3), ObjectKey = "1",
+  StemKey = 1:3, dbh = as.character(seq(20, 24, length = 3)))
 str(type_convert_sf2010(df))
 }
