@@ -103,6 +103,82 @@ getLocations <- function(doc){
     return(bmatrix)
   }
 
+  #' Get deliveries data for all deliveries within a SF2010 .fpr file
+  #'
+  #' @param doc a StanFord2010 .hpr xml-document
+  #'
+  #' @return a tibble
+  #' @export
+  #'
+  #' @examples
+  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
+  #'    pattern = ".fpr", recursive = TRUE, full.names= TRUE)
+  #' str(getDeliveries2(xml2::read_xml(fprfiles[1])))
+  #' str(getDeliveries2( xml2::read_xml(fprfiles[2])))
+  getDeliveries2 <- function(doc){
+  # doc <- xml2::read_xml(fprfiles[1])
+  #  doc <- xml2::read_xml(fprfiles[2])
+    xpt1 <- ".//d1:DeliveryDefinition"
+    delivery1 <-  xml2::xml_find_first(doc, xpt1)
+
+    stopifnot( !is.na(delivery1) )
+
+    # Create XPath expressions for each child node ( deliverydefinition data entry)
+    ddnames <- xml2::xml_name(xml2::xml_children(delivery1))
+    ddnames_attr <- xml2::xml_attr(xml2::xml_children(delivery1),  attr = "densityCategory"  )
+    ddnsub <- xml2::xml_length(xml2::xml_children(delivery1))
+
+    # Those not having having childs
+      ddnames1 <- ddnames[ddnsub == 0]
+      ddnames_attr1 <- ddnames_attr[ddnsub == 0]
+
+      xpath_expressions1 <- mapply(x = ddnames_attr1, y = ddnames1,
+                                  FUN = function(x, y){ ifelse(is.na(x),
+                                                               paste0(".//d1:DeliveryDefinition/d1:", y),
+                                                               paste0(".//d1:DeliveryDefinition/d1:", y, "[@densityCategory = '", x, "']"))}
+      )     %>%  unname()
+      dlvrs <- lapply(xpath_expressions1, function(xpath) xml2::xml_text(xml2::xml_find_all(doc, xpath)) )
+
+      # Reshuffle to dataframe format
+      dlvrs <- matrix(unlist(dlvrs), ncol = length(dlvrs), byrow = FALSE)
+      dlvrs <- as.data.frame(dlvrs)
+      # Create and insert good names
+      #ddnames_attr <- ifelse(is.na(ddnames_attr), "", make.names(ddnames_attr))
+      dnames1 <- ifelse(is.na(ddnames_attr1), ddnames1, paste0(ddnames1, ".", make.names(ddnames_attr1)))
+      colnames(dlvrs) <- dnames1
+
+
+    # Those having childs
+      ddnames2 <- ddnames[ddnsub != 0]
+      #  ddnames2 <- ddnames[ddnsub == 5]
+      if(length(ddnames2)>0){
+        xpt2 <- paste0(".//d1:DeliveryDefinition/d1:", ddnames2)
+        ddch <- xml2::xml_find_first(doc, xpt2)
+        ddchnames <- xml2::xml_name(xml2::xml_children(ddch))
+
+
+        xpath_expressions2 <- mapply( y = ddchnames,
+                                    FUN = function( y){ paste0(xpt2, "/d1:", y)}
+        )     %>%  unname()
+        dlvrs2 <- lapply(xpath_expressions2, function(xpath) xml2::xml_text(xml2::xml_find_all(doc, xpath)) )
+
+        # Reshuffle to dataframe format
+        dlvrs2 <- matrix(unlist(dlvrs2), ncol = length(dlvrs2), byrow = FALSE)
+        dlvrs2 <- as.data.frame(dlvrs2)
+        # Create and insert good names
+        #ddnames_attr <- ifelse(is.na(ddnames_attr), "", make.names(ddnames_attr))
+        colnames(dlvrs2) <- ddchnames
+
+       dlvrs <- dplyr::bind_cols(dlvrs, dlvrs2)
+      }
+
+      # Then drop empty variables
+      w <- apply(dlvrs, 2,  FUN = function(x) {max(nchar(x))})
+      dlvrs <- dlvrs[,w!=0]
+
+    return(dlvrs)
+  }
+
 
 
   #' Partial Load data from one Load  node
@@ -202,8 +278,10 @@ getLocations <- function(doc){
 #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".fpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(fprfiles[1])
-#' getLoads2(doc)
+#' str(getLoads2(doc))
+#' str(getLoads2(xml2::read_xml(fprfiles[2])))
 getLoads2 <- function(doc){
+  # doc <- xml2::read_xml(fprfiles[2])
     xpt1 <- ".//d1:PartialLoad"
     pload1 <-  xml2::xml_find_first(doc, xpt1)
     load1 <-  xml2::xml_parent(xml2::xml_find_first(doc, xpt1))
@@ -236,17 +314,28 @@ getLoads2 <- function(doc){
     xpath_expressions <- unname(xpath_expressions)
     # Get all partial load values in one go for each partial load variable name
     plvalues <- lapply(xpath_expressions, function(xpath) xml2::xml_text(xml2::xml_find_all(doc, xpath)) )
+    # str(plvalues)
     # Reshuffle to dataframe format
     plvalues <- matrix(unlist(plvalues), ncol = length(plvalues), byrow = FALSE)
     plvalues <- as.data.frame(plvalues)
+    # str(plvalues)
 
     # Create and insert good names
-    plv_attr <- xml2::xml_attr(xml2::xml_find_all(pload1, ".//d1:LoadVolume"), attr = "loadVolumeCategory"  )
-    plvsc_attr <- stringr::str_replace(ifelse(stringr::str_detect(plv_attr, pattern = "m3sob|m3sub"), yes = plv_attr, no = "Load_othervm"), pattern = "Volume, ", "Load_")
-    plvsc_attr <- make.names(plvsc_attr, unique = TRUE)
-    plnames_ <- c(plnames[!stringr::str_detect(plnames, pattern = "LoadVolume")], plvsc_attr)
-    colnames(plvalues) <- plnames_
-    # dplyr::glimpse(plvalues)
+    tmp_plv_attr <- xml2::xml_attrs(xml2::xml_children(pload1),  ns = "d1"  )
+    tmp_plv_names <- mapply(x = tmp_plv_attr, y = plnames,FUN = function(x,y){
+      ifelse(length(x) == 0,
+             y,
+             paste0(y, " ",  x ))
+    }) %>% make.names()
+
+
+
+    #plv_attr <- xml2::xml_attr(xml2::xml_find_all(pload1, ".//d1:LoadVolume"), attr = "loadVolumeCategory"  )
+    #plvsc_attr <- stringr::str_replace(ifelse(stringr::str_detect(plv_attr, pattern = "m3sob|m3sub"), yes = plv_attr, no = "Load_othervm"), pattern = "Volume, ", "Load_")
+    #plvsc_attr <- make.names(plvsc_attr, unique = TRUE)
+    #plnames_ <- c(plnames[!stringr::str_detect(plnames, pattern = "LoadVolume")], plvsc_attr)
+    colnames(plvalues) <- tmp_plv_names
+    # str(plvalues)
 
     plvalues <- dplyr::mutate(plvalues, dplyr::across( .cols = tidyselect::ends_with("Key"), .fns = as.integer))
 
@@ -260,6 +349,11 @@ getLoads2 <- function(doc){
     plvalues$LoadKey <- LoadKeys
 
     loaddf <- dplyr::left_join(plvalues, lvalues, by = c("LoadKey"))
+    # str(loaddf)
+    # Then drop empty variables
+    w <- apply(loaddf, 2,  FUN = function(x) {max(nchar(x))})
+    loaddf <- loaddf[,w!=0]
+
     return(loaddf)
 
   }

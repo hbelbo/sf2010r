@@ -19,5 +19,6 @@ getLoads2 - alternative and hopefully faster altenative to getLoads()
 fprfiles <- list.files(path =  system.file(package = "sf2010r"),
    pattern = ".fpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(fprfiles[1])
-getLoads2(doc)
+str(getLoads2(doc))
+str(getLoads2(xml2::read_xml(fprfiles[2])))
 }
