@@ -15,20 +15,21 @@
 #' @export
 #'
 #' @examples
-#' df <- data.frame(MachineKey = rep("a", 3), ObjectKey = "1", StemKey = 1:3, dbh = as.character(seq(20, 24, length = 3)))
+#' df <- data.frame(MachineKey = rep("a", 3), ObjectKey = "1",
+#'   StemKey = 1:3, dbh = as.character(seq(20, 24, length = 3)))
 #' str(type_convert_sf2010(df))
 type_convert_sf2010 <- function(df){
   #dfch_tc <- df[, sapply(df, class) == 'character']
-  dfch_tc <- df %>% select(where(is.character))
-  dfrest <- df %>% select(!where(is.character))
+  dfch_tc <- df %>% dplyr::select(tidyselect::where(is.character))
+  dfrest <- df %>% dplyr::select(!tidyselect::where(is.character))
   df_return <- data.frame(tmp1 = 1:nrow(df))
   if(ncol(dfrest)>0) {
     df_return <- dplyr::bind_cols(df_return, dfrest)
   }
 
   if("MachineKey" %in% names(dfch_tc)){
-    df_return <- dplyr::bind_cols(df_return, dfch_tc %>% dplyr::select(MachineKey))
-    dfch_tc <- dfch_tc %>% dplyr::select(-MachineKey)
+    df_return <- dplyr::bind_cols(df_return, dfch_tc %>% dplyr::select(.data$MachineKey))
+    dfch_tc <- dfch_tc %>% dplyr::select(-.data$MachineKey)
   }
 
   if(ncol(dfch_tc)>0){
@@ -42,7 +43,7 @@ type_convert_sf2010 <- function(df){
       df_return <- dplyr::bind_cols(df_return, dfch_tc_rest )
     }
   }
-  df_return <- df_return %>% dplyr::select(-tmp1)
+  df_return <- df_return %>% dplyr::select(-.data$tmp1)
   return(df_return)
 }
 
@@ -374,7 +375,6 @@ getProductDef <- function(x) {
              , LengthDef_LengthClassMAX
              , StemTypeCode)
    products <- products %>%  dplyr::relocate(.data$ProductKey, .data$ProductName)
-
    }
 
   else {products <- tibble::tibble(ProductKey  = as.integer(ProductKey)
@@ -414,6 +414,218 @@ getProductDefs <- function(doc){
 }
 
 
+
+#' get Product definitions v2
+#'
+#' @param doc  a StanFord2010 xml document
+#'
+#' @return a data.frame
+#' @export
+#'
+#' @examples
+#' sffiles <-  list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
+#' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
+#' getProducts2(docs[[1]]) %>% str()
+#' getProducts2(docs[[2]]) %>% str()
+#' getProducts2(docs[[3]]) %>% str()
+#' getProducts2(docs[[4]]) %>% str()
+#' getProducts2(docs[[5]]) %>% str()
+getProducts2 <- function(doc){
+  # doc = docs[[3]]
+  # doc = docs[[1]]
+
+  xpt1 <- ".//d1:ProductDefinition"
+  p1 <-  xml2::xml_find_first(doc, xpt1)
+  stopifnot( !is.na(p1) )
+
+  p_all <-  xml2::xml_find_all(doc, xpt1)
+  p_all_ch_names <- xml2::xml_name(xml2::xml_children(p_all))
+  p_unique_ch_names <- (unique(p_all_ch_names))
+
+  xpt2 <- paste0( xpt1, "/d1:", p_unique_ch_names)
+  p_all_ch_lengths <- lapply(xpt2, FUN = function(X){ xml2::xml_length(xml2::xml_find_first(doc, X))} )
+  xpt2_multi <- xpt2[p_all_ch_lengths != 0]
+
+  xpt3 <- unlist(lapply(xpt2_multi, FUN = function(X){ paste0(X, "/d1:", xml2::xml_name(xml2::xml_children(xml2::xml_find_first(doc, X))))}))
+
+  ProductDefs <- data.frame()
+  if(any(stringr::str_detect(xpt3, "ClassifiedProductDefinition"))) {
+    xp3_classified <- xpt3[stringr::str_detect(xpt3, "ClassifiedProductDefinition")]
+
+    xp3_classified_lengths <- unlist(lapply(xp3_classified, FUN  = function(X){ xml2::xml_length(xml2::xml_find_first(doc, X))} ))
+    xp3_classified <- xp3_classified[xp3_classified_lengths == 0]
+    vnames <- sapply(stringr::str_split(xp3_classified, "d1:"), FUN = function(X){X[4]})
+
+    classified_product_defs2 <- lapply(xp3_classified, FUN = function(X){
+      data.frame(v1 = xml2::xml_text(xml2::xml_find_all(doc, X)), ProductKey =
+                   xml2::xml_integer(xml2::xml_find_first( xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, X))),  xpath = "./d1:ProductKey")))
+    })
+
+    classified_product_defs2 <- lapply(seq_along(classified_product_defs2), function(i) {
+      names(classified_product_defs2[[i]])[1] <- vnames[i]
+      classified_product_defs2[[i]]
+    })
+
+    classified_product_defs <- Reduce(function(x,y) merge(x,y, by = "ProductKey", all = TRUE),classified_product_defs2 )
+
+
+    LengthDefs <- getProductLengthDefs(doc)
+    if(!is.null(LengthDefs)){
+      classified_product_defs <- merge(classified_product_defs, LengthDefs, by = "ProductKey", all = TRUE)
+    }
+
+    DiaDefs <- getProductDiaDefs(doc)
+    if(!is.null(DiaDefs)){
+      classified_product_defs <- merge(classified_product_defs, DiaDefs, by = "ProductKey", all = TRUE)
+    }
+    # Then drop empty variables
+    w <- apply(classified_product_defs, 2,  FUN = function(x) {ifelse(!all(is.na(x)), max(nchar(x[!is.na(x)])), 0)  })
+    classified_product_defs <- classified_product_defs[,w!=0]
+
+    ProductDefs <- dplyr::bind_rows(ProductDefs, classified_product_defs)
+  }
+  if(any(stringr::str_detect(xpt3, "UnclassifiedProductDefinition"))) {
+    xp3_unclassified <- xpt3[stringr::str_detect(xpt3, "UnclassifiedProductDefinition")]
+
+    xp3_unclassified_lengths <- unlist(lapply(xp3_unclassified, FUN  = function(X){ xml2::xml_length(xml2::xml_find_first(doc, X))} ))
+    xp3_unclassified <- xp3_unclassified[xp3_unclassified_lengths == 0]
+    vnames <- sapply(stringr::str_split(xp3_unclassified, "d1:"), FUN = function(X){X[4]})
+
+    unclassified_product_defs2 <- lapply(xp3_unclassified, FUN = function(X){
+      data.frame(v1 = xml2::xml_text(xml2::xml_find_all(doc, X)), ProductKey =
+                   xml2::xml_integer(xml2::xml_find_first( xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, X))),  xpath = "./d1:ProductKey")))
+    })
+    unclassified_product_defs2 <- lapply(seq_along(unclassified_product_defs2), function(i) {
+      names(unclassified_product_defs2[[i]])[1] <- vnames[i]
+      unclassified_product_defs2[[i]]
+    })
+    unclassified_product_defs <- Reduce(function(x,y) merge(x,y, by = "ProductKey", all = TRUE),unclassified_product_defs2 )
+
+    ProductDefs <- dplyr::bind_rows(ProductDefs, unclassified_product_defs)
+  }
+
+
+
+  return(ProductDefs)
+
+}
+
+
+#' get Product diameter def limits
+#'
+#' @param doc  a StanFord2010 xml document
+#'
+#' @return a data.frame having diameter limits for each product
+#' @export
+#'
+#' @examples
+#' sffiles <-  list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
+#' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
+#' getProductDiaDefs(docs[[3]]) %>% str()
+#' getProductDiaDefs(docs[[4]]) %>% str()
+#' getProductDiaDefs(docs[[5]]) %>% str()
+#'
+getProductDiaDefs <- function(doc){
+  # doc = docs[[3]]
+
+  xpt1 <- ".//d1:ProductDefinition/d1:ClassifiedProductDefinition/d1:DiameterDefinition"
+  p1 <-  xml2::xml_find_first(doc, xpt1)
+  if( !is.na(p1) ){
+
+    p_all <-  xml2::xml_find_all(doc, xpt1)
+    p_all_ch_names <- xml2::xml_name(xml2::xml_children(p_all))
+    p_unique_ch_names <- (unique(p_all_ch_names))
+
+    xpt2 <- paste0( xpt1, "/d1:", p_unique_ch_names)
+    p_all_ch_lengths <- lapply(xpt2, FUN = function(X){ xml2::xml_length(xml2::xml_find_first(doc, X))} )
+    xpt2_multi <- xpt2[p_all_ch_lengths != 0]
+    xpt2_single <- xpt2[p_all_ch_lengths == 0]
+    vnames <- sapply(stringr::str_split(xpt2_single, "d1:"), FUN = function(X){X[5]})
+
+    df <- lapply(xpt2_single, FUN = function(X){
+      # X <- xpt2_single[1]
+      data.frame(v1 = xml2::xml_text(xml2::xml_find_all(doc, X)), ProductKey =
+                   xml2::xml_integer(xml2::xml_find_first( xml2::xml_parent(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, X)))),  xpath = "./d1:ProductKey")))
+    })
+
+    df <- lapply(seq_along(df), function(i) {
+      names(df[[i]])[1] <- vnames[i]
+      df[[i]]
+    })
+
+    df <- Reduce(function(x,y) merge(x,y, by = "ProductKey", all = TRUE), df)
+
+  }  else { df <- NULL}
+  return(df)
+}
+
+
+#' get Product length def limits
+#'
+#' @param doc  a StanFord2010 xml document
+#'
+#' @return a data.frame having diameter limits for each product
+#' @export
+#'
+#' @examples
+#' sffiles <-  list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
+#' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
+#' getProductLengthDefs(docs[[3]]) %>% str()
+#' getProductLengthDefs(docs[[4]]) %>% str()
+#' getProductLengthDefs(docs[[5]]) %>% str()
+#'
+getProductLengthDefs <- function(doc){
+  # doc = docs[[3]]
+
+  xpt1 <- ".//d1:ProductDefinition/d1:ClassifiedProductDefinition/d1:LengthDefinition"
+  p1 <-  xml2::xml_find_first(doc, xpt1)
+  if( !is.na(p1) ){
+
+    p_all <-  xml2::xml_find_all(doc, xpt1)
+    p_all_ch_names <- xml2::xml_name(xml2::xml_children(p_all))
+    p_unique_ch_names <- (unique(p_all_ch_names))
+
+    xpt2 <- paste0( xpt1, "/d1:", p_unique_ch_names)
+    p_all_ch_lengths <- lapply(xpt2, FUN = function(X){ xml2::xml_length(xml2::xml_find_first(doc, X))} )
+    xpt2_multi <- xpt2[p_all_ch_lengths != 0]
+    xpt2_single <- xpt2[p_all_ch_lengths == 0]
+    vnames <- sapply(stringr::str_split(xpt2_single, "d1:"), FUN = function(X){X[5]})
+
+    df <- lapply(xpt2_single, FUN = function(X){
+      # X <- xpt2_single[1]
+      data.frame(v1 = xml2::xml_text(xml2::xml_find_all(doc, X)),
+                 ProductKey =
+                   xml2::xml_integer(xml2::xml_find_first( xml2::xml_parent(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, X)))),  xpath = "./d1:ProductKey")))
+    })
+
+    df <- lapply(seq_along(df), function(i) {
+      names(df[[i]])[1] <- vnames[i]
+      df[[i]]
+    })
+
+    df <- Reduce(function(x,y) merge(x,y, by = "ProductKey", all = TRUE), df)
+
+
+    # Then a special trick because minimum lengths may be of interest
+    # Find all classified product defs
+
+    classified <- xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, xpt1)))
+    # From each: find first LengthClassLowerLimit
+    LengthClassLowerLimit <- data.frame(
+      LengthClassMIN = unlist( lapply(classified, FUN = function(X){ xml2::xml_text(xml2::xml_find_first(X, xpath = ".//d1:LengthClass/d1:LengthClassLowerLimit"))})),
+    ProductKey = unlist(lapply(classified, FUN = function(X){ xml2::xml_integer(xml2::xml_find_first(X,   xpath = "./d1:ProductKey"))}))
+    )
+    df <- merge(df, LengthClassLowerLimit, by = "ProductKey", all = TRUE)
+
+
+
+
+  }  else { df <- NULL}
+  return(df)
+}
 
 
 #' Get the Product Matrix items
@@ -752,32 +964,6 @@ getObjects <- function(doc){
 
 
 
-
-
-#' Ensure correct data type for some StanForD2010 key variables
-#' @param df should be a data.frame
-#'
-#' @return the same data frame, but certain variables set to
-#' "correct" sf2010 data type
-#'
-#' @examples
-#' dataframe <- data.frame(MachineKey = 1:2L, ObjUserID = 1:2, LoggingFormDesc  = 1:2,
-#' v3 = c("a","b"), v4 = c(1:2), v5 = c("1", "3"))
-#' sf2010_type.convert(dataframe) %>% str()
-#' @export
-sf2010_type.convert <- function(df){
-# df = dataframe
-  #target_columns <- c("MachineKey", "MachineUserID", "ObjectUserID", "OperatorUserID", "ProductUserID")
-  target_columns <- c("MachineKey", colnames(df)[stringr::str_detect(colnames(df), "(UserID|Desc)$")])
-  existing_columns <- intersect(target_columns, colnames(df))
-  if (length(existing_columns) > 0) {
-    # Convert the columns to character vectors
-    df[existing_columns] <- lapply(df[existing_columns], as.character)
-    df[!(names(df) %in% existing_columns)] <- lapply(df[!(names(df) %in% existing_columns)], utils::type.convert, as.is = TRUE)
-    #df <- utils::type.convert(df, as.is = TRUE)
-  }
-  return(df)
-}
 
 
 
