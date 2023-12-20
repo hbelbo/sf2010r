@@ -8,9 +8,9 @@
 #' momfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' momfiles_imwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "individual_mwt"))]
-#' doc <- xml2::read_xml(momfiles_imwt[2])
+#' doc <- xml2::read_xml(momfiles_imwt[1])
 #' imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
-#' getMom.imwt.activity(imwtlist[[41]]) %>% dplyr::glimpse()
+#' getMom.imwt.activity(imwtlist[[3]]) %>% dplyr::glimpse()
 #'  plyr::ldply(imwtlist[25:42], getMom.imwt.activity)
 getMom.imwt.activity <- function(x) {
   # x = imwtlist[[43]]
@@ -61,12 +61,12 @@ getMom.imwt.activity <- function(x) {
 #' momfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' momfiles_imwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "individual_mwt"))]
-#' doc <- xml2::read_xml(momfiles_imwt[2])
+#' doc <- xml2::read_xml(momfiles_imwt[1])
 #' imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
 #' getMom.imwt.production(imwtlist[[3]]) %>% dplyr::glimpse()
 #' plyr::ldply(imwtlist[92:94], getMom.imwt.production)
 getMom.imwt.production <- function(x) {
-   # x = imwtlist[[91]]
+   # x = imwtlist[[5]]
 
 
   #varbl = child_name = attrs = grp_id = child_vals = NULL # due to NSE notes in R CMD check
@@ -90,7 +90,7 @@ getMom.imwt.production <- function(x) {
 
       HD <- HD %>%
         mutate( grp_id =  (rep(1:length(HarvesterDataNodeSets), times = Nvars))) %>%
-        dplyr::select(.data$varbl, .data$child_vals, .data$grp_id) %>%
+        dplyr::select("varbl", "child_vals", "grp_id") %>%
         tidyr::pivot_wider( names_from = .data$varbl, values_from = .data$child_vals)
 
       #HD[, grp_id := (rep(1:length(HarvesterDataNodeSets), times = Nvars))]

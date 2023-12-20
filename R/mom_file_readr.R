@@ -17,17 +17,17 @@
 #' @examples
 #' momfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".mom$", recursive = TRUE,  ignore.case = TRUE,   full.names= TRUE)
-#' momtest1 <- mom_file_readr(momfiles[1])
-#' momtest2 <- mom_file_readr(momfiles[2])
-#' momtest3 <- mom_file_readr(momfiles[3])
-#' momtest4 <- mom_file_readr(momfiles[4])
+#' mom_file_readr(momfiles[1]) %>% str()
+#' mom_file_readr(momfiles[2]) %>% str()
+#' mom_file_readr(momfiles[3]) %>% str()
+#' mom_file_readr(momfiles[4]) %>% str()
 mom_file_readr <- function(momfile){
  # "/MOM_Komatsu_harvester_sf2010v30_combined_mwt.MOM"
  # "/MOM_Ponsse_Forw_sf2010v31_individual_mwt.mom"
  # "/MOM_V3_3_MaxiXT_1_7_combined_mwt.mom"
  # "/MOM_Vimek_harvester_sf2010v20_individual_mwt.MOM"
 
-    # momfile <- momfiles[4]
+    # momfile <- momfiles[1]
 
   doc <- xml2::read_xml(momfile)
   con <- file(momfile)
@@ -86,18 +86,35 @@ mom_file_readr <- function(momfile){
   # Individual machine time data
   imwtlist <- xml2::xml_find_all(doc, ".//d1:IndividualMachineWorkTime")
 
-  if(length(imwtlist)) {
+  if(length(imwtlist)>0) {
       imwt_activity <- plyr::ldply(imwtlist, getMom.imwt.activity)
       imwt_production <- plyr::ldply(imwtlist, getMom.imwt.production)
 
-      if(length(imwt_activity)){
-        imwt_activity <- imwt_activity %>% dplyr::mutate(MachineKey = header$MachineKey)
+      if(length(imwt_activity>0)){
+        imwt_activity <- imwt_activity %>%
+          sf2010r::type_convert_sf2010() %>%
+          dplyr::mutate(MachineKey = header$MachineKey)
         returnlist <- c(returnlist, imwt_activity = list(imwt_activity))
       }
 
-      if(length(imwt_production)){
-        imwt_production <- imwt_production %>% dplyr::mutate(MachineKey = header$MachineKey)
+      if(length(imwt_production)>0){
+        imwt_production <- imwt_production %>%
+          sf2010r::type_convert_sf2010() %>%
+          dplyr::mutate(MachineKey = header$MachineKey)
         returnlist <- c(returnlist, imwt_production = list(imwt_production))
+
+        imwt_production_sm <- imwt_production %>%
+          dplyr::group_by(ObjectKey, SubObjectKey, MonitoringStartTime) %>%
+          dplyr::select( dplyr::where(is.numeric)) %>%
+          dplyr::select( -grp_id ) %>%
+          dplyr::summarise(dplyr::across(.cols = dplyr::everything(), ~ sum(.x, na.rm = TRUE))) %>%
+          dplyr::right_join(
+            sf2010r::type_convert_sf2010(imwt_activity),
+            by = c( "ObjectKey", "SubObjectKey", "MonitoringStartTime")) %>%
+          dplyr::arrange(ObjectKey, SubObjectKey, MonitoringStartTime) %>%
+          dplyr::ungroup()
+        returnlist <- c(returnlist, imwt_production_sm = list(imwt_production_sm))
+
       }
   }
 
