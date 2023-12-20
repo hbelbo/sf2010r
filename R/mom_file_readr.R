@@ -102,9 +102,9 @@ mom_file_readr <- function(momfile){
           sf2010r::type_convert_sf2010() %>%
           dplyr::mutate(MachineKey = header$MachineKey)
         returnlist <- c(returnlist, imwt_production = list(imwt_production))
-
+        grp <- c(names(imwt_production)[stringr::str_detect(names(imwt_production), pattern = "ObjectKey")], "MonitoringStartTime")
         imwt_production_sm <- imwt_production %>%
-          dplyr::group_by(ObjectKey, SubObjectKey, MonitoringStartTime) %>%
+          dplyr::group_by( across(grp) ) %>%
           dplyr::select( dplyr::where(is.numeric)) %>%
           dplyr::select( -grp_id ) %>%
           dplyr::summarise(dplyr::across(.cols = dplyr::everything(), ~ sum(.x, na.rm = TRUE))) %>%

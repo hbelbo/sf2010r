@@ -29,5 +29,5 @@ momfiles <- list.files(path =  system.file(package = "sf2010r"),
 mom_file_readr(momfiles[1]) \%>\% str()
 mom_file_readr(momfiles[2]) \%>\% str()
 mom_file_readr(momfiles[3]) \%>\% str()
-momtest4 <- mom_file_readr(momfiles[4])
+mom_file_readr(momfiles[4]) \%>\% str()
 }
