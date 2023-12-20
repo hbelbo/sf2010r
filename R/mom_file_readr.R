@@ -101,18 +101,21 @@ mom_file_readr <- function(momfile){
         imwt_production <- imwt_production %>%
           sf2010r::type_convert_sf2010() %>%
           dplyr::mutate(MachineKey = header$MachineKey)
+        # imwt_production %>% str()
         returnlist <- c(returnlist, imwt_production = list(imwt_production))
+
         grp <- c(names(imwt_production)[stringr::str_detect(names(imwt_production), pattern = "ObjectKey")], "MonitoringStartTime")
         imwt_production_sm <- imwt_production %>%
-          dplyr::group_by( across(grp) ) %>%
+          dplyr::group_by( dplyr::across(grp) ) %>%
           dplyr::select( dplyr::where(is.numeric)) %>%
-          dplyr::select( -grp_id ) %>%
-          dplyr::summarise(dplyr::across(.cols = dplyr::everything(), ~ sum(.x, na.rm = TRUE))) %>%
+          dplyr::select( -.data$grp_id ) %>%
+          dplyr::summarise(dplyr::across(.cols = dplyr::everything(), ~ sum(.x, na.rm = TRUE))) %>%  #str()
           dplyr::right_join(
-            sf2010r::type_convert_sf2010(imwt_activity),
-            by = c( "ObjectKey", "SubObjectKey", "MonitoringStartTime")) %>%
-          dplyr::arrange(ObjectKey, SubObjectKey, MonitoringStartTime) %>%
+            sf2010r::type_convert_sf2010(imwt_activity)) %>%
+          dplyr::arrange(.data$MonitoringStartTime) %>%
           dplyr::ungroup()
+
+
         returnlist <- c(returnlist, imwt_production_sm = list(imwt_production_sm))
 
       }

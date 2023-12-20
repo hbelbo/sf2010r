@@ -122,10 +122,10 @@ fpr_file_readr2 <- function(fprfile){
       Loads %>%
       dplyr::group_by(.data$MachineKey, .data$LoadKey) %>%
      dplyr::summarise(
-       OperatorKey = dplyr::first(OperatorKey),
+       OperatorKey = dplyr::first(.data$OperatorKey),
         dplyr::across(.cols = tidyselect::starts_with("m3"), ~ sum(.x)),
-        DistanceFromLastUnloading = dplyr::last(DistanceFromLastUnloading),
-        UnloadingTime = dplyr::last(UnloadingTime)
+        DistanceFromLastUnloading = dplyr::last(.data$DistanceFromLastUnloading),
+        UnloadingTime = dplyr::last(.data$UnloadingTime)
       ) %>% dplyr::ungroup()
     returnlist <- c(returnlist, ByLoad = list(ByLoad))
 
