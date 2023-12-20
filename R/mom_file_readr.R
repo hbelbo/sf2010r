@@ -159,6 +159,20 @@ mom_file_readr <- function(momfile){
 
   #  } # End if length(CMTOperatorKey), i.e. the combined machine work time part
 
+   # Set up machine report table. One machine report = one observation. ----
+
+   machinereport_meta <- tibble::tibble(MachineKey = header$MachineKey,
+                                        filename = filename,
+                                        file_md5 = md5,
+                                        CreationDate = header$CreationDate[1],
+                                        object_keys = paste(objects$ObjectKey, collapse=", "),
+                                        object_ids = paste(objects$ObjectUserID, collapse=", "),
+                                        filetype = filetype,
+                                        returnlist_content = paste0(names(returnlist), collapse = ", ")
+   )
+
+   returnlist <- c(returnlist, machinereport_meta = list(machinereport_meta))
+
   return(returnlist)
  } #end function
 #'
