@@ -16,12 +16,10 @@ a tibble, number of rows = number of objects and sub objects in doc
 Extracting all cut object definitions from doc
 }
 \examples{
-hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
-   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-doc <- xml2::read_xml(hprfiles[2])
-getObjects(doc) \%>\% str()
-fprfiles <- list.files(path =  system.file(package = "sf2010r"),
- pattern = ".fpr", recursive = TRUE, full.names= TRUE)
-doc <- xml2::read_xml(fprfiles[1])
-getObjects(doc) \%>\% str()
+sffiles <-  list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
+print(sffiles)
+docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
+getObjects(docs[[1]]) \%>\% str()
+lapply(docs[1:2], FUN = function(X){getObjects(X) \%>\% str()})
 }

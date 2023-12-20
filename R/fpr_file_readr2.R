@@ -11,8 +11,8 @@
 #' @examples
 #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
 #' pattern = ".fpr", recursive = TRUE, full.names= TRUE)
-#' fprtest1 <- fpr_file_readr2(fprfiles[1])
-#' fprtest2 <- fpr_file_readr2(fprfiles[2])
+#' fpr_file_readr2(fprfiles[1]) %>% str()
+#' fpr_file_readr2(fprfiles[2]) %>% str()
 fpr_file_readr2 <- function(fprfile){
   # fprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".fpr", recursive = TRUE, full.names= TRUE)
   # fprfile = fprfiles[1]
@@ -68,11 +68,11 @@ fpr_file_readr2 <- function(fprfile){
 
 
     cat(" -fpr_file_readr-getProductDefs \n")
-    products <- sf2010r::getProducts2(doc)
+    products <- sf2010r::getProductDefs(doc)
     # str(products)
     if(length(products)){
       products <- sf2010r::type_convert_sf2010(products) %>%
-      dplyr::mutate(  MachineKey = header$MachineKey
+      dplyr::mutate(  MachineKey = header$MachineKey[1]
                     #  , CreationDate = header$CreationDate
              )
       returnlist <- c(returnlist, products = list(products))
@@ -82,7 +82,7 @@ fpr_file_readr2 <- function(fprfile){
     cat(" -fpr_file_readr-getStemTypes \n")
     stemtypes <- sf2010r::getStemTypes(doc)
     if(length(stemtypes)){
-      stemtypes <- stemtypes %>% mutate( MachineKey = header$MachineKey)
+      stemtypes <- stemtypes %>% mutate( MachineKey = header$MachineKey[1])
       returnlist <- c(returnlist, stemtypes = list(stemtypes))
     }
 
@@ -105,8 +105,10 @@ fpr_file_readr2 <- function(fprfile){
     ## forwarded loads  ----
     cat(" -fpr_file_readr-getLoads \n")
     Loads <- sf2010r::getLoads2(doc)
+    names(Loads) <- stringr::str_extract(names(Loads), pattern = "\\w*$")
+    # str(Loads)
     Loads <- sf2010r::type_convert_sf2010(Loads) %>%
-      dplyr::mutate(  MachineKey = header$MachineKey
+      dplyr::mutate(  MachineKey = header$MachineKey[1]
                       #  , CreationDate = header$CreationDate
       )
 
@@ -118,10 +120,12 @@ fpr_file_readr2 <- function(fprfile){
 
     ByLoad <-
       Loads %>%
-      dplyr::group_by(.data$MachineKey, .data$LoadKey, .data$LocationKey) %>%
+      dplyr::group_by(.data$MachineKey, .data$LoadKey) %>%
      dplyr::summarise(
-       dplyr::across(3:4, ~ dplyr::first(.x)),
-        dplyr::across(.cols = tidyselect::starts_with("Load_"), ~ sum(.x))
+       OperatorKey = dplyr::first(OperatorKey),
+        dplyr::across(.cols = tidyselect::starts_with("m3"), ~ sum(.x)),
+        DistanceFromLastUnloading = dplyr::last(DistanceFromLastUnloading),
+        UnloadingTime = dplyr::last(UnloadingTime)
       ) %>% dplyr::ungroup()
     returnlist <- c(returnlist, ByLoad = list(ByLoad))
 
@@ -130,12 +134,16 @@ fpr_file_readr2 <- function(fprfile){
       Loads %>%
       dplyr::group_by(.data$MachineKey, .data$DeliveryKey) %>%
       dplyr::summarise(
-        dplyr::across(3:4, ~ dplyr::first(.x)),
-        dplyr::across(.cols = tidyselect::starts_with("Load_"), ~ sum(.x))
+        dplyr::across(.cols = tidyselect::starts_with("LoadVolume."), ~ sum(.x)),
+        min_UnloadingTime = min(.data$UnloadingTime),
+        max_UnloadingTime = max(.data$UnloadingTime)
+
+
       ) %>%
       dplyr::left_join(
         dplyr::select(deliveries, tidyselect::starts_with("Delivery")), by = "DeliveryKey") %>%
       dplyr::ungroup()
+    # str(ByDelivery)
 
 
     returnlist <- c(returnlist, ByDelivery = list(ByDelivery))
@@ -148,8 +156,6 @@ fpr_file_readr2 <- function(fprfile){
                                     CreationDate = header$CreationDate,
                                     object_keys = paste(objects$ObjectKey, collapse=", "),
                                     object_ids = paste(objects$ObjectUserID, collapse=", "),
-                                    sub_obj_keys  = paste(objects$SubObjectKey, collapse=", "),
-                                    sub_obj_ids  = paste(objects$SubObjectUserID, collapse=", "),
                                     filetype = filetype
                                     )
     returnlist <- c(returnlist, machinereport_meta = list(machinereport_meta))

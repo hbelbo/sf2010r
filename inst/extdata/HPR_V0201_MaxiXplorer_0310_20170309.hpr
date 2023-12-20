@@ -8900,7 +8900,7 @@
     </ProductDefinition>
     <ObjectDefinition>
       <ObjectUserID agency="LoggingOrganisation">289329</ObjectUserID>
-      <ObjectName>Westerbø Slutt</ObjectName>
+      <ObjectName>Vrangkattlia Slutt</ObjectName>
       <ForestCertification>Other</ForestCertification>
       <LoggingForm>
         <LoggingFormCode>0</LoggingFormCode>
@@ -8961,7 +8961,7 @@
       <StartDate>2017-03-09T08:37:49.11+01:00</StartDate>
       <SubObject>
         <SubObjectUserID agency="Other">166e6175-dcd9-41a6-8155-e79d9b75b714</SubObjectUserID>
-        <SubObjectName>Westerbø Slutt</SubObjectName>
+        <SubObjectName>Vrangkattlia Slutt</SubObjectName>
         <LoggingForm>
           <LoggingFormCode>0</LoggingFormCode>
           <LoggingFormDescription>0</LoggingFormDescription>

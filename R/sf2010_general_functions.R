@@ -15,7 +15,7 @@
 #' @export
 #'
 #' @examples
-#' df <- data.frame(MachineKey = rep("a", 3), ObjectKey = "1",
+#' df <- data.frame(MachineKey = rep("11", 3), ObjectKey = "1",
 #'   StemKey = 1:3, dbh = as.character(seq(20, 24, length = 3)))
 #' str(type_convert_sf2010(df))
 type_convert_sf2010 <- function(df){
@@ -324,98 +324,9 @@ getStemTypes <- function(doc){
 
 
 
-#' Product def from product definition nodetree
-#' @param x is a node tree of ProductDefinition
-#'
-#' @export
-#'
-#' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
-#'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' doc <- xml2::read_xml(hprfiles[1])
-#' ProductsList <- xml2::xml_find_all(doc, ".//d1:ProductDefinition" )
-#' getProductDef(ProductsList[[1]]) %>% str()
-#' plyr::ldply(ProductsList, getProductDef )
-getProductDef <- function(x) {
-  # x <- ProductsList[[1]]
-  ProductKey <- xml2::xml_integer( xml2::xml_find_first(x,  ".//d1:ProductKey"))
-  cpd <- xml2::xml_find_first(x,  ".//d1:ClassifiedProductDefinition")
-
-  if(length(cpd)>0){
-    spcs_dt <- dplyr::bind_rows(cpd %>% xml_childs_nchr())
-    spcs_dt$ProductKey <- as.integer(ProductKey)
-    spcs_dt$SpeciesGroupKey <- as.integer(spcs_dt$SpeciesGroupKey)
-    Pricedef_VolumeDiamAdj <- xml2::xml_text( xml2::xml_find_first(x, ".//d1:PriceDefinition/d1:VolumeDiameterAdjustment"))
-    Pricedef_VolumeLDiamCat <- xml2::xml_text( xml2::xml_find_first(x, ".//d1:PriceDefinition/d1:VolumeDiameterCategory"))
-    Pricedef_VolumeLengthCat <- xml2::xml_text( xml2::xml_find_first(x, ".//d1:PriceDefinition/d1:VolumeLengthCategory"))
-    Pricedef_VolumeUnderBark <- xml2::xml_text( xml2::xml_find_first(x, ".//d1:PriceDefinition/d1:VolumeUnderBark"))
-    DiaDef_DiameterClassMAX <- xml2::xml_text( xml2::xml_find_first(x, ".//d1:DiameterDefinition/d1:DiameterClasses/d1:DiameterClassMAX"))
-    DiaDef_DiameterUnderBark <- xml2::xml_text( xml2::xml_find_first(x, ".//d1:DiameterDefinition/d1:DiameterClasses/d1:DiameterUnderBark"))
-    DiaDef_DiameterMINTop <- xml2::xml_text( xml2::xml_find_first(x, ".//d1:DiameterDefinition/d1:DiameterMINTop"))
-    DiaDef_DiameterMAXButt <- xml2::xml_text( xml2::xml_find_first(x, ".//d1:DiameterDefinition/d1:DiameterMAXButt"))
-    DiaDef_DiameterTopPosition <- xml2::xml_text( xml2::xml_find_first(x, ".//d1:DiameterDefinition/d1:DiameterTopPosition"))
-    LengthDef_LengthClassMin <- xml2::xml_integer( xml2::xml_find_first(x, ".//d1:LengthDefinition/d1:LengthClass/d1:LengthClassLowerLimit"))
-      if(!is.na(LengthDef_LengthClassMin) & length(LengthDef_LengthClassMin)>0) {  LengthDef_LengthClassMin <- min(LengthDef_LengthClassMin) } else { LengthDef_LengthClassMin <- NA}
-    LengthDef_LengthClassMAX <-  xml2::xml_integer( xml2::xml_find_first(x, ".//d1:LengthDefinition/d1:LengthClassMAX"))
-    # err_test <-  xml2::xml_integer( xml2::xml_find_first(x, ".//d1:LengthDefinition/d1:Errr"))
-    StemTypeCode <- xml2::xml_text( xml2::xml_find_first(x, ".//d1:StemTypeCode"))
 
 
-   products <- spcs_dt %>%
-     dplyr::mutate( Pricedef_VolumeDiamAdj
-             , Pricedef_VolumeLDiamCat
-             , Pricedef_VolumeLengthCat
-             , Pricedef_VolumeUnderBark
-             , DiaDef_DiameterClassMAX
-             , DiaDef_DiameterUnderBark
-             , DiaDef_DiameterMINTop
-             , DiaDef_DiameterMAXButt
-             , DiaDef_DiameterTopPosition
-             , LengthDef_LengthClassMin
-             , LengthDef_LengthClassMAX
-             , StemTypeCode)
-   products <- products %>%  dplyr::relocate(.data$ProductKey, .data$ProductName)
-   }
-
-  else {products <- tibble::tibble(ProductKey  = as.integer(ProductKey)
-                                   , ProductName = "Unclassified")}
-  return(products)
-}
-#getProductDef(ProductsList[[1]])
-
-
-#' Get all product definitions
-#'
-#' @param doc a StanFord2010 xml document
-#'
-#' @return a list
-#' @export
-#'
-#' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
-#'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' doc <- xml2::read_xml(hprfiles[1])
-#' getProductDefs(doc) %>% str()
-#' doc <- xml2::read_xml(hprfiles[2])
-#' getProductDefs(doc)
-getProductDefs <- function(doc){
-  ProductsList <- xml2::xml_find_all(doc, ".//d1:ProductDefinition" )
-
-  if(length(ProductsList)>0){
-  #bmatrix <- plyr::ldply(ProductsList, getProductDef)
-  bmatrix <- plyr::ldply(ProductsList, sf2010r::getProductDef)
-   MachineKey <- xml2::xml_text(xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
-   bmatrix$MachineKey = MachineKey
-   #bmatrix <- sf2010_type.convert(bmatrix)
-  return(bmatrix)
-   } else { return(NULL)}
-
-
-}
-
-
-
-#' get Product definitions v2
+#' get Product definitions
 #'
 #' @param doc  a StanFord2010 xml document
 #'
@@ -426,88 +337,92 @@ getProductDefs <- function(doc){
 #' sffiles <-  list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
 #' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
-#' getProducts2(docs[[1]]) %>% str()
-#' getProducts2(docs[[2]]) %>% str()
-#' getProducts2(docs[[3]]) %>% str()
-#' getProducts2(docs[[4]]) %>% str()
-#' getProducts2(docs[[5]]) %>% str()
-getProducts2 <- function(doc){
+#' getProductDefs(docs[[1]]) %>% str()
+#' getProductDefs(docs[[2]]) %>% str()
+#' getProductDefs(docs[[3]]) %>% str()
+#' getProductDefs(docs[[4]]) %>% str()
+#' getProductDefs(docs[[5]]) %>% str()
+getProductDefs <- function(doc){
   # doc = docs[[3]]
   # doc = docs[[1]]
 
   xpt1 <- ".//d1:ProductDefinition"
   p1 <-  xml2::xml_find_first(doc, xpt1)
-  stopifnot( !is.na(p1) )
-
-  p_all <-  xml2::xml_find_all(doc, xpt1)
-  p_all_ch_names <- xml2::xml_name(xml2::xml_children(p_all))
-  p_unique_ch_names <- (unique(p_all_ch_names))
-
-  xpt2 <- paste0( xpt1, "/d1:", p_unique_ch_names)
-  p_all_ch_lengths <- lapply(xpt2, FUN = function(X){ xml2::xml_length(xml2::xml_find_first(doc, X))} )
-  xpt2_multi <- xpt2[p_all_ch_lengths != 0]
-
-  xpt3 <- unlist(lapply(xpt2_multi, FUN = function(X){ paste0(X, "/d1:", xml2::xml_name(xml2::xml_children(xml2::xml_find_first(doc, X))))}))
-
-  ProductDefs <- data.frame()
-  if(any(stringr::str_detect(xpt3, "ClassifiedProductDefinition"))) {
-    xp3_classified <- xpt3[stringr::str_detect(xpt3, "ClassifiedProductDefinition")]
-
-    xp3_classified_lengths <- unlist(lapply(xp3_classified, FUN  = function(X){ xml2::xml_length(xml2::xml_find_first(doc, X))} ))
-    xp3_classified <- xp3_classified[xp3_classified_lengths == 0]
-    vnames <- sapply(stringr::str_split(xp3_classified, "d1:"), FUN = function(X){X[4]})
-
-    classified_product_defs2 <- lapply(xp3_classified, FUN = function(X){
-      data.frame(v1 = xml2::xml_text(xml2::xml_find_all(doc, X)), ProductKey =
-                   xml2::xml_integer(xml2::xml_find_first( xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, X))),  xpath = "./d1:ProductKey")))
-    })
-
-    classified_product_defs2 <- lapply(seq_along(classified_product_defs2), function(i) {
-      names(classified_product_defs2[[i]])[1] <- vnames[i]
-      classified_product_defs2[[i]]
-    })
-
-    classified_product_defs <- Reduce(function(x,y) merge(x,y, by = "ProductKey", all = TRUE),classified_product_defs2 )
+  if(!is.na(p1)){
 
 
-    LengthDefs <- getProductLengthDefs(doc)
-    if(!is.null(LengthDefs)){
-      classified_product_defs <- merge(classified_product_defs, LengthDefs, by = "ProductKey", all = TRUE)
+    p_all <-  xml2::xml_find_all(doc, xpt1)
+    p_all_ch_names <- xml2::xml_name(xml2::xml_children(p_all))
+    p_unique_ch_names <- (unique(p_all_ch_names))
+
+    xpt2 <- paste0( xpt1, "/d1:", p_unique_ch_names)
+    p_all_ch_lengths <- lapply(xpt2, FUN = function(X){ xml2::xml_length(xml2::xml_find_first(doc, X))} )
+    xpt2_multi <- xpt2[p_all_ch_lengths != 0]
+
+    xpt3 <- unlist(lapply(xpt2_multi, FUN = function(X){ paste0(X, "/d1:", xml2::xml_name(xml2::xml_children(xml2::xml_find_first(doc, X))))}))
+
+    ProductDefs <- data.frame()
+    if(any(stringr::str_detect(xpt3, "ClassifiedProductDefinition"))) {
+      xp3_classified <- xpt3[stringr::str_detect(xpt3, "ClassifiedProductDefinition")]
+
+      xp3_classified_lengths <- unlist(lapply(xp3_classified, FUN  = function(X){ xml2::xml_length(xml2::xml_find_first(doc, X))} ))
+      xp3_classified <- xp3_classified[xp3_classified_lengths == 0]
+      vnames <- sapply(stringr::str_split(xp3_classified, "d1:"), FUN = function(X){X[4]})
+
+      classified_product_defs2 <- lapply(xp3_classified, FUN = function(X){
+        data.frame(v1 = xml2::xml_text(xml2::xml_find_all(doc, X)), ProductKey =
+                     xml2::xml_integer(xml2::xml_find_first( xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, X))),  xpath = "./d1:ProductKey")))
+      })
+
+      classified_product_defs2 <- lapply(seq_along(classified_product_defs2), function(i) {
+        names(classified_product_defs2[[i]])[1] <- vnames[i]
+        classified_product_defs2[[i]]
+      })
+
+      classified_product_defs <- Reduce(function(x,y) merge(x,y, by = "ProductKey", all = TRUE),classified_product_defs2 )
+
+
+      LengthDefs <- getProductLengthDefs(doc)
+      if(!is.null(LengthDefs)){
+        classified_product_defs <- merge(classified_product_defs, LengthDefs, by = "ProductKey", all = TRUE)
+      }
+
+      DiaDefs <- getProductDiaDefs(doc)
+      if(!is.null(DiaDefs)){
+        classified_product_defs <- merge(classified_product_defs, DiaDefs, by = "ProductKey", all = TRUE)
+      }
+      # Then drop empty variables
+      w <- apply(classified_product_defs, 2,  FUN = function(x) {ifelse(!all(is.na(x)), max(nchar(x[!is.na(x)])), 0)  })
+      classified_product_defs <- classified_product_defs[,w!=0]
+
+      ProductDefs <- dplyr::bind_rows(ProductDefs, classified_product_defs)
     }
+    if(any(stringr::str_detect(xpt3, "UnclassifiedProductDefinition"))) {
+      xp3_unclassified <- xpt3[stringr::str_detect(xpt3, "UnclassifiedProductDefinition")]
 
-    DiaDefs <- getProductDiaDefs(doc)
-    if(!is.null(DiaDefs)){
-      classified_product_defs <- merge(classified_product_defs, DiaDefs, by = "ProductKey", all = TRUE)
+      xp3_unclassified_lengths <- unlist(lapply(xp3_unclassified, FUN  = function(X){ xml2::xml_length(xml2::xml_find_first(doc, X))} ))
+      xp3_unclassified <- xp3_unclassified[xp3_unclassified_lengths == 0]
+      vnames <- sapply(stringr::str_split(xp3_unclassified, "d1:"), FUN = function(X){X[4]})
+
+      unclassified_product_defs2 <- lapply(xp3_unclassified, FUN = function(X){
+        data.frame(v1 = xml2::xml_text(xml2::xml_find_all(doc, X)), ProductKey =
+                     xml2::xml_integer(xml2::xml_find_first( xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, X))),  xpath = "./d1:ProductKey")))
+      })
+      unclassified_product_defs2 <- lapply(seq_along(unclassified_product_defs2), function(i) {
+        names(unclassified_product_defs2[[i]])[1] <- vnames[i]
+        unclassified_product_defs2[[i]]
+      })
+      unclassified_product_defs <- Reduce(function(x,y) merge(x,y, by = "ProductKey", all = TRUE),unclassified_product_defs2 )
+
+      ProductDefs <- dplyr::bind_rows(ProductDefs, unclassified_product_defs)
     }
-    # Then drop empty variables
-    w <- apply(classified_product_defs, 2,  FUN = function(x) {ifelse(!all(is.na(x)), max(nchar(x[!is.na(x)])), 0)  })
-    classified_product_defs <- classified_product_defs[,w!=0]
-
-    ProductDefs <- dplyr::bind_rows(ProductDefs, classified_product_defs)
-  }
-  if(any(stringr::str_detect(xpt3, "UnclassifiedProductDefinition"))) {
-    xp3_unclassified <- xpt3[stringr::str_detect(xpt3, "UnclassifiedProductDefinition")]
-
-    xp3_unclassified_lengths <- unlist(lapply(xp3_unclassified, FUN  = function(X){ xml2::xml_length(xml2::xml_find_first(doc, X))} ))
-    xp3_unclassified <- xp3_unclassified[xp3_unclassified_lengths == 0]
-    vnames <- sapply(stringr::str_split(xp3_unclassified, "d1:"), FUN = function(X){X[4]})
-
-    unclassified_product_defs2 <- lapply(xp3_unclassified, FUN = function(X){
-      data.frame(v1 = xml2::xml_text(xml2::xml_find_all(doc, X)), ProductKey =
-                   xml2::xml_integer(xml2::xml_find_first( xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, X))),  xpath = "./d1:ProductKey")))
-    })
-    unclassified_product_defs2 <- lapply(seq_along(unclassified_product_defs2), function(i) {
-      names(unclassified_product_defs2[[i]])[1] <- vnames[i]
-      unclassified_product_defs2[[i]]
-    })
-    unclassified_product_defs <- Reduce(function(x,y) merge(x,y, by = "ProductKey", all = TRUE),unclassified_product_defs2 )
-
-    ProductDefs <- dplyr::bind_rows(ProductDefs, unclassified_product_defs)
+    return(ProductDefs)
+  } else {
+    cat("\n No product definitions" )
   }
 
 
 
-  return(ProductDefs)
 
 }
 
@@ -619,10 +534,6 @@ getProductLengthDefs <- function(doc){
     ProductKey = unlist(lapply(classified, FUN = function(X){ xml2::xml_integer(xml2::xml_find_first(X,   xpath = "./d1:ProductKey"))}))
     )
     df <- merge(df, LengthClassLowerLimit, by = "ProductKey", all = TRUE)
-
-
-
-
   }  else { df <- NULL}
   return(df)
 }
@@ -716,40 +627,7 @@ price_matr_entry_base_log_class <- function(pricematrixes, base_lengthcm = 490, 
   return(toreturn)
 }
 
-# makeRelativePrices_by_species <- function(products, pricematrixes) {
-#
-#   products2 <- products %>%
-#           select(.data$ProductKey, .data$MachineKey, .data$SpeciesGroupName, .data$SpeciesGroupKey, .data$ProductGroupName, .data$ProductName, .data$CreationDate)
-#      p_baselogs <- price_matr_entry_base_log_class( pricematrixes)
-#   p_baselogs <- p_baselogs %>%
-#     dplyr::left_join(products2)
-#   conif_baselogs <- p_baselogs %>%
-#
-#     dplyr::filter(str_detect(str_to_lower(SpeciesGroupName), "gran|furu") & (str_detect(str_to_lower(ProductGroupName), "t?mmer"))) %>%
-#     dplyr::filter(!str_detect(str_to_lower(ProductName), "skigard|emba")) %>%
-#     dplyr::group_by(MachineKey, CreationDate, SpeciesGroupName) %>%
-#     dplyr::summarize( baselog_price = mean(baselog_price), n_prices = dplyr::n()) %>%
-#     #dplyr::rename( baselogSpeciesGroupName = SpeciesGroupName)   %>%
-#     ungroup()
-#
-#   nonconif_baselogs <- p_baselogs %>% dplyr::filter(!str_detect(str_to_lower(SpeciesGroupName), "gran|furu")) %>%
-#     dplyr::group_by(MachineKey, CreationDate, SpeciesGroupName) %>%
-#     dplyr::summarize(baselog_price = max(baselog_price), n_prices = dplyr::n()) %>%
-#     #dplyr::rename(baselogSpeciesGroupName = SpeciesGroupName) %>%
-#     ungroup()
-#
-#   p_baselogs <- dplyr::bind_rows(conif_baselogs, nonconif_baselogs)
-#
-#
-#   relpricematrixs <- tibble::as_tibble(pricematrixes) %>%
-#     dplyr::left_join(products2 )    %>%
-#     dplyr::left_join(p_baselogs)   %>%
-#     dplyr::rowwise()%>%
-#     dplyr::mutate(relprice = round(price * 100 / baselog_price , 0))
-#
-#   return(relpricematrixs)
-# }
-#
+
 
 #' Operator def from operator definition nodetree
 #' @param x is a node tree of operator definition
@@ -757,11 +635,11 @@ price_matr_entry_base_log_class <- function(pricematrixes, base_lengthcm = 490, 
 #' @export
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
-#'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' doc <- xml2::read_xml(hprfiles[1])
-#' OperatorList <- xml2::xml_find_all(doc, ".//d1:OperatorDefinition" )
-#' getOperatorDef(OperatorList[[1]]) %>% dplyr::glimpse()
+#' sffiles <-  list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
+#' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
+#' OperatorList <- xml2::xml_find_all(docs[[1]], ".//d1:OperatorDefinition" )
+#' getOperatorDef(OperatorList[[1]]) %>% str()
 #' plyr::ldply(OperatorList, getOperatorDef )
 getOperatorDef <- function(x) {
   # x <- OperatorList[[2]]
@@ -812,16 +690,14 @@ getOperators <- function(doc){
 #'
 #' @return a tibble, number of rows = number of sub objects
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
-#'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' doc <- xml2::read_xml(hprfiles[2])
-#' Objects_nodes <- xml2::xml_find_all(doc, "//d1:ObjectDefinition")
+#' sffiles <-  list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
+#' print(sffiles)
+#' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
+#' Objects_nodes <- xml2::xml_find_all(docs[[3]], "//d1:ObjectDefinition")
 #' getObjectDefinition(Objects_nodes[1]) %>% str()
 #' plyr::ldply(Objects_nodes, getObjectDefinition)
-#' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
-#'  pattern = ".fpr", recursive = TRUE, full.names= TRUE)
-#' doc <- xml2::read_xml(fprfiles[1])
-#' Objects_nodes <- xml2::xml_find_all(doc, "//d1:ObjectDefinition")
+#' Objects_nodes <- xml2::xml_find_all(docs[[5]], "//d1:ObjectDefinition")
 #' getObjectDefinition(Objects_nodes[1]) %>% str()
 #' plyr::ldply(Objects_nodes, getObjectDefinition)
 #' @export
@@ -835,7 +711,7 @@ getObjectDefinition <- function(x){
     dplyr::mutate(ObjectKey = as.integer(.data$ObjectKey))
 
   sub_object_nodes  <- xml2::xml_find_all(x, "//d1:SubObject")
-  if(length(sub_object_nodes)){
+  if(length(sub_object_nodes)>0){
     # replicate the object definition row n = number of sub object defs
     object_def <- do.call(rbind, replicate(length(sub_object_nodes), object_def, simplify = FALSE))
 
@@ -843,91 +719,10 @@ getObjectDefinition <- function(x){
       tibble::as_tibble(t(xml_childs_nchr(X)), .name_repair = "universal") %>%
         dplyr::mutate(SubObjectKey = as.integer(.data$SubObjectKey))})
 
-    subobj_defs <- do.call(dplyr::bind_rows, lapply(subobj_defs, tibble::as_tibble)) %>%
-      dplyr::mutate(SubObjectKey = as.integer(.data$SubObjectKey))
+    subobj_defs <- do.call(dplyr::bind_rows, lapply(subobj_defs, tibble::as_tibble))
     object_def <- dplyr::bind_cols(object_def, subobj_defs)
 
   }
-
-#### The following to be removed ---------
-  # ObjectKey <- xml2::xml_integer(xml2::xml_find_first(x, "./d1:ObjectKey"))
-  # ObjectUserID <- xml2::xml_text(xml2::xml_find_first(x, "./d1:ObjectUserID")) # GUID, equals Logging unit (Var21.1) in old stanford.
-  # ObjectName <- xml2::xml_text(xml2::xml_find_first(x, "./d1:ObjectName"))
-  #
-  #
-  #
-  # ContractNumber <-  xml2::xml_text(xml2::xml_find_first(x, "./d1:ContractNumber"))
-  # RealEstateIDObject <-  xml2::xml_text(xml2::xml_find_first(x, "./d1:RealEstateIDObject"))
-  # StartDate <-  xml2::xml_text(xml2::xml_find_first(x, "./d1:StartDate"))
-  #
-  # #Tricky part; Logging form. Keep an eye on this approach
-  # LoggingFormCode <- "none"
-  # LoggingFormDesc <- "none"
-  # ObjLoggingFormCode <-  stringr::str_replace(xml2::xml_text(xml2::xml_find_first(x, "./d1:LoggingForm/d1:LoggingFormCode")), pattern = "[\\n\\t]*", replacement = "")
-  # ObjLoggingFormDesc <- stringr::str_replace(string =  xml2::xml_text(xml2::xml_find_first(x, "./d1:LoggingForm/d1:LoggingFormDescription")), pattern = "[\\n\\t]*", replacement = "")
-  #
-  # # Sub object data
-  # SubObjectKey <- xml2::xml_integer(xml2::xml_find_all(x, "./d1:SubObject/d1:SubObjectKey"))
-  # LL <- length(SubObjectKey)
-
-
-  # if(LL>0){
-  #   #These variables may or may not be present in each subobject. To ensure
-  #   # correct allocation of data we use the following approach
-  #   SubObjectName <- xml2::xml_text(xml2::xml_find_all(x, "./d1:SubObject/d1:SubObjectName"))
-  #
-  #   LoggingFormCode <- rep(LoggingFormCode, LL)
-  #   LoggingFormDesc <- rep(LoggingFormDesc, LL)
-  #   if(!is.null(ObjLoggingFormCode)) {LoggingFormCode[1:LL] <- ObjLoggingFormCode}
-  #   if(!is.null(ObjLoggingFormDesc)) {LoggingFormDesc[1:LL] <- ObjLoggingFormDesc}
-  #
-  #   SubObjLoggingFormDesc <- rep(NA_character_, LL)
-  #   SubObjLoggingFormCode <- rep(NA_character_, LL)
-  #   SubObjectUserID <- rep(NA_character_, LL)
-  #   RealEstateIDSubObject <- stringr::str_replace(xml2::xml_text(xml2::xml_find_all(x, "./d1:SubObject/d1:RealEstateIDSubObject")), pattern = "[\\n\\t]*", replacement = "")
-  #
-  #   subobjnodesets <- xml2::xml_find_all(x,  "./d1:SubObject")
-  #   for (i in 1:length(subobjnodesets)){
-  #     parsedset <- subobjnodesets[i]
-  #     SubObjectUserID[i] <- xml2::xml_text(xml2::xml_find_first(parsedset, "./d1:SubObjectUserID"))
-  #
-  #     # str( xml2::xml_text(xml2::xml_find_first(parsedset, ".//d1:doesentexist")))
-  #     # no_demo <- xml2::xml_text(xml2::xml_find_first(parsedset, ".//d1:doesentexist"))
-  #
-  #     lfc <- stringr::str_replace(xml2::xml_text(xml2::xml_find_first(parsedset, ".//d1:LoggingFormCode")), pattern = "[\\n\\t]*", replacement = "")
-  #     lfd <- stringr::str_replace(xml2::xml_text(xml2::xml_find_first(parsedset, ".//d1:LoggingFormDescription")), pattern = "[\\n\\t]*", replacement = "")
-  #
-  #
-  #     if(!is.na(lfc) & nchar(lfc)>0) {SubObjLoggingFormCode[i] <- lfc}
-  #     if(!is.na(lfd)& nchar(lfd)>0) {SubObjLoggingFormDesc[i] <- lfd}
-  #
-  #
-  #   }
-  #
-  #
-  # } else { #if there is no subobjectkey
-  #   SubObjectUserID <-  "1"
-  #   SubObjectKey <- 1
-  #   SubObjectName <- "1"
-  #   RealEstateIDSubObject<-  "1"
-  #
-  #   SubObjLoggingFormCode <- NA_character_
-  #   SubObjLoggingFormDesc <- NA_character_
-  #
-  #
-  # }
-  #
-  # LoggingFormCode[!is.na(SubObjLoggingFormCode)] = SubObjLoggingFormCode[!is.na(SubObjLoggingFormCode)]
-  # LoggingFormDesc[!is.na(SubObjLoggingFormDesc)] = SubObjLoggingFormDesc[!is.na(SubObjLoggingFormDesc)]
-  #
-  # ObjectUserID <- rep(ObjectUserID,  length(SubObjectKey))
-  #
-  #
-  # ObjectDefinition <- tibble::tibble(ObjectUserID, ObjectName, ObjectKey,
-  #                                SubObjectUserID, SubObjectName, SubObjectKey,
-  #                                LoggingFormCode,  LoggingFormDesc,
-  #                                RealEstateIDObject, RealEstateIDSubObject, ContractNumber, StartDate)
-
 
    return(object_def)
 }
@@ -940,14 +735,12 @@ getObjectDefinition <- function(x){
 #' @return a tibble, number of rows = number of objects and sub objects in doc
 #'
 #' @examples
-#' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
-#'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' doc <- xml2::read_xml(hprfiles[2])
-#' getObjects(doc) %>% str()
-#' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
-#'  pattern = ".fpr", recursive = TRUE, full.names= TRUE)
-#' doc <- xml2::read_xml(fprfiles[1])
-#' getObjects(doc) %>% str()
+#' sffiles <-  list.files(path =  system.file(package = "sf2010r"),
+#'    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
+#' print(sffiles)
+#' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
+#' getObjects(docs[[1]]) %>% str()
+#' lapply(docs[1:2], FUN = function(X){getObjects(X) %>% str()})
 #' @export
 getObjects <- function(doc){
   MachineKey = xml2::xml_text(xml2::xml_find_first(doc, "//d1:Machine/d1:MachineKey")) # alphanumeric key of length 18-60. GUI, following bucking computer.

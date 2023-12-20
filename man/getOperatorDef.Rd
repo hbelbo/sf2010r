@@ -13,10 +13,10 @@ getOperatorDef(x)
 Operator def from operator definition nodetree
 }
 \examples{
-hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
-   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-doc <- xml2::read_xml(hprfiles[1])
-OperatorList <- xml2::xml_find_all(doc, ".//d1:OperatorDefinition" )
-getOperatorDef(OperatorList[[1]]) \%>\% dplyr::glimpse()
+sffiles <-  list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
+docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
+OperatorList <- xml2::xml_find_all(docs[[1]], ".//d1:OperatorDefinition" )
+getOperatorDef(OperatorList[[1]]) \%>\% str()
 plyr::ldply(OperatorList, getOperatorDef )
 }

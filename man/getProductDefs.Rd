@@ -2,7 +2,7 @@
 % Please edit documentation in R/sf2010_general_functions.R
 \name{getProductDefs}
 \alias{getProductDefs}
-\title{Get all product definitions}
+\title{get Product definitions}
 \usage{
 getProductDefs(doc)
 }
@@ -10,16 +10,18 @@ getProductDefs(doc)
 \item{doc}{a StanFord2010 xml document}
 }
 \value{
-a list
+a data.frame
 }
 \description{
-Get all product definitions
+get Product definitions
 }
 \examples{
-hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
-   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-doc <- xml2::read_xml(hprfiles[1])
-getProductDefs(doc) \%>\% str()
-doc <- xml2::read_xml(hprfiles[2])
-getProductDefs(doc)
+sffiles <-  list.files(path =  system.file(package = "sf2010r"),
+   pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
+docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
+getProductDefs(docs[[1]]) \%>\% str()
+getProductDefs(docs[[2]]) \%>\% str()
+getProductDefs(docs[[3]]) \%>\% str()
+getProductDefs(docs[[4]]) \%>\% str()
+getProductDefs(docs[[5]]) \%>\% str()
 }

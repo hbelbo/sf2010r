@@ -26,8 +26,8 @@ mom-file reader function
 \examples{
 momfiles <- list.files(path =  system.file(package = "sf2010r"),
    pattern = ".mom$", recursive = TRUE,  ignore.case = TRUE,   full.names= TRUE)
-momtest1 <- mom_file_readr(momfiles[1])
-momtest2 <- mom_file_readr(momfiles[2])
-momtest3 <- mom_file_readr(momfiles[3])
+mom_file_readr(momfiles[1]) \%>\% str()
+mom_file_readr(momfiles[2]) \%>\% str()
+mom_file_readr(momfiles[3]) \%>\% str()
 momtest4 <- mom_file_readr(momfiles[4])
 }
