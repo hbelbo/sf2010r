@@ -181,93 +181,10 @@ getLocations <- function(doc){
 
 
 
-  #' Partial Load data from one Load  node
-  #' @param x is a node tree for one Load
-  #'
-  #' @export
-  #'
-  #' @examples
-  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
-  #'  pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
-  #' doc <- xml2::read_xml(fprfiles[1])
-  #' nodelist <- xml2::xml_find_all(doc, ".//d1:Load")
-  #' getPartialLoad(nodelist[[1]]) %>% dplyr::glimpse()
-  #' plyr::ldply(nodelist[1], getPartialLoad)
-  #' plyr::ldply(nodelist, getPartialLoad)
-  getPartialLoad <- function(x) {
-    # x = nodelist[[1]]
-    #NB: As loadVolumeCategories attributes seems equal across all partial loads in each fpr report, these are fetced once for all for the entire report in another function.
-    PartialLoads <- xml2::xml_find_all(x, ".//d1:PartialLoad")
-    chld.dat <- plyr::ldply(PartialLoads, xml_childs_nchr)
-    chld.dat <- dplyr::bind_rows(chld.dat)
-    chld.dat <- chld.dat %>% dplyr::mutate(dplyr::across(tidyselect::ends_with("Key"), as.integer))
-    return(chld.dat)
-  }
 
 
 
-
-  #' Load data from one Load  node
-  #' @param x is a node tree for one Load
-  #'
-  #' @export
-  #'
-  #' @examples
-  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
-  #'   pattern = ".fpr", ignore.case = TRUE,  recursive = TRUE, full.names= TRUE)
-  #' doc <- xml2::read_xml(fprfiles[1])
-  #' nodelist <- xml2::xml_find_all(doc, ".//d1:Load")
-  #' getLoad(nodelist[[1]]) %>% dplyr::glimpse()
-  #' plyr::ldply(nodelist[1], getLoad)
-  #' plyr::ldply(nodelist, getLoad)
-  getLoad <- function(x) {
-    # x = nodelist[[1]]
-
-    chld.dat <- xml_childs_nchr(x)
-    chld.dat <- dplyr::bind_rows(chld.dat)
-    chld.dat <- chld.dat %>% dplyr::mutate(dplyr::across(tidyselect::ends_with("Key"), as.integer))
-
-    partial_loads <- getPartialLoad(x)
-    partial_loads$LoadKey <- chld.dat$LoadKey
-    load_dt <- dplyr::right_join(chld.dat, partial_loads, by = "LoadKey")
-    return(load_dt)
-  }
-
-
-
-
-  #' Get load data for all loads within a SF2010 .fpr file
-  #'
-  #' @param doc a StanFord2010 .fpr xml-document
-  #'
-  #' @return a tibble
-  #' @export
-  #'
-  #' @examples
-  #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
-  #'    pattern = ".fpr", recursive = TRUE, full.names= TRUE)
-  #' doc <- xml2::read_xml(fprfiles[1])
-  #' getLoads(doc)
-  getLoads <- function(doc){
-    loadlist <- xml2::xml_find_all(doc, ".//d1:Load")
-    bmatrix <- plyr::ldply(loadlist, sf2010r::getLoad)
-    #bmatrix <- plyr::ldply(loadlist, getLoad)
-    onepartialload <- xml2::xml_find_first(loadlist[[1]], ".//d1:PartialLoad")
-    plvsc <- xml2::xml_attr(xml2::xml_find_all(onepartialload, ".//d1:LoadVolume"), attr = "loadVolumeCategory"  )
-    plvsc <- stringr::str_replace(ifelse(stringr::str_detect(plvsc, pattern = "m3sob|m3sub"), yes = plvsc, no = "Load_othervm"), pattern = "Volume, ", "Load_")
-
-    tst <- names(bmatrix)
-    tst[which( stringr::str_detect(tst, "LoadVolume.." ) == TRUE)] <- plvsc
-    names(bmatrix) <- tst
-
-    MachineKey <-xml2::xml_text(  xml2::xml_find_first(doc, ".//d1:MachineKey"))
-    bmatrix$MachineKey = MachineKey
-    return(bmatrix)
-  }
-
-
-
-#' getLoads2 - alternative and hopefully faster altenative to getLoads()
+#' getLoads get all loads (at partial load resolution) from a .fpr-file
 #'
 #' @param doc a StanFord2010 .fpr xml-document
 #'
@@ -278,9 +195,9 @@ getLocations <- function(doc){
 #' fprfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".fpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(fprfiles[1])
-#' str(getLoads2(doc))
-#' str(getLoads2(xml2::read_xml(fprfiles[2])))
-getLoads2 <- function(doc){
+#' str(getLoads(doc))
+#' str(getLoads(xml2::read_xml(fprfiles[2])))
+getLoads <- function(doc){
   # doc <- xml2::read_xml(fprfiles[2])
     xpt1 <- ".//d1:PartialLoad"
     pload1 <-  xml2::xml_find_first(doc, xpt1)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/fpr_functions.R
 \name{getLoads}
 \alias{getLoads}
-\title{Get load data for all loads within a SF2010 .fpr file}
+\title{getLoads get all loads (at partial load resolution) from a .fpr-file}
 \usage{
 getLoads(doc)
 }
@@ -13,11 +13,12 @@ getLoads(doc)
 a tibble
 }
 \description{
-Get load data for all loads within a SF2010 .fpr file
+getLoads get all loads (at partial load resolution) from a .fpr-file
 }
 \examples{
 fprfiles <- list.files(path =  system.file(package = "sf2010r"),
    pattern = ".fpr", recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(fprfiles[1])
-getLoads(doc)
+str(getLoads(doc))
+str(getLoads(xml2::read_xml(fprfiles[2])))
 }

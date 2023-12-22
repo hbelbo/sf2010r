@@ -20,6 +20,6 @@ Fpr-file reader function
 \examples{
 fprfiles <- list.files(path =  system.file(package = "sf2010r"),
 pattern = ".fpr", recursive = TRUE, full.names= TRUE)
-fprtest1 <- fpr_file_readr(fprfiles[1])
-fprtest2 <- fpr_file_readr(fprfiles[2])
+fpr_file_readr(fprfiles[1]) \%>\% str()
+fpr_file_readr(fprfiles[2]) \%>\% str()
 }
