@@ -19,8 +19,8 @@ Tracking data from mom-files#'
 \examples{
 momfiles <- list.files(path =  system.file(package = "sf2010r"),
     pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
-doc <- xml2::read_xml(momfiles[3])#'
-getTracking.data(doc) \%>\% dplyr::glimpse()
+docs <- lapply(X = momfiles, FUN = function(X){xml2::read_xml(X)})
+lapply(X = docs, FUN = function(X){ str(getTracking.data(X))})
 momfiles <- list.files(path =  system.file(package = "sf2010r"),
    pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 doc <- xml2::read_xml(momfiles[3])#'

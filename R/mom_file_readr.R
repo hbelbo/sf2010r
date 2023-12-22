@@ -162,6 +162,18 @@ mom_file_readr <- function(momfile){
 
   #  } # End if length(CMTOperatorKey), i.e. the combined machine work time part
 
+
+
+   operatorshiftdefs <- getMom.operatorshiftdefs(doc)
+   if(!is.null(operatorshiftdefs)){
+     operatorshiftdefs <- operatorshiftdefs %>%
+       sf2010r::type_convert_sf2010() %>%
+       dplyr::mutate(MachineKey = header$MachineKey[1])
+     returnlist <- c(returnlist, operatorshiftdefs = list(operatorshiftdefs))
+   }
+
+
+
    # Set up machine report table. One machine report = one observation. ----
 
    machinereport_meta <- tibble::tibble(MachineKey = header$MachineKey,
