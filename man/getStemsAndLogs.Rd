@@ -23,14 +23,14 @@ stemdias is the diameter vector for the stem.
 \examples{
 hprfiles <- list.files(path =  system.file(package = "sf2010r"),
 pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-doc <- xml2::read_xml(hprfiles[1])
-stl <- getStemsAndLogs(doc)
-doc <- xml2::read_xml(hprfiles[2])
-stl <- getStemsAndLogs(doc)
-doc <- xml2::read_xml(hprfiles[3])
-stl <- getStemsAndLogs(doc)
+docs <- lapply(X = hprfiles, FUN = function(X){xml2::read_xml(X)})
+getStemsAndLogs(docs[[1]]) \%>\% str()
+getStemsAndLogs(docs[[2]]) \%>\% str()
+getStemsAndLogs(docs[[3]]) \%>\% str() # MTPS and BoomPositioning
 hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
 pattern = ".hqc", recursive = TRUE, full.names= TRUE)
-doc <- xml2::read_xml(hqcfiles[1])
-stl <- getStemsAndLogs(doc)
+hqcdocs <- lapply(X = hqcfiles, FUN = function(X){xml2::read_xml(X)})
+getStemsAndLogs(hqcdocs[[1]]) \%>\% str()
+getStemsAndLogs(hqcdocs[[2]]) \%>\% str()
+
 }

@@ -18,10 +18,7 @@ get SingleTreeProcessed tree's diameter vector. By default not present in the hp
 \examples{
 hprfiles <- list.files(path =  system.file(package = "sf2010r"),
 pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-doc <- xml2::read_xml(hprfiles[1])
-getSTP_stemdiameters(doc)
-doc <- xml2::read_xml(hprfiles[2])
-getSTP_stemdiameters(doc)
-doc <- xml2::read_xml(hprfiles[3])
-getSTP_stemdiameters(doc)
+docs <- lapply(X = hprfiles, FUN = function(X){xml2::read_xml(X)})
+getSTP_stemdiameters(docs[[1]]) \%>\% str()  # does not have stemdiameters
+getSTP_stemdiameters(docs[[3]]) \%>\% str()  # does  have stemdiameters
 }

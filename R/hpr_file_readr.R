@@ -13,26 +13,30 @@
 #' @examples
 #' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' hprtest1 <- hpr_file_readr(hprfiles[1], read.diavector = TRUE)
-#' hprtest2 <- hpr_file_readr(hprfiles[2])
-#' hprtest3 <- hpr_file_readr(hprfiles[3])
-#' hprtest4 <- hpr_file_readr(hprfiles[3], read.diavector = TRUE)
-#' hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
-#'   pattern = ".hqc", recursive = TRUE, full.names= TRUE)
-#' hqctest1 <- hpr_file_readr(hqcfiles[1])
-#' hqctest1 <- hpr_file_readr(hqcfiles[1], read.diavector = TRUE)
-#' hqctest2 <- hpr_file_readr(hqcfiles[2])
-#' hqctest2 <- hpr_file_readr(hqcfiles[2], read.diavector = TRUE)
+#' hpr_file_readr(hprfiles[1], read.diavector = TRUE)
+#' hpr_file_readr(hprfiles[2]) %>% str()
+#' hpr_file_readr(hprfiles[3]) %>% str()
+#' hpr_file_readr(hprfiles[3], read.diavector = TRUE) %>% str()
 hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[1]
-  # hprfile = hqcfiles[1]
-  cat(" -hpr_file_readr() parsing ", hprfile,"- \n")
+  # hprfile = unparsedfiles[1]
+#  hprtest4 <- hpr_file_readr(unparsedfiles[i], read.diavector = TRUE)
+#  hprtest4 <- hpr_file_readr(unparsedfiles[i])
+
+  cat("\n-hpr_file_readr() parsing ", hprfile,"- \n")
+  filename <- basename(hprfile)
+
+  tmp <- nchar(filename)
+  filetype <- substring(filename, tmp-2, tmp)
+
+  stopifnot(filetype == "hpr")
+
    doc <- xml2::read_xml(hprfile)
    md5 <- digest::digest(file(hprfile))
 
    if(nchar(Sys.getlocale()) < 3){
-     Sys.setlocale(category = "LC_ALL", locale = "") #becouse of an R-studio Rstartup issue at HB's computer
+     Sys.setlocale(category = "LC_ALL", locale = "") #because of an R-studio Rstartup issue at HB's computer
      }
 
 
@@ -43,13 +47,6 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   if(length(StemKey)){
 
     ## then extract values
-
-    # .. cut object info
-    filename <- hprfile
-    tmp <- nchar(filename)
-    filetype <- substring(filename, tmp-2, tmp)
-
-
     # .. from the header
     MachineReportHeader <- sf2010r::getMachineReportHeader(doc)
     # MachineReportHeader %>% dplyr::glimpse()
@@ -95,7 +92,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
     cat(" -hpr_file_readr-getStemTypes; \n")
     stemtypes <- sf2010r::getStemTypes(doc) %>%
-      mutate( MachineKey = MachineReportHeader$MachineKey)
+      dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
     # stemtypes %>% dplyr::glimpse()
 
     if(nrow(stemtypes)>0){
@@ -105,9 +102,8 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
     ## Harvested stems and logs ----
 
     cat(" -hpr_file_readr-getStemsAndLogs;  \n")
-    StemsLogs <- sf2010r::getStemsAndLogs(doc)
-    #StemsLogs <- sf2010r::getStemsAndLogs2(doc)
-
+    StemsLogs <- getStemsAndLogs(doc)
+    #StemsLogs <- sf2010r::getStemsAndLogs(doc)
     # Logs (single tree processed logs. Need to include multistemming later)
     returnlist <- c(returnlist,
                     logs = list((StemsLogs$stplogs %>% dplyr::mutate(MachineKey = MachineReportHeader$MachineKey))))
@@ -116,7 +112,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
     Stemdat <- StemsLogs$stems
     # Stemdat %>% dplyr::glimpse()
     Stemdat <- Stemdat %>%
-      mutate(
+      dplyr::mutate(
              MachineKey = MachineReportHeader$MachineKey
              #, CreationDate = MachineReportHeader$CreationDate
              ) %>%
@@ -138,82 +134,158 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
     # Grade vector for each tree: -------
 
-    #Denne IF() skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
-    if(sum(StemsLogs$stemgrades$gradestartpos_cm > 0)>0){
-      if (min(StemsLogs$stemgrades$gradestartpos_cm[StemsLogs$stemgrades$gradestartpos_cm > 0])<20){ #DETTE skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
-        StemsLogs$stemgrades$gradestartpos_cm = StemsLogs$stemgrades$gradestartpos_cm*10
-      }}
+    # #Denne IF() skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
+     if(sum(StemsLogs$stemgrades$gradestartpos_cm > 0)>0){
+       if (min(StemsLogs$stemgrades$gradestartpos_cm[StemsLogs$stemgrades$gradestartpos_cm > 0])<20){ #DETTE skyldes at JD har en feil i TimbermaticH / SF2010V3.2; oppgir kvalitetsvektor i dm i stede for cm.
+         StemsLogs$stemgrades$gradestartpos_cm = StemsLogs$stemgrades$gradestartpos_cm*10
+       }}
 
-    grades <- StemsLogs$stemgrades %>% dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
-    returnlist <- c(returnlist, grades = list(grades))
+     grades <- StemsLogs$stemgrades %>% dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
+     returnlist <- c(returnlist, grades = list(grades))
 
     # height diameter dataset: StemKey diaheight dia_ob_cm, dia_ub_cm -------
+     #### height diameter dataset based on logs: StemKey diaheight dia_ob_cm, dia_ub_cm -------
+     cat(" - hpr_file_readr- create height diameter dataset from logs- \n")
+     logmeter <- StemsLogs$stplogs %>%
+       dplyr::select( -tidyselect::starts_with("m3"))  %>%
+       dplyr::ungroup() %>%
+       dplyr::group_by( StemKey) %>%
+       dplyr::mutate(LogEndHeight = cumsum(.data$LogLength)) %>%
+       dplyr::mutate(LogStartHeight = .data$LogEndHeight - .data$LogLength) %>%
+       dplyr::mutate(LogMidHeight = .data$LogStartHeight + 0.5* .data$LogLength) %>%
+       dplyr::ungroup()
 
-    cat(" - hpr_file_readr- create height diameter dataset from logs- \n
-         - NBNBNB This part need to be checked if it work as intended! ")
-    logmeter <- StemsLogs$stplogs %>%
-      select( -tidyselect::starts_with("m3"))  %>%
-      dplyr::ungroup() %>%
-      dplyr::group_by( .data$StemKey) %>%
-      dplyr:: mutate( LogEndHeight   = cumsum(.data$LogLength)) %>%
-      dplyr::mutate(LogStartHeight = .data$LogEndHeight - .data$LogLength) %>%
-      dplyr::mutate(LogMidHeight   = .data$LogStartHeight + 0.5* .data$LogLength) %>%
-      dplyr::ungroup()
+     logmeternames <- names(logmeter)
+     gselector <- c("StemKey", "LogKey")
 
-    stemlogdiasonbark = logmeter %>%
-      dplyr::select( "StemKey", "LogKey", diapos = "LogEndHeight", dia = "Top.ob")
+     if( any( stringr::str_detect(logmeternames, "Top.ob"))){
+       topdia_ob <- c(logmeternames[stringr::str_detect(logmeternames, "Top.ob")], "diapos" = "LogEndHeight")
+       topsonbark = logmeter %>% dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(topdia_ob)) %>%
+       dplyr::mutate(logdiapos = "Top") %>%
+         dplyr::rename(LogDiameter = "LogDiameter_Top.ob")
+       stemdias_ob <- topsonbark
 
-    if("Mid.ob" %in% colnames(logmeter) ){
-      midsonbark = logmeter %>%
-        dplyr::select( "StemKey", "LogKey", "diapos" = "LogMidHeight", dia = "Mid.ob")
-      stemlogdiasonbark <- dplyr::bind_rows(stemlogdiasonbark, midsonbark)
-    }
-
-
-    if("Butt.ob" %in% colnames(logmeter) ){
-      cat(" - hpr_file_readr- fetch 'Butt ob'")
-      butsonbark = logmeter %>%
-        dplyr::select( "StemKey", "LogKey", diapos = "LogStartHeight",
-                       dia = "Butt.ob")
-      stemlogdiasonbark <- dplyr::bind_rows(stemlogdiasonbark, butsonbark)
-    }
-
-    if(nrow(stemlogdiasonbark)){
-      stemlogdiasonbark <- stemlogdiasonbark %>%
-      dplyr::arrange( .data$StemKey, .data$diapos) %>%
-      dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
-
-    returnlist <- c(returnlist, stemlogdiasonbark = list(stemlogdiasonbark))
-    }
-
-    # Stem diameters under bark from log diameters under bark
-
-    if("Top.ub" %in% colnames(logmeter) ){
-    stemlogdiasubark = logmeter %>%
-      dplyr::select( "StemKey", "LogKey",
-                     "diapos" = "LogEndHeight", "dia" = "Top.ub")
-
-         if("Mid.ub" %in% colnames(logmeter) ){
-          midsubark = logmeter %>%
-            dplyr::select( "StemKey", "LogKey",
-                           diapos = "LogMidHeight", dia = "Mid.ub")
-          stemlogdiasubark <- dplyr::bind_rows(stemlogdiasubark, midsubark)
-          }
-
-         if("Butt.ub" %in% colnames(logmeter) ){
-          butsubark = logmeter %>%
-            dplyr::select( "StemKey", "LogKey", diapos = "LogStartHeight",
-                           dia = "Butt.ub")
-          stemlogdiasubark <- bind_rows(stemlogdiasubark, butsubark)
-        }
-
-    stemlogdiasubark <- stemlogdiasubark %>%
-      dplyr::arrange( .data$StemKey, .data$diapos) %>%
-      dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
-    returnlist <- c(returnlist, stemlogdiasubark = list(stemlogdiasubark))
+       if( any( stringr::str_detect(logmeternames, "Mid.ob"))){
+         middia_ob <- c(logmeternames[stringr::str_detect(logmeternames, "Mid.ob")], "diapos" = "LogMidHeight")
+         midsonbark = logmeter %>%
+           dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(middia_ob)) %>%
+           dplyr::mutate(logdiapos = "Mid") %>%
+           dplyr::rename(LogDiameter = "LogDiameter_Mid.ob") ##### is this the way to put it?
+         #dplyr::select( "StemKey", "LogKey", "diapos" = "LogMidHeight", "dia" = "LogDiameter_Mid.ob")
+         stemdias_ob <- dplyr::bind_rows(stemdias_ob, midsonbark)
+       }
 
 
-    }
+       if( any(stringr::str_detect(logmeternames, "Butt.ob"))){
+         butdia_ob <- c(logmeternames[stringr::str_detect(logmeternames, "Butt.ob")], "diapos" =  "LogStartHeight")
+         butsonbark = logmeter %>%
+           dplyr::select(tidyselect::all_of(gselector),  tidyselect::all_of(butdia_ob)) %>%
+           dplyr::mutate(logdiapos = "Butt") %>%
+           dplyr::rename(LogDiameter = "LogDiameter_Butt.ob")
+         #dplyr::select( "StemKey", "LogKey", "diapos" = "LogStartHeight", "dia" = "Butt.ob")
+         stemdias_ob <- dplyr::bind_rows(stemdias_ob, butsonbark)
+       }
+       stemdias_ob <- stemdias_ob %>% dplyr::arrange( .data$StemKey, .data$diapos)
+
+       returnlist <- c(returnlist, stemdias_ob = list(stemdias_ob))
+     }
+
+     if(any(stringr::str_detect(logmeternames, "Top.ub"))){
+       topdia_ub <- c(logmeternames[stringr::str_detect(logmeternames, "Top.ub")], "diapos" = "LogEndHeight")
+       topsubark = logmeter %>% dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(topdia_ub)) %>%
+         dplyr::mutate(logdiapos = "Top") %>%
+         dplyr::rename(LogDiameter = "LogDiameter_Top.ub")
+       stemdias_ub <- topsubark
+
+       if( any( stringr::str_detect(logmeternames, "Mid.ub"))){
+         middia_ub <- c(logmeternames[stringr::str_detect(logmeternames, "Mid.ub")], "diapos" = "LogMidHeight")
+         midsubark = logmeter %>%
+           dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(middia_ub)) %>%
+           dplyr::mutate(logdiapos = "Mid") %>%
+           dplyr::rename(LogDiameter = "LogDiameter_Mid.ub")
+         #dplyr::select( "StemKey", "LogKey", "diapos" = "LogMidHeight", "dia" = "LogDiameter_Mid.ub")
+         stemdias_ub <- dplyr::bind_rows(stemdias_ub, midsubark)
+       }
+
+
+       if( any(stringr::str_detect(logmeternames, "Butt.ub"))){
+         butdia_ub <- c(logmeternames[stringr::str_detect(logmeternames, "Butt.ub")], "diapos" =  "LogStartHeight")
+         butsubark = logmeter %>%
+           dplyr::select(tidyselect::all_of(gselector),  tidyselect::all_of(butdia_ub)) %>%
+           dplyr::mutate(logdiapos = "Butt") %>%
+           dplyr::rename(LogDiameter = "LogDiameter_Butt.ub")
+         #dplyr::select( "StemKey", "LogKey", "diapos" = "LogStartHeight", "dia" = "Butt.ub")
+         stemdias_ub <- dplyr::bind_rows(stemdias_ub, butsubark)
+       }
+       stemdias_ub <- stemdias_ub %>% dplyr::arrange( .data$StemKey, .data$diapos)
+
+       returnlist <- c(returnlist, stemdias_ub = list(stemdias_ub))
+     }
+
+              # cat(" - hpr_file_readr- create height diameter dataset from logs- \n")
+              # logmeter <- StemsLogs$stplogs %>%
+              #   dplyr::select( -tidyselect::starts_with("m3"))  %>%
+              #   dplyr::ungroup() %>%
+              #   dplyr::group_by( StemKey) %>%
+              #   dplyr:: mutate( LogEndHeight   = cumsum(.data$LogLength)) %>%
+              #   dplyr::mutate(LogStartHeight = .data$LogEndHeight - .data$LogLength) %>%
+              #   dplyr::mutate(LogMidHeight   = .data$LogStartHeight + 0.5* .data$LogLength) %>%
+              #   dplyr::ungroup()
+              #
+              # stemlogdiasonbark = logmeter %>%
+              #   dplyr::select( "StemKey", "LogKey", diapos = "LogEndHeight", dia = "Top.ob")
+              #
+              # if("Midob" %in% colnames(logmeter) ){
+              #   midsonbark = logmeter %>%
+              #     dplyr::select( "StemKey", "LogKey", "diapos" = "LogMidHeight", dia = "Mid.ob")
+              #   stemlogdiasonbark <- dplyr::bind_rows(stemlogdiasonbark, midsonbark)
+              # }
+              #
+              #
+              # if("Butt.ob" %in% colnames(logmeter) ){
+              #   cat(" - hpr_file_readr- fetch 'Butt ob'")
+              #   butsonbark = logmeter %>%
+              #     dplyr::select( "StemKey", "LogKey", diapos = "LogStartHeight",
+              #                    dia = "Butt.ob")
+              #   stemlogdiasonbark <- dplyr::bind_rows(stemlogdiasonbark, butsonbark)
+              # }
+              #
+              # if(nrow(stemlogdiasonbark)){
+              #   stemlogdiasonbark <- stemlogdiasonbark %>%
+              #   dplyr::arrange( .data$StemKey, .data$diapos) %>%
+              #   dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
+              #
+              # returnlist <- c(returnlist, stemlogdiasonbark = list(stemlogdiasonbark))
+              # }
+              #
+              # # Stem diameters under bark from log diameters under bark
+              #
+              # if("Top.ub" %in% colnames(logmeter) ){
+              # stemlogdiasubark = logmeter %>%
+              #   dplyr::select( "StemKey", "LogKey",
+              #                  "diapos" = "LogEndHeight", "dia" = "Top.ub")
+              #
+              #      if("Mid.ub" %in% colnames(logmeter) ){
+              #       midsubark = logmeter %>%
+              #         dplyr::select( "StemKey", "LogKey",
+              #                        diapos = "LogMidHeight", dia = "Mid.ub")
+              #       stemlogdiasubark <- dplyr::bind_rows(stemlogdiasubark, midsubark)
+              #       }
+              #
+              #      if("Butt.ub" %in% colnames(logmeter) ){
+              #       butsubark = logmeter %>%
+              #         dplyr::select( "StemKey", "LogKey", diapos = "LogStartHeight",
+              #                        dia = "Butt.ub")
+              #       stemlogdiasubark <- dplyr::bind_rows(stemlogdiasubark, butsubark)
+              #     }
+              #
+              # stemlogdiasubark <- stemlogdiasubark %>%
+              #   dplyr::arrange( .data$StemKey, .data$diapos) %>%
+              #   dplyr::mutate( MachineKey = MachineReportHeader$MachineKey)
+              # returnlist <- c(returnlist, stemlogdiasubark = list(stemlogdiasubark))
+              #
+              #
+              # }
 
 
 
@@ -238,8 +310,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
                                     CreationDate = MachineReportHeader$CreationDate,
                                     object_keys = paste(objects$ObjectKey, collapse=", "),
                                     object_ids = paste(objects$ObjectUserID, collapse=", "),
-                                    sub_obj_keys  = paste(objects$SubObjectKey, collapse=", "),
-                                    sub_obj_ids  = paste(objects$SubObjectUserID, collapse=", "),
+                                    returnlist_content = paste0(names(returnlist), collapse = ", "),
                                     filetype = filetype
                                     )
 
