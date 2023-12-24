@@ -33,9 +33,9 @@ getTracking.data <- function(doc) {
 
 #' get OperatorShiftDefinitions
 #'
-#' @param doc a StanFord2010 .mom xml-document
-#'
-#' @return a tibble
+#' @param doc a StanFord2010 .mom xml-document.
+#' @return a tibble having data from the OperatorShiftDefinitions in .mom files,
+#' one entry = one work shift.
 #' @export
 #'
 #' @examples
@@ -80,11 +80,11 @@ getMom.operatorshiftdefs <- function(doc){
 #'
 #' # outcommented 20231222 to put to other file (mom_support_imwt)
 #' #' Indivdual machine work time activity data from one indivdual machine work time node
-#' #' @param x is a node tree for one Indivdual machine work time entry
+#' #' @ param x is a node tree for one Indivdual machine work time entry
 #' #'
-#' #' @export
+#' #' @ export
 #' #'
-#' #' @examples
+#' #' @ examples
 #' #' momfiles <- list.files(path =  system.file(package = "sf2010r"),
 #' #'     pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' #' momfiles_imwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "individual_mwt"))]
@@ -133,11 +133,11 @@ getMom.operatorshiftdefs <- function(doc){
 #'
 #'
 #' #' Indivdual machine work time production data from one individual machine work time node
-#' #' @param x is a node tree for one Indivdual machine work time entry
+#' #' @ param x is a node tree for one Indivdual machine work time entry
 #' #'
-#' #' @export
+#' #' @ export
 #' #'
-#' #' @examples
+#' #' @ examples
 #' #' momfiles <- list.files(path =  system.file(package = "sf2010r"),
 #' #'     pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' #' momfiles_imwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "individual_mwt"))]

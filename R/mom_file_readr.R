@@ -35,7 +35,7 @@ mom_file_readr <- function(momfile){
 
 
   # .. cut object info
-  filename <- momfile
+  filename <- basename(momfile)
   tmp <- nchar(filename)
   filetype <- tolower(substring(filename, tmp-2, tmp))
 
