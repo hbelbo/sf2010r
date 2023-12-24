@@ -35,7 +35,7 @@ fpr_file_readr <- function(fprfile){
     ## then extract values
 
     # .. cut object info
-    filename <- fprfile
+    filename <- basename(fprfile)
     tmp <- nchar(filename)
     filetype <- substring(filename, tmp-2, tmp)
 

@@ -20,6 +20,6 @@ HQC-file reader function
 \examples{
 hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
 pattern = ".hqc", recursive = TRUE, full.names= TRUE)
-hqctest1 <- hqc_file_readr(hqcfiles[1])
-hqctest2 <- hqc_file_readr(hqcfiles[2])
+ hqc_file_readr(hqcfiles[1]) \%>\% str()
+ hqc_file_readr(hqcfiles[2]) \%>\% str()
 }
