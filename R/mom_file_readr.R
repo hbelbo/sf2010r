@@ -28,7 +28,6 @@ mom_file_readr <- function(momfile){
  # "MOM_V0301_Ponsse_forw_IMWT_Opti4G_04_750.mom"
  # "MOM_V0303_MaxiXT_1_7_combined_mwt.mom"
 
-     # momfile <- momfiles[1]
 
   doc <- xml2::read_xml(momfile)
   con <- file(momfile)
@@ -109,9 +108,9 @@ mom_file_readr <- function(momfile){
         imwt_production_sm <- imwt_production %>%
           #dplyr::group_by( dplyr::across(grp) ) %>%
           dplyr::group_by( dplyr::across(dplyr::all_of(grp))) %>%
-          dplyr::select( dplyr::where(is.numeric)) %>%
+          dplyr::select( dplyr::all_of(grp),  dplyr::where(is.numeric)) %>%
           dplyr::select( -"grp_id", -"SpeciesGroupKey" ) %>%
-          dplyr::summarise(dplyr::across(.cols = dplyr::everything(), ~ sum(.x, na.rm = TRUE))) %>% #str()
+          dplyr::summarise(dplyr::across(.cols = dplyr::everything(), ~ sum(.x, na.rm = TRUE))) %>%
           dplyr::right_join(
             sf2010r::type_convert_sf2010(imwt_activity)) %>%
           dplyr::arrange("MonitoringStartTime") %>%
