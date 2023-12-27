@@ -22,12 +22,13 @@
 #' mom_file_readr(momfiles[3]) %>% str()
 #' mom_file_readr(momfiles[4]) %>% str()
 mom_file_readr <- function(momfile){
- # "/MOM_Komatsu_harvester_sf2010v30_combined_mwt.MOM"
- # "/MOM_Ponsse_Forw_sf2010v31_individual_mwt.mom"
- # "/MOM_V3_3_MaxiXT_1_7_combined_mwt.mom"
- # "/MOM_Vimek_harvester_sf2010v20_individual_mwt.MOM"
+ # "MOM_V0200_Vimek_harvester_individual_mwt.MOM"
+ # "MOM_V0300_Komatsu_harvester_combined_mwt.MOM"
+ # "MOM_V0301_Ponsse_Forw_IMWT_Opti4G_04_743.mom"
+ # "MOM_V0301_Ponsse_forw_IMWT_Opti4G_04_750.mom"
+ # "MOM_V0303_MaxiXT_1_7_combined_mwt.mom"
 
-    # momfile <- momfiles[1]
+     # momfile <- momfiles[1]
 
   doc <- xml2::read_xml(momfile)
   con <- file(momfile)
@@ -106,13 +107,14 @@ mom_file_readr <- function(momfile){
 
         grp <- c(names(imwt_production)[stringr::str_detect(names(imwt_production), pattern = "ObjectKey")], "MonitoringStartTime")
         imwt_production_sm <- imwt_production %>%
-          dplyr::group_by( dplyr::across(grp) ) %>%
+          #dplyr::group_by( dplyr::across(grp) ) %>%
+          dplyr::group_by( dplyr::across(dplyr::all_of(grp))) %>%
           dplyr::select( dplyr::where(is.numeric)) %>%
-          dplyr::select( -.data$grp_id ) %>%
-          dplyr::summarise(dplyr::across(.cols = dplyr::everything(), ~ sum(.x, na.rm = TRUE))) %>%  #str()
+          dplyr::select( -"grp_id", -"SpeciesGroupKey" ) %>%
+          dplyr::summarise(dplyr::across(.cols = dplyr::everything(), ~ sum(.x, na.rm = TRUE))) %>% #str()
           dplyr::right_join(
             sf2010r::type_convert_sf2010(imwt_activity)) %>%
-          dplyr::arrange(.data$MonitoringStartTime) %>%
+          dplyr::arrange("MonitoringStartTime") %>%
           dplyr::ungroup()
 
 
