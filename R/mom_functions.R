@@ -65,8 +65,12 @@ getMom.operatorshiftdefs <- function(doc){
     # Reshuffle to dataframe format
     dlvrs <- matrix(unlist(returns1), ncol = length(chnames1), byrow = FALSE)
     dlvrs <- as.data.frame(dlvrs)
+
     # Insert  names
+    # NB: There is a type erro in some reports, therefore the follwoing is done to correct:
+    chnames1 <- stringr::str_replace(chnames1, "ShifKey", "ShiftKey")
     colnames(dlvrs) <- chnames1
+
     return(dlvrs)
   }
 
