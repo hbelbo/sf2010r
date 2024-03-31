@@ -43,9 +43,7 @@ library(sf2010r)
 sf2010r_example()[1:3]
 # Get a list of the "hpr" example files provided in the package
 hprfiles <- sf2010r_example(fileending = "hpr")
-hprtest1 <- hprdata(hprfiles[1])
-
-
+hprtest1 <- hpr_file_readr(hprfiles[1])
 
 
 ```
