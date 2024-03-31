@@ -97,7 +97,7 @@ getStemsAndLogs <- function(doc){
 
       stems <- dplyr::left_join(stems, coords_df,  by = c("StemKey"))
     }
-cat("\n going Extension")
+# cat("\n going Extension")
     xpt1 <- ".//d1:Stem/d1:Extension"  ###### Getting Extensions if present -------
     nodecase  <- xml2::xml_find_first(doc,  xpt1) # use first node as example to create dataset
     if(!is.na(nodecase)){
@@ -110,7 +110,7 @@ cat("\n going Extension")
       to_map <- paste(".//d1:Stem/d1:", nodename, "/d1:",childrens_1_names, sep = "")
 
       dt1 <- Map(function(x) {  # For each extension variables, create a data.frame having the extension variable and corresponding StemKey
-        print(x);
+       # print(x);
         df <- data.frame(xml2::xml_text(xml2::xml_find_all(doc, x)))
         StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, x))), "./d1:StemKey"))
         if(nrow(df)==length(StemKey)){ # Cant handle Extras if correspoinding StemKey is not found
@@ -157,7 +157,7 @@ cat("\n going Extension")
 
 
   ###### Getting Boom position if present -----------
-  cat("\n going  BoomPos")
+ #  cat("\n going  BoomPos")
   xpt1 <- ".//d1:Stem/d1:BoomPositioning"
   nodecase  <- xml2::xml_find_first(doc,  xpt1)
   if(!is.na(nodecase)){
@@ -187,7 +187,7 @@ cat("\n going Extension")
 
 
     ##### Single Tree Processed stems ##### ------------
-  cat("\n going  SingleTreeProcessedStem")
+ #  cat("\n going  SingleTreeProcessedStem")
     xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem"
     nodecase  <- xml2::xml_find_first(doc,  xpt1)
     if(!is.na(nodecase)){
@@ -213,7 +213,7 @@ cat("\n going Extension")
     } else {stemdat1 = data.frame()}
 
     ###### Multitree processed stems ----------
-    cat("\n going  multiTreeProcessingStem")
+  #   cat("\n going  multiTreeProcessingStem")
     xpt1 <- ".//d1:Stem/d1:MultiTreeProcessedStem"
     nodecase  <- xml2::xml_find_first(doc,  xpt1)
     if(!is.na(nodecase)){
@@ -275,7 +275,7 @@ cat("\n going Extension")
 
 
   #### STP Logs ######
-    cat("\n going  STP_Logs")
+  #  cat("\n going  STP_Logs")
     xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:Log"
     nodecase  <- xml2::xml_find_first(doc,  xpt1)
 
@@ -421,7 +421,7 @@ cat("\n going Extension")
       dt_logs <- dplyr::left_join(dt_logs, logmeas, by = c("StemKey", "LogKey"))
 
       ### Log data extension
-      cat("\n going  Log STP extension")
+   #   cat("\n going  Log STP extension")
       xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:Log/d1:Extension"
       # xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:Log/d1:Fake"
       nodecase  <- xml2::xml_find_first(doc,  xpt1)
@@ -452,7 +452,7 @@ cat("\n going Extension")
 
 
       ### Log cutting category
-      cat("\n going  STP Log CuttingCategory")
+   #   cat("\n going  STP Log CuttingCategory")
       xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:Log/d1:CuttingCategory"
       nodecase  <- xml2::xml_find_first(doc,  xpt1)
       nodename <- xml2::xml_name(nodecase)
@@ -484,7 +484,7 @@ cat("\n going Extension")
 
   ### MTP Logs --------------
     # paste(".//d1:Stem[./d1:ProcessingCategory/text() = 'MultiTreeProcessing']/d1:MultiTreeProcessedStem/d1:"
-    cat("\n going MTPStem-Log")
+ # cat("\n going MTPStem-Log")
     xpt1 <- ".//d1:Stem/d1:MultiTreeProcessedStem/d1:Log"
     # xpt1 <- ".//d1:Stem/d1:MultiTreeProcessedStem/d1:Lohjkg"
     nodecase  <- xml2::xml_find_first(doc,  xpt1)
@@ -565,7 +565,7 @@ cat("\n going Extension")
 
 
       ### Log data extension ----
-      cat("\n going  MTPStem Log Extension")
+      # cat("\n going  MTPStem Log Extension")
       xpt1 <- ".//d1:Stem/d1:MultiTreeProcessedStem/d1:Log/d1:Extension"
       nodecase  <- xml2::xml_find_first(doc,  xpt1)
       if( length(nodecase) > 0){
@@ -593,7 +593,7 @@ cat("\n going Extension")
       }
 
       ### Log cutting category ------
-      cat("\n going  MTP Log CuttingCategory")
+      # cat("\n going  MTP Log CuttingCategory")
       xpt1 <- ".//d1:Stem/d1:MultiTreeProcessedStem/d1:Log/d1:CuttingCategory"
       nodecase  <- xml2::xml_find_first(doc,  xpt1)
       nodename <- xml2::xml_name(nodecase)

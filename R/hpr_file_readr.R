@@ -145,7 +145,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
     # height diameter dataset: StemKey diaheight dia_ob_cm, dia_ub_cm -------
      #### height diameter dataset based on logs: StemKey diaheight dia_ob_cm, dia_ub_cm -------
-     cat(" - hpr_file_readr- create height diameter dataset from logs- \n")
+     # cat(" - hpr_file_readr- create height diameter dataset from logs- \n")
      logmeter <- StemsLogs$stplogs %>%
        dplyr::select( -tidyselect::starts_with("m3"))  %>%
        dplyr::ungroup() %>%
@@ -292,7 +292,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
 
     if(read.diavector == TRUE){
-      cat(" -hpr_file_readr- getSTP_stemdiameters;\n")
+     # cat(" -hpr_file_readr- getSTP_stemdiameters;\n")
       stemdias <- sf2010r::getSTP_stemdiameters(doc)
 
       if( !is.null(stemdias)){
