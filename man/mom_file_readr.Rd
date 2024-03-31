@@ -30,4 +30,5 @@ mom_file_readr(momfiles[1]) \%>\% str()
 mom_file_readr(momfiles[2]) \%>\% str()
 mom_file_readr(momfiles[3]) \%>\% str()
 mom_file_readr(momfiles[4]) \%>\% str()
+mom_file_readr(momfiles[6]) \%>\% str()
 }

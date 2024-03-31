@@ -18,7 +18,8 @@ Get Combined Machine Work Time for all and within a SF2010 .hpr file
 \examples{
 momfiles <- list.files(path =  system.file(package = "sf2010r"),
     pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
-momfiles_cmwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "combined_mwt"))]
+momfiles_cmwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "cmwt"))]
 doc <- xml2::read_xml(momfiles_cmwt[2])
 getCombined.mwt(doc)
+getCombined.mwt( xml2::read_xml(momfiles_cmwt[3]))
 }

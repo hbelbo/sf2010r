@@ -15,9 +15,8 @@ Combined machine work time data from one combined machine work time node
 \examples{
 momfiles <- list.files(path =  system.file(package = "sf2010r"),
    pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
-momfiles_cmwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "combined_mwt"))]
-doc <- xml2::read_xml(momfiles_cmwt[2])#'
+momfiles_cmwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "cmwt"))]
+doc <- xml2::read_xml(momfiles_cmwt[3])
 cmwtlist <- xml2::xml_find_all(doc, ".//d1:CombinedMachineWorkTime")
-getMom.cmwt.data(cmwtlist[[1]]) \%>\% dplyr::glimpse()
-plyr::ldply(cmwtlist[1:2], getMom.cmwt.data)
+plyr::ldply(cmwtlist[1:min(length(cmwtlist), 4)], getMom.cmwt.data)
 }

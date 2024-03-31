@@ -21,12 +21,14 @@
 #' mom_file_readr(momfiles[2]) %>% str()
 #' mom_file_readr(momfiles[3]) %>% str()
 #' mom_file_readr(momfiles[4]) %>% str()
+#' mom_file_readr(momfiles[6]) %>% str()
 mom_file_readr <- function(momfile){
- # "MOM_V0200_Vimek_harvester_individual_mwt.MOM"
- # "MOM_V0300_Komatsu_harvester_combined_mwt.MOM"
- # "MOM_V0301_Ponsse_Forw_IMWT_Opti4G_04_743.mom"
- # "MOM_V0301_Ponsse_forw_IMWT_Opti4G_04_750.mom"
- # "MOM_V0303_MaxiXT_1_7_combined_mwt.mom"
+ # MOM_V0200_Harv_imwt_Rottne_20150423.mom"
+ # MOM_V0200_Harv_imwt_Vimek.MOM"
+ # MOM_V0201_Forw_cmwt_MaxiX_03_03_02_Komatsu.mom
+ # MOM_V0300_Forw_cmwt_MaxiX_03_10_x.mom
+ # MOM_V0300_Harv_cmwt_MaxiX 03_04_20160202.MOM
+ # MOM_V0300_Harv_cmwt_MaxiX_03_04_00_201602
 # momfile <- momfiles[3]
 
   doc <- xml2::read_xml(momfile)
