@@ -472,6 +472,18 @@ getProductDiaDefs <- function(doc){
 
     df <- Reduce(function(x,y) merge(x,y, by = "ProductKey", all = TRUE), df)
 
+    # Then a special trick because if Minimum and maximum diameters are not presented directly
+
+    classified <- xml2::xml_parent(xml2::xml_parent(xml2::xml_find_all(doc, xpt1)))
+    # From each: find first LengthClassLowerLimit
+    DiameterLimits <- data.frame(
+      DiaClassMin = unlist( lapply(classified, FUN = function(X){ xml2::xml_text(xml2::xml_find_first(X, xpath = ".//d1:DiameterClass/d1:DiameterClassLowerLimit"))})),
+      DiaClassMax = unlist( lapply(classified, FUN = function(X){ xml2::xml_text(xml2::xml_find_first(X, xpath = ".//d1:DiameterClasses/d1:DiameterClassMAX"))})),
+      ProductKey = unlist(lapply(classified, FUN = function(X){ xml2::xml_integer(xml2::xml_find_first(X,   xpath = "./d1:ProductKey"))}))
+    )
+
+    df <- merge(df, DiameterLimits, by = "ProductKey", all = TRUE)
+
   }  else { df <- NULL}
   return(df)
 }
