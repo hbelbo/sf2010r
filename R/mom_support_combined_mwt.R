@@ -10,25 +10,17 @@
 #' momfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".mom", ignore.case = TRUE, recursive = TRUE, full.names= TRUE)
 #' momfiles_cmwt <- momfiles[which(stringr::str_detect(string = momfiles, pattern = "combined_mwt"))]
-#' doc <- xml2::read_xml(momfiles_cmwt[2])#'
+#' doc <- xml2::read_xml(momfiles_cmwt[2])
 #' cmwtlist <- xml2::xml_find_all(doc, ".//d1:CombinedMachineWorkTime")
 #' getMom.cmwt.data(cmwtlist[[1]]) %>% dplyr::glimpse()
-#' plyr::ldply(cmwtlist[1:2], getMom.cmwt.data)
+#' plyr::ldply(cmwtlist[1:4], getMom.cmwt.data)
 getMom.cmwt.data <- function(x) {
-  # x = cmwtlist[[2]]
+  # x = cmwtlist[[1]]
+  # x = cmwtlist[[4]]
 
   cmwt.1 <- dplyr::bind_rows(xml_childs_nchr(x)) # Get all daughters of the MachineWorkTime element
   OtherMachineData <- dplyr::bind_rows(xml_childs_nchr(xml2::xml_find_all(x, ".//d1:OtherMachineData")))
 
-  ForwarderData <- dplyr::bind_rows(xml_childs_nchr(xml2::xml_find_all(x, ".//d1:ForwarderData")))
-  LoadVolume_l <- xml2::xml_find_all(x, ".//d1:TotalForwardedVolume")
-  LoadVolumeKat <- LoadVolume_l %>%
-    purrr::map(~ xml2::xml_attr(.x, attr = "forwardedVolumeCategory")) %>%
-    unlist()
-  LoadVolume <- LoadVolume_l %>%
-    purrr::map(~ xml2::xml_double(.x )) %>%
-    unlist()
-  ##!! Intention here is to add colume category and corresponding load volume to the ForwarderData
 
   CombinedMachineRunTime <- xml_childs_nchr(xml2::xml_find_all(x, ".//d1:CombinedMachineRunTime"))
   colnames <- unique(names(CombinedMachineRunTime))
@@ -59,17 +51,29 @@ getMom.cmwt.data <- function(x) {
     cmwt.data <- dplyr::bind_rows(cmrt, cmut)
   }
 
-  cmwt.data <- cmwt.data[, c("Activity", "TimeCat", "TimeLength")]
-
-
+  if(nrow(cmwt.data)>0){
+    cmwt.data <- cmwt.data[, c("Activity", "TimeCat", "TimeLength")]
   cmwt.data.w <-
     tidyr::pivot_wider(cmwt.data,
                        names_from = c("TimeCat", "Activity"),
                        values_from = c("TimeLength"))
+  } else{cmwt.data.w <-  data.table::data.table(NULL) }
+  cmwt.data.w <- dplyr::bind_cols(cmwt.1, OtherMachineData, cmwt.data.w )
 
-  dt1 <- dplyr::bind_cols(cmwt.1, OtherMachineData)
-  cmwt.data.w <- dplyr::bind_cols(dt1, cmwt.data.w, ForwarderData)
 
+  ForwarderData <- dplyr::bind_rows(xml_childs_nchr(xml2::xml_find_all(x, ".//d1:ForwarderData")))
+  if(ncol(ForwarderData)>0) {
+    LoadVolume_l <- xml2::xml_find_all(x, ".//d1:TotalForwardedVolume")
+    LoadVolumeKat <- LoadVolume_l %>%
+      purrr::map(~ xml2::xml_attr(.x, attr = "forwardedVolumeCategory")) %>%
+      unlist()
+    LoadVolume <- LoadVolume_l %>%
+      purrr::map(~ xml2::xml_double(.x )) %>%
+      unlist()
+  ##!! Intention here is to add volume category and corresponding load volume to the ForwarderData
+
+  cmwt.data.w <- dplyr::bind_cols(cmwt.data.w,  ForwarderData)
+  }
 
   return(cmwt.data.w)
 }

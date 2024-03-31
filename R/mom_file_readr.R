@@ -27,7 +27,7 @@ mom_file_readr <- function(momfile){
  # "MOM_V0301_Ponsse_Forw_IMWT_Opti4G_04_743.mom"
  # "MOM_V0301_Ponsse_forw_IMWT_Opti4G_04_750.mom"
  # "MOM_V0303_MaxiXT_1_7_combined_mwt.mom"
-
+# momfile <- momfiles[3]
 
   doc <- xml2::read_xml(momfile)
   con <- file(momfile)
@@ -128,6 +128,7 @@ mom_file_readr <- function(momfile){
   # # Combined machine time data
    cmwtlist <- xml2::xml_find_all(doc, ".//d1:CombinedMachineWorkTime")
    if(length(cmwtlist)){
+
      cmwt_data <- plyr::ldply(cmwtlist, getMom.cmwt.data) %>% dplyr::mutate(MachineKey = header$MachineKey)
      returnlist <- c(returnlist, cmwt_data = list(cmwt_data))
    }
