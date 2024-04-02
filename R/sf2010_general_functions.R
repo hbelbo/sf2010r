@@ -308,7 +308,7 @@ getStemTypeDefs <- function(x) {
 #' hprfiles <-  list.files(path =  system.file(package = "sf2010r"),
 #'    pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' doc <- xml2::read_xml(hprfiles[1])
-#' getStemTypes(doc)
+#' getStemTypes(doc) %>% str()
 getStemTypes <- function(doc){
   SpeciesList <- xml2::xml_find_all(doc, ".//d1:SpeciesGroupDefinition" )
   if(length(SpeciesList)) {
@@ -416,6 +416,9 @@ getProductDefs <- function(doc){
 
       ProductDefs <- dplyr::bind_rows(ProductDefs, unclassified_product_defs)
     }
+
+    ProductDefs$MachineKey <-  xml2::xml_text( xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
+    ProductDefs <-  type_convert_sf2010(ProductDefs)
     return(ProductDefs)
   } else {
     cat("\n No product definitions" )
@@ -543,8 +546,7 @@ getProductLengthDefs <- function(doc){
     # From each: find first LengthClassLowerLimit
     LengthClassLowerLimit <- data.frame(
       LengthClassMIN = unlist( lapply(classified, FUN = function(X){ xml2::xml_text(xml2::xml_find_first(X, xpath = ".//d1:LengthClass/d1:LengthClassLowerLimit"))})),
-    ProductKey = unlist(lapply(classified, FUN = function(X){ xml2::xml_integer(xml2::xml_find_first(X,   xpath = "./d1:ProductKey"))}))
-    )
+    ProductKey = unlist(lapply(classified, FUN = function(X){ xml2::xml_integer(xml2::xml_find_first(X,   xpath = "./d1:ProductKey"))})) )
     df <- merge(df, LengthClassLowerLimit, by = "ProductKey", all = TRUE)
   }  else { df <- NULL}
   return(df)
@@ -576,7 +578,7 @@ getProductMatrixItems <- function(x) {
 
 
     dimnames1 = names(ItemLimits[[1]]) #Rownames
-    pm <- pm %>% dplyr::mutate( ProductKey = as.numeric(ProductKey),
+    pm <- pm %>% dplyr::mutate( ProductKey = as.integer(ProductKey),
                      !!dimnames1[1] := as.numeric(sapply(ItemLimits, function(x) x[1])),
                      !!dimnames1[2] := as.numeric(sapply(ItemLimits, function(x) x[2])))
 
@@ -605,6 +607,7 @@ getProductMatrixes <- function(doc){
       #bmatrix <- plyr::ldply(Productslist, getProductMatrixItems)
       MachineKey <- xml2::xml_text(xml2::xml_find_first(doc, ".//d1:Machine/d1:MachineKey"))
       bmatrix$MachineKey = MachineKey
+
       return(bmatrix)
     } else { return(NULL)}
   } else { return(NULL)}
@@ -657,6 +660,7 @@ getOperatorDef <- function(x) {
   # x <- OperatorList[[2]]
   OperatorKey <- xml2::xml_integer( xml2::xml_find_first(x,  ".//d1:OperatorKey"))
   od1 <-  data.frame(as.list(xml_childs_nchr(x)))
+  od1$OperatorKey <- as.integer(OperatorKey)
   contactinfo <- xml2::xml_find_all(x, ".//d1:ContactInformation")
   if(length(contactinfo)){
     contactinfo <- data.frame(as.list(xml_childs_nchr(contactinfo)))
@@ -709,8 +713,7 @@ getOperators <- function(doc){
 #' Objects_nodes <- xml2::xml_find_all(docs[[3]], "//d1:ObjectDefinition")
 #' getObjectDefinition(Objects_nodes[1]) %>% str()
 #' plyr::ldply(Objects_nodes, getObjectDefinition)
-#' Objects_nodes <- xml2::xml_find_all(docs[[5]], "//d1:ObjectDefinition")
-#' getObjectDefinition(Objects_nodes[1]) %>% str()
+#' Objects_nodes <- xml2::xml_find_all(docs[[4]], "//d1:ObjectDefinition")
 #' plyr::ldply(Objects_nodes, getObjectDefinition)
 #' @export
 getObjectDefinition <- function(x){
@@ -748,11 +751,11 @@ getObjectDefinition <- function(x){
 #'
 #' @examples
 #' sffiles <-  list.files(path =  system.file(package = "sf2010r"),
-#'    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
+#'    pattern = ".hpr|.fpr|.mom|.hqc", recursive = TRUE, full.names= TRUE)
 #' print(sffiles)
 #' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
 #' getObjects(docs[[1]]) %>% str()
-#' lapply(docs[1:2], FUN = function(X){getObjects(X) %>% str()})
+#' lapply(docs[1:5], FUN = function(X){getObjects(X) %>% str()})
 #' @export
 getObjects <- function(doc){
   MachineKey = xml2::xml_text(xml2::xml_find_first(doc, "//d1:Machine/d1:MachineKey")) # alphanumeric key of length 18-60. GUI, following bucking computer.
