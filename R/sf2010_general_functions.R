@@ -710,7 +710,7 @@ getOperators <- function(doc){
 #'    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
 #' print(sffiles)
 #' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
-#' Objects_nodes <- xml2::xml_find_all(docs[[3]], "//d1:ObjectDefinition")
+#' Objects_nodes <- xml2::xml_find_all(docs[[6]], "//d1:ObjectDefinition")
 #' getObjectDefinition(Objects_nodes[1]) %>% str()
 #' plyr::ldply(Objects_nodes, getObjectDefinition)
 #' Objects_nodes <- xml2::xml_find_all(docs[[4]], "//d1:ObjectDefinition")
@@ -724,6 +724,21 @@ getObjectDefinition <- function(x){
 
   object_def <- tibble::as_tibble(t(xml_childs_nchr(x) ), .name_repair = "universal") %>%
     dplyr::mutate(ObjectKey = as.integer(.data$ObjectKey))
+  dups <- stringr::str_detect(names(object_def), "\\...")
+if(any(dups)){
+  wdups <- which(dups==TRUE)
+  dupnames <- (stringr::str_remove(names(object_def)[dups], "\\...[:alnum:]+"))
+  uniquedupnames <- unique(dupnames)
+  for(i in 1:length(uniquedupnames)){
+    n_dups_i = length(dupnames[dupnames ==uniquedupnames[i] ])
+    nn <- c("", paste0(".", as.character(1:(n_dups_i-1))))
+    wdupsi <- which(stringr::str_detect(names(object_def), uniquedupnames[i]))
+    namevector <- paste(uniquedupnames[i], nn, sep = "" )
+    names(object_def)[wdupsi] <- namevector
+    #namevector <- c(namevector, paste(uniquedupnames[i], nn, sep = "" ))
+  }
+}
+
 
   sub_object_nodes  <- xml2::xml_find_all(x, "//d1:SubObject")
   if(length(sub_object_nodes)>0){
@@ -754,7 +769,7 @@ getObjectDefinition <- function(x){
 #'    pattern = ".hpr|.fpr|.mom|.hqc", recursive = TRUE, full.names= TRUE)
 #' print(sffiles)
 #' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
-#' getObjects(docs[[1]]) %>% str()
+#' getObjects(docs[[7]]) %>% str()
 #' lapply(docs[1:5], FUN = function(X){getObjects(X) %>% str()})
 #' @export
 getObjects <- function(doc){
