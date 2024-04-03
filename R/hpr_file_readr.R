@@ -10,16 +10,21 @@
 #'  stemdiametervectors, and stemtypes.
 #' @export
 #'
+#'@details
+#'The function does not yet fetch volumes from multi-tree processed tree-bunches.
+#'
+#'
 #' @examples
 #' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
 #'   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' hpr_file_readr(hprfiles[1], read.diavector = TRUE)
 #' hpr_file_readr(hprfiles[2]) %>% str()
 #' hpr_file_readr(hprfiles[3]) %>% str()
+#' hpr_file_readr(hprfiles[3])$logs %>% filter(StemKey %in% c(67416289, 134525153) ) %>% str()
 #' hpr_file_readr(hprfiles[3], read.diavector = TRUE) %>% str()
 hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-  # hprfile = hprfiles[1]
+  # hprfile = hprfiles[3]
   # hprfile = unparsedfiles[1]
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i], read.diavector = TRUE)
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i])
@@ -109,9 +114,8 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
                     logs = list((StemsLogs$stplogs %>% dplyr::mutate(MachineKey = MachineReportHeader$MachineKey))))
 
     # Stemdat modifications, joining summary data  from logs  ----------
-    Stemdat <- StemsLogs$stems
-    # Stemdat %>% dplyr::glimpse()
-    Stemdat <- Stemdat %>%
+
+    Stemdat <-  StemsLogs$stems %>%
       dplyr::mutate(
              MachineKey = MachineReportHeader$MachineKey
              #, CreationDate = MachineReportHeader$CreationDate
@@ -157,70 +161,82 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
      logmeternames <- names(logmeter)
      gselector <- c("StemKey", "LogKey")
+     log_stemdias <- tibble::tibble(MachineKey = MachineReportHeader$MachineKey)
 
-     if( any( stringr::str_detect(logmeternames, "Top.ob"))){
-       topdia_ob <- c(logmeternames[stringr::str_detect(logmeternames, "Top.ob")], "diapos" = "LogEndHeight")
-       topsonbark = logmeter %>% dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(topdia_ob)) %>%
-       dplyr::mutate(logdiapos = "Top") %>%
-         dplyr::rename(LogDiameter = "LogDiameter_Top.ob")
-       stemdias_ob <- topsonbark
-
-       if( any( stringr::str_detect(logmeternames, "Mid.ob"))){
-         middia_ob <- c(logmeternames[stringr::str_detect(logmeternames, "Mid.ob")], "diapos" = "LogMidHeight")
-         midsonbark = logmeter %>%
-           dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(middia_ob)) %>%
-           dplyr::mutate(logdiapos = "Mid") %>%
-           dplyr::rename(LogDiameter = "LogDiameter_Mid.ob") ##### is this the way to put it?
-         #dplyr::select( "StemKey", "LogKey", "diapos" = "LogMidHeight", "dia" = "LogDiameter_Mid.ob")
-         stemdias_ob <- dplyr::bind_rows(stemdias_ob, midsonbark)
-       }
-
-
-       if( any(stringr::str_detect(logmeternames, "Butt.ob"))){
-         butdia_ob <- c(logmeternames[stringr::str_detect(logmeternames, "Butt.ob")], "diapos" =  "LogStartHeight")
-         butsonbark = logmeter %>%
-           dplyr::select(tidyselect::all_of(gselector),  tidyselect::all_of(butdia_ob)) %>%
-           dplyr::mutate(logdiapos = "Butt") %>%
-           dplyr::rename(LogDiameter = "LogDiameter_Butt.ob")
-         #dplyr::select( "StemKey", "LogKey", "diapos" = "LogStartHeight", "dia" = "Butt.ob")
-         stemdias_ob <- dplyr::bind_rows(stemdias_ob, butsonbark)
-       }
-       stemdias_ob <- stemdias_ob %>% dplyr::arrange( .data$StemKey, .data$diapos)
-
-       returnlist <- c(returnlist, stemdias_ob = list(stemdias_ob))
-     }
-
-     if(any(stringr::str_detect(logmeternames, "Top.ub"))){
-       topdia_ub <- c(logmeternames[stringr::str_detect(logmeternames, "Top.ub")], "diapos" = "LogEndHeight")
-       topsubark = logmeter %>% dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(topdia_ub)) %>%
+     if( any( stringr::str_detect(logmeternames, "Top.ob|Top.ub"))){
+       if( any( stringr::str_detect(logmeternames, "Top.ob"))){
+         topdia_ob <- c(logmeternames[stringr::str_detect(logmeternames, "Top.ob")], "diapos" = "LogEndHeight")
+         topsonbark = logmeter %>% dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(topdia_ob)) %>%
          dplyr::mutate(logdiapos = "Top") %>%
-         dplyr::rename(LogDiameter = "LogDiameter_Top.ub")
-       stemdias_ub <- topsubark
+           dplyr::rename(LogDiameter = "LogDiameter_Top.ob")
+         log_stemdias_ob <- topsonbark
 
-       if( any( stringr::str_detect(logmeternames, "Mid.ub"))){
-         middia_ub <- c(logmeternames[stringr::str_detect(logmeternames, "Mid.ub")], "diapos" = "LogMidHeight")
-         midsubark = logmeter %>%
-           dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(middia_ub)) %>%
-           dplyr::mutate(logdiapos = "Mid") %>%
-           dplyr::rename(LogDiameter = "LogDiameter_Mid.ub")
-         #dplyr::select( "StemKey", "LogKey", "diapos" = "LogMidHeight", "dia" = "LogDiameter_Mid.ub")
-         stemdias_ub <- dplyr::bind_rows(stemdias_ub, midsubark)
+         if( any( stringr::str_detect(logmeternames, "Mid.ob"))){
+           middia_ob <- c(logmeternames[stringr::str_detect(logmeternames, "Mid.ob")], "diapos" = "LogMidHeight")
+           midsonbark = logmeter %>%
+             dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(middia_ob)) %>%
+             dplyr::mutate(logdiapos = "Mid") %>%
+             dplyr::rename(LogDiameter = "LogDiameter_Mid.ob") ##### is this the way to put it?
+           #dplyr::select( "StemKey", "LogKey", "diapos" = "LogMidHeight", "dia" = "LogDiameter_Mid.ob")
+           log_stemdias_ob <- dplyr::bind_rows(log_stemdias_ob, midsonbark)
+         }
+
+
+         if( any(stringr::str_detect(logmeternames, "Butt.ob"))){
+           butdia_ob <- c(logmeternames[stringr::str_detect(logmeternames, "Butt.ob")], "diapos" =  "LogStartHeight")
+           butsonbark = logmeter %>%
+             dplyr::select(tidyselect::all_of(gselector),  tidyselect::all_of(butdia_ob)) %>%
+             dplyr::mutate(logdiapos = "Butt") %>%
+             dplyr::rename(LogDiameter = "LogDiameter_Butt.ob")
+           #dplyr::select( "StemKey", "LogKey", "diapos" = "LogStartHeight", "dia" = "Butt.ob")
+           log_stemdias_ob <- dplyr::bind_rows(log_stemdias_ob, butsonbark)
+         }
+         log_stemdias_ob <- log_stemdias_ob %>% dplyr::arrange( .data$StemKey, .data$diapos) %>%
+           dplyr::rename(LogDia_ob = LogDiameter )
+
+         log_stemdias <- dplyr::bind_cols(log_stemdias, log_stemdias_ob)
+        # returnlist <- c(returnlist, log_stemdias_ob = list(log_stemdias_ob))
        }
 
 
-       if( any(stringr::str_detect(logmeternames, "Butt.ub"))){
-         butdia_ub <- c(logmeternames[stringr::str_detect(logmeternames, "Butt.ub")], "diapos" =  "LogStartHeight")
-         butsubark = logmeter %>%
-           dplyr::select(tidyselect::all_of(gselector),  tidyselect::all_of(butdia_ub)) %>%
-           dplyr::mutate(logdiapos = "Butt") %>%
-           dplyr::rename(LogDiameter = "LogDiameter_Butt.ub")
-         #dplyr::select( "StemKey", "LogKey", "diapos" = "LogStartHeight", "dia" = "Butt.ub")
-         stemdias_ub <- dplyr::bind_rows(stemdias_ub, butsubark)
-       }
-       stemdias_ub <- stemdias_ub %>% dplyr::arrange( .data$StemKey, .data$diapos)
+       if(any(stringr::str_detect(logmeternames, "Top.ub"))){
+         topdia_ub <- c(logmeternames[stringr::str_detect(logmeternames, "Top.ub")], "diapos" = "LogEndHeight")
+         topsubark = logmeter %>% dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(topdia_ub)) %>%
+           dplyr::mutate(logdiapos = "Top") %>%
+           dplyr::rename(LogDiameter = "LogDiameter_Top.ub")
+         log_stemdias_ub <- topsubark
 
-       returnlist <- c(returnlist, stemdias_ub = list(stemdias_ub))
+         if( any( stringr::str_detect(logmeternames, "Mid.ub"))){
+           middia_ub <- c(logmeternames[stringr::str_detect(logmeternames, "Mid.ub")], "diapos" = "LogMidHeight")
+           midsubark = logmeter %>%
+             dplyr::select(tidyselect::all_of(gselector), tidyselect::all_of(middia_ub)) %>%
+             dplyr::mutate(logdiapos = "Mid") %>%
+             dplyr::rename(LogDiameter = "LogDiameter_Mid.ub")
+           #dplyr::select( "StemKey", "LogKey", "diapos" = "LogMidHeight", "dia" = "LogDiameter_Mid.ub")
+           log_stemdias_ub <- dplyr::bind_rows(log_stemdias_ub, midsubark)
+         }
+
+
+         if( any(stringr::str_detect(logmeternames, "Butt.ub"))){
+           butdia_ub <- c(logmeternames[stringr::str_detect(logmeternames, "Butt.ub")], "diapos" =  "LogStartHeight")
+           butsubark = logmeter %>%
+             dplyr::select(tidyselect::all_of(gselector),  tidyselect::all_of(butdia_ub)) %>%
+             dplyr::mutate(logdiapos = "Butt") %>%
+             dplyr::rename(LogDiameter = "LogDiameter_Butt.ub")
+           #dplyr::select( "StemKey", "LogKey", "diapos" = "LogStartHeight", "dia" = "Butt.ub")
+           log_stemdias_ub <- dplyr::bind_rows(log_stemdias_ub, butsubark)
+         }
+         log_stemdias_ub <- log_stemdias_ub %>% dplyr::arrange( .data$StemKey, .data$diapos) %>%
+           dplyr::rename(LogDia_ub = LogDiameter )
+
+         if(nrow(log_stemdias) > 1){
+           log_stemdias <- dplyr::left_join(log_stemdias, log_stemdias_ub, by = c("StemKey", "LogKey", "diapos", "logdiapos") )
+         } else {log_stemdias <-dplyr::bind_cols(log_stemdias, log_stemdias_ub) }
+
+       }
+       returnlist <- c(returnlist, log_stemdias = list(log_stemdias))
      }
+
 
               # cat(" - hpr_file_readr- create height diameter dataset from logs- \n")
               # logmeter <- StemsLogs$stplogs %>%
@@ -296,7 +312,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
       stemdias <- sf2010r::getSTP_stemdiameters(doc)
 
       if( !is.null(stemdias)){
-       stemdiametervector <- stemdias %>%
+        stemdias <- stemdias %>%
         dplyr::mutate(MachineKey = MachineReportHeader$MachineKey)
         returnlist <- c(returnlist, stemdias = list(stemdias))
       }
