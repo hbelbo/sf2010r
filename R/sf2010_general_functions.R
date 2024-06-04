@@ -654,17 +654,19 @@ price_matr_entry_base_log_class <- function(pricematrixes, base_lengthcm = 490, 
 #'    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
 #' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
 #' OperatorList <- xml2::xml_find_all(docs[[1]], ".//d1:OperatorDefinition" )
-#' getOperatorDef(OperatorList[[1]]) %>% str()
+#' getOperatorDef(OperatorList[[2]]) %>% str()
 #' plyr::ldply(OperatorList, getOperatorDef )
 getOperatorDef <- function(x) {
-  # x <- OperatorList[[2]]
+  # x <- OperatorList[[1]]
   OperatorKey <- xml2::xml_integer( xml2::xml_find_first(x,  ".//d1:OperatorKey"))
   od1 <-  data.frame(as.list(xml_childs_nchr(x)))
   od1$OperatorKey <- as.integer(OperatorKey)
   contactinfo <- xml2::xml_find_all(x, ".//d1:ContactInformation")
   if(length(contactinfo)){
     contactinfo <- data.frame(as.list(xml_childs_nchr(contactinfo)))
-    od1 <- cbind(od1, contactinfo)
+    if(nrow(contactinfo)>0){
+      od1 <- cbind(od1, contactinfo)
+    }
   }
   return(od1)
 }

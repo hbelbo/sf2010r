@@ -24,7 +24,7 @@
 #' hpr_file_readr(hprfiles[3], read.diavector = TRUE) %>% str()
 hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-  # hprfile = hprfiles[3]
+  # hprfile = hprfiles[2]
   # hprfile = unparsedfiles[1]
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i], read.diavector = TRUE)
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i])
