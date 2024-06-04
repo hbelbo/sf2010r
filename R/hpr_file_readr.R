@@ -192,7 +192,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
            log_stemdias_ob <- dplyr::bind_rows(log_stemdias_ob, butsonbark)
          }
          log_stemdias_ob <- log_stemdias_ob %>% dplyr::arrange( .data$StemKey, .data$diapos) %>%
-           dplyr::rename(LogDia_ob = LogDiameter )
+           dplyr::rename(LogDia_ob = "LogDiameter" )
 
          log_stemdias <- dplyr::bind_cols(log_stemdias, log_stemdias_ob)
         # returnlist <- c(returnlist, log_stemdias_ob = list(log_stemdias_ob))
@@ -227,7 +227,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
            log_stemdias_ub <- dplyr::bind_rows(log_stemdias_ub, butsubark)
          }
          log_stemdias_ub <- log_stemdias_ub %>% dplyr::arrange( .data$StemKey, .data$diapos) %>%
-           dplyr::rename(LogDia_ub = LogDiameter )
+           dplyr::rename(LogDia_ub = "LogDiameter" )
 
          if(nrow(log_stemdias) > 1){
            log_stemdias <- dplyr::left_join(log_stemdias, log_stemdias_ub, by = c("StemKey", "LogKey", "diapos", "logdiapos") )
