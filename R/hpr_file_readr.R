@@ -15,16 +15,16 @@
 #'
 #'
 #' @examples
-#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),
-#'   pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+#' hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 #' hpr_file_readr(hprfiles[1], read.diavector = TRUE)
 #' hpr_file_readr(hprfiles[2]) %>% str()
 #' hpr_file_readr(hprfiles[3]) %>% str()
+#' hpr_file_readr(hprfiles[3], read.diavector = TRUE) %>% str()
 #' hpr_file_readr(hprfiles[3])$logs %>% filter(StemKey %in% c(67416289, 134525153) ) %>% str()
 #' hpr_file_readr(hprfiles[3], read.diavector = TRUE) %>% str()
 hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-  # hprfile = hprfiles[2]
+  # hprfile = hprfiles[3]
   # hprfile = unparsedfiles[1]
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i], read.diavector = TRUE)
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i])

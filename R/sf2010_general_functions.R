@@ -77,7 +77,7 @@ xml_childs_nchr <- function(y) {
 
 
 
-  result <-child_vals %>% stats::setNames( nm = unlist(child_names))
+  result <-child_vals %>% stats::setNames( nm = make.names(unlist(child_names), unique = TRUE))
   return(result)
 }
 

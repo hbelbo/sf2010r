@@ -156,23 +156,26 @@ getStemsAndLogs <- function(doc){
     }
 
 
-  ###### Getting Boom position if present -----------
+  ###### Getting Boom position when felling if present -----------
  #  cat("\n going  BoomPos")
-  xpt1 <- ".//d1:Stem/d1:BoomPositioning"
+  xpt1 <- ".//d1:Stem/d1:BoomPositioning[@boomPositioningCategory='Felling']"
   nodecase  <- xml2::xml_find_first(doc,  xpt1)
+
   if(!is.na(nodecase)){
     nodename <- xml2::xml_name(nodecase)
     nodecases  <- xml2::xml_find_all(doc,  xpt1) # All  nodes
-    node_childrens <-  xml2::xml_children(nodecase)
+    node_childrens <-  xml2::xml_children(nodecases)
     # xml2::xml_attr(stm_coords_1, attr = "boomPositioningCategory=") %>% unique() # BoomPositionCategori to be included
     ws0 <- which(xml2::xml_length(node_childrens)==0)
     childrens_1 <- node_childrens[ws0]
     childrens_1_names <- xml2::xml_name(childrens_1)
 
-    to_map <- paste(".//d1:Stem/d1:", nodename, "/d1:",childrens_1_names, sep = "")
+
+    to_map <- paste(".//d1:Stem/d1:", nodename, "[@boomPositioningCategory='Felling']/d1:",unique(childrens_1_names), sep = "")
 
     dt1 <- Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map)
-    names(dt1) <- childrens_1_names
+    childrens_1_names <- paste(childrens_1_names, "_Felling", sep = "")
+    names(dt1) <- unique(childrens_1_names)
     nobs <- sapply(dt1, length)
     w <- which(nobs == length(nodecases)) # We keep only those having one per node
     dt1 <- dt1[w]
