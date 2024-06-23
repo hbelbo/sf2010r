@@ -37,8 +37,16 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
   stopifnot(filetype == "hpr")
 
-   doc <- xml2::read_xml(hprfile)
-   md5 <- digest::digest(file(hprfile))
+   # Read the file as raw text
+  raw_text <- readr::read_file(hprfile)
+
+  # Convert the encoding to UTF-8
+  utf8_text <- iconv(raw_text, from = "windows-1252", to = "UTF-8")
+
+  # Parse the XML content
+
+  doc <- xml2::read_xml(utf8_text)
+  md5 <- digest::digest(utf8_text)
 
    if(nchar(Sys.getlocale()) < 3){
      Sys.setlocale(category = "LC_ALL", locale = "") #because of an R-studio Rstartup issue at HB's computer
