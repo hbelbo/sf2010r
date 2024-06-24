@@ -23,7 +23,7 @@
 hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[3]
-  # hprfile = unparsedfiles[1]
+  # hprfile = unparsedfiles[i]
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i], read.diavector = TRUE)
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i])
 
@@ -45,7 +45,7 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
     # Convert the encoding to UTF-8
    # text <- gsub("<U\\+FEFF>", "", text)
     text_utf8 <- iconv(text, from = detected_encoding, to = "UTF-8")
-    #text_utf8 <- gsub("<U\\+FEFF>", "", text_utf8)
+    text_utf8 <- gsub("<U\\+FEFF>", "", text_utf8)
 
     # Write the converted text back to the file with UTF-8 encoding
     writeLines(text_utf8, hprfile, useBytes = TRUE )
