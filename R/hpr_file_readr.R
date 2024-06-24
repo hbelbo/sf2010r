@@ -23,7 +23,7 @@
 hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[3]
-  # hprfile = unparsedfiles[i]
+  # hprfile = unparsedfiles[i+1]
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i], read.diavector = TRUE)
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i])
 
@@ -39,12 +39,12 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
   detected_encoding <- stringi::stri_enc_detect(stringi::stri_flatten(readLines(hprfile, n = 1000), collapse = '\n'))[[1]]$Encoding[1]
   text <- stringi::stri_flatten(readLines(hprfile, encoding = detected_encoding), collapse = '\n')
-  BOM <- grepl("<U\\+FEFF>",  text)
+
 
 
   # If the encoding is not already UTF-8, convert it
 
-  if (detected_encoding != "UTF-8" | BOM ) {
+  if (detected_encoding != "UTF-8" ) {
 
     # Convert the encoding to UTF-8
    # text <- gsub("<U\\+FEFF>", "", text)
@@ -53,8 +53,19 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
     # Write the converted text back to the file with UTF-8 encoding
     writeLines(text_utf8, hprfile, useBytes = TRUE )
+    text <- text_utf8
+    rm(text_utf8)
   }
-
+# Check if this misery is present in the file
+  BOM <- grepl("<U\\+FEFF>",  text)
+  if(BOM){
+    text_utf8 <- gsub("<U\\+FEFF>", "", text)
+    # Write the converted text back to the file with UTF-8 encoding
+    writeLines(text_utf8, hprfile, useBytes = TRUE )
+    text <- text_utf8
+    rm(text_utf8)
+  }
+rm(text)
    # Read the file as raw text
   #raw_text <- readr::read_file(hprfile)
 
