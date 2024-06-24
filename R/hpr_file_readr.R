@@ -34,13 +34,17 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   filetype <- substring(filename, tmp-2, tmp)
 
   stopifnot(filetype == "hpr")
+  # Read the file as a character vector with the original encoding
+
 
   detected_encoding <- stringi::stri_enc_detect(stringi::stri_flatten(readLines(hprfile, n = 1000), collapse = '\n'))[[1]]$Encoding[1]
-  # If the encoding is not already UTF-8, convert it
-  if (detected_encoding != "UTF-8") {
-    # Read the file as a character vector with the original encoding
-    text <- stringi::stri_flatten(readLines(hprfile, encoding = detected_encoding), collapse = '\n')
+  text <- stringi::stri_flatten(readLines(hprfile, encoding = detected_encoding), collapse = '\n')
+  BOM <- grepl("<U\\+FEFF>",  text)
 
+
+  # If the encoding is not already UTF-8, convert it
+
+  if (detected_encoding != "UTF-8" | BOM ) {
 
     # Convert the encoding to UTF-8
    # text <- gsub("<U\\+FEFF>", "", text)
