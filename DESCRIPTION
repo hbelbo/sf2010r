@@ -20,6 +20,7 @@ Imports:
     purrr,
     readr,
     rlang,
+    stringi,
     stringr,
     tibble,
     tidyr,

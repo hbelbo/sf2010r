@@ -20,8 +20,6 @@
 #' hpr_file_readr(hprfiles[2]) %>% str()
 #' hpr_file_readr(hprfiles[3]) %>% str()
 #' hpr_file_readr(hprfiles[3], read.diavector = TRUE) %>% str()
-#' hpr_file_readr(hprfiles[3])$logs %>% filter(StemKey %in% c(67416289, 134525153) ) %>% str()
-#' hpr_file_readr(hprfiles[3], read.diavector = TRUE) %>% str()
 hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[3]
@@ -36,6 +34,21 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   filetype <- substring(filename, tmp-2, tmp)
 
   stopifnot(filetype == "hpr")
+
+  detected_encoding <- stringi::stri_enc_detect(stringi::stri_flatten(readLines(hprfile, n = 1000), collapse = '\n'))[[1]]$Encoding[1]
+  # If the encoding is not already UTF-8, convert it
+  if (detected_encoding != "UTF-8") {
+    # Read the file as a character vector with the original encoding
+    text <- readLines(hprfile, encoding = detected_encoding)
+
+
+    # Convert the encoding to UTF-8
+    text_utf8 <- iconv(text, from = detected_encoding, to = "UTF-8")
+    text_utf8 <- gsub("<U+FEFF>", "", text_utf8)
+
+    # Write the converted text back to the file with UTF-8 encoding
+    writeLines(text_utf8, hprfile, useBytes = TRUE)
+  }
 
    # Read the file as raw text
   raw_text <- readr::read_file(hprfile)
