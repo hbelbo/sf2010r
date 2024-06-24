@@ -39,27 +39,31 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # If the encoding is not already UTF-8, convert it
   if (detected_encoding != "UTF-8") {
     # Read the file as a character vector with the original encoding
-    text <- readLines(hprfile, encoding = detected_encoding)
+    text <- stringi::stri_flatten(readLines(hprfile, encoding = detected_encoding), collapse = '\n')
 
 
     # Convert the encoding to UTF-8
-    text_utf8 <- iconv(text, from = detected_encoding, to = "UTF-8")
-    text_utf8 <- gsub("<U+FEFF>", "", text_utf8)
+    text_utf8 <- gsub("<U\\+FEFF>", "", text)
+    text_utf8 <- iconv(text_utf8, from = detected_encoding, to = "UTF-8")
+
 
     # Write the converted text back to the file with UTF-8 encoding
-    writeLines(text_utf8, hprfile, useBytes = TRUE)
+    writeLines(text_utf8, hprfile, useBytes = TRUE )
   }
 
    # Read the file as raw text
-  raw_text <- readr::read_file(hprfile)
+  #raw_text <- readr::read_file(hprfile)
 
   # Convert the encoding to UTF-8
-  utf8_text <- iconv(raw_text, from = "windows-1252", to = "UTF-8")
+ # utf8_text <- iconv(raw_text, from = "windows-1252", to = "UTF-8")
+
 
   # Parse the XML content
 
-  doc <- xml2::read_xml(utf8_text)
-  md5 <- digest::digest(utf8_text)
+  #doc <- xml2::read_xml(utf8_text)
+  #md5 <- digest::digest(utf8_text)
+  doc <- xml2::read_xml(hprfile)
+  md5 <- digest::digest(hprfile)
 
    if(nchar(Sys.getlocale()) < 3){
      Sys.setlocale(category = "LC_ALL", locale = "") #because of an R-studio Rstartup issue at HB's computer
