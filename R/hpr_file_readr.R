@@ -43,9 +43,9 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
 
 
     # Convert the encoding to UTF-8
-    text_utf8 <- gsub("<U\\+FEFF>", "", text)
-    text_utf8 <- iconv(text_utf8, from = detected_encoding, to = "UTF-8")
-
+   # text <- gsub("<U\\+FEFF>", "", text)
+    text_utf8 <- iconv(text, from = detected_encoding, to = "UTF-8")
+    #text_utf8 <- gsub("<U\\+FEFF>", "", text_utf8)
 
     # Write the converted text back to the file with UTF-8 encoding
     writeLines(text_utf8, hprfile, useBytes = TRUE )
