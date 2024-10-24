@@ -22,4 +22,5 @@ hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
 pattern = ".hqc", recursive = TRUE, full.names= TRUE)
  hqc_file_readr(hqcfiles[1]) \%>\% str()
  hqc_file_readr(hqcfiles[2]) \%>\% str()
+ hqc_file_readr(hqcfiles[3]) \%>\% str()
 }

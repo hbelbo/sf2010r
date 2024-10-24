@@ -20,10 +20,9 @@ sffiles <-  list.files(path =  system.file(package = "sf2010r"),
    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
 print(sffiles)
 docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
-Objects_nodes <- xml2::xml_find_all(docs[[3]], "//d1:ObjectDefinition")
+Objects_nodes <- xml2::xml_find_all(docs[[8]], "//d1:ObjectDefinition")
 getObjectDefinition(Objects_nodes[1]) \%>\% str()
 plyr::ldply(Objects_nodes, getObjectDefinition)
-Objects_nodes <- xml2::xml_find_all(docs[[5]], "//d1:ObjectDefinition")
-getObjectDefinition(Objects_nodes[1]) \%>\% str()
+Objects_nodes <- xml2::xml_find_all(docs[[4]], "//d1:ObjectDefinition")
 plyr::ldply(Objects_nodes, getObjectDefinition)
 }

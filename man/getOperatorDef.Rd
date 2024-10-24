@@ -17,6 +17,6 @@ sffiles <-  list.files(path =  system.file(package = "sf2010r"),
    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
 docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
 OperatorList <- xml2::xml_find_all(docs[[1]], ".//d1:OperatorDefinition" )
-getOperatorDef(OperatorList[[1]]) \%>\% str()
+getOperatorDef(OperatorList[[2]]) \%>\% str()
 plyr::ldply(OperatorList, getOperatorDef )
 }

@@ -20,11 +20,14 @@ A list of data.frames: stems, products, logs, machinereport_meta,
 \description{
 Hpr-file reader function
 }
+\details{
+The function does not yet fetch volumes from multi-tree processed tree-bunches.
+}
 \examples{
-hprfiles <- list.files(path =  system.file(package = "sf2010r"),
-  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
+hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
 hpr_file_readr(hprfiles[1], read.diavector = TRUE)
 hpr_file_readr(hprfiles[2]) \%>\% str()
 hpr_file_readr(hprfiles[3]) \%>\% str()
 hpr_file_readr(hprfiles[3], read.diavector = TRUE) \%>\% str()
+hpr_file_readr(hprfiles[6]) \%>\% str()
 }

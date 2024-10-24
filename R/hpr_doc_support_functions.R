@@ -20,6 +20,7 @@
 #' getStemsAndLogs(docs[[1]]) %>% str()
 #' getStemsAndLogs(docs[[2]]) %>% str()
 #' getStemsAndLogs(docs[[3]]) %>% str() # MTPS and BoomPositioning
+#' getStemsAndLogs(docs[[6]]) %>% str() # BoomPositioning and Extensions / Timing
 #' hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
 #' pattern = ".hqc", recursive = TRUE, full.names= TRUE)
 #' hqcdocs <- lapply(X = hqcfiles, FUN = function(X){xml2::read_xml(X)})
@@ -97,7 +98,7 @@ getStemsAndLogs <- function(doc){
 
       stems <- dplyr::left_join(stems, coords_df,  by = c("StemKey"))
     }
-# cat("\n going Extension")
+# cat("\n going Stem Extension")
     xpt1 <- ".//d1:Stem/d1:Extension"  ###### Getting Extensions if present -------
     nodecase  <- xml2::xml_find_first(doc,  xpt1) # use first node as example to create dataset
     if(!is.na(nodecase)){
@@ -355,7 +356,7 @@ getStemsAndLogs <- function(doc){
           logdt <- dplyr::full_join(logdt, dt1[[i]], by = c("StemKey", "LogKeyII"))
         }
       }
-       dt_logs <- logdt %>% utils::type.convert(as.is = TRUE) %>% select(-.data$LogKeyII)
+       dt_logs <- logdt %>% utils::type.convert(as.is = TRUE) %>% select(-"LogKeyII")
 
 
 
@@ -452,6 +453,12 @@ getStemsAndLogs <- function(doc){
         logdt_extensions <- dt1
         dt_logs <- dplyr::bind_cols(dt_logs, logdt_extensions)
       }
+      ### Log data extension - log position
+      #   cat("\n going  Log STP extension - position")
+      xpt1 <- ".//d1:Stem/d1:SingleTreeProcessedStem/d1:Log/d1:Extension/d1:LogCoordinates"
+      nodecase  <- xml2::xml_find_first(doc,  xpt1)
+      nodename <- xml2::xml_name(nodecase)
+      node_childrens <-  xml2::xml_children(nodecase)
 
 
       ### Log cutting category

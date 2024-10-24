@@ -17,9 +17,9 @@ Extracting all cut object definitions from doc
 }
 \examples{
 sffiles <-  list.files(path =  system.file(package = "sf2010r"),
-   pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
+   pattern = ".hpr|.fpr|.mom|.hqc", recursive = TRUE, full.names= TRUE)
 print(sffiles)
 docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
-getObjects(docs[[1]]) \%>\% str()
-lapply(docs[1:2], FUN = function(X){getObjects(X) \%>\% str()})
+getObjects(docs[[8]]) \%>\% str()
+lapply(docs[1:5], FUN = function(X){getObjects(X) \%>\% str()})
 }

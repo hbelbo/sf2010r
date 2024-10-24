@@ -712,7 +712,7 @@ getOperators <- function(doc){
 #'    pattern = ".hpr|.fpr", recursive = TRUE, full.names= TRUE)
 #' print(sffiles)
 #' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
-#' Objects_nodes <- xml2::xml_find_all(docs[[6]], "//d1:ObjectDefinition")
+#' Objects_nodes <- xml2::xml_find_all(docs[[8]], "//d1:ObjectDefinition")
 #' getObjectDefinition(Objects_nodes[1]) %>% str()
 #' plyr::ldply(Objects_nodes, getObjectDefinition)
 #' Objects_nodes <- xml2::xml_find_all(docs[[4]], "//d1:ObjectDefinition")
@@ -744,16 +744,16 @@ if(any(dups)){
 
   sub_object_nodes  <- xml2::xml_find_all(x, "//d1:SubObject")
   if(length(sub_object_nodes)>0){
-    # replicate the object definition row n = number of sub object defs
-    object_def <- do.call(rbind, replicate(length(sub_object_nodes), object_def, simplify = FALSE))
+    ## replicate the object definition row n = number of sub object defs
+    # object_def <- do.call(rbind, replicate(length(sub_object_nodes), object_def, simplify = FALSE))
 
     subobj_defs <- lapply(X = sub_object_nodes, FUN = function(X){
       tibble::as_tibble(t(xml_childs_nchr(X)), .name_repair = "universal") %>%
         dplyr::mutate(SubObjectKey = as.integer(.data$SubObjectKey))})
 
     subobj_defs <- do.call(dplyr::bind_rows, lapply(subobj_defs, tibble::as_tibble))
-    object_def <- dplyr::bind_cols(object_def, subobj_defs)
-
+    subobj_defs$ObjectKey <- object_def$ObjectKey
+    object_def <- dplyr::left_join(object_def, subobj_defs, by = "ObjectKey", suffix = c("_Obj", "_SubObj"))
   }
 
    return(object_def)
@@ -771,7 +771,7 @@ if(any(dups)){
 #'    pattern = ".hpr|.fpr|.mom|.hqc", recursive = TRUE, full.names= TRUE)
 #' print(sffiles)
 #' docs <- lapply(X = sffiles, FUN = function(X){xml2::read_xml(X)})
-#' getObjects(docs[[7]]) %>% str()
+#' getObjects(docs[[8]]) %>% str()
 #' lapply(docs[1:5], FUN = function(X){getObjects(X) %>% str()})
 #' @export
 getObjects <- function(doc){

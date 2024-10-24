@@ -20,6 +20,7 @@
 #' hpr_file_readr(hprfiles[2]) %>% str()
 #' hpr_file_readr(hprfiles[3]) %>% str()
 #' hpr_file_readr(hprfiles[3], read.diavector = TRUE) %>% str()
+#' hpr_file_readr(hprfiles[6]) %>% str()
 hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
   # hprfile = hprfiles[3]
@@ -66,17 +67,10 @@ hpr_file_readr <- function(hprfile, read.diavector = FALSE){
     rm(text_utf8)
   }
 rm(text)
-   # Read the file as raw text
-  #raw_text <- readr::read_file(hprfile)
 
-  # Convert the encoding to UTF-8
- # utf8_text <- iconv(raw_text, from = "windows-1252", to = "UTF-8")
 
 
   # Parse the XML content
-
-  #doc <- xml2::read_xml(utf8_text)
-  #md5 <- digest::digest(utf8_text)
   doc <- xml2::read_xml(hprfile)
   md5 <- digest::digest(hprfile)
 
