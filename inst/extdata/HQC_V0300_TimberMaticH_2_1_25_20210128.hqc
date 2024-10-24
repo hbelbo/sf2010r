@@ -815,15 +815,14 @@
 					<Longitude longitudeCategory="East">10.79794</Longitude>
 					<Altitude>207</Altitude>
 				</StemCoordinates>
-				
-<ControlMeasurementDefinition logMeasurementCategory="Operator">
-<Measurer>
-<FirstName>TM-Oper-</FirstName>
-</Measurer>
-<CaliperApplication>SKALMAN7.17</CaliperApplication>
-<CaliperID>36899</CaliperID>
-</ControlMeasurementDefinition>
-<ControlStemInfo>
+				<ControlMeasurementDefinition logMeasurementCategory="Operator">
+					<Measurer>
+						<FirstName>TM-Oper-</FirstName>
+					</Measurer>
+					<CaliperApplication>SKALMAN7.17</CaliperApplication>
+					<CaliperID>36899</CaliperID>
+				</ControlMeasurementDefinition>
+				<ControlStemInfo>
 					<RandomControlStemRejectedReason>Not rejected</RandomControlStemRejectedReason>
 					<RandomControlStemSelection>Manually by operator selected stem</RandomControlStemSelection>
 				</ControlStemInfo>
