@@ -20,6 +20,10 @@ hqc_file_readr<- function(hqcfile){
   # hqcfiles <- list.files(path =  "./inst/extdata",  pattern = ".hqc", recursive = TRUE, full.names= TRUE)
   # hqcfile <- hqcfiles[1]
 
+  tmp <- nchar(hqcfile)
+  filetype <- substring(hqcfile, tmp-2, tmp)
+
+  stopifnot(filetype == "hqc")
 
    doc <- xml2::read_xml(hqcfile)
    md5 <-  digest::digest(file(hqcfile))

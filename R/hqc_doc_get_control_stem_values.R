@@ -1,8 +1,8 @@
 #' Fetch all control log diameters from one log entry (.hqc files)
 #'
-#' @param x a StanFord2010 document
+#' @param doc  a StanFord2010 .hqc document
 #'
-#' @return a list of three data frames: ControlLogDiameters, ControlLogLength, ControlLogVolumes
+#' @return a list with three data frames: ControlLogDiameters, ControlLogLength, ControlLogVolumes
 #' @export
 #'
 #' @examples
