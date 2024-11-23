@@ -26,4 +26,4 @@ Imports:
     tidyr,
     tidyselect,
     xml2
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2

@@ -19,6 +19,7 @@
 #' hpr_file_readr(hprfiles[1], read.diavector = TRUE)
 #' hpr_file_readr(hprfiles[2]) %>% str()
 #' hpr_file_readr(hprfiles[3]) %>% str()
+#' hpr_file_readr(hprfiles[7]) %>% str()  # MTPS, MTF, BoomPositioning
 #' hpr_file_readr(hprfiles[3], read.diavector = TRUE) %>% str()
 #' hpr_file_readr(hprfiles[6]) %>% str()
 hpr_file_readr <- function(hprfile, read.diavector = FALSE){

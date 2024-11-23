@@ -7282,7 +7282,7 @@
           <BusinessName />
           <BusinessID />
         </ProductDestination>
-        <ProductGroupName>ÖVRIGT</ProductGroupName>
+        <ProductGroupName>ÃVRIGT</ProductGroupName>
         <StemTypeCode>0</StemTypeCode>
         <ProductUserID agency="Other">Gran.ENERGI#100#30006107-102#APT_2.5</ProductUserID>
         <SpeciesGroupKey>341</SpeciesGroupKey>
@@ -7606,7 +7606,7 @@
           <BusinessName />
           <BusinessID />
         </ProductDestination>
-        <ProductGroupName>ÖVRIGT</ProductGroupName>
+        <ProductGroupName>ÃVRIGT</ProductGroupName>
         <StemTypeCode>0</StemTypeCode>
         <ProductUserID agency="Other">Gran.TORRVIK#104#30006107-102#APT_2.6</ProductUserID>
         <SpeciesGroupKey>341</SpeciesGroupKey>
@@ -8050,7 +8050,7 @@
           <BusinessName />
           <BusinessID />
         </ProductDestination>
-        <ProductGroupName>ÖVRIGT</ProductGroupName>
+        <ProductGroupName>ÃVRIGT</ProductGroupName>
         <StemTypeCode>0</StemTypeCode>
         <ProductUserID agency="Other">Andre.BLANDVED#395#30006083-201#APT_4.1</ProductUserID>
         <SpeciesGroupKey>343</SpeciesGroupKey>

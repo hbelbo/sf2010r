@@ -21,6 +21,7 @@
 #' getStemsAndLogs(docs[[2]]) %>% str()
 #' getStemsAndLogs(docs[[3]]) %>% str() # MTPS and BoomPositioning
 #' getStemsAndLogs(docs[[6]]) %>% str() # BoomPositioning and Extensions / Timing
+#' stmdt <- getStemsAndLogs(docs[[7]]) # MTPS, MTF, BoomPositioning
 #' hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
 #' pattern = ".hqc", recursive = TRUE, full.names= TRUE)
 #' hqcdocs <- lapply(X = hqcfiles, FUN = function(X){xml2::read_xml(X)})
@@ -30,7 +31,8 @@
 #' @export
 getStemsAndLogs <- function(doc){
 
-  # doc = hqcdocs[[1]]
+  # doc = docs[[7]]
+  # doc = hqcdocs[[3]]
   stemnode1  <- xml2::xml_find_first(doc,  ".//d1:Stem")
   if(!is.na(stemnode1)){
      ## getting general stem data from Stem childrens
@@ -242,13 +244,70 @@ getStemsAndLogs <- function(doc){
 
     # Summing up -------------
     if(nrow(stemdat1)> 0 & nrow(stemdat2)>0){
-      stemdat12 <- bind_rows(stemdat1, stemdat2)
+      stemdat12 <- bind_rows(stemdat1, stemdat2 )
     } else if(nrow(stemdat1)> 0){
       stemdat12 <- stemdat1
     } else if(nrow(stemdat2)> 0){
       stemdat12 <- stemdat2
     } else {stemdat12 = data.frame()}
+    #  head(stemdat12 %>% filter(!is.na(StemBunchKey)))
     stems <- dplyr::left_join(stems, stemdat12, by = c("StemKey"))
+
+    ###### Single Tree Felling stems ----------
+    #   cat("\n going  Single Tree Felling")
+    xpt1 <- ".//d1:Stem/d1:SingleTreeFelledStem"
+    nodecase  <- xml2::xml_find_first(doc,  xpt1)
+    if(!is.na(nodecase)){
+      nodename <- xml2::xml_name(nodecase)
+      node_childrens <-  xml2::xml_children(nodecase)
+      ws0 <- which(xml2::xml_length(node_childrens)==0)
+      childrens_1 <- node_childrens[ws0]
+      childrens_1_names <- xml2::xml_name(childrens_1)
+      # drop volume if present bc thy are only guessed and not always present
+      childrens_1_names <- childrens_1_names[!grepl("StemVolume", childrens_1_names)]
+      to_map <- paste(".//d1:Stem/d1:", nodename, "/d1:",childrens_1_names, sep = "")
+
+      dt1 <- Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map)
+      names(dt1) <- childrens_1_names
+      dt1 <- list2DF(dt1) %>% utils::type.convert(as.is = TRUE)
+
+      dt1$StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_find_all(doc, xpt1)), "./d1:StemKey"))
+
+      stems <- dplyr::left_join(stems, dt1, by = c("StemKey")) %>%
+                                dplyr::mutate(DBH = dplyr::coalesce(DBH.x, DBH.y),
+                                       ReferenceDiameter = dplyr::coalesce(ReferenceDiameter.x, ReferenceDiameter.y)) %>%
+                                  dplyr::select(-tidyselect::ends_with(".y"), -tidyselect::ends_with(".x"))
+
+    }
+
+    ###### Multi Tree Felling stems ----------
+    #   cat("\n going  Multi Tree Felling")
+    xpt1 <- ".//d1:Stem/d1:MultiTreeFelledStem"
+    nodecase  <- xml2::xml_find_first(doc,  xpt1)
+    if(!is.na(nodecase)){
+      nodename <- xml2::xml_name(nodecase)
+      node_childrens <-  xml2::xml_children(nodecase)
+      ws0 <- which(xml2::xml_length(node_childrens)==0)
+      childrens_1 <- node_childrens[ws0]
+      childrens_1_names <- xml2::xml_name(childrens_1)
+      # drop volume if present bc thy are only guessed and not always present
+      childrens_1_names <- childrens_1_names[!grepl("StemVolume", childrens_1_names)]
+      to_map <- paste(".//d1:Stem/d1:", nodename, "/d1:",childrens_1_names, sep = "")
+
+      dt1 <- Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map)
+      names(dt1) <- childrens_1_names
+      dt1 <- list2DF(dt1) %>% utils::type.convert(as.is = TRUE)
+
+      dt1$StemKey <- xml2::xml_integer(xml2::xml_find_all(xml2::xml_parent(xml2::xml_find_all(doc, xpt1)), "./d1:StemKey"))
+
+      stems2 <- dplyr::left_join(stems, dt1, by = c("StemKey")) %>%
+        dplyr::mutate(DBH = dplyr::coalesce(DBH.x, DBH.y),
+                      ReferenceDiameter = dplyr::coalesce(ReferenceDiameter.x, ReferenceDiameter.y),
+                      StemBunchKey = dplyr::coalesce(StemBunchKey.x, StemBunchKey.y)) %>%
+        dplyr::select(-tidyselect::ends_with(".y"), -tidyselect::ends_with(".x"))
+
+    }
+
 
     returnlist <- list(stems = stems)
 

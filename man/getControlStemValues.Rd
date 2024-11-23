@@ -7,10 +7,10 @@
 getControlStemValues(doc)
 }
 \arguments{
-\item{x}{a StanFord2010 document}
+\item{doc}{a StanFord2010 .hqc document}
 }
 \value{
-a list of three data frames: ControlLogDiameters, ControlLogLength, ControlLogVolumes
+a list with three data frames: ControlLogDiameters, ControlLogLength, ControlLogVolumes
 }
 \description{
 Fetch all control log diameters from one log entry (.hqc files)
