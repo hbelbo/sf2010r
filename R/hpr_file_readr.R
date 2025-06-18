@@ -16,7 +16,7 @@
 #'
 #' @examples
 #' hprfiles <- list.files(path =  system.file(package = "sf2010r"),  pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-#' hpr_file_readr(hprfiles[1], read.diavector = TRUE)
+#' hpr_file_readr(hprfiles[1], read.diavector = FALSE)
 #' hpr_file_readr(hprfiles[2]) %>% str()
 #' hpr_file_readr(hprfiles[3]) %>% str()
 #' hpr_file_readr(hprfiles[7]) %>% str()  # MTPS, MTF, BoomPositioning
@@ -24,7 +24,7 @@
 #' hpr_file_readr(hprfiles[6]) %>% str()
 hpr_file_readr <- function(hprfile, read.diavector = FALSE){
   # hprfiles <- list.files(path =  system.file(package = "sf2010r"), pattern = ".hpr", recursive = TRUE, full.names= TRUE)
-  # hprfile = hprfiles[3]
+  # hprfile = hprfiles[6];  read.diavector = FALSE
   # hprfile = unparsedfiles[i+1]
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i], read.diavector = TRUE)
 #  hprtest4 <- hpr_file_readr(unparsedfiles[i])

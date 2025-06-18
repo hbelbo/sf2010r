@@ -109,6 +109,9 @@ getStemsAndLogs <- function(doc){
       ws0 <- which(xml2::xml_length(node_childrens)==0)
       childrens_1 <- node_childrens[ws0]
       childrens_1_names <- xml2::xml_name(childrens_1)
+      childrens_1_names_l <- length(childrens_1_names)
+
+
       childrens_1_names <- unique(childrens_1_names) # some may have multiple records, but that is not collected currently
       to_map <- paste(".//d1:Stem/d1:", nodename, "/d1:",childrens_1_names, sep = "")
 
@@ -134,13 +137,18 @@ getStemsAndLogs <- function(doc){
         for (i in 2:length(dt1)) {
           #i = 2
           extensions <- dplyr::full_join(extensions, dt1[[i]], by = c("StemKey"))
+          extensions <- extensions %>% utils::type.convert(as.is = TRUE)
+          stems <- dplyr::left_join(stems, extensions, by = c("StemKey"))
         }
-      } else {
+      } else if (length(dt1) == 1) {
         extensions <- dt1[[1]]
+        extensions <- extensions %>% utils::type.convert(as.is = TRUE)
+        stems <- dplyr::left_join(stems, extensions, by = c("StemKey"))
+      } else if (length(dt1) == 0) {
+        extensions <- NULL
       }
 
-      extensions <- extensions %>% utils::type.convert(as.is = TRUE)
-      stems <- dplyr::left_join(stems, extensions, by = c("StemKey"))
+
 
 #       dt1 <- Map(function(x) xml2::xml_text(xml2::xml_find_all(doc, x)), to_map)
 #       names(dt1) <- childrens_1_names
