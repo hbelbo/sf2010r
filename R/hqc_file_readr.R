@@ -13,12 +13,12 @@
 #' pattern = ".hqc", recursive = TRUE, full.names= TRUE)
 #'  hqc_file_readr(hqcfiles[1]) %>% str()
 #'  hqc_file_readr(hqcfiles[2]) %>% str()
-#'  hqc_file_readr(hqcfiles[3]) %>% str()
+#'  hqc_file_readr(hqcfiles[4]) %>% str()
 hqc_file_readr<- function(hqcfile){
   ## TMP for assisting function development
   #
   # hqcfiles <- list.files(path =  "./inst/extdata",  pattern = ".hqc", recursive = TRUE, full.names= TRUE)
-  # hqcfile <- hqcfiles[1]
+  # hqcfile <- hqcfiles[4]
 
   tmp <- nchar(hqcfile)
   filetype <- substring(hqcfile, tmp-2, tmp)
@@ -32,12 +32,12 @@ hqc_file_readr<- function(hqcfile){
   #Then validate the file is providing stems and other relevant info. This might be lacking in case the machine is reporting files automatically
    StemKey =  xml2::xml_integer(  xml2::xml_find_all(doc, ".//d1:StemKey"))
 
-  if(length(StemKey)){
+  #if(length(StemKey)){
 
     ## then extract values
 
     # .. cut object info
-    filename <- hqcfile
+    filename <- basename(hqcfile)
     tmp <- nchar(filename)
     filetype <- substring(filename, tmp-2, tmp)
 
@@ -63,8 +63,10 @@ hqc_file_readr<- function(hqcfile){
     speciesgroups <- sf2010r::getSpeciesGroupDefinitions(doc)
     # speciesgroups %>% dplyr::glimpse()
 
-    products <- sf2010r::getProductDefs(doc) %>%
-      dplyr::mutate(  MachineKey = MachineReportHeader$MachineKey)
+    products <- sf2010r::getProductDefs(doc)
+    if(!is.null(products)){
+      products <- products %>%  dplyr::mutate(  MachineKey = MachineReportHeader$MachineKey)
+    }
     # products %>% str()
 
     # Creating list of return elements on things to return
@@ -76,9 +78,14 @@ hqc_file_readr<- function(hqcfile){
 
     #ControlValues
     controlvalues <- sf2010r::getControlStemValues(doc)
-    controlvalues$ControlLogDiameters$MachineKey <- MachineReportHeader$MachineKey
-    controlvalues$ControlLogLength$MachineKey <- MachineReportHeader$MachineKey
-    controlvalues$ControlLogVolumes$MachineKey <- MachineReportHeader$MachineKey
+    if(nrow(controlvalues$ControlLogDiameters) > 0){
+      controlvalues$ControlLogDiameters$MachineKey <- MachineReportHeader$MachineKey
+      controlvalues$ControlLogLength$MachineKey <- MachineReportHeader$MachineKey
+      controlvalues$ControlLogVolumes$MachineKey <- MachineReportHeader$MachineKey
+    } else {
+      controlvalues <- NULL
+    }
+
 
     returnlist <- c(returnlist, controlvalues)
 
@@ -95,10 +102,10 @@ hqc_file_readr<- function(hqcfile){
                                     returnlist_content = paste0(names(returnlist), collapse = ", "),
                                     filetype = filetype
                                     )
-   returnlist <- c(returnlist, machinereport_meta = list(machinereport_meta))
+     returnlist <- c(returnlist, machinereport_meta = list(machinereport_meta))
 
   return(returnlist)
-  }
+  #}
 }
 
 

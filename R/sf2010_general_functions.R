@@ -777,10 +777,16 @@ if(any(dups)){
 getObjects <- function(doc){
   MachineKey = xml2::xml_text(xml2::xml_find_first(doc, "//d1:Machine/d1:MachineKey")) # alphanumeric key of length 18-60. GUI, following bucking computer.
   Objects_Nodesets <- xml2::xml_find_all(doc, "//d1:ObjectDefinition")
+  if((length(Objects_Nodesets))> 0){
   #bmatrix <- plyr::ldply(Objects_Nodesets, getObjectDefinition)
   bmatrix <- plyr::ldply(Objects_Nodesets, sf2010r::getObjectDefinition)
   bmatrix$MachineKey = MachineKey
- # bmatrix <- sf2010_type.convert(bmatrix)
+  # bmatrix <- sf2010_type.convert(bmatrix)
+  } else {
+    bmatrix <- NULL
+    print("No logging object definitions found in the document")
+  }
+
   return(bmatrix)
 
 }

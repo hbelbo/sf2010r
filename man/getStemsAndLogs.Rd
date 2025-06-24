@@ -28,6 +28,7 @@ getStemsAndLogs(docs[[1]]) \%>\% str()
 getStemsAndLogs(docs[[2]]) \%>\% str()
 getStemsAndLogs(docs[[3]]) \%>\% str() # MTPS and BoomPositioning
 getStemsAndLogs(docs[[6]]) \%>\% str() # BoomPositioning and Extensions / Timing
+stmdt <- getStemsAndLogs(docs[[7]]) # MTPS, MTF, BoomPositioning
 hqcfiles <- list.files(path =  system.file(package = "sf2010r"),
 pattern = ".hqc", recursive = TRUE, full.names= TRUE)
 hqcdocs <- lapply(X = hqcfiles, FUN = function(X){xml2::read_xml(X)})
